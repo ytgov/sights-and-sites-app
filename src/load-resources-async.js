@@ -19,7 +19,6 @@ export default async () => Promise.all([
     'montserrat-semibold': require('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf'),
     'montserrat-regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
     'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf')
-    // Ionicons: require('react-native-ionicons'),
     // Roboto: require("native-base/Fonts/Roboto.ttf"),
     // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
     // ProximaNovaBold: require("./assets/fonts/ProximaNova/ProximaNova-Bold.ttf")
@@ -34,7 +33,10 @@ export default async () => Promise.all([
     require('../assets/stacks/welcome/welcome-background.jpg'),
 
     // Intro Stack
-    require('../assets/stacks/intro/intro-step-one-bg.jpg'),
+    require('../assets/stacks/intro/intro-step-one-background.jpg'),
+    require('../assets/stacks/intro/intro-step-two-background.jpg'),
+    require('../assets/stacks/intro/intro-step-three-background.jpg'),
+    require('../assets/stacks/intro/intro-step-four-background.jpg'),
 
   ]),
 ])

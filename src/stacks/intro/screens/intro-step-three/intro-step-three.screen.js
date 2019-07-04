@@ -4,23 +4,23 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Ionicons } from '@expo/vector-icons';
 import i18n from '../../../../locale/locale';
 import { Helpers, H1, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
-import IntroStepOneStyles from './intro-step-two.styles';
+import IntroStepThreeStyles from './intro-step-three.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
 
 // TODO Refactor and move to separate service
 const en = {
-  title: 'Choose a site',
-  subtitle: 'Explore over 230 Yukon sites, even when you’re offline',
+  title: 'My sites',
+  subtitle: 'Save your favourite sites or create a wish list for future trips',
 };
 const fr = {
-  title: 'Choisissez un site',
-  subtitle: 'Explorez plus de 230 sites du Yukon, même lorsque vous êtes hors ligne',
+  title: 'Mes sites',
+  subtitle: 'Enregistrez vos sites favoris ou créez une liste de souhaits pour de futurs voyages',
 };
 
-const introStepTwoBackground = require('../../../../../assets/stacks/intro/intro-step-two-background.jpg');
-const filterIcon = require('../../../../../assets/stacks/intro/filter.png');
+const introStepThreeBackground = require('../../../../../assets/stacks/intro/intro-step-three-background.jpg');
+const heartIcon = require('../../../../../assets/stacks/intro/heart.png');
 
-class IntroStepTwoScreen extends React.Component {
+class IntroStepThreeScreen extends React.Component {
   state = {
   }
 
@@ -32,25 +32,25 @@ class IntroStepTwoScreen extends React.Component {
 
   render() {
     return (
-      <ImageBackground source={introStepTwoBackground} style={{ width: '100%', height: '100%' }}>
+      <ImageBackground source={introStepThreeBackground} style={{ width: '100%', height: '100%' }}>
         <Grid style={{ flex: 1 }}>
           <Row size={70}>
             <Col>
-              <View style={[Helpers.flexCenter, IntroStepOneStyles.header]}>
-                <Image source={filterIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
+              <View style={[Helpers.flexCenter, IntroStepThreeStyles.header]}>
+                <Image source={heartIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
                 <H1>{i18n.t('title')}</H1>
-                <Subtitle1 style={IntroStepOneStyles.subtitle}>
+                <Subtitle1 style={IntroStepThreeStyles.subtitle}>
                   {i18n.t('subtitle')}
                 </Subtitle1>
               </View>
             </Col>
           </Row>
-          <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepOneStyles.footer]}>
+          <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepThreeStyles.footer]}>
             <Col>
               <View >
-                <TouchableOpacity style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]} onPress={() => { this.props.navigation.navigate('IntroStepThree') }}>
+                <TouchableOpacity style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]} onPress={() => { this.props.navigation.navigate('IntroStepFour') }}>
                   <Ionicons name="ios-arrow-forward" size={32} color="#FFF" />
-                  <IntroDotsComponent active={2} />
+                  <IntroDotsComponent active={3} />
                   <Body1 bold>{i18n.t('actionNext')}</Body1>
                 </TouchableOpacity>
               </View>
@@ -63,4 +63,4 @@ class IntroStepTwoScreen extends React.Component {
   }
 }
 
-export default IntroStepTwoScreen;
+export default IntroStepThreeScreen;

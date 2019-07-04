@@ -8,6 +8,7 @@ const TYPINGS = {
   body2: 12,
   caption: 12,
   button: 14,
+  lineHeightOffset: 6
 }
 
 const COLORS = {

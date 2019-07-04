@@ -6,6 +6,8 @@ import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView`
     flex: 1;
+    width: 100%;
+    height: 100%;
 `;
 
 export const Raw = styled.View`
@@ -30,6 +32,7 @@ export const RawNoPadding = styled.View`
 
 
 export const PageContent = styled.View`
-    width: 100%;
+    flex: 1;
     padding: 20px 0;
+    background-color: red;
 `;
