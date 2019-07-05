@@ -55,7 +55,7 @@ class WelcomeScreen extends React.Component {
               }}>
                 <View style={Helpers.flexCenter}>
                   <LanguageSwitchIcon>
-                    <H3>en</H3>
+                    <H3 style={WelcomeScreenStyles.languageSwitchText}>en</H3>
                   </LanguageSwitchIcon>
                   <Body1 bold>ENGLISH</Body1>
                 </View>
@@ -67,7 +67,7 @@ class WelcomeScreen extends React.Component {
               }}>
                 <View style={Helpers.flexCenter}>
                   <LanguageSwitchIcon>
-                    <H3>fr</H3>
+                    <H3 style={WelcomeScreenStyles.languageSwitchText}>fr</H3>
                   </LanguageSwitchIcon>
                   <Body1 bold>FRANÇAIS</Body1>
                 </View>

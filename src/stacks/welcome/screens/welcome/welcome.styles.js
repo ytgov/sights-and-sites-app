@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const WelcomeScreenStyles = StyleSheet.create({
   welcomeBox: {
@@ -19,6 +19,13 @@ const WelcomeScreenStyles = StyleSheet.create({
   footer: {
     paddingTop: 34,
     paddingBottom: 34
+  },
+  languageSwitchText: {
+    ...Platform.select({
+      ios: {
+        paddingTop: 2
+      }
+    })
   }
 });
 
