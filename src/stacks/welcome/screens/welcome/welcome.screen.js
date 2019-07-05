@@ -2,11 +2,12 @@ import React from 'react';
 import { View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import PropTypes from 'prop-types';
 import { setLocale } from '../../../../store/actions/locale';
 import { setSelectLocaleAction } from '../../../../store/actions/core';
-import { Container, PageContent, Helpers, H1, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, H1, H3, Body1, Subtitle1 } from '../../../../theme/theme';
 import WelcomeScreenStyles from './welcome.styles';
-import { LanguageSwitchIcon } from './welcome.styled-components';
+import LanguageSwitchIcon from './welcome.styled-components';
 import i18n from '../../../../locale/locale';
 
 const logoCircle = require('../../../../../assets/common/logo-circle.png');
@@ -18,10 +19,11 @@ class WelcomeScreen extends React.Component {
   }
 
   selectLanguage(language) {
-    this.props.setLocale(language);
-    this.props.setSelectLocaleAction(true);
-    i18n.changeLanguage(this.props.locale);
-    this.props.navigation.navigate('IntroStepOne');
+    const { locale, setLocaleDispatch, setSelectLocaleActionDispatch, navigation } = this.props;
+    setLocaleDispatch(language);
+    setSelectLocaleActionDispatch(true);
+    i18n.changeLanguage(locale);
+    navigation.navigate('IntroStepOne');
   }
 
   render() {
@@ -79,6 +81,16 @@ class WelcomeScreen extends React.Component {
   }
 }
 
+WelcomeScreen.propTypes = {
+  locale: PropTypes.string,
+  setLocaleDispatch: PropTypes.func.isRequired,
+  setSelectLocaleActionDispatch: PropTypes.func.isRequired
+}
+
+WelcomeScreen.defaultProps = {
+  locale: ''
+}
+
 const mapStateToProps = (state) => {
   return {
     locale: state.localeStore.locale
@@ -87,8 +99,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setLocale: value => dispatch(setLocale(value)),
-    setSelectLocaleAction: value => dispatch(setSelectLocaleAction(value))
+    setLocaleDispatch: value => dispatch(setLocale(value)),
+    setSelectLocaleActionDispatch: value => dispatch(setSelectLocaleAction(value))
   };
 };
 

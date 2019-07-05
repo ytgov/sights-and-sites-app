@@ -1,10 +1,10 @@
 import React from 'react';
-import { ImageBackground, View, Text, Image, TouchableOpacity } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Ionicons } from '@expo/vector-icons';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import i18n from '../../../../locale/locale';
-import { Helpers, H1, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, H1, Body1, Subtitle1 } from '../../../../theme/theme';
 import IntroStepOneStyles from './intro-step-two.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
 import SwipeConfig from '../swipe-config';
@@ -33,18 +33,22 @@ class IntroStepTwoScreen extends React.Component {
   }
 
   onSwipeForward() {
-    this.props.navigation.navigate('IntroStepThree');
+    const { navigation } = this.props;
+    navigation.navigate('IntroStepThree');
   }
 
   onSwipeBackward() {
-    this.props.navigation.navigate('IntroStepOne');
+    const { navigation } = this.props;
+    navigation.navigate('IntroStepOne');
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <GestureRecognizer
-        onSwipeLeft={(state) => this.onSwipeForward()}
-        onSwipeRight={(state) => this.onSwipeBackward()}
+        onSwipeLeft={() => this.onSwipeForward()}
+        onSwipeRight={() => this.onSwipeBackward()}
         config={SwipeConfig}
       >
         <ImageBackground source={introStepTwoBackground} style={{ width: '100%', height: '100%' }}>
@@ -63,7 +67,7 @@ class IntroStepTwoScreen extends React.Component {
             <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepOneStyles.footer]}>
               <Col>
                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('IntroStepThree') }}>
+                  <TouchableOpacity onPress={() => { navigation.navigate('IntroStepThree') }}>
                     <Ionicons name="ios-arrow-forward" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
                     <IntroDotsComponent active={2} />
                     <Body1 bold style={Helpers.textAlignCenter}>{i18n.t('actionNext')}</Body1>

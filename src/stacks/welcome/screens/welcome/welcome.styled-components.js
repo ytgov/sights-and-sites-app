@@ -11,6 +11,4 @@ const LanguageSwitchIcon = styled.View`
   margin-bottom: 7;
 `;
 
-export {
-  LanguageSwitchIcon
-}
+export default LanguageSwitchIcon;
