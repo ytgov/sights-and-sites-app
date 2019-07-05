@@ -61,11 +61,14 @@ class IntroStepFourScreen extends React.Component {
   }
 
   async getLocationPermissions() {
+    const { navigation } = this.props;
     const { status } = await Permissions.askAsync(
       Permissions.LOCATION
     );
     if (status !== 'granted') {
       this.notify.error(i18n.t('notifications.permissionsRequest'));
+    } else {
+      navigation.navigate('Main');
     }
   }
 
