@@ -28,6 +28,12 @@
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"]
         }],
-        "quotes": ["error", "single"]
+        "quotes": ["error", "single"],
+        "react/prop-types": ["error", {
+            "ignore": ["navigation"]
+        }],
+        "import/no-extraneous-dependencies": ["error", {
+            "packageDir": "./"
+        }]
     }
 }

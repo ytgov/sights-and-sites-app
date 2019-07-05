@@ -5,6 +5,8 @@ const IntroStepOneStyles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 5,
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   dot: {
     borderRadius: 50,

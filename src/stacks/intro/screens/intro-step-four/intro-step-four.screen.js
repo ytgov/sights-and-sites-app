@@ -1,13 +1,15 @@
 import React from 'react';
-import { ImageBackground, View, Text, Image, TouchableOpacity } from 'react-native';
+import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Ionicons } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import i18n from '../../../../locale/locale';
-import { Helpers, H1, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, H1, H3, Body1, Subtitle1 } from '../../../../theme/theme';
 import IntroStepFourStyles from './intro-step-four.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
 import NotifyService from '../../../../shared/services/notify/notify';
+import SwipeConfig from '../swipe-config';
 
 // TODO Refactor and move to separate service
 const en = {
@@ -49,6 +51,11 @@ class IntroStepFourScreen extends React.Component {
     i18n.addResourceBundle('fr', 'translation', fr);
   }
 
+  onSwipeBackward() {
+    const { navigation } = this.props;
+    navigation.navigate('IntroStepThree');
+  }
+
   onSubmit() {
     this.getLocationPermissions();
   }
@@ -58,48 +65,53 @@ class IntroStepFourScreen extends React.Component {
       Permissions.LOCATION
     );
     if (status !== 'granted') {
-      this.notify.error('Hey! You should grant location permissions to use app fully');
+      this.notify.error(i18n.t('notifications.permissionsRequest'));
     }
   }
 
   render() {
     return (
-      <ImageBackground source={introStepFourBackground} style={{ width: '100%', height: '100%' }}>
-        <Grid style={{ flex: 1 }}>
-          <Row size={70}>
-            <Col>
-              <View style={[Helpers.flexCenter, IntroStepFourStyles.header]}>
-                <Image source={checkCircleIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
-                <H1>{i18n.t('title')}</H1>
-                <Subtitle1 style={IntroStepFourStyles.subtitle}>
-                  {i18n.t('subtitle')}
-                </Subtitle1>
-                <H3>
-                  {i18n.t('permissionsRequired')}
+      <GestureRecognizer
+        onSwipeRight={() => this.onSwipeBackward()}
+        config={SwipeConfig}
+      >
+        <ImageBackground source={introStepFourBackground} style={{ width: '100%', height: '100%' }}>
+          <Grid style={{ flex: 1 }}>
+            <Row size={70}>
+              <Col>
+                <View style={[Helpers.flexCenter, IntroStepFourStyles.header]}>
+                  <Image source={checkCircleIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
+                  <H1>{i18n.t('title')}</H1>
+                  <Subtitle1 style={IntroStepFourStyles.subtitle}>
+                    {i18n.t('subtitle')}
+                  </Subtitle1>
+                  <H3>
+                    {i18n.t('permissionsRequired')}
+                  </H3>
+                  <Subtitle1 style={IntroStepFourStyles.subtitle}>
+                    {i18n.t('permissionsRequireInfo')}
+                  </Subtitle1>
+                </View>
+              </Col>
+            </Row>
+            <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepFourStyles.footer]}>
+              <Col>
+                <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <H3 style={Helpers.textAlignCenter}>
+                    {i18n.t('ready')}?
                 </H3>
-                <Subtitle1 style={IntroStepFourStyles.subtitle}>
-                  {i18n.t('permissionsRequireInfo')}
-                </Subtitle1>
-              </View>
-            </Col>
-          </Row>
-          <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepFourStyles.footer]}>
-            <Col>
-              <View>
-                <H3 style={Helpers.textAlignCenter}>
-                  {i18n.t('ready')}?
-                </H3>
-                <TouchableOpacity style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]} onPress={() => { this.onSubmit() }}>
-                  <Ionicons style={IntroStepFourStyles.checkIcon} name="ios-arrow-forward" size={32} color="#FFF" />
-                  <IntroDotsComponent active={4} />
-                  <Body1 bold>{i18n.t('actionStart')}</Body1>
-                </TouchableOpacity>
-              </View>
-              <View />
-            </Col>
-          </Row>
-        </Grid>
-      </ImageBackground >
+                  <TouchableOpacity onPress={() => { this.onSubmit() }} style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                    <Ionicons name="ios-arrow-forward" size={32} color="#FFF" style={[IntroStepFourStyles.checkIcon, Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
+                    <IntroDotsComponent active={4} />
+                    <Body1 bold style={Helpers.textAlignCenter}>{i18n.t('actionStart')}</Body1>
+                  </TouchableOpacity>
+                </View>
+                <View />
+              </Col>
+            </Row>
+          </Grid>
+        </ImageBackground >
+      </GestureRecognizer>
     );
   }
 }

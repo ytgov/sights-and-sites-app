@@ -2,10 +2,12 @@ import React from 'react';
 import { ImageBackground, View, Text, Image, TouchableOpacity } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Ionicons } from '@expo/vector-icons';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import i18n from '../../../../locale/locale';
 import { Helpers, H1, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
 import IntroStepOneStyles from './intro-step-two.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
+import SwipeConfig from '../swipe-config';
 
 // TODO Refactor and move to separate service
 const en = {
@@ -30,35 +32,49 @@ class IntroStepTwoScreen extends React.Component {
     i18n.addResourceBundle('fr', 'translation', fr);
   }
 
+  onSwipeForward() {
+    this.props.navigation.navigate('IntroStepThree');
+  }
+
+  onSwipeBackward() {
+    this.props.navigation.navigate('IntroStepOne');
+  }
+
   render() {
     return (
-      <ImageBackground source={introStepTwoBackground} style={{ width: '100%', height: '100%' }}>
-        <Grid style={{ flex: 1 }}>
-          <Row size={70}>
-            <Col>
-              <View style={[Helpers.flexCenter, IntroStepOneStyles.header]}>
-                <Image source={filterIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
-                <H1>{i18n.t('title')}</H1>
-                <Subtitle1 style={IntroStepOneStyles.subtitle}>
-                  {i18n.t('subtitle')}
-                </Subtitle1>
-              </View>
-            </Col>
-          </Row>
-          <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepOneStyles.footer]}>
-            <Col>
-              <View >
-                <TouchableOpacity style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]} onPress={() => { this.props.navigation.navigate('IntroStepThree') }}>
-                  <Ionicons name="ios-arrow-forward" size={32} color="#FFF" />
-                  <IntroDotsComponent active={2} />
-                  <Body1 bold>{i18n.t('actionNext')}</Body1>
-                </TouchableOpacity>
-              </View>
-              <View />
-            </Col>
-          </Row>
-        </Grid>
-      </ImageBackground >
+      <GestureRecognizer
+        onSwipeLeft={(state) => this.onSwipeForward()}
+        onSwipeRight={(state) => this.onSwipeBackward()}
+        config={SwipeConfig}
+      >
+        <ImageBackground source={introStepTwoBackground} style={{ width: '100%', height: '100%' }}>
+          <Grid style={{ flex: 1 }}>
+            <Row size={70}>
+              <Col>
+                <View style={[Helpers.flexCenter, IntroStepOneStyles.header]}>
+                  <Image source={filterIcon} style={{ width: 40, height: 40, marginBottom: 10 }} resizeMode='contain' />
+                  <H1>{i18n.t('title')}</H1>
+                  <Subtitle1 style={IntroStepOneStyles.subtitle}>
+                    {i18n.t('subtitle')}
+                  </Subtitle1>
+                </View>
+              </Col>
+            </Row>
+            <Row size={30} style={[Helpers.justifyContentCenter, Helpers.alignItemsEnd, IntroStepOneStyles.footer]}>
+              <Col>
+                <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('IntroStepThree') }}>
+                    <Ionicons name="ios-arrow-forward" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
+                    <IntroDotsComponent active={2} />
+                    <Body1 bold style={Helpers.textAlignCenter}>{i18n.t('actionNext')}</Body1>
+                  </TouchableOpacity>
+                </View>
+                <View />
+              </Col>
+            </Row>
+          </Grid>
+        </ImageBackground >
+      </GestureRecognizer>
     );
   }
 }

@@ -9,27 +9,27 @@ class NotifyService {
       shadow: true,
       animation: true,
       hideOnPress: true,
-      opacity: 1
+      opacity: 0.8
     };
   }
 
-  success(message, btnText = 'OK') {
+  success(message) {
     Toast.show(message, {
       ...this.config,
       backgroundColor: '#27ae60'
     });
   }
 
-  info(message, btnText = 'OK') {
+  info(message) {
     Toast.show(message, {
       ...this.config
     });
   }
 
-  error(message, btnText = 'OK') {
+  error(message) {
     Toast.show(message, {
       ...this.config,
-      backgroundColor: COLORS.accent
+      backgroundColor: COLORS.primary
     });
   }
 }
