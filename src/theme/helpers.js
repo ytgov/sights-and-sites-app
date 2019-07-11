@@ -6,9 +6,15 @@ const Helpers = StyleSheet.create({
     width: '100%',
     height: '100%'
   },
+  fullWidth: {
+    width: '100%'
+  },
   flexCenter: {
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  flexDirectionRow: {
+    flexDirection: 'row'
   },
   alignItemsCenter: {
     alignItems: 'center'

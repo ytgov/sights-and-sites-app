@@ -28,6 +28,12 @@ export default async () => Promise.all([
     // Common
     require('../assets/common/logo-circle.png'),
     require('../assets/common/logo-white.png'),
+    require('../assets/common/common-background.jpg'),
+
+    // Tabs
+    require('../assets/stacks/tabs/more-icon.png'),
+    require('../assets/stacks/tabs/site-type-icon.png'),
+    require('../assets/stacks/tabs/where-to-icon.png'),
 
     // Welcome Stack
     require('../assets/stacks/welcome/welcome-background.jpg'),
@@ -36,7 +42,20 @@ export default async () => Promise.all([
     require('../assets/stacks/intro/intro-step-one-background.jpg'),
     require('../assets/stacks/intro/intro-step-two-background.jpg'),
     require('../assets/stacks/intro/intro-step-three-background.jpg'),
-    require('../assets/stacks/intro/intro-step-four-background.jpg'),
+
+    // Where To Stack
+    require('../assets/stacks/where-to/by-highway-icon.png'),
+    require('../assets/stacks/where-to/by-region-icon.png'),
+    require('../assets/stacks/where-to/my-sites-icon.png'),
+    require('../assets/stacks/where-to/near-me-icon.png'),
+    require('../assets/stacks/where-to/region1.png'),
+    require('../assets/stacks/where-to/region2.png'),
+    require('../assets/stacks/where-to/region3.png'),
+    require('../assets/stacks/where-to/region4.png'),
+    require('../assets/stacks/where-to/region5.png'),
+    require('../assets/stacks/where-to/region6.png'),
+    require('../assets/stacks/where-to/region7.png'),
+    require('../assets/stacks/where-to/region8.png'),
 
   ]),
 ])

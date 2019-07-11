@@ -1,0 +1,36 @@
+import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS } from '../types';
+
+
+export function setHighwayFilters(value) {
+  return {
+    type: SET_HIGHWAY_FILTERS,
+    payload: value
+  }
+}
+
+export function setRegionFilters(value) {
+  return {
+    type: SET_REGION_FILTERS,
+    payload: value
+  }
+}
+
+export function setNearMeFilters(value) {
+  return {
+    type: SET_NEAR_ME_FILTERS,
+    payload: value
+  }
+}
+
+export function setMySitesFilters(value) {
+  return {
+    type: SET_MY_SITES_FILTERS,
+    payload: value
+  }
+}
+
+export function resetFilters() {
+  return {
+    type: RESET_FILTERS
+  }
+}

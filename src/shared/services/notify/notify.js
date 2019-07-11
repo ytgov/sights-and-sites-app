@@ -4,19 +4,20 @@ import { COLORS } from '../../../theme/config';
 class NotifyService {
   constructor() {
     this.config = {
-      duration: Toast.durations.LONG,
+      duration: Toast.durations.SHORT,
       position: Toast.positions.BOTTOM,
       shadow: true,
       animation: true,
       hideOnPress: true,
-      opacity: 0.8
+      opacity: 1
     };
   }
 
   success(message) {
     Toast.show(message, {
       ...this.config,
-      backgroundColor: '#27ae60'
+      backgroundColor: '#ffffff',
+      textColor: '#000000'
     });
   }
 

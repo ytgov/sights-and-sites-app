@@ -35,7 +35,7 @@ const fr = {
   actionStart: 'COMMENÇONS'
 };
 
-const introStepFourBackground = require('../../../../../assets/stacks/intro/intro-step-four-background.jpg');
+const introStepFourBackground = require('../../../../../assets/common/common-background.jpg');
 const checkCircleIcon = require('../../../../../assets/stacks/intro/check-circle.png');
 
 class IntroStepFourScreen extends React.Component {
