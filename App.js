@@ -2,11 +2,11 @@ import React from 'react';
 import { AppLoading } from 'expo';
 import { UIManager } from 'react-native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './src/store';
 import AppRoot from './src';
 import LoadResourcesAsync from './src/load-resources-async';
-
-const store = configureStore();
+const { store, persistor } = configureStore();
 
 export default class App extends React.Component {
   state = {
@@ -41,7 +41,9 @@ export default class App extends React.Component {
     }
     return (
       <Provider store={store} >
-        <AppRoot />
+        <PersistGate loading={null} persistor={persistor}>
+          <AppRoot />
+        </PersistGate>
       </Provider>
     );
   }
