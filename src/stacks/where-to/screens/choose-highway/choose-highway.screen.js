@@ -94,7 +94,7 @@ class ChooseHighwayScreen extends React.Component {
       <Container>
         <ImageBackground source={chooseHighwayBackground} style={{ width: '100%', height: '100%' }}>
           {/* Move to separate component */}
-          <Header style={COMMON.header}>
+          <Header style={COMMON.header} iosBarStyle="light-content">
             <NavigationBackButton navigation={navigation} />
           </Header>
           <Content>
@@ -114,7 +114,7 @@ class ChooseHighwayScreen extends React.Component {
             </View >
           </Content >
           {/* Move to separate component */}
-          <Footer>
+          <Footer style={COMMON.footer}>
             <FooterTab style={COMMON.footer}>
               <View style={[Helpers.flexDirectionRow, Helpers.alignItemsCenter, Helpers.justifyContentCenter, Helpers.fullWidth]}>
                 <TouchableOpacity style={ChooseHighwayStyles.footerButton} onPress={() => { this.applySelection() }}>

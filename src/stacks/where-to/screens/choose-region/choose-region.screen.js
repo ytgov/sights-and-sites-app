@@ -66,7 +66,7 @@ class ChooseRegionScreen extends React.Component {
       <Col style={{ width: '50%' }} key={`${highway.id}`}>
         <HighwayBoxSpacer>
           <HighwayBox style={{ height: 100 }}>
-            <TouchableOpacity style={{ position: 'relative' }} onPress={() => { this.toggleHighway(highway.id) }}>
+            <TouchableOpacity style={{ height: 100, position: 'relative' }} onPress={() => { this.toggleHighway(highway.id) }}>
               {
                 (selectedHighways.indexOf(highway.id) >= 0) ?
                   <Ionicons style={[ChooseRegionStyles.toggleIcon, ChooseRegionStyles.toggleIconActive]} name="ios-checkmark" size={24} color="#FFF" />
@@ -88,7 +88,7 @@ class ChooseRegionScreen extends React.Component {
     return (
       <Container>
         <ImageBackground source={chooseHighwayBackground} style={{ width: '100%', height: '100%' }}>
-          <Header style={COMMON.header}>
+          <Header style={COMMON.header} iosBarStyle="light-content">
             <NavigationBackButton navigation={navigation} />
           </Header>
           <Content>
@@ -110,7 +110,7 @@ class ChooseRegionScreen extends React.Component {
             </View >
           </Content >
           {/* Move to separate component */}
-          <Footer>
+          <Footer style={COMMON.footer}>
             <FooterTab style={COMMON.footer}>
               <View style={[Helpers.flexDirectionRow, Helpers.alignItemsCenter, Helpers.justifyContentCenter, Helpers.fullWidth]}>
                 <TouchableOpacity style={ChooseRegionStyles.footerButton} onPress={() => { this.applySelection() }}>

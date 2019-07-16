@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, StatusBar } from 'react-native';
 import RootNavigation from './stacks/stacks';
 
 class AppRoot extends React.Component {
@@ -7,7 +8,10 @@ class AppRoot extends React.Component {
 
   render() {
     return (
-      <RootNavigation />
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="light-content"/>
+        <RootNavigation />
+      </View>
     );
   }
 }

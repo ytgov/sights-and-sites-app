@@ -57,7 +57,7 @@ class IntroStepFourScreen extends React.Component {
     return (
       <Container>
         <ImageBackground source={chooseLocationBackground} style={{ width: '100%', height: '100%' }}>
-          <Header style={COMMON.header}>
+          <Header style={COMMON.header} iosBarStyle="light-content">
             <NavigationBackButton navigation={navigation} />
           </Header>
 
@@ -98,7 +98,7 @@ class IntroStepFourScreen extends React.Component {
               </TouchableOpacity>
             </View >
           </Content >
-          <Footer>
+          <Footer style={COMMON.footer}>
             <FooterTab style={COMMON.footer}>
               <Button badge vertical onPress={() => { this.resetFilters() }}>
                 <Ionicons name="ios-close" size={30} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
