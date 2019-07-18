@@ -1,0 +1,75 @@
+import React from 'react';
+import { View } from 'react-native';
+import PropTypes from 'prop-types';
+import { H3, Caption, Helpers } from '../../../../theme/theme';
+import SitesTypeFilterStyles from './sites-type-filter.styles';
+import { FilterButtton, FilterImageOverlay, FilterImage } from './sites-type-filter.styled-components';
+
+const siteTypeCampingIcon = require('../../../../../assets/stacks/tabs/site-type-camping-icon.png');
+const siteTypeWildlifeIcon = require('../../../../../assets/stacks/tabs/site-type-wildlife-icon.png');
+const siteTypeRecreationIcon = require('../../../../../assets/stacks/tabs/site-type-recreation-icon.png');
+const siteTypeHistoryIcon = require('../../../../../assets/stacks/tabs/site-type-history-icon.png');
+const siteTypeActiveOverlay = require('../../../../../assets/stacks/tabs/site-type-active-overlay.png');
+
+const siteTypeFilters = [
+  {
+    id: 1,
+    image: siteTypeCampingIcon,
+    title: 'Camping'
+  },
+  {
+    id: 2,
+    image: siteTypeWildlifeIcon,
+    title: `Wildlife &${'\n'}landscape`
+  },
+  {
+    id: 3,
+    image: siteTypeRecreationIcon,
+    title: 'Recreation'
+  },
+  {
+    id: 4,
+    image: siteTypeHistoryIcon,
+    title: `History &${'\n'}culture`
+  }
+];
+
+const siteTypeActive = (filters, id) => {
+  return filters.indexOf(id) >= 0;
+}
+
+const SitesTypeFilter = props => {
+  const { sitesTypeFilter, sitesTypeFilterActive, setSitesTypeFiltersDispatch } = props;
+  return (
+    sitesTypeFilterActive ?
+      (<View style={SitesTypeFilterStyles.filtersBox} >
+        <View>
+          <H3 style={Helpers.textAlignCenter}>Choose a site type</H3>
+        </View>
+
+        <View style={SitesTypeFilterStyles.filtersRow}>
+          {
+            siteTypeFilters.map(filter => {
+              return (
+                <FilterButtton onPress={() => { setSitesTypeFiltersDispatch(filter.id) }} key={filter.id}>
+                  <View style={Helpers.positionRelative}>
+                    {siteTypeActive(sitesTypeFilter, filter.id) && <FilterImageOverlay resizeMode="contain" source={siteTypeActiveOverlay} />}
+                    <FilterImage active={siteTypeActive(sitesTypeFilter, filter.id)} resizeMode="contain" source={filter.image} />
+                  </View>
+                  <Caption style={[Helpers.textAlignCenter, { lineHeight: 15 }]}>{filter.title}</Caption>
+                </FilterButtton>
+              )
+            })
+          }
+        </View>
+      </View>) : null)
+}
+
+
+SitesTypeFilter.propTypes = {
+  sitesTypeFilterActive: PropTypes.bool.isRequired,
+  sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+  setSitesTypeFiltersDispatch: PropTypes.func.isRequired
+}
+
+export default SitesTypeFilter;

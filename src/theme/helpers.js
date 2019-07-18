@@ -27,6 +27,9 @@ const Helpers = StyleSheet.create({
   },
   textAlignCenter: {
     textAlign: 'center'
+  },
+  positionRelative: {
+    position: 'relative'
   }
 });
 

@@ -34,6 +34,14 @@ export default async () => Promise.all([
     require('../assets/stacks/tabs/more-icon.png'),
     require('../assets/stacks/tabs/site-type-icon.png'),
     require('../assets/stacks/tabs/where-to-icon.png'),
+    require('../assets/stacks/tabs/where-to-icon.png'),
+
+    // Site type tabs
+    require('../assets/stacks/tabs/site-type-camping-icon.png'),
+    require('../assets/stacks/tabs/site-type-history-icon.png'),
+    require('../assets/stacks/tabs/site-type-recreation-icon.png'),
+    require('../assets/stacks/tabs/site-type-wildlife-icon.png'),
+    require('../assets/stacks/tabs/site-type-active-overlay.png'),
 
     // Welcome Stack
     require('../assets/stacks/welcome/welcome-background.jpg'),

@@ -1,4 +1,4 @@
-import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS } from '../types';
+import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS, SET_SITES_TYPE_FILTER_VISIBILITY, SET_SITES_TYPE_FILTER } from '../types';
 
 
 export function setHighwayFilters(value) {
@@ -28,6 +28,21 @@ export function setMySitesFilters(value) {
     payload: value
   }
 }
+
+export function toggleSitesTypeFilter(value) {
+  return {
+    type: SET_SITES_TYPE_FILTER_VISIBILITY,
+    payload: value
+  }
+}
+
+export function setSitesTypeFilters(value) {
+  return {
+    type: SET_SITES_TYPE_FILTER,
+    payload: value
+  }
+}
+
 
 export function resetFilters() {
   return {

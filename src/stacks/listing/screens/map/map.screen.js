@@ -1,30 +1,15 @@
 import React from 'react';
-import { SafeAreaView } from 'react-navigation';
-import { Image, View, Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Header, Content, Footer, FooterTab, Button } from 'native-base';
+import { Container, Header, Content } from 'native-base';
 import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
-import i18n from '../../../../locale/locale';
-
-// TODO Separate
-import Badge from '../../../where-to/screens/choose-location/choose-location.styled-components';
-
-import { COMMON, Caption } from '../../../../theme/theme';
-
-const whereToIcon = require('../../../../../assets/stacks/tabs/where-to-icon.png');
-const siteTypeIcon = require('../../../../../assets/stacks/tabs/site-type-icon.png');
-const moreIcon = require('../../../../../assets/stacks/tabs/more-icon.png');
+import { COMMON } from '../../../../theme/theme';
+import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
+import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
+import { toggleSitesTypeFilter, setSitesTypeFilters } from '../../../../store/actions/filters';
 
 const { width, height } = Dimensions.get('window');
-const en = {
-  whereTo: 'Where to?',
-  siteType: 'Site type',
-  more: 'More'
-};
-const fr = {
-  title: 'Les permissions',
-};
 
 class MapScreen extends React.Component {
   state = {
@@ -32,10 +17,9 @@ class MapScreen extends React.Component {
   }
 
   render() {
-    const { navigation, highwaysFilter, regionsFilter, nearMeFilter, mySitesFilter } = this.props;
     return (
       <Container>
-      <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
+        <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
         <Content>
           <MapView
             initialRegion={{
@@ -46,35 +30,23 @@ class MapScreen extends React.Component {
             }}
             style={{ width, height, flex: 1 }} />
         </Content>
-        <Footer style={COMMON.footer}>
-          <FooterTab style={{ backgroundColor: '#000000' }}>
-            <Button vertical onPress={() => { navigation.navigate('WhereTo') }}>
-              <View style={{ position: 'relative' }}>
-                {!!(highwaysFilter.length || regionsFilter.length || nearMeFilter || mySitesFilter) && (<Badge style={{ top: 0, right: -1 }} />)}
-                <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={whereToIcon} />
-              </View>
-              <Caption style={{ color: '#FFFFFF' }}>{i18n.t('footerTabs.whereTo')}</Caption>
-            </Button>
-            <Button vertical>
-              <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={siteTypeIcon} />
-              <Caption style={{ color: '#FFFFFF' }}>{i18n.t('footerTabs.siteType')}</Caption>
-            </Button>
-            <Button badge vertical>
-              {/* <Badge ><Text>51</Text></Badge> */}
-              <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={moreIcon} />
-              <Caption style={{ color: '#FFFFFF' }}>{i18n.t('footerTabs.more')}</Caption>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>)
+        <View style={{ position: 'relative', height: 'auto' }}>
+          <FooterTabs {...this.props} />
+          <SitesTypeFilter {...this.props} />
+        </View>
+
+      </Container >)
   }
 }
 
 MapScreen.propTypes = {
   nearMeFilter: PropTypes.bool.isRequired,
   mySitesFilter: PropTypes.bool.isRequired,
+  sitesTypeFilterActive: PropTypes.bool.isRequired,
+  sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
   highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
-  regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired
+  regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+  toggleSitesTypeFilterDispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -82,13 +54,16 @@ const mapStateToProps = (state) => {
     nearMeFilter: state.filtersStore.nearMeFilter,
     mySitesFilter: state.filtersStore.mySitesFilter,
     highwaysFilter: state.filtersStore.highwaysFilter,
-    regionsFilter: state.filtersStore.regionsFilter
+    regionsFilter: state.filtersStore.regionsFilter,
+    sitesTypeFilter: state.filtersStore.sitesTypeFilter,
+    sitesTypeFilterActive: state.filtersStore.sitesTypeFilterActive,
   };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = dispatch => {
   return {
-
+    setSitesTypeFiltersDispatch: value => dispatch(setSitesTypeFilters(value)),
+    toggleSitesTypeFilterDispatch: value => dispatch(toggleSitesTypeFilter(value))
   };
 };
 

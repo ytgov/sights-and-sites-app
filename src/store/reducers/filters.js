@@ -1,10 +1,12 @@
-import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS } from '../types';
+import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS, SET_SITES_TYPE_FILTER, SET_SITES_TYPE_FILTER_VISIBILITY } from '../types';
 
 const initialState = {
   highwaysFilter: [],
   regionsFilter: [],
+  sitesTypeFilter: [],
   nearMeFilter: false,
-  mySitesFilter: false
+  mySitesFilter: false,
+  sitesTypeFilterActive: false
 }
 
 export default function filtersReducer(state = initialState, action) {
@@ -43,6 +45,26 @@ export default function filtersReducer(state = initialState, action) {
         mySitesFilter: action.payload,
         highwaysFilter: [],
         regionsFilter: []
+      }
+    }
+    case SET_SITES_TYPE_FILTER_VISIBILITY: {
+      return {
+        ...state,
+        sitesTypeFilterActive: !state.sitesTypeFilterActive
+      }
+    }
+    case SET_SITES_TYPE_FILTER: {
+      const { sitesTypeFilter } = state;
+      const sitesTypeFilterCopy = JSON.parse(JSON.stringify(sitesTypeFilter));
+      const actionPayloadFilterIndex = sitesTypeFilterCopy.indexOf(action.payload);
+      if (actionPayloadFilterIndex >= 0) {
+        sitesTypeFilterCopy.splice(actionPayloadFilterIndex, 1);
+      } else {
+        sitesTypeFilterCopy.push(action.payload);
+      }
+      return {
+        ...state,
+        sitesTypeFilter: sitesTypeFilterCopy
       }
     }
     case RESET_FILTERS: {
