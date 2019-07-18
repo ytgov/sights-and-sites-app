@@ -28,6 +28,9 @@ export default function configureStore(initialState = INITIAL_STATE) {
   const store = createStore(persistedReducer, initialState,
     applyMiddleware(...middleware))
   const persistor = persistStore(store);
+
+  // UNCOMMENT TO CLEAR THE PERSISTED STORE
   // persistor.purge();
+
   return { store, persistor };
 };

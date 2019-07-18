@@ -1,4 +1,4 @@
-import { SET_SELECT_LOCALE_ACTION } from '../types';
+import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED } from '../types';
 
 const initialState = {
   hasUserSelectedLocale: false,
@@ -11,6 +11,12 @@ export default function coreReducer(state = initialState, action) {
       return {
         ...state,
         hasUserSelectedLocale: action.payload
+      }
+    }
+    case SET_ONBOARDING_FINISHED: {
+      return {
+        ...state,
+        hasUserPassedOnboarding: true
       }
     }
     default:

@@ -1,7 +1,7 @@
 import { SET_LOCALE } from '../types';
 
 const initialState = {
-  locale: null
+  locale: 'en'
 }
 
 export default function localeReducer(state = initialState, action) {

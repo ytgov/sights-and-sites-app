@@ -1,34 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { View, StatusBar } from 'react-native';
 import RootNavigation from './stacks/stacks';
 
 class AppRoot extends React.Component {
-  componentDidMount() {
+  state = {
   }
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <StatusBar barStyle="light-content" />
-        <RootNavigation />
-      </View>
+      <RootNavigation />
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    core: state.coreStore,
-    filters: state.filtersStore,
-    locale: state.localeStore
-  };
-};
-
-const mapDispatchToProps = () => {
-  return {
-
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppRoot);
+export default AppRoot;

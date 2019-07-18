@@ -1,5 +1,7 @@
 import React from 'react';
 import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Ionicons } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
@@ -10,6 +12,7 @@ import IntroStepFourStyles from './intro-step-four.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
 import NotifyService from '../../../../shared/services/notify/notify';
 import SwipeConfig from '../swipe-config';
+import { setOnboardingFinished } from '../../../../store/actions/core';
 
 // TODO Refactor and move to separate service
 const en = {
@@ -61,13 +64,14 @@ class IntroStepFourScreen extends React.Component {
   }
 
   async getLocationPermissions() {
-    const { navigation } = this.props;
+    const { navigation, setOnboardingFinishedDispatch } = this.props;
     const { status } = await Permissions.askAsync(
       Permissions.LOCATION
     );
     if (status !== 'granted') {
       this.notify.error(i18n.t('notifications.permissionsRequest'));
     } else {
+      setOnboardingFinishedDispatch();
       navigation.navigate('Main');
     }
   }
@@ -119,4 +123,19 @@ class IntroStepFourScreen extends React.Component {
   }
 }
 
-export default IntroStepFourScreen;
+IntroStepFourScreen.propTypes = {
+  setOnboardingFinishedDispatch: PropTypes.func.isRequired
+}
+
+const mapStateToProps = () => {
+  return {
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setOnboardingFinishedDispatch: value => dispatch(setOnboardingFinished(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(IntroStepFourScreen);
