@@ -4,13 +4,15 @@ import localeReducer from './locale';
 import highwaysReducer from './highways';
 import regionsReducer from './regions';
 import filtersReducer from './filters';
+import listingReducer from './listing';
 
 const rootReducer = combineReducers({
   coreStore: coreReducer,
   localeStore: localeReducer,
   filtersStore: filtersReducer,
   highwaysStore: highwaysReducer,
-  regionsStore: regionsReducer
+  regionsStore: regionsReducer,
+  listingStore: listingReducer
 });
 
 export default rootReducer;

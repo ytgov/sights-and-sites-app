@@ -1,9 +1,9 @@
 import { createStackNavigator } from 'react-navigation';
-import MapScreen from './screens/map/map.screen';
+import MainScreen from './screens/main/main.screen';
 
 const ListingStack = createStackNavigator({
   Map: {
-    screen: MapScreen,
+    screen: MainScreen,
     navigationOptions: () => ({
       header: null
     })
