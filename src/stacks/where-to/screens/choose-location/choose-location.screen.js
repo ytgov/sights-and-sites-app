@@ -37,19 +37,19 @@ class IntroStepFourScreen extends React.Component {
   toggleNearMeFilter() {
     const { setNearMeFiltersDispatch } = this.props;
     setNearMeFiltersDispatch(true);
-    this.notify.success('Filters were updated');
+    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
   }
 
   toggleMySitesFilter() {
     const { setMySitesFiltersDispatch } = this.props;
     setMySitesFiltersDispatch(true);
-    this.notify.success('Filters were updated');
+    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
   }
 
   resetFilters() {
     const { resetFiltersDispatch } = this.props;
     resetFiltersDispatch();
-    this.notify.success('Filters were cleared');
+    this.notify.success(i18n.t('notifications.onFiltersClear'));
   }
 
   render() {

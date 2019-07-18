@@ -52,7 +52,7 @@ class ChooseRegionScreen extends React.Component {
     const { selectedHighways } = this.state;
     const { navigation, setRegionsFiltersDispatch } = this.props;
     setRegionsFiltersDispatch(selectedHighways);
-    this.notify.success('Filters were updated');
+    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
     navigation.goBack();
   }
 

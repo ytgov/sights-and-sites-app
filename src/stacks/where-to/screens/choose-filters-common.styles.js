@@ -4,7 +4,9 @@ import { COLORS } from '../../../theme/config';
 const ChooseFiltersCommonStyles = StyleSheet.create({
   footerButton: {
     marginLeft: 30,
-    marginRight: 30
+    marginRight: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   footerToggleIcon: {
     width: 30,
@@ -14,7 +16,8 @@ const ChooseFiltersCommonStyles = StyleSheet.create({
     backgroundColor: COLORS.accent,
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    margin: 0
   },
   title: {
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import i18n from '../../../../locale/locale';
 import { H3, Caption, Helpers } from '../../../../theme/theme';
 import SitesTypeFilterStyles from './sites-type-filter.styles';
 import { FilterButtton, FilterImageOverlay, FilterImage } from './sites-type-filter.styled-components';
@@ -15,22 +16,22 @@ const siteTypeFilters = [
   {
     id: 1,
     image: siteTypeCampingIcon,
-    title: 'Camping'
+    title: 'siteTypes.camping'
   },
   {
     id: 2,
     image: siteTypeWildlifeIcon,
-    title: `Wildlife &${'\n'}landscape`
+    title: 'siteTypes.wildlife'
   },
   {
     id: 3,
     image: siteTypeRecreationIcon,
-    title: 'Recreation'
+    title: 'siteTypes.recreation'
   },
   {
     id: 4,
     image: siteTypeHistoryIcon,
-    title: `History &${'\n'}culture`
+    title: 'siteTypes.history'
   }
 ];
 
@@ -44,7 +45,7 @@ const SitesTypeFilter = props => {
     sitesTypeFilterActive ?
       (<View style={SitesTypeFilterStyles.filtersBox} >
         <View>
-          <H3 style={Helpers.textAlignCenter}>Choose a site type</H3>
+          <H3 style={Helpers.textAlignCenter}>{i18n.t('siteTypes.filterTitle')}</H3>
         </View>
 
         <View style={SitesTypeFilterStyles.filtersRow}>
@@ -56,7 +57,7 @@ const SitesTypeFilter = props => {
                     {siteTypeActive(sitesTypeFilter, filter.id) && <FilterImageOverlay resizeMode="contain" source={siteTypeActiveOverlay} />}
                     <FilterImage active={siteTypeActive(sitesTypeFilter, filter.id)} resizeMode="contain" source={filter.image} />
                   </View>
-                  <Caption style={[Helpers.textAlignCenter, { lineHeight: 15 }]}>{filter.title}</Caption>
+                  <Caption style={[Helpers.textAlignCenter, { lineHeight: 15 }]}>{i18n.t(filter.title)}</Caption>
                 </FilterButtton>
               )
             })

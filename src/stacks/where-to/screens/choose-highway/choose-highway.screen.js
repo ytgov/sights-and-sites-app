@@ -54,7 +54,7 @@ class ChooseHighwayScreen extends React.Component {
     const { selectedHighways } = this.state;
     const { navigation, setHighwayFiltersDispatch } = this.props;
     setHighwayFiltersDispatch(selectedHighways);
-    this.notify.success('Filters were updated');
+    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
     navigation.goBack();
   }
 
@@ -117,7 +117,7 @@ class ChooseHighwayScreen extends React.Component {
           <Footer style={COMMON.footer}>
             <FooterTab style={COMMON.footer}>
               <View style={[Helpers.flexDirectionRow, Helpers.alignItemsCenter, Helpers.justifyContentCenter, Helpers.fullWidth]}>
-                <TouchableOpacity style={ChooseHighwayStyles.footerButton} onPress={() => { this.applySelection() }}>
+                <TouchableOpacity style={[ChooseHighwayStyles.footerButton]} onPress={() => { this.applySelection() }}>
                   <Ionicons style={[ChooseHighwayStyles.footerToggleIcon]} name="ios-checkmark" size={30} color="#FFF" />
                   <Caption style={{ color: '#FFFFFF' }}>{i18n.t('actionApply')}</Caption>
                 </TouchableOpacity>
