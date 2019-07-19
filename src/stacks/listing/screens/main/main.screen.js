@@ -1,8 +1,7 @@
 import React from 'react';
-import { Dimensions, View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Share } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Header, Content } from 'native-base';
-import MapView from 'react-native-maps';
 import PropTypes from 'prop-types';
 import { H2, Body1, COMMON, Helpers } from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
@@ -10,8 +9,8 @@ import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filte
 import { toggleSitesTypeFilter, setSitesTypeFilters } from '../../../../store/actions/filters';
 import { toggleListingView } from '../../../../store/actions/listing';
 import MainScreenStyles from './main.screen.styles';
-
-const { width, height } = Dimensions.get('window');
+import MapViewContainer from '../../containers/map-view/map-view.container';
+import ListViewContainer from '../../containers/list-view/list-view.container';
 
 class MainScreen extends React.Component {
   state = {
@@ -23,37 +22,24 @@ class MainScreen extends React.Component {
     return (
       <Container>
         <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
-        <Content>
-          <View style={Helpers.flexDirectionRow}>
-            <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxLeft]}>
-              <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'LIST' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('LIST') }}>
-                <Body1 style={MainScreenStyles.switchBtnText}>LIST</Body1>
-              </TouchableOpacity>
-            </View>
-            <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxRight]}>
-              <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'MAP' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('MAP') }}>
-                <Body1 style={MainScreenStyles.switchBtnText}>MAP</Body1>
-              </TouchableOpacity>
-            </View>
+
+        <View style={Helpers.flexDirectionRow}>
+          <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxLeft]}>
+            <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'LIST' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('LIST') }}>
+              <Body1 style={MainScreenStyles.switchBtnText}>LIST</Body1>
+            </TouchableOpacity>
           </View>
+          <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxRight]}>
+            <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'MAP' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('MAP') }}>
+              <Body1 style={MainScreenStyles.switchBtnText}>MAP</Body1>
+            </TouchableOpacity>
+          </View>
+        </View>
 
+        <Content>
           {
-            (selectedListingView === 'MAP') ? (
-              <MapView
-                initialRegion={{
-                  latitude: 63.389423,
-                  longitude: -136.714739,
-                  latitudeDelta: 0.0922,
-                  longitudeDelta: 0.0421,
-                }}
-                style={{ width, height, flex: 1 }} />
-            ) : (<View style={{ paddingTop: 150, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <View>
-                <H2 black style={{ textAlign: 'center' }}>List view</H2>
-              </View>
-            </View>)
+            (selectedListingView === 'MAP') ? <MapViewContainer /> : <ListViewContainer />
           }
-
         </Content>
 
         <View style={{ position: 'relative', height: 'auto' }}>
@@ -64,6 +50,7 @@ class MainScreen extends React.Component {
   }
 }
 
+// Need this props to pass to FooterTabs and SitesTypeFilter components
 MainScreen.propTypes = {
   nearMeFilter: PropTypes.bool.isRequired,
   mySitesFilter: PropTypes.bool.isRequired,
