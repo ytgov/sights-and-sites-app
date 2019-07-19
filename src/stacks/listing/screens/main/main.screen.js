@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Share } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Header, Content } from 'native-base';
 import PropTypes from 'prop-types';
-import { H2, Body1, COMMON, Helpers } from '../../../../theme/theme';
+import { Body1, COMMON, Helpers } from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
 import { toggleSitesTypeFilter, setSitesTypeFilters } from '../../../../store/actions/filters';
@@ -20,7 +20,7 @@ class MainScreen extends React.Component {
   render() {
     const { toggleListingViewDispatch, selectedListingView } = this.props;
     return (
-      <Container>
+      <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
 
         <View style={Helpers.flexDirectionRow}>

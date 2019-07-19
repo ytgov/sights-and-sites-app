@@ -66,5 +66,9 @@ export default async () => Promise.all([
     require('../assets/stacks/where-to/region7.png'),
     require('../assets/stacks/where-to/region8.png'),
 
+    // Listing Stack
+    require('../assets/stacks/listing/highway-number-background-icon.png'),
+    require('../assets/stacks/listing/nearby-sites-icon.png')
+
   ]),
 ])
