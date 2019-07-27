@@ -30,7 +30,7 @@ const FooterTabs = props => {
           </View>
           <Caption style={{ color: '#FFFFFF' }}>{i18n.t('footerTabs.siteType')}</Caption>
         </Button>
-        <Button badge vertical>
+        <Button badge vertical onPress={() => { navigation.navigate('More') }}>
           <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={moreIcon} />
           <Caption style={{ color: '#FFFFFF' }}>{i18n.t('footerTabs.more')}</Caption>
         </Button>

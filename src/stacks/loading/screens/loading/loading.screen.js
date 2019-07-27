@@ -25,7 +25,9 @@ class LoadingScreen extends React.Component {
         return false;
       }
       i18n.changeLanguage(locale);
-      navigation.navigate('Main');
+      // navigation.navigate('Main');
+      navigation.navigate('More');
+      navigation.navigate('AppInformation');
       return true;
     }, 1000)
   }

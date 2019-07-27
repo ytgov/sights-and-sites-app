@@ -15,6 +15,15 @@ export default {
       'siteType': 'Type de site',
       'more': 'Plus'
     },
+    'siteTabs': {
+      'directions': 'Directions',
+      'share': 'Partager',
+      'mySites': 'Mes Sites'
+    },
+    'listingTypes': {
+      'map': 'CARTE',
+      'list': 'LISTE'
+    },
     'siteTypes': {
       'filterTitle': 'Choisissez un type de site',
       'camping': 'Camping',

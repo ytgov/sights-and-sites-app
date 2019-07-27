@@ -17,6 +17,16 @@ export default {
       'more': 'More'
     },
 
+    'siteTabs': {
+      'directions': 'Directions',
+      'share': 'Share',
+      'mySites': 'My Sites'
+    },
+
+    'listingTypes': {
+      'map': 'MAP',
+      'list': 'LIST'
+    },
     'siteTypes': {
       'filterTitle': 'Choose a site type',
       'camping': 'Camping',

@@ -19,6 +19,9 @@ const Helpers = StyleSheet.create({
   alignItemsCenter: {
     alignItems: 'center'
   },
+  alignSelfCenter: {
+    alignSelf: 'center'
+  },
   justifyContentCenter: {
     justifyContent: 'center'
   },

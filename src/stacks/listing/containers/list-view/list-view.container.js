@@ -24,23 +24,18 @@ class ListViewContainer extends React.Component {
     ]
   }
 
-  renderItem({ item }) {
-    return (
-      <ListViewItem item={item} />
-    )
-  }
-
   render() {
     const { data } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
         <FlatList
           style={ListViewStyles.listBox}
           data={data}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={this.renderItem}
+          renderItem={({ item }) => <ListViewItem item={item} navigation={navigation} />}
         />
-        <NearbySites />
+        <NearbySites navigation={navigation} />
         <View style={ListViewStyles.moreSitesBox}>
           <TouchableOpacity onPress={() => { alert('Load more sites') }}>
             <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />

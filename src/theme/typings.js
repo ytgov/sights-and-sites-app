@@ -43,7 +43,7 @@ const Body1 = styled.Text`
   font-size: ${ TYPINGS.body1};
   line-height: ${ TYPINGS.body1 + lineHeightOffset};
   color: ${ props => { return props.black ? COLORS.primary : COLORS.white }} 
-  font-family: ${ props => { return props.bold ? 'montserrat-bold' : 'montserrat-semibold' }} 
+  font-family: ${ props => { return props.bold ? 'montserrat-bold' : props.regular ? 'montserrat-regular' : 'montserrat-semibold' }} 
 `;
 
 const Body2 = styled.Text`

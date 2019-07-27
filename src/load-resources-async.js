@@ -27,6 +27,7 @@ export default async () => Promise.all([
   cacheImages([
     // Common
     require('../assets/common/logo-circle.png'),
+    require('../assets/common/logo.png'),
     require('../assets/common/logo-white.png'),
     require('../assets/common/common-background.jpg'),
 
@@ -42,6 +43,11 @@ export default async () => Promise.all([
     require('../assets/stacks/tabs/site-type-recreation-icon.png'),
     require('../assets/stacks/tabs/site-type-wildlife-icon.png'),
     require('../assets/stacks/tabs/site-type-active-overlay.png'),
+
+    // Site tabs
+    require('../assets/stacks/tabs/directions-icon.png'),
+    require('../assets/stacks/tabs/share-icon.png'),
+    require('../assets/stacks/tabs/my-sites-icon.png'),
 
     // Welcome Stack
     require('../assets/stacks/welcome/welcome-background.jpg'),
@@ -68,7 +74,26 @@ export default async () => Promise.all([
 
     // Listing Stack
     require('../assets/stacks/listing/highway-number-background-icon.png'),
-    require('../assets/stacks/listing/nearby-sites-icon.png')
+    require('../assets/stacks/listing/nearby-sites-icon.png'),
+    require('../assets/stacks/listing/amenties/arrow-left-icon.png'),
+    require('../assets/stacks/listing/amenties/arrow-right-icon.png'),
+    require('../assets/stacks/listing/warning-icon.png'),
+    // TODO TEMPORARY. REPLACE WITH REAL ONES
+    require('../assets/stacks/listing/amenties/1.png'),
+    require('../assets/stacks/listing/amenties/2.png'),
+    require('../assets/stacks/listing/amenties/3.png'),
+    require('../assets/stacks/listing/amenties/4.png'),
+    require('../assets/stacks/listing/amenties/5.png'),
+    require('../assets/stacks/listing/amenties/6.png'),
+    require('../assets/stacks/listing/amenties/1active.png'),
 
+    // More Stack
+    require('../assets/stacks/more/app-information-icon.png'),
+    require('../assets/stacks/more/current-conditions-icon.png'),
+    require('../assets/stacks/more/traditional-territories-icon.png'),
+    require('../assets/stacks/more/travel-trips-icon.png'),
+    require('../assets/stacks/more/feedback-icon.png'),
+    require('../assets/stacks/more/accordion-opened-icon.png'),
+    require('../assets/stacks/more/accordion-closed-icon.png')
   ]),
 ])

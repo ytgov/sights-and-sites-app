@@ -8,11 +8,14 @@ const COMMON = StyleSheet.create({
     shadowOpacity: 0, // remove shadow on iOS
     justifyContent: 'flex-start',
     borderBottomWidth: 0,
-    height: 52,
     alignItems: 'center',
     ...Platform.select({
       android: {
+        height: 54,
         marginTop: getStatusBarHeight()
+      },
+      ios: {
+        height: 64
       }
     })
   },
@@ -26,6 +29,9 @@ const COMMON = StyleSheet.create({
     elevation: 0, // remove shadow on Android
     shadowOpacity: 0, // remove shadow on iOS
     backgroundColor: '#000000'
+  },
+  content: {
+    backgroundColor: '#FFFAF4'
   }
 });
 

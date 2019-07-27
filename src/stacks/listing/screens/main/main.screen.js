@@ -3,6 +3,7 @@ import { View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Header, Content } from 'native-base';
 import PropTypes from 'prop-types';
+import i18n from '../../../../locale/locale';
 import { Body1, COMMON, Helpers } from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
@@ -18,7 +19,7 @@ class MainScreen extends React.Component {
   }
 
   render() {
-    const { toggleListingViewDispatch, selectedListingView } = this.props;
+    const { navigation, toggleListingViewDispatch, selectedListingView } = this.props;
     return (
       <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
@@ -26,19 +27,19 @@ class MainScreen extends React.Component {
         <View style={Helpers.flexDirectionRow}>
           <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxLeft]}>
             <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'LIST' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('LIST') }}>
-              <Body1 style={MainScreenStyles.switchBtnText}>LIST</Body1>
+              <Body1 style={MainScreenStyles.switchBtnText}>{i18n.t('listingTypes.list')}</Body1>
             </TouchableOpacity>
           </View>
           <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxRight]}>
             <TouchableOpacity style={[MainScreenStyles.switchBtn, selectedListingView === 'MAP' && MainScreenStyles.switchBtnActive]} onPress={() => { toggleListingViewDispatch('MAP') }}>
-              <Body1 style={MainScreenStyles.switchBtnText}>MAP</Body1>
+              <Body1 style={MainScreenStyles.switchBtnText}>{i18n.t('listingTypes.map')}</Body1>
             </TouchableOpacity>
           </View>
         </View>
 
         <Content>
           {
-            (selectedListingView === 'MAP') ? <MapViewContainer /> : <ListViewContainer />
+            (selectedListingView === 'MAP') ? <MapViewContainer navigation={navigation} /> : <ListViewContainer navigation={navigation} />
           }
         </Content>
 

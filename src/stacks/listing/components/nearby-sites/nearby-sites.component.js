@@ -12,13 +12,14 @@ class NearbySites extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <View>
         <View style={NearbySitesStyles.nearbySitesBox}>
           <Image style={NearbySitesStyles.nearbySitesIcon} source={nearByIcon} resizeMode='contain' />
           <H2 style={Helpers.textAlignCenter}>Nearby sites</H2>
         </View>
-        <ListViewItem item={{ uri: 'https://www.mountainphotography.com/images/xl/20160904-Twin-Lakes.jpg' }} />
+        <ListViewItem item={{ uri: 'https://www.mountainphotography.com/images/xl/20160904-Twin-Lakes.jpg' }} navigation={navigation} />
       </View>
     )
   }
