@@ -9,18 +9,36 @@ const siteTypeRecreationIcon = require('../../../../../assets/stacks/tabs/site-t
 const siteTypeHistoryIcon = require('../../../../../assets/stacks/tabs/site-type-history-icon.png');
 
 const SiteCard = props => {
-  const { item, navigation } = props;
+  const { item, locale, navigation } = props;
   return (
     <View style={SiteCardStyles.siteCardBox}>
       <View style={SiteCardStyles.siteCard}>
         <TouchableOpacity onPress={() => navigation.navigate('SiteDetails', { item })}>
           <View style={SiteCardStyles.siteTypesBox}>
-            <Image style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeCampingIcon} />
-            <Image style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeWildlifeIcon} />
-            <Image style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeRecreationIcon} />
-            <Image style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeHistoryIcon} />
+            {
+              item.siteTypes.map(siteType => {
+                // TODO move site amenties to global config
+                switch (siteType) {
+                  case 1: {
+                    return (<Image key='1' style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeCampingIcon} />)
+                  }
+                  case 2: {
+                    return (<Image key='2' style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeWildlifeIcon} />)
+                  }
+                  case 3: {
+                    return (<Image key='3' style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeRecreationIcon} />)
+                  }
+                  case 4: {
+                    return (<Image key='4' style={SiteCardStyles.siteTypeIcon} resizeMode="contain" source={siteTypeHistoryIcon} />)
+                  }
+                  default: {
+                    return null
+                  }
+                }
+              })
+            }
           </View>
-          <SiteCardInfo />
+          <SiteCardInfo item={item} locale={locale} />
         </TouchableOpacity>
       </View>
     </View>

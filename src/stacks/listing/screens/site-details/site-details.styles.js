@@ -8,7 +8,7 @@ const SiteDetailsStyles = StyleSheet.create({
     borderBottomColor: COLORS.accent,
     borderBottomWidth: 4,
     position: 'relative',
-    marginBottom: 25
+    marginBottom: 24
   },
   siteImg: {
     width: '100%',

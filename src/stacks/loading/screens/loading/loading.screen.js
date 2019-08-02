@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { ImageBackground, ActivityIndicator } from 'react-native';
 import { Helpers } from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
+import { filterListing } from '../../../../store/actions/listing';
 
 const background = require('../../../../../assets/common/common-background.jpg');
 
@@ -15,10 +16,13 @@ class LoadingScreen extends React.Component {
     const {
       navigation,
       locale,
+      filters,
       hasUserSelectedLocale,
-      hasUserPassedOnboarding
+      hasUserPassedOnboarding,
+      filterListingDispatch
     } = this.props;
 
+    filterListingDispatch(filters);
     setTimeout(() => {
       if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
         navigation.navigate('Welcome');
@@ -47,15 +51,16 @@ LoadingScreen.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
+    filters: state.filtersStore,
     hasUserSelectedLocale: state.coreStore.hasUserSelectedLocale,
     hasUserPassedOnboarding: state.coreStore.hasUserPassedOnboarding,
     locale: state.localeStore.locale
   };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = dispatch => {
   return {
-
+    filterListingDispatch: value => dispatch(filterListing(value))
   };
 };
 

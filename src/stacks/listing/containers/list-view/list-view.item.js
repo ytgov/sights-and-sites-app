@@ -6,7 +6,7 @@ import ListViewStyles from './list-view.styles';
 
 class ListViewItem extends React.PureComponent {
   render() {
-    const { item, navigation } = this.props;
+    const { item, locale, navigation } = this.props;
     const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
     const { uri } = item;
 
@@ -15,7 +15,7 @@ class ListViewItem extends React.PureComponent {
         <View style={ListViewStyles.listItemImgBox}>
           <Image {...{ preview, uri }} resizeMode='cover' style={ListViewStyles.listItemImg} />
         </View>
-        <SiteCard item={item} navigation={navigation} />
+        <SiteCard item={item} locale={locale} navigation={navigation} />
       </View>
     );
   }

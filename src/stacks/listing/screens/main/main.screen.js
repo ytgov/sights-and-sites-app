@@ -19,7 +19,7 @@ class MainScreen extends React.Component {
   }
 
   render() {
-    const { navigation, toggleListingViewDispatch, selectedListingView } = this.props;
+    const { navigation, locale, listingFiltered, toggleListingViewDispatch, selectedListingView } = this.props;
     return (
       <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
@@ -39,7 +39,7 @@ class MainScreen extends React.Component {
 
         <Content>
           {
-            (selectedListingView === 'MAP') ? <MapViewContainer navigation={navigation} /> : <ListViewContainer navigation={navigation} />
+            (selectedListingView === 'MAP') ? <MapViewContainer data={listingFiltered} navigation={navigation} /> : <ListViewContainer data={listingFiltered} locale={locale} navigation={navigation} />
           }
         </Content>
 
@@ -53,6 +53,7 @@ class MainScreen extends React.Component {
 
 // Need this props to pass to FooterTabs and SitesTypeFilter components
 MainScreen.propTypes = {
+  locale: PropTypes.string.isRequired,
   nearMeFilter: PropTypes.bool.isRequired,
   mySitesFilter: PropTypes.bool.isRequired,
   sitesTypeFilterActive: PropTypes.bool.isRequired,
@@ -61,18 +62,26 @@ MainScreen.propTypes = {
   regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
   toggleSitesTypeFilterDispatch: PropTypes.func.isRequired,
   toggleListingViewDispatch: PropTypes.func.isRequired,
-  selectedListingView: PropTypes.string.isRequired
+  selectedListingView: PropTypes.string.isRequired,
+  // TODO update object to  site type once backend is there
+  listingFiltered: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object]))
+}
+
+MainScreen.defaultProps = {
+  listingFiltered: []
 }
 
 const mapStateToProps = (state) => {
   return {
+    locale: state.localeStore.locale,
     nearMeFilter: state.filtersStore.nearMeFilter,
     mySitesFilter: state.filtersStore.mySitesFilter,
     highwaysFilter: state.filtersStore.highwaysFilter,
     regionsFilter: state.filtersStore.regionsFilter,
     sitesTypeFilter: state.filtersStore.sitesTypeFilter,
     sitesTypeFilterActive: state.filtersStore.sitesTypeFilterActive,
-    selectedListingView: state.listingStore.selectedListingView
+    selectedListingView: state.listingStore.selectedListingView,
+    listingFiltered: state.listingStore.listingFiltered
   };
 };
 

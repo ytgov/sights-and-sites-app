@@ -3,7 +3,7 @@ import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import { Container, Header, Content, Footer, FooterTab, Button } from 'native-base';
+import { Root, Container, Header, Content, Footer, FooterTab, Button } from 'native-base';
 import i18n from '../../../../locale/locale';
 import { Helpers, COMMON, Caption, H2, Subtitle1 } from '../../../../theme/theme';
 import MoreStyles from './more.styles';
@@ -25,47 +25,49 @@ class MoreScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Container>
-        <ImageBackground source={moreBakcground} style={{ width: '100%', height: '100%' }}>
-          <Header style={COMMON.header} iosBarStyle="light-content">
-            <NavigationBackButton navigation={navigation} />
-          </Header>
+      <Root>
+        <Container>
+          <ImageBackground source={moreBakcground} style={{ width: '100%', height: '100%' }}>
+            <Header style={COMMON.header} iosBarStyle="light-content">
+              <NavigationBackButton navigation={navigation} />
+            </Header>
 
-          <Content>
-            <View style={[Helpers.flexCenter]}>
-              <H2>More</H2>
-              <TouchableOpacity onPress={() => { navigation.navigate('CurrentConditions') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                <View style={{ position: 'relative' }}>
-                  <Image source={currentConditionsIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
-                </View>
-                <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>Current Conditions</Subtitle1>
-              </TouchableOpacity>
+            <Content>
+              <View style={[Helpers.flexCenter]}>
+                <H2>More</H2>
+                <TouchableOpacity onPress={() => { navigation.navigate('CurrentConditions') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <View style={{ position: 'relative' }}>
+                    <Image source={currentConditionsIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
+                  </View>
+                  <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>Current Conditions</Subtitle1>
+                </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => { navigation.navigate('TraditionalTerritories') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                <View style={{ position: 'relative' }}>
-                  <Image source={traditionalTerritoriesIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
-                </View>
+                <TouchableOpacity onPress={() => { navigation.navigate('TraditionalTerritories') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <View style={{ position: 'relative' }}>
+                    <Image source={traditionalTerritoriesIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
+                  </View>
 
-                <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>About Traditional Territories</Subtitle1>
-              </TouchableOpacity>
+                  <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>About Traditional Territories</Subtitle1>
+                </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => { navigation.navigate('TravelTrips') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                <View style={{ position: 'relative' }}>
-                  <Image source={travelTripsIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
-                </View>
-                <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>Wilderness Travel Trips</Subtitle1>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={() => { navigation.navigate('TravelTrips') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <View style={{ position: 'relative' }}>
+                    <Image source={travelTripsIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
+                  </View>
+                  <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>Wilderness Travel Trips</Subtitle1>
+                </TouchableOpacity>
 
-              <TouchableOpacity onPress={() => { navigation.navigate('AppInformation') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                <View style={{ position: 'relative' }}>
-                  <Image source={appInformationIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
-                </View>
-                <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>App Information</Subtitle1>
-              </TouchableOpacity>
-            </View >
-          </Content >
-        </ImageBackground>
-      </Container>
+                <TouchableOpacity onPress={() => { navigation.navigate('AppInformation') }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                  <View style={{ position: 'relative' }}>
+                    <Image source={appInformationIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
+                  </View>
+                  <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>App Information</Subtitle1>
+                </TouchableOpacity>
+              </View >
+            </Content >
+          </ImageBackground>
+        </Container>
+      </Root>
     );
   }
 }

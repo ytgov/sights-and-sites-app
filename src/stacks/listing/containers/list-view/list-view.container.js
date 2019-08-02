@@ -3,45 +3,68 @@ import { FlatList, View, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ListViewStyles from './list-view.styles';
 import ListViewItem from './list-view.item';
-import { Helpers, Body2 } from '../../../../theme/theme';
+import { Helpers, H2, Body2 } from '../../../../theme/theme';
 import NearbySites from '../../components/nearby-sites/nearby-sites.component';
+import { COLORS } from '../../../../theme/config';
+import { APP_CONFIG } from '../../../../config';
 
 class ListViewContainer extends React.Component {
   state = {
-    data: [
-      {
-        id: 1,
-        uri: 'https://www.mountainphotography.com/images/xl/20160904-Twin-Lakes.jpg'
-      },
-      {
-        id: 2,
-        uri: 'https://www.mountainphotography.com/images/xl/20160831-Talus-Lake-Tent.jpg'
-      },
-      {
-        id: 3,
-        uri: 'https://s23835.pcdn.co/wp-content/uploads/2015/09/Canada-Yukon-Kluane-House-2.jpg'
-      },
-    ]
+    currentPage: 1,
+    dataToRender: []
+  }
+
+  componentDidMount() {
+    this.loadItems();
+  }
+
+  loadItems() {
+    const { data } = this.props;
+    this.setState({
+      dataToRender: data.slice(0, this.state.currentPage * APP_CONFIG.listing.itemsToShow)
+    })
+  }
+
+  loadMoreItems() {
+    const { data } = this.props;
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    }, () => this.loadItems())
   }
 
   render() {
-    const { data } = this.state;
-    const { navigation } = this.props;
+    const { dataToRender } = this.state;
+    const { data, locale, navigation } = this.props;
     return (
       <View>
-        <FlatList
-          style={ListViewStyles.listBox}
-          data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <ListViewItem item={item} navigation={navigation} />}
-        />
-        <NearbySites navigation={navigation} />
-        <View style={ListViewStyles.moreSitesBox}>
-          <TouchableOpacity onPress={() => { alert('Load more sites') }}>
-            <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
-          </TouchableOpacity>
-          <Body2 style={Helpers.textAlignCenter}>More sites</Body2>
-        </View>
+        {
+          data.length ? (
+            <View>
+              <FlatList
+                style={ListViewStyles.listBox}
+                data={data}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
+              />
+              <View style={ListViewStyles.moreSitesBox}>
+                <TouchableOpacity onPress={() => { alert('Load more') }}>
+                  <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
+                </TouchableOpacity>
+                <Body2 style={Helpers.textAlignCenter}>More sites</Body2>
+              </View>
+            </View>
+          ) : (
+              <View style={{ paddingTop: 40, paddingLeft: 20, paddingRight: 20 }}>
+                <View style={{
+                  backgroundColor: '#fff', padding: 20, borderTopColor: COLORS.accent,
+                  borderTopWidth: 4,
+                }}>
+                  <H2 black style={Helpers.textAlignCenter}>No sites found</H2>
+                </View>
+              </View>
+            )
+        }
+
       </View>
     )
   }

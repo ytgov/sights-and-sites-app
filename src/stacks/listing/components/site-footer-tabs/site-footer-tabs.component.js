@@ -11,7 +11,7 @@ const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
 const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png');
 
 const SiteFooterTabs = props => {
-  const { navigation } = props;
+  const { navigation, setMySitesFiltersDispatch } = props;
   onShare = async () => {
     try {
       const result = await Share.share({
@@ -47,7 +47,10 @@ const SiteFooterTabs = props => {
           </View>
           <Caption style={{ color: '#FFFFFF' }}>{i18n.t('siteTabs.share')}</Caption>
         </Button>
-        <Button badge vertical>
+        <Button badge vertical onPress={() => {
+          setMySitesFiltersDispatch(true);
+          navigation.navigate('Map');
+        }}>
           <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={mySitesIcon} />
           <Caption style={{ color: '#FFFFFF' }}>{i18n.t('siteTabs.mySites')}</Caption>
         </Button>

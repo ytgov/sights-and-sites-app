@@ -1,4 +1,4 @@
-import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS, SET_SITES_TYPE_FILTER, SET_SITES_TYPE_FILTER_VISIBILITY } from '../types';
+import { RESET_FILTERS, SET_HIGHWAY_FILTERS, SET_REGION_FILTERS, SET_NEAR_ME_FILTERS, SET_MY_SITES_FILTERS, SET_SITES_TYPE_FILTER, SET_SITES_TYPE_FILTER_VISIBILITY, TOGGLE_MY_SITES_STATE } from '../types';
 
 const initialState = {
   highwaysFilter: [],
@@ -6,7 +6,8 @@ const initialState = {
   sitesTypeFilter: [],
   nearMeFilter: false,
   mySitesFilter: false,
-  sitesTypeFilterActive: false
+  sitesTypeFilterActive: false,
+  mySites: []
 }
 
 export default function filtersReducer(state = initialState, action) {
@@ -67,9 +68,19 @@ export default function filtersReducer(state = initialState, action) {
         sitesTypeFilter: sitesTypeFilterCopy
       }
     }
+    case TOGGLE_MY_SITES_STATE: {
+      const id = action.payload;
+      const mySites = [...state.mySites];
+      return {
+        ...state,
+        mySites: mySites.includes(id) ? mySites.filter(item => item !== id) : [...mySites, id]
+      }
+    }
     case RESET_FILTERS: {
       return {
-        ...initialState
+        ...initialState,
+        sitesTypeFilter: state.sitesTypeFilter,
+        mySites: state.mySites,
       }
     }
     default:
