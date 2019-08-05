@@ -7,11 +7,11 @@ const MainScreenStyles = StyleSheet.create({
   },
   switchBtnBoxLeft: {
     borderRightWidth: 2,
-    borderRightColor: '#ffffff'
+    borderRightColor: '#000'
   },
   switchBtnBoxRight: {
     borderLeftWidth: 2,
-    borderLeftColor: '#ffffff'
+    borderLeftColor: '#000'
   },
   switchBtn: {
     width: '100%',

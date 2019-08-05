@@ -16,11 +16,11 @@ class Feedback extends React.Component {
 
   onFeedbackAction(title) {
     const buttons = [phone, email, 'Cancel'];
-    const cancel_index = 2;
+    const cancelIndex = 2;
     ActionSheet.show(
       {
         options: buttons,
-        cancelButtonIndex: cancel_index,
+        cancelButtonIndex: cancelIndex,
         title
       },
       buttonIndex => {

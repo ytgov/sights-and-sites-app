@@ -1,8 +1,14 @@
-import { TOGGLE_LISTING_VIEW, FILTER_LISTING } from '../types';
+import { TOGGLE_LISTING_VIEW, FILTER_LISTING, INCREMENT_LISTING_PAGE } from '../types';
+import { APP_CONFIG } from '../../config';
+
+const { itemsToShow } = APP_CONFIG.listing;
 
 const initialState = {
   filteringInProgress: false,
   selectedListingView: 'MAP',
+  listingItemsCount: 0,
+  currentListingPage: 1,
+  listingPagesLimit: 1,
   listingRaw: [
     {
       id: 1,
@@ -78,8 +84,6 @@ const initialState = {
 }
 
 function filterListing(filters, listingRaw) {
-  console.log('filters');
-  console.log(filters);
   const { highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter } = filters;
   let result = listingRaw;
 
@@ -113,11 +117,18 @@ export default function coreReducer(state = initialState, action) {
     }
     case FILTER_LISTING: {
       const listingFiltered = filterListing(action.payload, [...state.listingRaw]);
-      console.log('SITES FILTERED');
-      console.log(listingFiltered);
       return {
         ...state,
-        listingFiltered
+        listingFiltered,
+        listingItemsCount: listingFiltered.length,
+        listingPagesLimit: Math.ceil(listingFiltered.length / itemsToShow),
+        currentListingPage: 1
+      }
+    }
+    case INCREMENT_LISTING_PAGE: {
+      return {
+        ...state,
+        currentListingPage: state.currentListingPage + 1
       }
     }
     default:

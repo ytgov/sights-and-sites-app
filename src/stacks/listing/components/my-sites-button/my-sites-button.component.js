@@ -6,13 +6,14 @@ const mySitesNotActiveIcon = require('../../../../../assets/stacks/listing/my-si
 const mySitesActiveIcon = require('../../../../../assets/stacks/listing/my-sites-active-icon.png');
 
 const MySitesButton = props => {
-  const { id, isSiteInMySites, toggleMySitesStateDispatch, showAddToMySitesNotification } = props;
+  const { id, isSiteInMySites, toggleMySitesStateDispatch, showAddToMySitesNotification, filterListingDispatch } = props;
   return (
     <TouchableOpacity onPress={() => {
       if (!isSiteInMySites) {
         showAddToMySitesNotification();
       }
-      toggleMySitesStateDispatch(id)
+      toggleMySitesStateDispatch(id);
+      filterListingDispatch();
     }
     }
       style={MySitesButtonStyles.mySitesButton}

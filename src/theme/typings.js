@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components/native';
 import { TYPINGS, COLORS } from './config';
 

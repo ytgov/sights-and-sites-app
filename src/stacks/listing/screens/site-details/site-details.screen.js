@@ -14,6 +14,7 @@ import MySitesButton from '../../components/my-sites-button/my-sites-button.comp
 import SiteAmenties from '../../components/site-amenties/site-amenties.component';
 import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
 import SiteWarning from '../../components/site-warning/site-warning.component';
+import { filterListing } from '../../../../store/actions/listing';
 import { toggleMySitesState, setMySitesFilters } from '../../../../store/actions/filters';
 import AddToMySitesNotification from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 
@@ -84,7 +85,7 @@ class SiteDetails extends React.Component {
 
   render() {
     const { addToMySitesNotificationVisible } = this.state;
-    const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch } = this.props;
+    const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch } = this.props;
     const item = navigation.getParam('item');
 
     const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
@@ -101,7 +102,7 @@ class SiteDetails extends React.Component {
             <View style={[SiteDetailsStyles.siteImgBox]}>
               <Image {...{ preview, uri }} resizeMode='cover' style={SiteDetailsStyles.siteImg} />
             </View>
-            <MySitesButton id={id} isSiteInMySites={isSiteInMySites} toggleMySitesStateDispatch={toggleMySitesStateDispatch} showAddToMySitesNotification={() => this.showAddToMySitesNotification()} />
+            <MySitesButton id={id} isSiteInMySites={isSiteInMySites} toggleMySitesStateDispatch={toggleMySitesStateDispatch} showAddToMySitesNotification={() => this.showAddToMySitesNotification()} filterListingDispatch={filterListingDispatch} />
           </View>
           <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
             <SiteCardInfo item={item} locale={locale} />
@@ -137,7 +138,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     toggleMySitesStateDispatch: value => dispatch(toggleMySitesState(value)),
-    setMySitesFiltersDispatch: value => dispatch(setMySitesFilters(value))
+    setMySitesFiltersDispatch: value => dispatch(setMySitesFilters(value)),
+    filterListingDispatch: () => dispatch(filterListing())
   };
 };
 

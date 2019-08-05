@@ -15,43 +15,46 @@ class ListViewContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.loadItems();
+    // this.loadItems();
   }
 
-  loadItems() {
-    const { data } = this.props;
-    this.setState({
-      dataToRender: data.slice(0, this.state.currentPage * APP_CONFIG.listing.itemsToShow)
-    })
+  loadItems(data) {
+    // const { currentListingPage } = this.props;
+    // return data.slice(0, currentListingPage * APP_CONFIG.listing.itemsToShow)
   }
 
-  loadMoreItems() {
-    const { data } = this.props;
-    this.setState({
-      currentPage: this.state.currentPage + 1
-    }, () => this.loadItems())
+  loadMore() {
+    const { incrementListingPageDispatch } = this.props;
+    incrementListingPageDispatch();
+    // const { data } = this.props;
+    // this.setState({
+    // currentPage: this.state.currentPage + 1
+    // }, () => this.loadItems())
   }
 
   render() {
-    const { dataToRender } = this.state;
-    const { data, locale, navigation } = this.props;
+    // const { dataToRender } = this.state;
+    const { data, locale, navigation, listingItemsCount, currentListingPage, listingPagesLimit, incrementListingPageDispatch } = this.props;
+    const dataToRender = data.slice(0, currentListingPage * APP_CONFIG.listing.itemsToShow);
     return (
       <View>
         {
-          data.length ? (
+          dataToRender.length ? (
             <View>
               <FlatList
                 style={ListViewStyles.listBox}
-                data={data}
+                data={dataToRender}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
               />
-              <View style={ListViewStyles.moreSitesBox}>
-                <TouchableOpacity onPress={() => { alert('Load more') }}>
-                  <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
-                </TouchableOpacity>
-                <Body2 style={Helpers.textAlignCenter}>More sites</Body2>
-              </View>
+              {(currentListingPage < listingPagesLimit) &&
+                <View style={ListViewStyles.moreSitesBox}>
+                  <TouchableOpacity onPress={() => { this.loadMore() }}>
+                    <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
+                  </TouchableOpacity>
+                  <Body2 style={Helpers.textAlignCenter}>More sites</Body2>
+                </View>
+              }
             </View>
           ) : (
               <View style={{ paddingTop: 40, paddingLeft: 20, paddingRight: 20 }}>

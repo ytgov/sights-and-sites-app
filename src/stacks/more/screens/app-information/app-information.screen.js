@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Linking, Fragment, SafeAreaView } from 'react-native';
-import { Root, Container, Header, Content, Accordion, Footer, FooterTab, Button } from 'native-base';
+import { View, Image, SafeAreaView } from 'react-native';
+import { Root, Container, Header, Content } from 'native-base';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
-import { Helpers, COMMON, Caption, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, COMMON, H2, Body1 } from '../../../../theme/theme';
 import AppInformationStyles from './app-information.styles';
 import Feedback from '../../components/feedback/feedback.component';
 import AccordionCustom from '../../components/accordion/accordion.component';

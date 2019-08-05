@@ -34,8 +34,8 @@ const ListViewStyles = StyleSheet.create({
     height: '100%'
   },
   moreSitesBox: {
-    paddingTop: 20,
-    paddingBottom: 40
+    paddingTop: 0,
+    paddingBottom: 20
   }
 });
 

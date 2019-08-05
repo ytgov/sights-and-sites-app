@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Linking, Fragment, SafeAreaView } from 'react-native';
-import { Root, Container, Header, Content, Footer, FooterTab, Button } from 'native-base';
+import { View, Image, TouchableOpacity, Linking, SafeAreaView } from 'react-native';
+import { Root, Container, Header, Content } from 'native-base';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
-import { Helpers, COMMON, Caption, H2, H3, Body1, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, COMMON, H2, H3, Body1 } from '../../../../theme/theme';
 import CurrentConditionStyles from './current-conditions.styles';
 import Feedback from '../../components/feedback/feedback.component';
 
 const currentConditionsIcon = require('../../../../../assets/stacks/more/current-conditions-icon.png');
 
 class CurrentConditionsScreen extends React.Component {
-  state = {
-
-  }
-
   openLink(url) {
     Linking.openURL(url)
+  }
+
+  state = {
+
   }
 
   render() {

@@ -8,7 +8,7 @@ import { Body1, COMMON, Helpers } from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
 import { toggleSitesTypeFilter, setSitesTypeFilters } from '../../../../store/actions/filters';
-import { toggleListingView } from '../../../../store/actions/listing';
+import { toggleListingView, incrementListingPage } from '../../../../store/actions/listing';
 import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
 import ListViewContainer from '../../containers/list-view/list-view.container';
@@ -19,7 +19,7 @@ class MainScreen extends React.Component {
   }
 
   render() {
-    const { navigation, locale, listingFiltered, toggleListingViewDispatch, selectedListingView } = this.props;
+    const { navigation, locale, listingFiltered, toggleListingViewDispatch, incrementListingPageDispatch, selectedListingView, currentListingPage, listingPagesLimit, listingItemsCount } = this.props;
     return (
       <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
@@ -39,7 +39,14 @@ class MainScreen extends React.Component {
 
         <Content>
           {
-            (selectedListingView === 'MAP') ? <MapViewContainer data={listingFiltered} navigation={navigation} /> : <ListViewContainer data={listingFiltered} locale={locale} navigation={navigation} />
+            (selectedListingView === 'MAP') ? <MapViewContainer data={listingFiltered} navigation={navigation} /> : <ListViewContainer
+              data={listingFiltered}
+              currentListingPage={currentListingPage}
+              incrementListingPageDispatch={incrementListingPageDispatch}
+              listingPagesLimit={listingPagesLimit}
+              listingItemsCount={listingItemsCount}
+              locale={locale}
+              navigation={navigation} />
           }
         </Content>
 
@@ -81,7 +88,10 @@ const mapStateToProps = (state) => {
     sitesTypeFilter: state.filtersStore.sitesTypeFilter,
     sitesTypeFilterActive: state.filtersStore.sitesTypeFilterActive,
     selectedListingView: state.listingStore.selectedListingView,
-    listingFiltered: state.listingStore.listingFiltered
+    listingFiltered: state.listingStore.listingFiltered,
+    currentListingPage: state.listingStore.currentListingPage,
+    listingItemsCount: state.listingStore.listingItemsCount,
+    listingPagesLimit: state.listingStore.listingPagesLimit
   };
 };
 
@@ -89,7 +99,8 @@ const mapDispatchToProps = dispatch => {
   return {
     setSitesTypeFiltersDispatch: value => dispatch(setSitesTypeFilters(value)),
     toggleSitesTypeFilterDispatch: value => dispatch(toggleSitesTypeFilter(value)),
-    toggleListingViewDispatch: value => dispatch(toggleListingView(value))
+    toggleListingViewDispatch: value => dispatch(toggleListingView(value)),
+    incrementListingPageDispatch: () => dispatch(incrementListingPage())
   };
 };
 

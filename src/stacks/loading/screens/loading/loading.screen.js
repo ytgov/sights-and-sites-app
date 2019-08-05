@@ -16,13 +16,12 @@ class LoadingScreen extends React.Component {
     const {
       navigation,
       locale,
-      filters,
       hasUserSelectedLocale,
       hasUserPassedOnboarding,
       filterListingDispatch
     } = this.props;
 
-    filterListingDispatch(filters);
+    filterListingDispatch();
     setTimeout(() => {
       if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
         navigation.navigate('Welcome');
@@ -51,7 +50,6 @@ LoadingScreen.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    filters: state.filtersStore,
     hasUserSelectedLocale: state.coreStore.hasUserSelectedLocale,
     hasUserPassedOnboarding: state.coreStore.hasUserPassedOnboarding,
     locale: state.localeStore.locale

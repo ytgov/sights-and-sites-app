@@ -5,7 +5,7 @@ import Carousel from 'react-native-snap-carousel';
 import { Subtitle1 } from '../../../../theme/theme';
 
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const sliderArrowLeft = require('../../../../../assets/stacks/listing/amenties/arrow-left-icon.png');
 const sliderArrowRight = require('../../../../../assets/stacks/listing/amenties/arrow-right-icon.png')
 

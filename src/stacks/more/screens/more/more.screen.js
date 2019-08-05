@@ -1,14 +1,8 @@
 import React from 'react';
 import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
-import { Ionicons } from '@expo/vector-icons';
-import PropTypes from 'prop-types';
-import { Root, Container, Header, Content, Footer, FooterTab, Button } from 'native-base';
-import i18n from '../../../../locale/locale';
-import { Helpers, COMMON, Caption, H2, Subtitle1 } from '../../../../theme/theme';
+import { Root, Container, Header, Content } from 'native-base';
+import { Helpers, COMMON, H2, Subtitle1 } from '../../../../theme/theme';
 import MoreStyles from './more.styles';
-import NotifyService from '../../../../shared/services/notify/notify';
-import { resetFilters, setNearMeFilters, setMySitesFilters } from '../../../../store/actions/filters';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
 const moreBakcground = require('../../../../../assets/common/common-background.jpg');
