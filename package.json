@@ -17,7 +17,7 @@
     "expo-permissions": "^5.0.1",
     "i18n-js": "^3.3.0",
     "i18next": "^17.0.6",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "native-base": "^2.12.1",
     "prop-types": "^15.7.2",
     "react": "16.8.3",

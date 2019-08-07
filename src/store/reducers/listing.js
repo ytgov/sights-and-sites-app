@@ -16,8 +16,16 @@ const initialState = {
       highway: 1,
       region: 1,
       siteTypes: [1, 2],
+      indexes: {
+        en: {
+          title: 'fivefingerrapidsen'
+        },
+        fr: {
+          title: 'fivefingerrapidsfr'
+        }
+      },
       en: {
-        title: 'Five Finger Rapids EN',
+        title: 'Five Finger Rapids',
         descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,
@@ -25,7 +33,7 @@ const initialState = {
         }
       },
       fr: {
-        title: 'Five Finger Rapids FR',
+        title: 'Five Finger Rapids',
         descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,
@@ -38,9 +46,17 @@ const initialState = {
       uri: 'https://www.mountainphotography.com/images/xl/20160831-Talus-Lake-Tent.jpg',
       highway: 2,
       region: 2,
-      siteTypes: [],
+      siteTypes: [1],
+      indexes: {
+        en: {
+          title: 'carmacks'
+        },
+        fr: {
+          title: 'carmacks'
+        }
+      },
       en: {
-        title: 'Five Finger Rapids EN',
+        title: 'Carmacks',
         descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 2,
@@ -62,8 +78,16 @@ const initialState = {
       highway: 2,
       region: 2,
       siteTypes: [1, 2, 3, 4],
+      indexes: {
+        en: {
+          title: 'devilselbow'
+        },
+        fr: {
+          title: 'devilselbow'
+        }
+      },
       en: {
-        title: 'Five Finger Rapids EN',
+        title: 'Devil`s Elbow',
         descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,
@@ -71,7 +95,7 @@ const initialState = {
         }
       },
       fr: {
-        title: 'Five Finger Rapids FR',
+        title: 'Devil`s Elbow',
         descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,

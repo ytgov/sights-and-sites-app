@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation';
 import ListingStack from '../listing/listing.stack';
 import WhereToStack from '../where-to/where-to.stack';
 import MoreStack from '../more/more.stack';
+import SearchStack from '../search/search.stack';
 
 const MainStack = createStackNavigator({
   Listing: {
@@ -18,6 +19,12 @@ const MainStack = createStackNavigator({
   },
   More: {
     screen: MoreStack,
+    navigationOptions: () => ({
+      header: null
+    })
+  },
+  Search: {
+    screen: SearchStack,
     navigationOptions: () => ({
       header: null
     })

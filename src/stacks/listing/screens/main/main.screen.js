@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Header, Content } from 'native-base';
 import PropTypes from 'prop-types';
@@ -13,6 +13,8 @@ import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
 import ListViewContainer from '../../containers/list-view/list-view.container';
 
+const searchIcon = require('../../../../../assets/common/search-icon.png');
+
 class MainScreen extends React.Component {
   state = {
 
@@ -22,7 +24,11 @@ class MainScreen extends React.Component {
     const { navigation, locale, listingFiltered, toggleListingViewDispatch, incrementListingPageDispatch, selectedListingView, currentListingPage, listingPagesLimit, listingItemsCount } = this.props;
     return (
       <Container style={{ backgroundColor: '#000' }}>
-        <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content" />
+        <Header style={[COMMON.header, COMMON.headerBlack, { justifyContent: 'flex-end' }]} iosBarStyle="light-content">
+          <TouchableOpacity onPress={() => { navigation.navigate('Search') }}>
+            <Image source={searchIcon} style={MainScreenStyles.searchIcon} />
+          </TouchableOpacity>
+        </Header>
 
         <View style={Helpers.flexDirectionRow}>
           <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxLeft]}>

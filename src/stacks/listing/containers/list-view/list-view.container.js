@@ -7,6 +7,7 @@ import { Helpers, H2, Body2 } from '../../../../theme/theme';
 import NearbySites from '../../components/nearby-sites/nearby-sites.component';
 import { COLORS } from '../../../../theme/config';
 import { APP_CONFIG } from '../../../../config';
+import NoItems from '../../../../shared/components/no-items/no-items.component';
 
 class ListViewContainer extends React.Component {
   state = {
@@ -56,16 +57,8 @@ class ListViewContainer extends React.Component {
                 </View>
               }
             </View>
-          ) : (
-              <View style={{ paddingTop: 40, paddingLeft: 20, paddingRight: 20 }}>
-                <View style={{
-                  backgroundColor: '#fff', padding: 20, borderTopColor: COLORS.accent,
-                  borderTopWidth: 4,
-                }}>
-                  <H2 black style={Helpers.textAlignCenter}>No sites found</H2>
-                </View>
-              </View>
-            )
+          ) :
+            <NoItems value='No sites found' />
         }
 
       </View>

@@ -27,6 +27,10 @@ const MainScreenStyles = StyleSheet.create({
     width: '100%',
     lineHeight: 36,
     color: '#FFFFFF'
+  },
+  searchIcon: {
+    width: 18,
+    height: 18
   }
 })
 

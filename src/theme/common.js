@@ -22,6 +22,9 @@ const COMMON = StyleSheet.create({
   headerBlack: {
     backgroundColor: '#000000'
   },
+  headerWhite: {
+    backgroundColor: '#ffffff'
+  },
   footer: {
     borderTopWidth: 0,
     paddingBottom: 0,
