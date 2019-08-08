@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { Ionicons } from '@expo/vector-icons';
 import { COMMON, Helpers } from '../../../../theme/theme';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
-import { searchSites, setSearchInProgress } from '../../../../store/actions/search';
+import { searchSites, setSearchInProgress, resetSearchQuery } from '../../../../store/actions/search';
 import { formatSearchIndex } from '../../../../shared/services/search';
 import ListViewItem from '../../../listing/containers/list-view/list-view.item';
 import { APP_CONFIG } from '../../../../config';
@@ -16,30 +16,32 @@ import NoItems from '../../../../shared/components/no-items/no-items.component';
 
 class SearchScreen extends React.Component {
   state = {
-    query: null
   }
 
   onSearchDebounced = _.debounce(this.onSearch, APP_CONFIG.search.debounceDelay);
 
+  componentWillUnmount() {
+    const { resetSearchQueryDispatch } = this.props;
+    resetSearchQueryDispatch();
+  }
 
   onSearch(query) {
-    // this.setState({ query });
-
-    const { setSearchInProgressDispatch, searchSitesDispatch } = this.props;
+    const { setSearchInProgressDispatch, searchSitesDispatch, resetSearchQueryDispatch } = this.props;
     const queryFormatted = formatSearchIndex(query);
-    if (!queryFormatted) return false;
+    if (!queryFormatted) {
+      return false
+    };
     setSearchInProgressDispatch(true);
     setTimeout(() => {
       searchSitesDispatch({
         query,
         queryFormatted
       });
-    }, 1000)
+    }, 150)
   }
 
   render() {
-    const { query } = this.state;
-    const { navigation, searchInProgress, listingRaw, locale, searchMatched, searchSitesDispatch, recentQueries } = this.props;
+    const { navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, searchSitesDispatch, recentQueries, resetSearchQueryDispatch } = this.props;
     const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]);
 
     return (
@@ -48,18 +50,18 @@ class SearchScreen extends React.Component {
           <NavigationBackButton dark navigation={navigation} />
           <View style={SearchStyles.searchBox}>
             <TextInput
+              editable={! searchInProgress}
               autoFocus
               placeholder='Search'
               placeholderTextColor='#000'
               style={SearchStyles.searchInput}
-              value={query}
+              defaultValue={searchQuery}
               onChangeText={query => {
-                this.setState({ query });
-                this.onSearchDebounced(query)
+                if (!formatSearchIndex(query)) { resetSearchQueryDispatch() } else { this.onSearchDebounced(query) }
               }} />
             {
-              !!formatSearchIndex(query) && (
-                <TouchableOpacity style={SearchStyles.clearQueryButton} onPress={() => this.setState({ query: '' })}>
+              (!!searchQuery) && (
+                <TouchableOpacity style={SearchStyles.clearQueryButton} onPress={() => resetSearchQueryDispatch()}>
                   <Ionicons name="ios-close-circle" size={24} color="#929496" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
                 </TouchableOpacity>
               )
@@ -71,13 +73,12 @@ class SearchScreen extends React.Component {
             <ActivityIndicator style={{}} size="large" color="#ffffff" />
           </View>}
           {
-            (!formatSearchIndex(query)) && (
+            (!searchQuery) && (
               <View>
                 {recentQueries.length ?
                   <RecentQueries
                     data={recentQueries}
                     onSearch={value => {
-                      this.setState({ query: value });
                       this.onSearch(value)
                     }} /> :
                   <NoItems value='No recent queries' />
@@ -86,7 +87,7 @@ class SearchScreen extends React.Component {
             )
           }
           {
-            (!!formatSearchIndex(query) && !searchInProgress) && (
+            (!!searchQuery && !searchInProgress) && (
               <View>
                 {sites.length ?
                   <FlatList
@@ -109,6 +110,7 @@ class SearchScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     locale: state.localeStore.locale,
+    searchQuery: state.searchStore.searchQuery,
     searchInProgress: state.searchStore.searchInProgress,
     searchMatched: state.searchStore.searchMatched,
     recentQueries: state.searchStore.recentQueries,
@@ -119,7 +121,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     searchSitesDispatch: value => dispatch(searchSites(value)),
-    setSearchInProgressDispatch: value => dispatch(setSearchInProgress(value))
+    setSearchInProgressDispatch: value => dispatch(setSearchInProgress(value)),
+    resetSearchQueryDispatch: () => dispatch(resetSearchQuery())
+
   };
 };
 

@@ -1,9 +1,16 @@
-import { SEARCH_IN_PROGRESS, SEARCH_SITES } from '../types';
+import { SEARCH_IN_PROGRESS, SEARCH_SITES, RESET_SEARCH_QUERY } from '../types';
 
 export function setSearchInProgress(value) {
   return {
     type: SEARCH_IN_PROGRESS,
     payload: value
+  }
+}
+
+export function resetSearchQuery() {
+  return {
+    type: RESET_SEARCH_QUERY,
+    payload: ''
   }
 }
 
