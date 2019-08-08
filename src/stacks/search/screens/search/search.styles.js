@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 const SearchStyles = StyleSheet.create({
+  content: {
+    marginBottom: 30
+  },
   searchBox: {
     position: 'relative',
     width: '100%',
@@ -16,10 +19,7 @@ const SearchStyles = StyleSheet.create({
   },
   clearQueryButton: {
     marginLeft: 11,
-    marginRight: 11,
-    // position: 'absolute',
-    // top: 0,
-    // right: 10
+    marginRight: 11
   }
 });
 

@@ -1,15 +1,14 @@
-import { SEARCH_SITES, SEARCH_IN_PROGRESS, RESET_SEARCH_QUERY } from '../types';
+import { SEARCH_SITES, SEARCH_IN_PROGRESS, RESET_SEARCH_QUERY, INCREMENT_SEARCH_PAGE } from '../types';
 import { APP_CONFIG } from '../../config';
 
-const { itemsToShow } = APP_CONFIG.listing;
-const { recentQueriesToShow } = APP_CONFIG.search;
+const { recentQueriesToShow, itemsToShow } = APP_CONFIG.search;
 
 const initialState = {
   searchQuery: '',
   searchInProgress: false,
-  listingItemsCount: 0,
-  currentListingPage: 1,
-  listingPagesLimit: 1,
+  searchItemsCount: 0,
+  currentSearchPage: 1,
+  searchPagesLimit: 1,
   recentQueries: [],
   searchMatched: []
 }
@@ -34,12 +33,22 @@ export default function searchReducer(state = initialState, action) {
       if (recentQueries.length > recentQueriesToShow) {
         recentQueries.shift();
       }
+      const searchMatched = listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id);
       return {
         ...state,
         recentQueries,
         searchQuery: query,
         searchInProgress: false,
-        searchMatched: listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id)
+        searchItemsCount: searchMatched.length,
+        searchPagesLimit: Math.ceil(searchMatched.length / itemsToShow),
+        currentSearchPage: 1,
+        searchMatched
+      }
+    }
+    case INCREMENT_SEARCH_PAGE: {
+      return {
+        ...state,
+        currentSearchPage: state.currentSearchPage + 1
       }
     }
     default:

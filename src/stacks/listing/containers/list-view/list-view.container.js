@@ -8,6 +8,7 @@ import NearbySites from '../../components/nearby-sites/nearby-sites.component';
 import { COLORS } from '../../../../theme/config';
 import { APP_CONFIG } from '../../../../config';
 import NoItems from '../../../../shared/components/no-items/no-items.component';
+import LoadMore from '../../../../shared/components/load-more/load-more.component';
 
 class ListViewContainer extends React.Component {
   state = {
@@ -48,14 +49,7 @@ class ListViewContainer extends React.Component {
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
               />
-              {(currentListingPage < listingPagesLimit) &&
-                <View style={ListViewStyles.moreSitesBox}>
-                  <TouchableOpacity onPress={() => { this.loadMore() }}>
-                    <Ionicons name="ios-arrow-down" size={32} color="#FFF" style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
-                  </TouchableOpacity>
-                  <Body2 style={Helpers.textAlignCenter}>More sites</Body2>
-                </View>
-              }
+              {(currentListingPage < listingPagesLimit) && <LoadMore callback={() => this.loadMore()} text='More sites' />}
             </View>
           ) :
             <NoItems value='No sites found' />

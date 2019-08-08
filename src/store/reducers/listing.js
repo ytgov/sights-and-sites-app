@@ -102,6 +102,37 @@ const initialState = {
           name: 'FR Klondike Highway, km 380'
         }
       }
+    },
+    {
+      id: 4,
+      uri: 'https://s23835.pcdn.co/wp-content/uploads/2015/09/Canada-Yukon-Kluane-House-2.jpg',
+      highway: 3,
+      region: 3,
+      siteTypes: [1, 4],
+      indexes: {
+        en: {
+          title: 'montagueroadhouse'
+        },
+        fr: {
+          title: 'montagueroadhouse'
+        }
+      },
+      en: {
+        title: 'Montague Road House',
+        descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        highway: {
+          number: 1,
+          name: 'EN Klondike Highway, km 380'
+        }
+      },
+      fr: {
+        title: 'Montague Road House',
+        descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        highway: {
+          number: 1,
+          name: 'FR Klondike Highway, km 380'
+        }
+      }
     }
   ],
   listingFiltered: []

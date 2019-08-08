@@ -1,4 +1,4 @@
-import { SEARCH_IN_PROGRESS, SEARCH_SITES, RESET_SEARCH_QUERY } from '../types';
+import { SEARCH_IN_PROGRESS, SEARCH_SITES, RESET_SEARCH_QUERY, INCREMENT_SEARCH_PAGE } from '../types';
 
 export function setSearchInProgress(value) {
   return {
@@ -13,6 +13,13 @@ export function resetSearchQuery() {
     payload: ''
   }
 }
+
+export function incrementSearchPage() {
+  return {
+    type: INCREMENT_SEARCH_PAGE
+  }
+}
+
 
 export const searchSites = value => (dispatch, getState) => {
   const state = getState();

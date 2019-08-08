@@ -6,13 +6,13 @@ import _ from 'lodash';
 import { Ionicons } from '@expo/vector-icons';
 import { COMMON, Helpers } from '../../../../theme/theme';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
-import { searchSites, setSearchInProgress, resetSearchQuery } from '../../../../store/actions/search';
+import { searchSites, setSearchInProgress, incrementSearchPage, resetSearchQuery } from '../../../../store/actions/search';
 import { formatSearchIndex } from '../../../../shared/services/search';
-import ListViewItem from '../../../listing/containers/list-view/list-view.item';
 import { APP_CONFIG } from '../../../../config';
 import SearchStyles from './search.styles';
 import RecentQueries from '../../components/recent-queries/recent-queries.component';
 import NoItems from '../../../../shared/components/no-items/no-items.component';
+import SearchMatches from '../../components/search-matches/search-matches.component';
 
 class SearchScreen extends React.Component {
   state = {
@@ -40,17 +40,25 @@ class SearchScreen extends React.Component {
     }, 150)
   }
 
-  render() {
-    const { navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, searchSitesDispatch, recentQueries, resetSearchQueryDispatch } = this.props;
-    const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]);
+  loadMore() {
+    const { incrementSearchPageDispatch } = this.props;
+    incrementSearchPageDispatch();
+  }
 
+  render() {
+    const { navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, currentSearchPage, searchSitesDispatch, recentQueries, searchPagesLimit, resetSearchQueryDispatch } = this.props;
+    const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);;
+    console.log('currentSearchPage');
+    console.log(currentSearchPage);
+    console.log('searchPagesLimit');
+    console.log(searchPagesLimit);
     return (
       <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerWhite]}>
           <NavigationBackButton dark navigation={navigation} />
           <View style={SearchStyles.searchBox}>
             <TextInput
-              editable={! searchInProgress}
+              editable={!searchInProgress}
               autoFocus
               placeholder='Search'
               placeholderTextColor='#000'
@@ -68,7 +76,7 @@ class SearchScreen extends React.Component {
             }
           </View>
         </Header>
-        <Content>
+        <Content style={SearchStyles.content}>
           {searchInProgress && <View style={{ paddingTop: 50, paddingBottom: 20, alignItems: 'center', justifyContent: 'center' }} >
             <ActivityIndicator style={{}} size="large" color="#ffffff" />
           </View>}
@@ -89,13 +97,7 @@ class SearchScreen extends React.Component {
           {
             (!!searchQuery && !searchInProgress) && (
               <View>
-                {sites.length ?
-                  <FlatList
-                    data={sites}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
-                  /> :
-                  <NoItems value='No matches found' />
+                {sites.length ? <SearchMatches data={sites} loadMore={() => this.loadMore()} currentSearchPage={currentSearchPage} searchPagesLimit={searchPagesLimit} locale={locale} navigation={navigation} /> : <NoItems value='No matches found' />
                 }
               </View>
             )
@@ -114,7 +116,9 @@ const mapStateToProps = (state) => {
     searchInProgress: state.searchStore.searchInProgress,
     searchMatched: state.searchStore.searchMatched,
     recentQueries: state.searchStore.recentQueries,
-    listingRaw: state.listingStore.listingRaw
+    listingRaw: state.listingStore.listingRaw,
+    currentSearchPage: state.searchStore.currentSearchPage,
+    searchPagesLimit: state.searchStore.searchPagesLimit
   };
 };
 
@@ -122,8 +126,8 @@ const mapDispatchToProps = dispatch => {
   return {
     searchSitesDispatch: value => dispatch(searchSites(value)),
     setSearchInProgressDispatch: value => dispatch(setSearchInProgress(value)),
-    resetSearchQueryDispatch: () => dispatch(resetSearchQuery())
-
+    resetSearchQueryDispatch: () => dispatch(resetSearchQuery()),
+    incrementSearchPageDispatch: () => dispatch(incrementSearchPage())
   };
 };
 
