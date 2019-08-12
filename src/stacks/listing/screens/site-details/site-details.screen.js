@@ -119,7 +119,7 @@ class SiteDetails extends React.Component {
         </Content>
 
         <View style={{ position: 'relative', height: 'auto' }}>
-          <SiteFooterTabs {...this.props} setMySitesFiltersDispatch={setMySitesFiltersDispatch} />
+          <SiteFooterTabs item={item} locale={locale}  {...this.props} setMySitesFiltersDispatch={setMySitesFiltersDispatch} />
           <AddToMySitesNotification visible={addToMySitesNotificationVisible} />
         </View>
       </Container>

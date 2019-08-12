@@ -5,18 +5,28 @@ import PropTypes from 'prop-types';
 import { Caption, COMMON, Helpers } from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
+import SiteType from '../../../../types/site.type';
 
 const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
 const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png');
 
 const SiteFooterTabs = props => {
-  const { navigation, setMySitesFiltersDispatch } = props;
+  const { navigation, item, locale, setMySitesFiltersDispatch } = props;
+
+  const formatSharedMessage = () => {
+    let message = `${item[locale].title} \n\n`;
+    message += `${item[locale].descriprtion} \n\n`;
+    message += `${item[locale].highway.name} \n\n`;
+    message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
+    message += item.uri;
+    return message;
+  }
+
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
+        message: formatSharedMessage()
       });
 
       if (result.action === Share.sharedAction) {
@@ -60,6 +70,8 @@ const SiteFooterTabs = props => {
 }
 
 SiteFooterTabs.propTypes = {
+  item: SiteType.isRequired,
+  locale: PropTypes.string.isRequired,
   setMySitesFiltersDispatch: PropTypes.func.isRequired
 }
 
