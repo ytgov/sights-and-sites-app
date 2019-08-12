@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import AddToMySitesNotificationStyles from './add-to-my-sites-notification.styles';
 import { Body1 } from '../../../../theme/theme';
 
@@ -14,6 +15,14 @@ const AddToMySitesNotification = props => {
         <Body1 style={AddToMySitesNotificationStyles.text}>Added! To see all your sites, tap the heart below</Body1>
       </View>) : null
   )
+}
+
+AddToMySitesNotification.propTypes = {
+  visible: PropTypes.bool
+}
+
+AddToMySitesNotification.defaultProps = {
+  visible: false
 }
 
 export default AddToMySitesNotification;

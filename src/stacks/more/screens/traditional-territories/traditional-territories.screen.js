@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Linking, SafeAreaView } from 'react-native';
+import { View, Image, SafeAreaView } from 'react-native';
 import { Root, Container, Header, Content } from 'native-base';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 import { Helpers, COMMON, H2, Body1 } from '../../../../theme/theme';
@@ -8,11 +8,7 @@ import Feedback from '../../components/feedback/feedback.component';
 
 const traditionalTerritoriesIcon = require('../../../../../assets/stacks/more/traditional-territories-icon.png');
 
-class CurrentConditionsScreen extends React.Component {
-  openLink(url) {
-    Linking.openURL(url)
-  }
-
+class TraditionalTerritoriesScreen extends React.Component {
   state = {
 
   }
@@ -50,4 +46,4 @@ class CurrentConditionsScreen extends React.Component {
   }
 }
 
-export default CurrentConditionsScreen;
+export default TraditionalTerritoriesScreen;

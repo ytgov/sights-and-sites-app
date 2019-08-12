@@ -5,7 +5,8 @@ import { Body1 } from '../../../../theme/theme';
 
 const warningIcon = require('../../../../../assets/stacks/listing/warning-icon.png');
 
-const SiteWarning = props => {
+// TODO Replace to props once real data is there
+const SiteWarning = () => {
   return (
     <View style={SiteWarningStyles.warningBox}>
       <Image source={warningIcon} resizeMode='contain' style={SiteWarningStyles.warningIcon} />

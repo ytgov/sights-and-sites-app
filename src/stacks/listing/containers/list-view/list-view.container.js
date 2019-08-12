@@ -1,42 +1,24 @@
 import React from 'react';
-import { FlatList, View, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { FlatList, View } from 'react-native';
+import PropTypes from 'prop-types';
 import ListViewStyles from './list-view.styles';
 import ListViewItem from './list-view.item';
-import { Helpers, H2, Body2 } from '../../../../theme/theme';
-import NearbySites from '../../components/nearby-sites/nearby-sites.component';
-import { COLORS } from '../../../../theme/config';
 import { APP_CONFIG } from '../../../../config';
 import NoItems from '../../../../shared/components/no-items/no-items.component';
 import LoadMore from '../../../../shared/components/load-more/load-more.component';
+import SiteType from '../../../../types/site.type';
 
 class ListViewContainer extends React.Component {
   state = {
-    currentPage: 1,
-    dataToRender: []
-  }
-
-  componentDidMount() {
-    // this.loadItems();
-  }
-
-  loadItems(data) {
-    // const { currentListingPage } = this.props;
-    // return data.slice(0, currentListingPage * APP_CONFIG.listing.itemsToShow)
   }
 
   loadMore() {
     const { incrementListingPageDispatch } = this.props;
     incrementListingPageDispatch();
-    // const { data } = this.props;
-    // this.setState({
-    // currentPage: this.state.currentPage + 1
-    // }, () => this.loadItems())
   }
 
   render() {
-    // const { dataToRender } = this.state;
-    const { data, locale, navigation, listingItemsCount, currentListingPage, listingPagesLimit, incrementListingPageDispatch } = this.props;
+    const { data, locale, navigation, currentListingPage, listingPagesLimit } = this.props;
     const dataToRender = data.slice(0, currentListingPage * APP_CONFIG.listing.itemsToShow);
     return (
       <View>
@@ -58,6 +40,14 @@ class ListViewContainer extends React.Component {
       </View>
     )
   }
+}
+
+ListViewContainer.propTypes = {
+  data: PropTypes.arrayOf(SiteType).isRequired,
+  locale: PropTypes.string.isRequired,
+  currentListingPage: PropTypes.number.isRequired,
+  listingPagesLimit: PropTypes.number.isRequired,
+  incrementListingPageDispatch: PropTypes.func.isRequired
 }
 
 export default ListViewContainer;

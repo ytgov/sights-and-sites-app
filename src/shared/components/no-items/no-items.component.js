@@ -1,5 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
+import i18n from '../../../locale/locale';
 import { Helpers, H3 } from '../../../theme/theme';
 import NoItemsStyles from './no-items.styles';
 
@@ -14,5 +16,13 @@ const NoItems = props => {
     </View>
   )
 };
+
+NoItems.propTypes = {
+  value: PropTypes.string
+}
+
+NoItems.defaultProps = {
+  value: i18n.t('common.noItemsDefault')
+}
 
 export default NoItems;

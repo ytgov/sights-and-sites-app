@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, FlatList, Text, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux';
 import { Image } from 'react-native-expo-image-cache';
 import PropTypes from 'prop-types';
-import { Container, Header, Row, Col, Content, Footer, FooterTab } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import { Container, Header, Content } from 'native-base';
 import SiteDetailsStyles from './site-details.styles';
-import { COMMON, Body1, Helpers, Caption, H2, Subtitle1 } from '../../../../theme/theme';
+import { COMMON, Body1 } from '../../../../theme/theme';
 import NearbySites from '../../components/nearby-sites/nearby-sites.component';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 import SiteFooterTabs from '../../components/site-footer-tabs/site-footer-tabs.component';
@@ -18,48 +17,51 @@ import { filterListing } from '../../../../store/actions/listing';
 import { toggleMySitesState, setMySitesFilters } from '../../../../store/actions/filters';
 import AddToMySitesNotification from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 
+const amentieIcon = require('../../../../../assets/stacks/listing/amenties/1.png');
+
 class SiteDetails extends React.Component {
   addToMySitesNotificationTimeout = null;
 
   state = {
     addToMySitesNotificationVisible: false,
     addToMySitesNotificationDelay: 2000,
+    // TODO replace with amenties from config once real data is there
     siteAmenties: [
       {
         id: 1,
-        image: require('../../../../../assets/stacks/listing/amenties/1.png')
+        image: amentieIcon
       },
       {
         id: 2,
-        image: require('../../../../../assets/stacks/listing/amenties/2.png')
+        image: amentieIcon
       },
       {
         id: 3,
-        image: require('../../../../../assets/stacks/listing/amenties/3.png')
+        image: amentieIcon
       },
       {
         id: 4,
-        image: require('../../../../../assets/stacks/listing/amenties/4.png')
+        image: amentieIcon
       },
       {
         id: 5,
-        image: require('../../../../../assets/stacks/listing/amenties/5.png')
+        image: amentieIcon
       },
       {
         id: 6,
-        image: require('../../../../../assets/stacks/listing/amenties/6.png')
+        image: amentieIcon
       },
       {
         id: 7,
-        image: require('../../../../../assets/stacks/listing/amenties/1.png')
+        image: amentieIcon
       },
       {
         id: 8,
-        image: require('../../../../../assets/stacks/listing/amenties/2.png')
+        image: amentieIcon
       },
       {
         id: 9,
-        image: require('../../../../../assets/stacks/listing/amenties/3.png')
+        image: amentieIcon
       },
     ]
   }
@@ -84,13 +86,13 @@ class SiteDetails extends React.Component {
   }
 
   render() {
-    const { addToMySitesNotificationVisible } = this.state;
+    const { siteAmenties, addToMySitesNotificationVisible } = this.state;
     const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch } = this.props;
     const item = navigation.getParam('item');
 
     const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
     const { id, uri } = item;
-    const isSiteInMySites = !!mySites.filter(item => item === id).length
+    const isSiteInMySites = !!mySites.filter(site => site === id).length
 
     return (
       <Container style={{ backgroundColor: '#000' }}>
@@ -106,13 +108,14 @@ class SiteDetails extends React.Component {
           </View>
           <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
             <SiteCardInfo item={item} locale={locale} />
-            <SiteAmenties items={this.state.siteAmenties} />
+            <SiteAmenties items={siteAmenties} />
             <SiteWarning />
             <Body1 black regular>
               With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.
             </Body1>
           </View>
-          <NearbySites item={item} locale={locale} navigation={navigation} />
+          {/* TODO Item id should be replaced with near by site id */}
+          <NearbySites itemId={item.id} locale={locale} navigation={navigation} />
         </Content>
 
         <View style={{ position: 'relative', height: 'auto' }}>
@@ -125,7 +128,11 @@ class SiteDetails extends React.Component {
 }
 
 SiteDetails.propTypes = {
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  mySites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toggleMySitesStateDispatch: PropTypes.func.isRequired,
+  setMySitesFiltersDispatch: PropTypes.func.isRequired,
+  filterListingDispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

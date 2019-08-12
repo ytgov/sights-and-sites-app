@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Share } from 'react-native';
 import { Footer, FooterTab, Button } from 'native-base';
 import PropTypes from 'prop-types';
-import { Caption, COMMON } from '../../../../theme/theme';
+import { Caption, COMMON, Helpers } from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
 
@@ -12,7 +12,7 @@ const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png
 
 const SiteFooterTabs = props => {
   const { navigation, setMySitesFiltersDispatch } = props;
-  onShare = async () => {
+  const onShare = async () => {
     try {
       const result = await Share.share({
         message:
@@ -29,30 +29,30 @@ const SiteFooterTabs = props => {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
     }
   };
   return (
     <Footer style={COMMON.footer}>
       <FooterTab style={{ backgroundColor: '#000000' }}>
         <Button vertical onPress={() => { }}>
-          <View style={{ position: 'relative' }}>
-            <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={directionsIcon} />
+          <View style={Helpers.positionRelative}>
+            <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={directionsIcon} />
           </View>
-          <Caption style={{ color: '#FFFFFF' }}>{i18n.t('siteTabs.directions')}</Caption>
+          <Caption>{i18n.t('siteTabs.directions')}</Caption>
         </Button>
-        <Button vertical onPress={() => { this.onShare() }}>
-          <View style={{ position: 'relative' }}>
-            <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={shareIcon} />
+        <Button vertical onPress={() => { onShare() }}>
+          <View style={Helpers.positionRelative}>
+            <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={shareIcon} />
           </View>
-          <Caption style={{ color: '#FFFFFF' }}>{i18n.t('siteTabs.share')}</Caption>
+          <Caption >{i18n.t('siteTabs.share')}</Caption>
         </Button>
         <Button badge vertical onPress={() => {
           setMySitesFiltersDispatch(true);
           navigation.navigate('Map');
         }}>
-          <Image style={{ width: 24, height: 24 }} resizeMode='contain' source={mySitesIcon} />
-          <Caption style={{ color: '#FFFFFF' }}>{i18n.t('siteTabs.mySites')}</Caption>
+          <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={mySitesIcon} />
+          <Caption>{i18n.t('siteTabs.mySites')}</Caption>
         </Button>
       </FooterTab>
     </Footer>
@@ -60,6 +60,7 @@ const SiteFooterTabs = props => {
 }
 
 SiteFooterTabs.propTypes = {
+  setMySitesFiltersDispatch: PropTypes.func.isRequired
 }
 
 export default SiteFooterTabs;

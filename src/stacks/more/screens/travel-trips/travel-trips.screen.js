@@ -9,8 +9,8 @@ import AccordionCustom from '../../components/accordion/accordion.component';
 
 const travelTripsIcon = require('../../../../../assets/stacks/more/travel-trips-icon.png');
 
-class CurrentConditionsScreen extends React.Component {
-  openLink(url) {
+class TravelTripsScreen extends React.Component {
+  static openLink(url) {
     Linking.openURL(url)
   }
 
@@ -60,4 +60,4 @@ class CurrentConditionsScreen extends React.Component {
   }
 }
 
-export default CurrentConditionsScreen;
+export default TravelTripsScreen;

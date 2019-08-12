@@ -30,6 +30,10 @@ export default {
       'wildlife': `Faune &${'\n'}paysage`,
       'recreation': 'Des loisirs',
       'history': `L'histoire &${'\n'}culture`,
+    },
+    'common': {
+      'loadMoreDefault': 'Charger plus',
+      'noItemsDefault': 'Pas d\'objet'
     }
   },
 }

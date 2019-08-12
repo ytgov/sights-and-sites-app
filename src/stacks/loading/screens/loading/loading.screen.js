@@ -28,8 +28,7 @@ class LoadingScreen extends React.Component {
         return false;
       }
       i18n.changeLanguage(locale);
-      // navigation.navigate('Main');
-      navigation.navigate('Search');
+      navigation.navigate('Main');
       return true;
     }, 1000)
   }
@@ -46,7 +45,8 @@ class LoadingScreen extends React.Component {
 LoadingScreen.propTypes = {
   hasUserSelectedLocale: PropTypes.bool.isRequired,
   hasUserPassedOnboarding: PropTypes.bool.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  filterListingDispatch: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {

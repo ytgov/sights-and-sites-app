@@ -1,8 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import { Image } from 'react-native-expo-image-cache';
 import SiteCard from '../../components/site-card/site-card.component';
 import ListViewStyles from './list-view.styles';
+import SiteType from '../../../../types/site.type';
 
 class ListViewItem extends React.PureComponent {
   render() {
@@ -19,6 +21,11 @@ class ListViewItem extends React.PureComponent {
       </View>
     );
   }
+}
+
+ListViewItem.propTypes = {
+  locale: PropTypes.string.isRequired,
+  item: SiteType.isRequired
 }
 
 export default ListViewItem;

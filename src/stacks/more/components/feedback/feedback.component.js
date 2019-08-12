@@ -14,7 +14,7 @@ class Feedback extends React.Component {
 
   }
 
-  onFeedbackAction(title) {
+  static onFeedbackAction(title) {
     const buttons = [phone, email, 'Cancel'];
     const cancelIndex = 2;
     ActionSheet.show(
@@ -41,11 +41,11 @@ class Feedback extends React.Component {
   render() {
     return (
       <View>
-        <TouchableOpacity onPress={() => { this.onFeedbackAction('General Enquiries') }} style={[FeedbackStyles.button, FeedbackStyles.buttonWithBorder]}>
+        <TouchableOpacity onPress={() => { Feedback.onFeedbackAction('General Enquiries') }} style={[FeedbackStyles.button, FeedbackStyles.buttonWithBorder]}>
           <Image source={feedbackIcon} style={FeedbackStyles.icon} resizeMode='contain' />
           <H3 style={FeedbackStyles.text}>General Enquiries</H3>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { this.onFeedbackAction('App Feedback') }} style={FeedbackStyles.button}>
+        <TouchableOpacity onPress={() => { Feedback.onFeedbackAction('App Feedback') }} style={FeedbackStyles.button}>
           <Image source={feedbackIcon} style={FeedbackStyles.icon} resizeMode='contain' />
           <H3 style={FeedbackStyles.text}>App Feedback</H3>
         </TouchableOpacity>

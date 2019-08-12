@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, TextInput, FlatList, ActivityIndicator } from 'react-native';
+import { View, TouchableOpacity, TextInput, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Container, Header, Content } from 'native-base';
 import _ from 'lodash';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,6 +14,8 @@ import SearchStyles from './search.styles';
 import RecentQueries from '../../components/recent-queries/recent-queries.component';
 import NoItems from '../../../../shared/components/no-items/no-items.component';
 import SearchMatches from '../../components/search-matches/search-matches.component';
+import SiteType from '../../../../types/site.type';
+import QueryType from '../../../../types/query.type';
 
 class SearchScreen extends React.Component {
   state = {
@@ -26,7 +29,7 @@ class SearchScreen extends React.Component {
   }
 
   onSearch(query) {
-    const { setSearchInProgressDispatch, searchSitesDispatch, resetSearchQueryDispatch } = this.props;
+    const { setSearchInProgressDispatch, searchSitesDispatch } = this.props;
     const queryFormatted = formatSearchIndex(query);
     if (!queryFormatted) {
       return false
@@ -38,6 +41,7 @@ class SearchScreen extends React.Component {
         queryFormatted
       });
     }, 150)
+    return true;
   }
 
   loadMore() {
@@ -46,12 +50,9 @@ class SearchScreen extends React.Component {
   }
 
   render() {
-    const { navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, currentSearchPage, searchSitesDispatch, recentQueries, searchPagesLimit, resetSearchQueryDispatch } = this.props;
+    const { navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, currentSearchPage, recentQueries, searchPagesLimit, resetSearchQueryDispatch } = this.props;
     const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);;
-    console.log('currentSearchPage');
-    console.log(currentSearchPage);
-    console.log('searchPagesLimit');
-    console.log(searchPagesLimit);
+
     return (
       <Container style={{ backgroundColor: '#000' }}>
         <Header style={[COMMON.header, COMMON.headerWhite]}>
@@ -107,6 +108,30 @@ class SearchScreen extends React.Component {
       </Container>
     )
   }
+}
+
+SearchScreen.propTypes = {
+  locale: PropTypes.string.isRequired,
+  searchQuery: PropTypes.string,
+  searchInProgress: PropTypes.bool,
+  searchMatched: PropTypes.arrayOf(PropTypes.string),
+  resetSearchQueryDispatch: PropTypes.func.isRequired,
+  setSearchInProgressDispatch: PropTypes.func.isRequired,
+  searchSitesDispatch: PropTypes.func.isRequired,
+  incrementSearchPageDispatch: PropTypes.func.isRequired,
+  listingRaw: PropTypes.arrayOf(SiteType).isRequired,
+  recentQueries: PropTypes.arrayOf(QueryType),
+  currentSearchPage: PropTypes.number,
+  searchPagesLimit: PropTypes.number
+}
+
+SearchScreen.defaultProps = {
+  searchQuery: '',
+  searchInProgress: false,
+  searchMatched: [],
+  recentQueries: [],
+  currentSearchPage: 1,
+  searchPagesLimit: 1
 }
 
 const mapStateToProps = (state) => {

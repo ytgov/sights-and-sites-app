@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import RecentQueriesStyles from './recent-queries.styles';
 import { Body1 } from '../../../../theme/theme';
+import QueryType from '../../../../types/query.type';
 
 const RecentQueries = props => {
   const { data, onSearch } = props;
@@ -20,4 +22,12 @@ const RecentQueries = props => {
   )
 }
 
+RecentQueries.propTypes = {
+  data: PropTypes.arrayOf(QueryType),
+  onSearch: PropTypes.func.isRequired
+}
+
+RecentQueries.defaultProps = {
+  data: []
+}
 export default RecentQueries;

@@ -9,7 +9,7 @@ import Feedback from '../../components/feedback/feedback.component';
 const currentConditionsIcon = require('../../../../../assets/stacks/more/current-conditions-icon.png');
 
 class CurrentConditionsScreen extends React.Component {
-  openLink(url) {
+  static openLink(url) {
     Linking.openURL(url)
   }
 
@@ -39,7 +39,7 @@ class CurrentConditionsScreen extends React.Component {
                     <H3 black>Campground closures and warnings</H3>
                   </View>
                   <View style={CurrentConditionStyles.linkBox}>
-                    <TouchableOpacity onPress={() => { this.openLink('https://yukon.ca/en/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site') }}>
+                    <TouchableOpacity onPress={() => { CurrentConditionsScreen.openLink('https://yukon.ca/en/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site') }}>
                       <View style={CurrentConditionStyles.link}><Body1 black >yukon.ca</Body1></View>
                     </TouchableOpacity>
                   </View>
@@ -54,7 +54,7 @@ class CurrentConditionsScreen extends React.Component {
                     <H3 black>Highway conditions</H3>
                   </View>
                   <View style={CurrentConditionStyles.linkBox}>
-                    <TouchableOpacity onPress={() => { this.openLink('http://511yukon.ca/en/index.html') }}>
+                    <TouchableOpacity onPress={() => { CurrentConditionsScreen.openLink('http://511yukon.ca/en/index.html') }}>
                       <View style={CurrentConditionStyles.link}><Body1 black>511yukon.ca</Body1></View>
                     </TouchableOpacity>
                   </View>
@@ -69,7 +69,7 @@ class CurrentConditionsScreen extends React.Component {
                     <H3 black>Fire Reports</H3>
                   </View>
                   <View style={CurrentConditionStyles.linkBox}>
-                    <TouchableOpacity onPress={() => { this.openLink('https://yukon.ca/en/emergencies-and-safety/emergency-updates/fire-investigation-reports-and-safety-notices') }}>
+                    <TouchableOpacity onPress={() => { CurrentConditionsScreen.openLink('https://yukon.ca/en/emergencies-and-safety/emergency-updates/fire-investigation-reports-and-safety-notices') }}>
                       <View style={CurrentConditionStyles.link}><Body1 black>yukon.ca</Body1></View>
                     </TouchableOpacity>
                   </View>

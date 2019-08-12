@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, FlatList, Image, Dimensions } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import PropTypes from 'prop-types';
+import { View, FlatList, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { Subtitle1 } from '../../../../theme/theme';
 
@@ -60,7 +60,7 @@ class SiteAmenties extends React.Component {
               style={{
 
               }}
-              renderItem={({ item, index }) =>
+              renderItem={({ item }) =>
                 <View style={{
                   backgroundColor: '#000',
                   paddingTop: 26,
@@ -71,7 +71,7 @@ class SiteAmenties extends React.Component {
                   justifyContent: 'center',
                   alignItems: 'center'
                 }}><View style={{ textAlign: 'center', justifyContent: 'center' }}>
-                    <Image source={require('../../../../../assets/stacks/listing/amenties/1active.png')} style={{ alignSelf: 'center', width: 40, height: 40, marginBottom: 14 }} resizeMode='contain' />
+                    <Image source={item.image} style={{ alignSelf: 'center', width: 40, height: 40, marginBottom: 14 }} resizeMode='contain' />
                     <Subtitle1 style={{ textAlign: 'center' }}>Bear-proof garbage bins</Subtitle1>
                   </View>
                 </View>
@@ -87,6 +87,11 @@ class SiteAmenties extends React.Component {
       </View>
     )
   }
+}
+
+SiteAmenties.propTypes = {
+  // TODO update to array of amenties id once real sites are there
+  items: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired
 }
 
 export default SiteAmenties;

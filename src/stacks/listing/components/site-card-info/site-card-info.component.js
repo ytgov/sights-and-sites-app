@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import SiteCardInfoStyles from './site-card-info.styles';
 import { H3, Body1, Caption } from '../../../../theme/theme';
 import HighwayBadgeText from './site-card-info.styled-components';
+import SiteType from '../../../../types/site.type';
 
 const highwayIcon = require('../../../../../assets/stacks/listing/highway-number-background-icon.png');
 
@@ -22,6 +24,11 @@ const SiteCardInfo = props => {
       </View>
     </View>
   )
+}
+
+SiteCardInfo.propTypes = {
+  item: SiteType.isRequired,
+  locale: PropTypes.string.isRequired
 }
 
 export default SiteCardInfo;

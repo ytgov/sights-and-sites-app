@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion } from 'native-base';
 import { View, Image } from 'react-native';
+import AccordionType from '../../../../types/accordion.type';
 import { H3, Body1 } from '../../../../theme/theme';
 
 const accordionClosedIcon = require('../../../../../assets/stacks/more/accordion-closed-icon.png');
@@ -39,5 +40,11 @@ const AccordionCustom = props => {
       dataArray={data} expanded={0} />
   )
 }
+
+AccordionCustom.propTypes = {
+  data: AccordionType
+}
+
+AccordionCustom.defaultProps = [];
 
 export default AccordionCustom;

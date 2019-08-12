@@ -12,6 +12,7 @@ import { toggleListingView, incrementListingPage } from '../../../../store/actio
 import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
 import ListViewContainer from '../../containers/list-view/list-view.container';
+import SiteType from '../../../../types/site.type';
 
 const searchIcon = require('../../../../../assets/common/search-icon.png');
 
@@ -76,8 +77,10 @@ MainScreen.propTypes = {
   toggleSitesTypeFilterDispatch: PropTypes.func.isRequired,
   toggleListingViewDispatch: PropTypes.func.isRequired,
   selectedListingView: PropTypes.string.isRequired,
-  // TODO update object to  site type once backend is there
-  listingFiltered: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object]))
+  listingFiltered: PropTypes.arrayOf(SiteType), incrementListingPageDispatch: PropTypes.func.isRequired,
+  currentListingPage: PropTypes.number.isRequired,
+  listingPagesLimit: PropTypes.number.isRequired,
+  listingItemsCount: PropTypes.number.isRequired
 }
 
 MainScreen.defaultProps = {

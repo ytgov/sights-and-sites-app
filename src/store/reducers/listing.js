@@ -11,7 +11,7 @@ const initialState = {
   listingPagesLimit: 1,
   listingRaw: [
     {
-      id: 1,
+      id: '1',
       uri: 'https://www.mountainphotography.com/images/xl/20160904-Twin-Lakes.jpg',
       highway: 1,
       region: 1,
@@ -42,7 +42,7 @@ const initialState = {
       }
     },
     {
-      id: 2,
+      id: '2',
       uri: 'https://www.mountainphotography.com/images/xl/20160831-Talus-Lake-Tent.jpg',
       highway: 2,
       region: 2,
@@ -73,7 +73,7 @@ const initialState = {
       }
     },
     {
-      id: 3,
+      id: '3',
       uri: 'https://s23835.pcdn.co/wp-content/uploads/2015/09/Canada-Yukon-Kluane-House-2.jpg',
       highway: 2,
       region: 2,
@@ -104,7 +104,7 @@ const initialState = {
       }
     },
     {
-      id: 4,
+      id: '4',
       uri: 'https://s23835.pcdn.co/wp-content/uploads/2015/09/Canada-Yukon-Kluane-House-2.jpg',
       highway: 3,
       region: 3,

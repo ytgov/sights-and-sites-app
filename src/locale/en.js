@@ -27,12 +27,18 @@ export default {
       'map': 'MAP',
       'list': 'LIST'
     },
+
     'siteTypes': {
       'filterTitle': 'Choose a site type',
       'camping': 'Camping',
       'wildlife': `Wildlife &${'\n'}landscape`,
       'recreation': 'Recreation',
       'history': `History &${'\n'}culture`,
+    },
+
+    'common': {
+      'loadMoreDefault': 'Load more',
+      'noItemsDefault': 'No items'
     }
   },
 }
