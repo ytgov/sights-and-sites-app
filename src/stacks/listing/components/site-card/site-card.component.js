@@ -11,7 +11,7 @@ const siteTypeRecreationIcon = require('../../../../../assets/stacks/tabs/site-t
 const siteTypeHistoryIcon = require('../../../../../assets/stacks/tabs/site-type-history-icon.png');
 
 const SiteCard = props => {
-  const { item, locale, navigation } = props;
+  const { item, locale, parentLocation, navigation } = props;
   return (
     <View style={SiteCardStyles.siteCardBox}>
       <View style={SiteCardStyles.siteCard}>
@@ -40,7 +40,7 @@ const SiteCard = props => {
               })
             }
           </View>
-          <SiteCardInfo item={item} locale={locale} />
+          <SiteCardInfo item={item} parentLocation={parentLocation} locale={locale} />
         </TouchableOpacity>
       </View>
     </View>
@@ -49,7 +49,12 @@ const SiteCard = props => {
 
 SiteCard.propTypes = {
   item: SiteType.isRequired,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string.isRequired,
+  parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number }),
+}
+
+SiteCard.defaultProps = {
+  parentLocation: null
 }
 
 export default SiteCard;

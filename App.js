@@ -5,7 +5,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './src/store';
 import AppRoot from './src';
+import LocationGate from './src/shared/components/location-gate/location-gate.component';
 import LoadResourcesAsync from './src/load-resources-async';
+
 const { store, persistor } = configureStore();
 
 export default class App extends React.Component {
@@ -40,9 +42,11 @@ export default class App extends React.Component {
       );
     }
     return (
-      <Provider store={store} >
+      <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <AppRoot />
+          <LocationGate>
+            <AppRoot />
+          </LocationGate>
         </PersistGate>
       </Provider>
     );

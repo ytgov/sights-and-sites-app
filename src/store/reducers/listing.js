@@ -1,3 +1,4 @@
+import orderByDistance from 'geolib/es/orderByDistance';
 import { TOGGLE_LISTING_VIEW, FILTER_LISTING, INCREMENT_LISTING_PAGE } from '../types';
 import { APP_CONFIG } from '../../config';
 
@@ -16,6 +17,10 @@ const initialState = {
       highway: 1,
       region: 1,
       siteTypes: [1, 2],
+      location: {
+        latitude: 50.460642,
+        longitude: 30.640864
+      },
       indexes: {
         en: {
           title: 'fivefingerrapidsen'
@@ -47,6 +52,10 @@ const initialState = {
       highway: 2,
       region: 2,
       siteTypes: [1],
+      location: {
+        latitude: 50.516425,
+        longitude: 30.598676
+      },
       indexes: {
         en: {
           title: 'carmacks'
@@ -78,6 +87,10 @@ const initialState = {
       highway: 2,
       region: 2,
       siteTypes: [1, 2, 3, 4],
+      location: {
+        latitude: 50.493380,
+        longitude: 30.558035
+      },
       indexes: {
         en: {
           title: 'devilselbow'
@@ -105,10 +118,14 @@ const initialState = {
     },
     {
       id: '4',
-      uri: 'https://s23835.pcdn.co/wp-content/uploads/2015/09/Canada-Yukon-Kluane-House-2.jpg',
+      uri: 'https://s25910.pcdn.co/wp-content/uploads/2018/10/Emerald-Lake-Spirit-Lake-Yukon-Road-Trip.jpg',
       highway: 3,
       region: 3,
       siteTypes: [1, 4],
+      location: {
+        latitude: 50.464546,
+        longitude: 30.644168
+      },
       indexes: {
         en: {
           title: 'montagueroadhouse'
@@ -138,7 +155,7 @@ const initialState = {
   listingFiltered: []
 }
 
-function filterListing(filters, listingRaw) {
+function filterListing(filters, location, listingRaw) {
   const { highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter } = filters;
   let result = listingRaw;
 
@@ -154,6 +171,10 @@ function filterListing(filters, listingRaw) {
   if (mySitesFilter) {
     result = listingRaw.filter(item => mySites.includes(item.id))
   }
+  if (nearMeFilter && location) {
+    const resultIDs = orderByDistance(location, listingRaw.map(item => { return { id: item.id, latitude: item.location.latitude, longitude: item.location.longitude } })).map(item => item.id);
+    result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.id) - resultIDs.indexOf(b.id));
+  }
 
   // Site Type
   if (sitesTypeFilter.length) {
@@ -162,7 +183,7 @@ function filterListing(filters, listingRaw) {
   return result;
 }
 
-export default function coreReducer(state = initialState, action) {
+export default function listingReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_LISTING_VIEW: {
       return {
@@ -171,7 +192,7 @@ export default function coreReducer(state = initialState, action) {
       }
     }
     case FILTER_LISTING: {
-      const listingFiltered = filterListing(action.payload, [...state.listingRaw]);
+      const listingFiltered = filterListing(action.payload.filters, action.payload.location, [...state.listingRaw]);
       return {
         ...state,
         listingFiltered,

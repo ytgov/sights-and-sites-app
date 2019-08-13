@@ -1,4 +1,4 @@
-import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED } from '../types';
+import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED, UPDATE_LOCATION } from '../types';
 
 export function setSelectLocaleAction(value) {
   return {
@@ -13,6 +13,10 @@ export function setOnboardingFinished() {
   }
 }
 
-export function mock() {
 
+export function updateLocation(value) {
+  return {
+    type: UPDATE_LOCATION,
+    payload: value
+  }
 }

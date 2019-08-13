@@ -8,7 +8,7 @@ import SiteType from '../../../../types/site.type';
 
 class ListViewItem extends React.PureComponent {
   render() {
-    const { item, locale, navigation } = this.props;
+    const { item, locale, navigation, parentLocation } = this.props;
     const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
     const { uri } = item;
 
@@ -17,7 +17,7 @@ class ListViewItem extends React.PureComponent {
         <View style={ListViewStyles.listItemImgBox}>
           <Image {...{ preview, uri }} resizeMode='cover' style={ListViewStyles.listItemImg} />
         </View>
-        <SiteCard item={item} locale={locale} navigation={navigation} />
+        <SiteCard item={item} parentLocation={parentLocation} locale={locale} navigation={navigation} />
       </View>
     );
   }
@@ -25,7 +25,12 @@ class ListViewItem extends React.PureComponent {
 
 ListViewItem.propTypes = {
   locale: PropTypes.string.isRequired,
-  item: SiteType.isRequired
+  item: SiteType.isRequired,
+  parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number }),
+}
+
+ListViewItem.defaultProps = {
+  parentLocation: null
 }
 
 export default ListViewItem;

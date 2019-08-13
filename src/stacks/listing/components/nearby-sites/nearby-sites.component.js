@@ -15,13 +15,24 @@ class NearbySites extends React.Component {
   }
 
   componentDidMount() {
+    this.getSiteData()
+  }
+
+  componentDidUpdate(prevProps) {
+    const { itemId } = this.props;
+    if (prevProps.itemId !== itemId) {
+      this.getSiteData();
+    }
+  }
+
+  getSiteData() {
     const { listingRaw, itemId } = this.props;
     const item = listingRaw.filter(site => site.id === itemId)[0];
-    this.setState({ item, loading: false })
+    this.setState({ item, loading: false });
   }
 
   render() {
-    const { navigation, locale } = this.props;
+    const { navigation, locale, parentLocation } = this.props;
     const { item, loading } = this.state;
     return loading ?
       <ActivityIndicator style={{}} size="large" color="#ffffff" /> :
@@ -30,7 +41,7 @@ class NearbySites extends React.Component {
           <Image style={NearbySitesStyles.nearbySitesIcon} source={nearByIcon} resizeMode='contain' />
           <H2 style={Helpers.textAlignCenter}>Nearby sites</H2>
         </View>
-        <ListViewItem item={item} locale={locale} navigation={navigation} />
+        <ListViewItem parentLocation={parentLocation} item={item} locale={locale} navigation={navigation} />
       </View>
   }
 }
@@ -38,9 +49,14 @@ class NearbySites extends React.Component {
 NearbySites.propTypes = {
   itemId: PropTypes.string.isRequired,
   locale: PropTypes.string.isRequired,
+  parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number }),
   listingRaw: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired
 }
 
+NearbySites.defaultProps = {
+  parentLocation: null
+
+}
 const mapStateToProps = (state) => {
   return {
     listingRaw: state.listingStore.listingRaw
