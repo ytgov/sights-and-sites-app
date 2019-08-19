@@ -21,9 +21,7 @@ class SiteDistance extends React.Component {
     } else if (canGrabLocation && location) {
       result = calculateDistanceBeetweenTwoLocations(location, siteLocation);
     }
-    return (result) ? <Body1 style={{ color: '#DB9F39' }}>
-      {(distance && distance <= 50) ? 'You`re at the spot' : `${result} from here`}
-    </Body1> : <Body1 style={{ color: '#DB9F39' }}>Can not access location data</Body1>
+    return (result) ? <Body1 style={{ color: '#DB9F39' }}>{result}</Body1> : <Body1 style={{ color: '#DB9F39' }}>Can not access location data</Body1>
   }
 }
 
