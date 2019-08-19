@@ -1,8 +1,9 @@
-import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED, UPDATE_LOCATION } from '../types';
+import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED, UPDATE_LOCATION, RESET_LOCATION } from '../types';
 
 const initialState = {
   hasUserSelectedLocale: false,
   hasUserPassedOnboarding: false,
+  canGrabLocation: true,
   location: null
 }
 
@@ -23,7 +24,15 @@ export default function coreReducer(state = initialState, action) {
     case UPDATE_LOCATION: {
       return {
         ...state,
+        canGrabLocation: true,
         location: action.payload
+      }
+    }
+    case RESET_LOCATION: {
+      return {
+        ...state,
+        location: null,
+        canGrabLocation: false
       }
     }
     default:

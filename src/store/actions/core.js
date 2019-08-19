@@ -1,4 +1,4 @@
-import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED, UPDATE_LOCATION } from '../types';
+import { SET_SELECT_LOCALE_ACTION, SET_ONBOARDING_FINISHED, UPDATE_LOCATION, RESET_LOCATION } from '../types';
 
 export function setSelectLocaleAction(value) {
   return {
@@ -13,6 +13,11 @@ export function setOnboardingFinished() {
   }
 }
 
+export function resetLocation() {
+  return {
+    type: RESET_LOCATION
+  }
+}
 
 export function updateLocation(value) {
   return {

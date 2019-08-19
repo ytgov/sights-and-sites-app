@@ -1,58 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getPreciseDistance } from 'geolib';
 import { Body1 } from '../../../../theme/theme';
+import { calculateDistanceBeetweenTwoLocations } from '../../../../shared/services/distance';
+import LocationType from '../../../../types/location.type';
 
 class SiteDistance extends React.Component {
   state = {
-    measureAcuracy: 1
+  }
+
+  async componentWillMount() {
   }
 
   render() {
-    const { measureAcuracy } = this.state;
-    const { location, siteLocation, parentLocation } = this.props;
-    // TODO add check for location there
-    let distance = null;
+    const { location, canGrabLocation, siteLocation, parentLocation } = this.props;
+    const distance = null;
     let result = null;
-    if (parentLocation && siteLocation && siteLocation.latitude && siteLocation.longitude) {
-      distance = getPreciseDistance(
-        { latitude: parentLocation.latitude, longitude: parentLocation.longitude },
-        { latitude: siteLocation.latitude, longitude: siteLocation.longitude },
-        measureAcuracy
-      )
-      if (!distance) {
-        result = 'Calculating'
-      }
-      if (distance <= 500) {
-        result = `${distance} m`
-      } else {
-        result = `${(distance / 1000).toFixed(2)} km`
-      }
-    } else if (location && location.latitude && location.longitude && siteLocation && siteLocation.latitude && siteLocation.longitude) {
-      distance = getPreciseDistance(
-        { latitude: location.latitude, longitude: location.longitude },
-        { latitude: siteLocation.latitude, longitude: siteLocation.longitude },
-        measureAcuracy
-      )
-      if (!distance) {
-        result = 'Calculating'
-      }
-      if (distance <= 500) {
-        result = `${distance} m`
-      } else {
-        result = `${(distance / 1000).toFixed(2)} km`
-      }
+    if (parentLocation) {
+      result = calculateDistanceBeetweenTwoLocations(parentLocation, siteLocation);
+    } else if (canGrabLocation && location) {
+      result = calculateDistanceBeetweenTwoLocations(location, siteLocation);
     }
-
-    return (<Body1 style={{ color: '#DB9F39' }}>
+    return (result) ? <Body1 style={{ color: '#DB9F39' }}>
       {(distance && distance <= 50) ? 'You`re at the spot' : `${result} from here`}
-    </Body1>)
+    </Body1> : <Body1 style={{ color: '#DB9F39' }}>Can not access location data</Body1>
   }
 }
 
 SiteDistance.propTypes = {
-  parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number })
+  parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number }),
+  location: LocationType,
+  siteLocation: LocationType.isRequired,
+  canGrabLocation: PropTypes.bool.isRequired
+}
+
+SiteDistance.defaultProps = {
+  location: null
 }
 
 SiteDistance.defaultProps = {
@@ -61,7 +44,8 @@ SiteDistance.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    location: state.coreStore.location
+    location: state.coreStore.location,
+    canGrabLocation: state.coreStore.canGrabLocation
   };
 };
 

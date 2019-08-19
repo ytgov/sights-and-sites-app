@@ -1,8 +1,10 @@
 import React from 'react';
+import { InteractionManager } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as Location from 'expo-location';
-import { updateLocation } from '../../../store/actions/core';
+import { updateLocation, resetLocation } from '../../../store/actions/core';
+import { trackLocation } from '../../services/location';
+import { APP_CONFIG } from '../../../config';
 
 class LocationGate extends React.Component {
   componentDidMount() {
@@ -19,21 +21,14 @@ class LocationGate extends React.Component {
     }
   }
 
-  async trackLocation() {
-    const { updateLocationDispatch } = this.props;
-    const enabled = await Location.hasServicesEnabledAsync();
-    if (enabled) {
-      Location.watchPositionAsync({
-        accuracy: Location.Accuracy.Highest,
-        distanceInterval: 50,
-        timeInterval: 10000
-      }, location => {
-        updateLocationDispatch({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude
-        });
-      })
-    }
+  trackLocation() {
+    const { updateLocationDispatch, resetLocationDispatch } = this.props;
+    const { locationUpdateFrequency } = APP_CONFIG.location;
+    InteractionManager.runAfterInteractions(() => {
+      setInterval(() => {
+        trackLocation(updateLocationDispatch, resetLocationDispatch)
+      }, locationUpdateFrequency)
+    });
   }
 
   render() {
@@ -45,6 +40,7 @@ class LocationGate extends React.Component {
 LocationGate.propTypes = {
   hasUserPassedOnboarding: PropTypes.bool.isRequired,
   updateLocationDispatch: PropTypes.func.isRequired,
+  resetLocationDispatch: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 }
 
@@ -56,7 +52,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateLocationDispatch: value => dispatch(updateLocation(value))
+    updateLocationDispatch: value => dispatch(updateLocation(value)),
+    resetLocationDispatch: () => dispatch(resetLocation())
   };
 };
 
