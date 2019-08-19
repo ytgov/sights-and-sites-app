@@ -6,6 +6,9 @@ import { updateLocation, resetLocation } from '../../../store/actions/core';
 import { trackLocation } from '../../services/location';
 import { APP_CONFIG } from '../../../config';
 
+const timer = require('react-native-timer');
+
+const LOCATION_GRAB_INTERVAL = 'LOCATION_GRAB_INTERVAL';
 class LocationGate extends React.Component {
   componentDidMount() {
     const { hasUserPassedOnboarding } = this.props;
@@ -21,14 +24,20 @@ class LocationGate extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    timer.clearInterval(this);
+  }
+
   trackLocation() {
     const { updateLocationDispatch, resetLocationDispatch } = this.props;
     const { locationUpdateFrequency } = APP_CONFIG.location;
     InteractionManager.runAfterInteractions(() => {
-      setInterval(() => {
-        trackLocation(updateLocationDispatch, resetLocationDispatch)
-      }, locationUpdateFrequency)
-    });
+      if (!timer.intervalExists(this, LOCATION_GRAB_INTERVAL)) {
+        timer.setInterval(this, LOCATION_GRAB_INTERVAL, () => {
+          trackLocation(updateLocationDispatch, resetLocationDispatch)
+        }, locationUpdateFrequency);
+      }
+    })
   }
 
   render() {

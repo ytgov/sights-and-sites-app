@@ -10,5 +10,8 @@ export const APP_CONFIG = {
     debounceDelay: 1000,
     recentQueriesToShow: 10,
     itemsToShow: 2
+  },
+  location: {
+    locationUpdateFrequency: 5000
   }
 }

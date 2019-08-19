@@ -26,6 +26,8 @@ async function trackLocation(onLocation, onLocationReset) {
       latitude: location.coords.latitude,
       longitude: location.coords.longitude
     });
+  }).catch(() => {
+    onLocationReset();
   });
 
   return true;
