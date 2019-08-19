@@ -3,6 +3,7 @@ import { COLORS } from '../../../../theme/config';
 
 const SiteWarningStyles = StyleSheet.create({
   warningBox: {
+    marginTop: 16,
     paddingBottom: 8
   },
   warningIcon: {

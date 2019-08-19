@@ -30,9 +30,15 @@ class SiteAmenties extends React.Component {
     this.setState({
       carouselActive: !carouselActive
     }, () => {
-      if (this.carousel.currentIndex !== index) {
-        this.carousel.snapToItem(index);
+      if (!this.carousel) {
+        return false;
       }
+
+      setTimeout(() => {
+        if (this.carousel.currentIndex !== index) {
+          this.carousel.snapToItem(index);
+        }
+      }, 100)
     });
   }
 
@@ -42,49 +48,50 @@ class SiteAmenties extends React.Component {
     const { carouselActive } = this.state;
     const amenties = items.map(amentyID => SITE_AMENTIES[amentyID]);
     return (
-      <View style={{ position: 'relative', zIndex: 10 }}>
+      <View style={{ position: 'relative', zIndex: 1 }}>
         <FlatList
           horizontal
-          style={{ marginTop: 16, marginBottom: 16, paddingTop: 16, paddingBottom: 16, borderTopWidth: 1, borderTopColor: '#CBCBCB', borderBottomWidth: 1, borderBottomColor: '#CBCBCB' }}
+          style={{ marginTop: 16, paddingTop: 16, paddingBottom: 16, borderTopWidth: 1, borderTopColor: '#CBCBCB', borderBottomWidth: 1, borderBottomColor: '#CBCBCB' }}
           data={amenties}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item, index }) => <TouchableOpacity onPress={() => { this.toggleCarousel(index) }} style={{ paddingRight: 8 }}>
             <Image source={item.imageInactive} style={{ width: 40, height: 40 }} resizeMode='contain' />
           </TouchableOpacity>}
         />
-        {/* { */}
-        <View style={[SiteAmentiesStyles.carouselBox, carouselActive && SiteAmentiesStyles.carouselBoxVisible]}>
-          <TouchableOpacity onPress={() => this.snapToPrevSlide()}>
-            <Image source={sliderArrowLeft} style={{ width: 13, height: 22 }} resizeMode='contain' />
-          </TouchableOpacity>
-          <Carousel
-            ref={carousel => { this.carousel = carousel; }}
-            data={amenties}
-            renderItem={({ item }) =>
-              <View style={{
-                backgroundColor: '#000',
-                paddingTop: 26,
-                paddingBottom: 26,
-                paddingLeft: 20,
-                paddingRight: 20,
-                textAlign: 'center',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}><View style={{ textAlign: 'center', justifyContent: 'center' }}>
-                  <Image source={item.imageActive} style={{ alignSelf: 'center', width: 40, height: 40, marginBottom: 14 }} resizeMode='contain' />
-                  <Subtitle1 style={{ textAlign: 'center' }}>{item.en}</Subtitle1>
+        {carouselActive &&
+          <View style={[SiteAmentiesStyles.carouselBox]}>
+            <TouchableOpacity onPress={() => this.snapToPrevSlide()}>
+              <Image source={sliderArrowLeft} style={{ width: 13, height: 22 }} resizeMode='contain' />
+            </TouchableOpacity>
+            <Carousel
+              ref={carousel => { this.carousel = carousel; }}
+              data={amenties}
+              useScrollView
+              renderItem={({ item }) =>
+                <View style={{
+                  backgroundColor: '#000',
+                  paddingTop: 26,
+                  paddingBottom: 26,
+                  paddingLeft: 20,
+                  paddingRight: 20,
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}><View style={{ textAlign: 'center', justifyContent: 'center' }}>
+                    <Image source={item.imageActive} style={{ alignSelf: 'center', width: 40, height: 40, marginBottom: 14 }} resizeMode='contain' />
+                    <Subtitle1 style={{ textAlign: 'center' }}>{item.en}</Subtitle1>
+                  </View>
                 </View>
-              </View>
-            }
-            removeClippedSubviews={false}
-            sliderWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
-            itemWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
-          />
-          <TouchableOpacity onPress={() => this.snapToNextSlide()}>
-            <Image source={sliderArrowRight} style={{ width: 13, height: 22 }} resizeMode='contain' />
-          </TouchableOpacity>
-        </View>
-        {/* } */}
+              }
+              removeClippedSubviews={false}
+              sliderWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
+              itemWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
+            />
+            <TouchableOpacity onPress={() => this.snapToNextSlide()}>
+              <Image source={sliderArrowRight} style={{ width: 13, height: 22 }} resizeMode='contain' />
+            </TouchableOpacity>
+          </View>
+        }
       </View>
     )
   }

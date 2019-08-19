@@ -10,12 +10,7 @@ const SiteAmentiesStyles = StyleSheet.create({
     backgroundColor: '#000',
     paddingLeft: 20,
     marginBottom: 10,
-    paddingRight: 20,
-    position: 'absolute',
-    top: -height
-  },
-  carouselBoxVisible: {
-    top: 88
+    paddingRight: 20
   }
 })
 

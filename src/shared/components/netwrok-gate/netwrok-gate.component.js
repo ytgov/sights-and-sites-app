@@ -17,9 +17,9 @@ class NetworkGate extends React.Component {
     */
     NetInfo.isConnected.fetch().done(
       isConnected => {
-        if (!isConnected) {
-          error('Network is not available');
-        }
+        // if (!isConnected) {
+        // error('Network is not available');
+        // }
         setNetworkStatusDispatch(!!isConnected)
       }
     );
@@ -29,9 +29,9 @@ class NetworkGate extends React.Component {
     NetInfo.isConnected.addEventListener(
       'connectionChange',
       isConnected => {
-        if (!isConnected) {
-          error('Network is not available');
-        }
+        // if (!isConnected) {
+        // error('Network is not available');
+        // }
         setNetworkStatusDispatch(!!isConnected)
       }
     );
