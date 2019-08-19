@@ -6,6 +6,7 @@ import { Caption, COMMON, Helpers } from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
 import SiteType from '../../../../types/site.type';
+import { error } from '../../../../shared/services/notify';
 
 const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
@@ -24,6 +25,11 @@ const SiteFooterTabs = props => {
   }
 
   const onShare = async () => {
+    const { networkAvailable } = props;
+    if (!networkAvailable) {
+      error('Network is not available');
+      return false;
+    }
     try {
       const result = await Share.share({
         message: formatSharedMessage()
@@ -72,7 +78,8 @@ const SiteFooterTabs = props => {
 SiteFooterTabs.propTypes = {
   item: SiteType.isRequired,
   locale: PropTypes.string.isRequired,
-  setMySitesFiltersDispatch: PropTypes.func.isRequired
+  setMySitesFiltersDispatch: PropTypes.func.isRequired,
+  networkAvailable: PropTypes.bool.isRequired
 }
 
 export default SiteFooterTabs;

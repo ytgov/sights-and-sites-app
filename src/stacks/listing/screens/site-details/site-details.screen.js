@@ -48,7 +48,7 @@ class SiteDetails extends React.Component {
 
   render() {
     const { addToMySitesNotificationVisible } = this.state;
-    const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw } = this.props;
+    const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw, networkAvailable } = this.props;
     const item = navigation.getParam('item');
 
     const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
@@ -84,7 +84,7 @@ class SiteDetails extends React.Component {
         </Content>
 
         <View style={{ position: 'relative', height: 'auto' }}>
-          <SiteFooterTabs item={item} locale={locale}  {...this.props} setMySitesFiltersDispatch={setMySitesFiltersDispatch} />
+          <SiteFooterTabs item={item} locale={locale} networkAvailable={networkAvailable}  {...this.props} setMySitesFiltersDispatch={setMySitesFiltersDispatch} />
           <AddToMySitesNotification visible={addToMySitesNotificationVisible} />
         </View>
       </Container>
@@ -97,6 +97,7 @@ SiteDetails.propTypes = {
   mySites: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleMySitesStateDispatch: PropTypes.func.isRequired,
   setMySitesFiltersDispatch: PropTypes.func.isRequired,
+  networkAvailable: PropTypes.bool.isRequired,
   filterListingDispatch: PropTypes.func.isRequired,
   listingRaw: PropTypes.arrayOf(SiteType).isRequired
 }
@@ -104,6 +105,7 @@ SiteDetails.propTypes = {
 const mapStateToProps = (state) => {
   return {
     locale: state.localeStore.locale,
+    networkAvailable: state.coreStore.networkAvailable,
     mySites: state.filtersStore.mySites,
     listingRaw: state.listingStore.listingRaw
   };
