@@ -15,6 +15,7 @@ const SiteType = PropTypes.shape({
   highway: PropTypes.number,
   region: PropTypes.number,
   siteTypes: PropTypes.arrayOf(PropTypes.number),
+  siteAmenties: PropTypes.arrayOf(PropTypes.string),
   indexes: PropTypes.shape({
     en: PropTypes.shape({ title: PropTypes.string.isRequired }),
     fr: PropTypes.shape({ title: PropTypes.string.isRequired })

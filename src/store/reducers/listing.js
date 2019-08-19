@@ -17,6 +17,7 @@ const initialState = {
       highway: 1,
       region: 1,
       siteTypes: [1, 2],
+      siteAmenties: ['outhouses', 'bear-proof-garbage-bins', 'bear-proof-recycling-bins', 'picnic-tables', 'fire-ring', 'boat-launch', 'dock', 'hiking-trails', 'playground'],
       location: {
         latitude: 50.460642,
         longitude: 30.640864
@@ -52,6 +53,7 @@ const initialState = {
       highway: 2,
       region: 2,
       siteTypes: [1],
+      siteAmenties: ['outhouses', 'bear-proof-garbage-bins', 'bear-proof-recycling-bins', 'picnic-tables', 'fire-ring', 'boat-launch', 'dock', 'hiking-trails', 'playground'],
       location: {
         latitude: 50.516425,
         longitude: 30.598676
@@ -87,6 +89,7 @@ const initialState = {
       highway: 2,
       region: 2,
       siteTypes: [1, 2, 3, 4],
+      siteAmenties: ['outhouses', 'bear-proof-garbage-bins', 'bear-proof-recycling-bins', 'picnic-tables', 'fire-ring', 'boat-launch', 'dock', 'hiking-trails', 'playground'],
       location: {
         latitude: 50.493380,
         longitude: 30.558035
@@ -122,6 +125,7 @@ const initialState = {
       highway: 3,
       region: 3,
       siteTypes: [1, 4],
+      siteAmenties: ['outhouses', 'bear-proof-garbage-bins', 'bear-proof-recycling-bins', 'picnic-tables', 'fire-ring', 'boat-launch', 'dock', 'hiking-trails', 'playground'],
       location: {
         latitude: 50.464546,
         longitude: 30.644168

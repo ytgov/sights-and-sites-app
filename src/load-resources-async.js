@@ -78,14 +78,70 @@ export default async () => Promise.all([
     require('../assets/stacks/listing/amenties/arrow-left-icon.png'),
     require('../assets/stacks/listing/amenties/arrow-right-icon.png'),
     require('../assets/stacks/listing/warning-icon.png'),
-    // TODO TEMPORARY. REPLACE WITH REAL ONES
-    require('../assets/stacks/listing/amenties/1.png'),
-    require('../assets/stacks/listing/amenties/2.png'),
-    require('../assets/stacks/listing/amenties/3.png'),
-    require('../assets/stacks/listing/amenties/4.png'),
-    require('../assets/stacks/listing/amenties/5.png'),
-    require('../assets/stacks/listing/amenties/6.png'),
-    require('../assets/stacks/listing/amenties/1active.png'),
+    // Site amenties active
+    require('../assets/stacks/listing/amenties/active/y_beach.png'),
+    require('../assets/stacks/listing/amenties/active/y_boat.png'),
+    require('../assets/stacks/listing/amenties/active/y_camp_wheelchair.png'),
+    require('../assets/stacks/listing/amenties/active/y_change_room.png'),
+    require('../assets/stacks/listing/amenties/active/y_cook_shelter.png'),
+    require('../assets/stacks/listing/amenties/active/y_dock.png'),
+    require('../assets/stacks/listing/amenties/active/y_fire_ring.png'),
+    require('../assets/stacks/listing/amenties/active/y_garbage.png'),
+    require('../assets/stacks/listing/amenties/active/y_group_campsite.png'),
+    require('../assets/stacks/listing/amenties/active/y_hand_pump.png'),
+    require('../assets/stacks/listing/amenties/active/y_hiking_trails.png'),
+    require('../assets/stacks/listing/amenties/active/y_interpretive.png'),
+    require('../assets/stacks/listing/amenties/active/y_lockers.png'),
+    require('../assets/stacks/listing/amenties/active/y_outhouses.png'),
+    require('../assets/stacks/listing/amenties/active/y_picnic_tables.png'),
+    require('../assets/stacks/listing/amenties/active/y_playground.png'),
+    require('../assets/stacks/listing/amenties/active/y_recycling.png'),
+    require('../assets/stacks/listing/amenties/active/y_swimming.png'),
+    require('../assets/stacks/listing/amenties/active/y_tend_pads.png'),
+    require('../assets/stacks/listing/amenties/active/y_theatre.png'),
+    require('../assets/stacks/listing/amenties/active/y_viewing.png'),
+    require('../assets/stacks/listing/amenties/active/y_wheelchair.png'),
+    // Site amenties inactive
+    require('../assets/stacks/listing/amenties/inactive/b_beach.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_boat.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_camp_wheelchair.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_change_room.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_cook_shelter.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_dock.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_fire_ring.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_garbage.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_group_campsite.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_hand_pump.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_hiking_trails.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_interpretive.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_lockers.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_outhouses.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_picnic_tables.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_playground.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_recycling.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_swimming.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_tend_pads.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_theatre.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_viewing.png'),
+    require('../assets/stacks/listing/amenties/inactive/b_wheelchair.png'),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // More Stack
     require('../assets/stacks/more/app-information-icon.png'),

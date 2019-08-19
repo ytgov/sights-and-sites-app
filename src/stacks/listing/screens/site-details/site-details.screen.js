@@ -19,60 +19,12 @@ import { toggleMySitesState, setMySitesFilters } from '../../../../store/actions
 import AddToMySitesNotification from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 import SiteType from '../../../../types/site.type';
 
-const amentieIcon1 = require('../../../../../assets/stacks/listing/amenties/1.png');
-const amentieIcon2 = require('../../../../../assets/stacks/listing/amenties/2.png');
-const amentieIcon3 = require('../../../../../assets/stacks/listing/amenties/3.png');
-const amentieIcon4 = require('../../../../../assets/stacks/listing/amenties/4.png');
-const amentieIcon5 = require('../../../../../assets/stacks/listing/amenties/5.png');
-const amentieIcon6 = require('../../../../../assets/stacks/listing/amenties/6.png');
-
-
 class SiteDetails extends React.Component {
   addToMySitesNotificationTimeout = null;
 
   state = {
-    nearBySiteID: null,
     addToMySitesNotificationVisible: false,
     addToMySitesNotificationDelay: 2000,
-    // TODO replace with amenties from config once real data is there
-    siteAmenties: [
-      {
-        id: 1,
-        image: amentieIcon1
-      },
-      {
-        id: 2,
-        image: amentieIcon2
-      },
-      {
-        id: 3,
-        image: amentieIcon3
-      },
-      {
-        id: 4,
-        image: amentieIcon4
-      },
-      {
-        id: 5,
-        image: amentieIcon5
-      },
-      {
-        id: 6,
-        image: amentieIcon6
-      },
-      {
-        id: 7,
-        image: amentieIcon1
-      },
-      {
-        id: 8,
-        image: amentieIcon2
-      },
-      {
-        id: 9,
-        image: amentieIcon3
-      },
-    ]
   }
 
   componentWillUnmount() {
@@ -95,7 +47,7 @@ class SiteDetails extends React.Component {
   }
 
   render() {
-    const { siteAmenties, addToMySitesNotificationVisible } = this.state;
+    const { addToMySitesNotificationVisible } = this.state;
     const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw } = this.props;
     const item = navigation.getParam('item');
 
@@ -120,7 +72,7 @@ class SiteDetails extends React.Component {
           </View>
           <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
             <SiteCardInfo item={item} locale={locale} />
-            <SiteAmenties items={siteAmenties} />
+            <SiteAmenties items={item.siteAmenties} />
             <SiteWarning />
             <Body1 black regular>
               With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.
