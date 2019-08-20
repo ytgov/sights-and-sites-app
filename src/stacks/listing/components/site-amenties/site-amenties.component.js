@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import { Subtitle1 } from '../../../../theme/theme';
+import { Helpers, Subtitle1 } from '../../../../theme/theme';
 import { SITE_AMENTIES } from '../../../../config';
-import SiteAmentiesStyles from './site-amenties.styles';
+import SiteAmentiesStyles, { CAROUSEL_CONFIG } from './site-amenties.styles';
 
 const { width } = Dimensions.get('window');
 const sliderArrowLeft = require('../../../../../assets/stacks/listing/amenties/arrow-left-icon.png');
@@ -33,62 +33,55 @@ class SiteAmenties extends React.Component {
       if (!this.carousel) {
         return false;
       }
-
       setTimeout(() => {
         if (this.carousel.currentIndex !== index) {
           this.carousel.snapToItem(index);
         }
-      }, 100)
+      }, 100);
+      return true;
     });
   }
 
-  // TODO update styles, move and refactor
   render() {
     const { items } = this.props;
     const { carouselActive } = this.state;
     const amenties = items.map(amentyID => SITE_AMENTIES[amentyID]);
+    const sliderWidth = width - CAROUSEL_CONFIG.outerScreenPadding * 2 - CAROUSEL_CONFIG.carouselItemPadding * 2 - CAROUSEL_CONFIG.carouselArrowWidth * 2;
+    const itemWidth = sliderWidth;
     return (
-      <View style={{ position: 'relative', zIndex: 1 }}>
+      <View>
         <FlatList
           horizontal
-          style={{ marginTop: 16, paddingTop: 16, paddingBottom: 16, borderTopWidth: 1, borderTopColor: '#CBCBCB', borderBottomWidth: 1, borderBottomColor: '#CBCBCB' }}
+          style={SiteAmentiesStyles.amenitiesList}
           data={amenties}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item, index }) => <TouchableOpacity onPress={() => { this.toggleCarousel(index) }} style={{ paddingRight: 8 }}>
-            <Image source={item.imageInactive} style={{ width: 40, height: 40 }} resizeMode='contain' />
+          renderItem={({ item, index }) => <TouchableOpacity onPress={() => { this.toggleCarousel(index) }} style={SiteAmentiesStyles.amenitiesListIconBox}>
+            <Image source={item.imageInactive} style={SiteAmentiesStyles.amenitiesListIcon} resizeMode='contain' />
           </TouchableOpacity>}
         />
         {carouselActive &&
           <View style={[SiteAmentiesStyles.carouselBox]}>
             <TouchableOpacity onPress={() => this.snapToPrevSlide()}>
-              <Image source={sliderArrowLeft} style={{ width: 13, height: 22 }} resizeMode='contain' />
+              <Image source={sliderArrowLeft} style={SiteAmentiesStyles.amenitiesListArrow} resizeMode='contain' />
             </TouchableOpacity>
             <Carousel
               ref={carousel => { this.carousel = carousel; }}
               data={amenties}
               useScrollView
+              style={[Helpers.alignItemsCenter, Helpers.justifyContentCenter]}
               renderItem={({ item }) =>
-                <View style={{
-                  backgroundColor: '#000',
-                  paddingTop: 26,
-                  paddingBottom: 26,
-                  paddingLeft: 20,
-                  paddingRight: 20,
-                  textAlign: 'center',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}><View style={{ textAlign: 'center', justifyContent: 'center' }}>
-                    <Image source={item.imageActive} style={{ alignSelf: 'center', width: 40, height: 40, marginBottom: 14 }} resizeMode='contain' />
-                    <Subtitle1 style={{ textAlign: 'center' }}>{item.en}</Subtitle1>
-                  </View>
+                <View style={SiteAmentiesStyles.carouselItem}><View style={[Helpers.alignItemsCenter, Helpers.justifyContentCenter]}>
+                  <Image source={item.imageActive} style={SiteAmentiesStyles.carouselItemIcon} resizeMode='contain' />
+                  <Subtitle1 style={{ textAlign: 'center' }}>{item.en}</Subtitle1>
+                </View>
                 </View>
               }
               removeClippedSubviews={false}
-              sliderWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
-              itemWidth={width - 16 * 2 - 20 * 2 - 13 * 2}
+              sliderWidth={sliderWidth}
+              itemWidth={itemWidth}
             />
             <TouchableOpacity onPress={() => this.snapToNextSlide()}>
-              <Image source={sliderArrowRight} style={{ width: 13, height: 22 }} resizeMode='contain' />
+              <Image source={sliderArrowRight} style={SiteAmentiesStyles.amenitiesListArrow} resizeMode='contain' />
             </TouchableOpacity>
           </View>
         }
