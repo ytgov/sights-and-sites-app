@@ -18,6 +18,7 @@ import { filterListing } from '../../../../store/actions/listing';
 import { toggleMySitesState, setMySitesFilters } from '../../../../store/actions/filters';
 import AddToMySitesNotification from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 import SiteType from '../../../../types/site.type';
+import { APP_CONFIG } from '../../../../config';
 
 class SiteDetails extends React.Component {
   addToMySitesNotificationTimeout = null;
@@ -51,7 +52,7 @@ class SiteDetails extends React.Component {
     const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw, networkAvailable } = this.props;
     const item = navigation.getParam('item');
 
-    const preview = { uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' };
+    const preview = { uri: APP_CONFIG.cache.imagePreview };
     const { id, uri } = item;
     const isSiteInMySites = !!mySites.filter(site => site === id).length
 
@@ -66,7 +67,7 @@ class SiteDetails extends React.Component {
         <Content>
           <View style={COMMON.content}>
             <View style={[SiteDetailsStyles.siteImgBox]}>
-              <Image {...{ preview, uri }} resizeMode='cover' style={SiteDetailsStyles.siteImg} />
+              <Image {...{ preview, uri }} resizeMode='cover' tint={APP_CONFIG.cache.tint} transitionDuration={APP_CONFIG.cache.transitionDuration} style={SiteDetailsStyles.siteImg} />
             </View>
             <MySitesButton id={id} isSiteInMySites={isSiteInMySites} toggleMySitesStateDispatch={toggleMySitesStateDispatch} showAddToMySitesNotification={() => this.showAddToMySitesNotification()} filterListingDispatch={filterListingDispatch} />
           </View>

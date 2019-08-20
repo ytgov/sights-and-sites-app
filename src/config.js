@@ -10,6 +10,11 @@ export const APP_CONFIG = {
   },
   location: {
     locationUpdateFrequency: 5000
+  },
+  cache: {
+    imagePreview: '/assets/common/preview.png',
+    transitionDuration: 500,
+    tint: 'dark'
   }
 }
 
