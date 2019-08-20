@@ -20,6 +20,8 @@ import AddToMySitesNotification from '../../components/add-to-my-sites-notificat
 import SiteType from '../../../../types/site.type';
 import { APP_CONFIG } from '../../../../config';
 
+const fallback = require('../../../../../assets/common/preview.png');
+
 class SiteDetails extends React.Component {
   addToMySitesNotificationTimeout = null;
 
@@ -67,7 +69,7 @@ class SiteDetails extends React.Component {
         <Content>
           <View style={COMMON.content}>
             <View style={[SiteDetailsStyles.siteImgBox]}>
-              <Image {...{ preview, uri }} resizeMode='cover' tint={APP_CONFIG.cache.tint} transitionDuration={APP_CONFIG.cache.transitionDuration} style={SiteDetailsStyles.siteImg} />
+              <Image {...{ preview, uri }} resizeMode='cover' tint={APP_CONFIG.cache.tint} transitionDuration={APP_CONFIG.cache.transitionDuration} style={SiteDetailsStyles.siteImg} fallback={fallback} />
             </View>
             <MySitesButton id={id} isSiteInMySites={isSiteInMySites} toggleMySitesStateDispatch={toggleMySitesStateDispatch} showAddToMySitesNotification={() => this.showAddToMySitesNotification()} filterListingDispatch={filterListingDispatch} />
           </View>

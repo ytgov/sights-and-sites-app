@@ -7,7 +7,14 @@ import ListViewStyles from './list-view.styles';
 import SiteType from '../../../../types/site.type';
 import { APP_CONFIG } from '../../../../config';
 
+const fallback = require('../../../../../assets/common/preview.png');
+
+// const fallback = 
 class ListViewItem extends React.PureComponent {
+  state = {
+    imageLoadingFailed: false
+  }
+
   render() {
     const { item, locale, navigation, parentLocation } = this.props;
     const preview = { uri: APP_CONFIG.cache.imagePreview };
@@ -16,7 +23,13 @@ class ListViewItem extends React.PureComponent {
     return (
       <View noIndent style={ListViewStyles.listItem}>
         <View style={ListViewStyles.listItemImgBox}>
-          <Image {...{ preview, uri }} tint={APP_CONFIG.cache.tint} transitionDuration={APP_CONFIG.cache.transitionDuration} resizeMode='cover' style={ListViewStyles.listItemImg} />
+          <Image
+            {...{ preview, uri }}
+            tint={APP_CONFIG.cache.tint}
+            transitionDuration={APP_CONFIG.cache.transitionDuration}
+            resizeMode='cover'
+            fallback={fallback}
+            style={ListViewStyles.listItemImg} />
         </View>
         <SiteCard item={item} parentLocation={parentLocation} locale={locale} navigation={navigation} />
       </View>
