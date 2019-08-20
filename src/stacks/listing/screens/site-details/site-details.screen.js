@@ -20,7 +20,7 @@ import AddToMySitesNotification from '../../components/add-to-my-sites-notificat
 import SiteType from '../../../../types/site.type';
 import { APP_CONFIG } from '../../../../config';
 
-const fallback = require('../../../../../assets/common/preview.png');
+const fallback = require('../../../../../assets/common/fallback.png');
 
 class SiteDetails extends React.Component {
   addToMySitesNotificationTimeout = null;

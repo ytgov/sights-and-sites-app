@@ -30,7 +30,7 @@ export default async () => Promise.all([
     require('../assets/common/logo.png'),
     require('../assets/common/logo-white.png'),
     require('../assets/common/common-background.jpg'),
-    require('../assets/common/preview.png'),
+    require('../assets/common/fallback.png'),
 
     // Tabs
     require('../assets/stacks/tabs/more-icon.png'),

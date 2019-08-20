@@ -7,12 +7,11 @@ import ListViewStyles from './list-view.styles';
 import SiteType from '../../../../types/site.type';
 import { APP_CONFIG } from '../../../../config';
 
-const fallback = require('../../../../../assets/common/preview.png');
+const fallback = require('../../../../../assets/common/fallback.png');
 
 // const fallback = 
 class ListViewItem extends React.PureComponent {
   state = {
-    imageLoadingFailed: false
   }
 
   render() {
