@@ -8,7 +8,7 @@ import i18n from '../../../../locale/locale';
 import { Helpers, COMMON, Caption, H2, Subtitle1 } from '../../../../theme/theme';
 import ChooseLocationStyles from './choose-location.styles';
 import { en, fr } from './choose-location.locales';
-import NotifyService from '../../../../shared/services/notify/notify';
+import { success } from '../../../../shared/services/notify';
 import Badge from './choose-location.styled-components';
 import { resetFilters, setNearMeFilters, setMySitesFilters } from '../../../../store/actions/filters';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
@@ -20,8 +20,6 @@ const byRegionIcon = require('../../../../../assets/stacks/where-to/by-region-ic
 const mySitesIcon = require('../../../../../assets/stacks/where-to/my-sites-icon.png');
 
 class IntroStepFourScreen extends React.Component {
-  notify = new NotifyService();
-
   state = {
   }
 
@@ -37,19 +35,19 @@ class IntroStepFourScreen extends React.Component {
   toggleNearMeFilter() {
     const { setNearMeFiltersDispatch } = this.props;
     setNearMeFiltersDispatch(true);
-    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
+    success(i18n.t('notifications.onFiltersUpdate'));
   }
 
   toggleMySitesFilter() {
     const { setMySitesFiltersDispatch } = this.props;
     setMySitesFiltersDispatch(true);
-    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
+    success(i18n.t('notifications.onFiltersUpdate'));
   }
 
   resetFilters() {
     const { resetFiltersDispatch } = this.props;
     resetFiltersDispatch();
-    this.notify.success(i18n.t('notifications.onFiltersClear'));
+    success(i18n.t('notifications.onFiltersClear'));
   }
 
   render() {

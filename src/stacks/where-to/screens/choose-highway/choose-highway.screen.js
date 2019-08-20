@@ -11,7 +11,7 @@ import ChooseHighwayStyles from './choose-highway.styles';
 import { HighwayBox, HighwayBoxSpacer, HighwayBadgeText } from './choose-highway.styled-components';
 import { en, fr } from './choose-highway.locales';
 import { setHighwayFilters } from '../../../../store/actions/filters';
-import NotifyService from '../../../../shared/services/notify/notify';
+import { success } from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
 const highwayIcon = require('../../../../../assets/stacks/where-to/highway-number-background.png');
@@ -19,9 +19,6 @@ const highwayIcon = require('../../../../../assets/stacks/where-to/highway-numbe
 const chooseHighwayBackground = require('../../../../../assets/common/common-background.jpg');
 
 class ChooseHighwayScreen extends React.Component {
-  // TODO rething this service
-  notify = new NotifyService();
-
   state = {
     selectedHighways: []
   }
@@ -54,7 +51,7 @@ class ChooseHighwayScreen extends React.Component {
     const { selectedHighways } = this.state;
     const { navigation, setHighwayFiltersDispatch } = this.props;
     setHighwayFiltersDispatch(selectedHighways);
-    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
+    success(i18n.t('notifications.onFiltersUpdate'));
     navigation.goBack();
   }
 

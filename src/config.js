@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 export const APP_CONFIG = {
+  version: '1.0.0',
   listing: {
     itemsToShow: 2
   },

@@ -10,7 +10,7 @@ import i18n from '../../../../locale/locale';
 import { Helpers, H1, H3, Body1, Subtitle1 } from '../../../../theme/theme';
 import IntroStepFourStyles from './intro-step-four.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
-import NotifyService from '../../../../shared/services/notify/notify';
+import { error } from '../../../../shared/services/notify';
 import SwipeConfig from '../swipe-config';
 import { setOnboardingFinished } from '../../../../store/actions/core';
 
@@ -42,9 +42,6 @@ const introStepFourBackground = require('../../../../../assets/common/common-bac
 const checkCircleIcon = require('../../../../../assets/stacks/intro/check-circle.png');
 
 class IntroStepFourScreen extends React.Component {
-  // TODO rethink this service
-  notify = new NotifyService();
-
   state = {
   }
 
@@ -69,7 +66,7 @@ class IntroStepFourScreen extends React.Component {
       Permissions.LOCATION
     );
     if (status !== 'granted') {
-      this.notify.error(i18n.t('notifications.permissionsRequest'));
+      error(i18n.t('notifications.permissionsRequest'));
     } else {
       setOnboardingFinishedDispatch();
       navigation.navigate('Main');

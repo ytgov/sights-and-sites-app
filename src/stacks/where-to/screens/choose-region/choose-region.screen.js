@@ -11,15 +11,12 @@ import ChooseRegionStyles from './choose-region.styles';
 import { HighwayBox, HighwayBoxSpacer } from './choose-region.styled-components';
 import { en, fr } from './choose-region.locales';
 import { setRegionFilters } from '../../../../store/actions/filters';
-import NotifyService from '../../../../shared/services/notify/notify';
+import { success } from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
 const chooseHighwayBackground = require('../../../../../assets/common/common-background.jpg');
 
 class ChooseRegionScreen extends React.Component {
-  // TODO rething this service
-  notify = new NotifyService();
-
   state = {
     selectedHighways: []
   }
@@ -52,7 +49,7 @@ class ChooseRegionScreen extends React.Component {
     const { selectedHighways } = this.state;
     const { navigation, setRegionsFiltersDispatch } = this.props;
     setRegionsFiltersDispatch(selectedHighways);
-    this.notify.success(i18n.t('notifications.onFiltersUpdate'));
+    success(i18n.t('notifications.onFiltersUpdate'));
     navigation.goBack();
   }
 
