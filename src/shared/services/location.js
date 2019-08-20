@@ -1,6 +1,5 @@
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import { error } from './notify';
 
 async function trackLocation(onLocation, onLocationReset) {
   const enabled = await Location.hasServicesEnabledAsync();
@@ -10,12 +9,10 @@ async function trackLocation(onLocation, onLocationReset) {
 
   if (status !== 'granted') {
     onLocationReset();
-    // error('Turn on location permissions');
     return false;
   }
   if (!enabled) {
     onLocationReset();
-    // error('Turn on location services');
     return false;
   }
 

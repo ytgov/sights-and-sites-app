@@ -44,9 +44,11 @@ const SiteFooterTabs = props => {
       } else if (result.action === Share.dismissedAction) {
         // dismissed
       }
-    } catch (error) {
-      // alert(error.message);
+    } catch (err) {
+      error(err);
+      return false;
     }
+    return true;
   };
   return (
     <Footer style={COMMON.footer}>

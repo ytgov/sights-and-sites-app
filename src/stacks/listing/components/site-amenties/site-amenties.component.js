@@ -7,6 +7,8 @@ import { SITE_AMENTIES } from '../../../../config';
 import SiteAmentiesStyles, { CAROUSEL_CONFIG } from './site-amenties.styles';
 
 const { width } = Dimensions.get('window');
+const sliderWidth = width - CAROUSEL_CONFIG.outerScreenPadding * 2 - CAROUSEL_CONFIG.carouselItemPadding * 2 - CAROUSEL_CONFIG.carouselArrowWidth * 2;
+const itemWidth = sliderWidth;
 const sliderArrowLeft = require('../../../../../assets/stacks/listing/amenties/arrow-left-icon.png');
 const sliderArrowRight = require('../../../../../assets/stacks/listing/amenties/arrow-right-icon.png')
 
@@ -46,8 +48,7 @@ class SiteAmenties extends React.Component {
     const { items } = this.props;
     const { carouselActive } = this.state;
     const amenties = items.map(amentyID => SITE_AMENTIES[amentyID]);
-    const sliderWidth = width - CAROUSEL_CONFIG.outerScreenPadding * 2 - CAROUSEL_CONFIG.carouselItemPadding * 2 - CAROUSEL_CONFIG.carouselArrowWidth * 2;
-    const itemWidth = sliderWidth;
+
     return (
       <View>
         <FlatList

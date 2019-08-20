@@ -9,12 +9,8 @@ class SiteDistance extends React.Component {
   state = {
   }
 
-  async componentWillMount() {
-  }
-
   render() {
     const { location, canGrabLocation, siteLocation, parentLocation } = this.props;
-    const distance = null;
     let result = null;
     if (parentLocation) {
       result = calculateDistanceBeetweenTwoLocations(parentLocation, siteLocation);

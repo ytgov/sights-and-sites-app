@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { NetInfo } from 'react-native';
 import PropTypes from 'prop-types';
 import { setNetworkStatus } from '../../../store/actions/core';
-import { error } from '../../services/notify';
 
 class NetworkGate extends React.Component {
   state = {
@@ -17,9 +16,6 @@ class NetworkGate extends React.Component {
     */
     NetInfo.isConnected.fetch().done(
       isConnected => {
-        // if (!isConnected) {
-        // error('Network is not available');
-        // }
         setNetworkStatusDispatch(!!isConnected)
       }
     );
@@ -29,9 +25,6 @@ class NetworkGate extends React.Component {
     NetInfo.isConnected.addEventListener(
       'connectionChange',
       isConnected => {
-        // if (!isConnected) {
-        // error('Network is not available');
-        // }
         setNetworkStatusDispatch(!!isConnected)
       }
     );
