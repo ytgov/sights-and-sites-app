@@ -32,7 +32,8 @@ const initialState = {
       },
       en: {
         title: 'Five Finger Rapids',
-        descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Beware of high winds and waves on this narrow lake.',
         highway: {
           number: 1,
           name: 'EN Klondike Highway, km 380'
@@ -40,7 +41,8 @@ const initialState = {
       },
       fr: {
         title: 'Five Finger Rapids',
-        descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Méfiez-vous des vents violents et des vagues sur ce lac étroit.',
         highway: {
           number: 1,
           name: 'FR Klondike Highway, km 380'
@@ -68,7 +70,8 @@ const initialState = {
       },
       en: {
         title: 'Carmacks',
-        descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Beware of high winds and waves on this narrow lake.',
         highway: {
           number: 2,
           name: 'EN Klondike Highway, km 380'
@@ -76,7 +79,8 @@ const initialState = {
       },
       fr: {
         title: 'Five Finger Rapids FR',
-        descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Méfiez-vous des vents violents et des vagues sur ce lac étroit.',
         highway: {
           number: 2,
           name: 'FR Klondike Highway, km 380'
@@ -104,7 +108,8 @@ const initialState = {
       },
       en: {
         title: 'Devil`s Elbow',
-        descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Beware of high winds and waves on this narrow lake.',
         highway: {
           number: 1,
           name: 'EN Klondike Highway, km 380'
@@ -112,7 +117,8 @@ const initialState = {
       },
       fr: {
         title: 'Devil`s Elbow',
-        descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        warning: 'Méfiez-vous des vents violents et des vagues sur ce lac étroit.',
         highway: {
           number: 1,
           name: 'FR Klondike Highway, km 380'
@@ -140,7 +146,7 @@ const initialState = {
       },
       en: {
         title: 'Montague Road House',
-        descriprtion: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'EN With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,
           name: 'EN Klondike Highway, km 380'
@@ -148,7 +154,7 @@ const initialState = {
       },
       fr: {
         title: 'Montague Road House',
-        descriprtion: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
+        description: 'FR With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.',
         highway: {
           number: 1,
           name: 'FR Klondike Highway, km 380'

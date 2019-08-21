@@ -8,7 +8,8 @@ const NavigationBackButton = props => {
   const { dark } = props;
 
   return (
-    <TouchableOpacity style={{ width: 30, alignItems: 'flex-start', justifyContent: 'flex-start' }} onPress={() => { props.navigation.goBack(null) }}>
+    // <TouchableOpacity style={{ width: 30, alignItems: 'flex-start', justifyContent: 'flex-start' }} onPress={() => { props.navigation.goBack(null) }}></TouchableOpacity>
+    <TouchableOpacity onPress={() => { props.navigation.goBack(null) }}>
       <Ionicons name="ios-arrow-back" size={32} color={dark ? '#929496' : '#FFFFFF'} style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]} />
     </TouchableOpacity>
   )

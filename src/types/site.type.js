@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const SiteInfoType = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  descriprtion: PropTypes.string,
+  description: PropTypes.string,
   highway: PropTypes.shape({
     number: PropTypes.number,
     name: PropTypes.name

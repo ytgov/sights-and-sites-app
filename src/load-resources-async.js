@@ -8,7 +8,6 @@ function cacheImages(images) {
       return Image.prefetch(image);
     }
     return Asset.fromModule(image).downloadAsync();
-
   });
 }
 
@@ -19,9 +18,6 @@ export default async () => Promise.all([
     'montserrat-semibold': require('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf'),
     'montserrat-regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
     'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf')
-    // Roboto: require("native-base/Fonts/Roboto.ttf"),
-    // Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-    // ProximaNovaBold: require("./assets/fonts/ProximaNova/ProximaNova-Bold.ttf")
   }),
 
   cacheImages([
@@ -31,33 +27,27 @@ export default async () => Promise.all([
     require('../assets/common/logo-white.png'),
     require('../assets/common/common-background.jpg'),
     require('../assets/common/fallback.png'),
-
     // Tabs
     require('../assets/stacks/tabs/more-icon.png'),
     require('../assets/stacks/tabs/site-type-icon.png'),
     require('../assets/stacks/tabs/where-to-icon.png'),
     require('../assets/stacks/tabs/where-to-icon.png'),
-
     // Site type tabs
     require('../assets/stacks/tabs/site-type-camping-icon.png'),
     require('../assets/stacks/tabs/site-type-history-icon.png'),
     require('../assets/stacks/tabs/site-type-recreation-icon.png'),
     require('../assets/stacks/tabs/site-type-wildlife-icon.png'),
     require('../assets/stacks/tabs/site-type-active-overlay.png'),
-
     // Site tabs
     require('../assets/stacks/tabs/directions-icon.png'),
     require('../assets/stacks/tabs/share-icon.png'),
     require('../assets/stacks/tabs/my-sites-icon.png'),
-
     // Welcome Stack
     require('../assets/stacks/welcome/welcome-background.jpg'),
-
     // Intro Stack
     require('../assets/stacks/intro/intro-step-one-background.jpg'),
     require('../assets/stacks/intro/intro-step-two-background.jpg'),
     require('../assets/stacks/intro/intro-step-three-background.jpg'),
-
     // Where To Stack
     require('../assets/stacks/where-to/by-highway-icon.png'),
     require('../assets/stacks/where-to/by-region-icon.png'),
@@ -72,7 +62,6 @@ export default async () => Promise.all([
     require('../assets/stacks/where-to/region6.png'),
     require('../assets/stacks/where-to/region7.png'),
     require('../assets/stacks/where-to/region8.png'),
-
     // Listing Stack
     require('../assets/stacks/listing/highway-number-background-icon.png'),
     require('../assets/stacks/listing/nearby-sites-icon.png'),
@@ -125,25 +114,6 @@ export default async () => Promise.all([
     require('../assets/stacks/listing/amenties/inactive/b_theatre.png'),
     require('../assets/stacks/listing/amenties/inactive/b_viewing.png'),
     require('../assets/stacks/listing/amenties/inactive/b_wheelchair.png'),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // More Stack
     require('../assets/stacks/more/app-information-icon.png'),
     require('../assets/stacks/more/current-conditions-icon.png'),
