@@ -75,7 +75,7 @@ class SiteDetails extends React.Component {
           </View>
           <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
             <SiteCardInfo item={item} locale={locale} />
-            <SiteAmenties items={item.siteAmenties} />
+            <SiteAmenties items={item.siteAmenties} locale={locale} />
             <SiteWarning />
             <Body1 black regular>
               With many small bays, islands, and shoreline vegetation, Tachan Man is an interesting place to paddle. The dock at the campground is accessible by foot, whereas the boat launch is 2 km away on Frenchman Road.

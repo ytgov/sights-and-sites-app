@@ -45,7 +45,7 @@ class SiteAmenties extends React.Component {
   }
 
   render() {
-    const { items } = this.props;
+    const { items, locale } = this.props;
     const { carouselActive } = this.state;
     const amenties = items.map(amentyID => SITE_AMENTIES[amentyID]);
 
@@ -73,7 +73,7 @@ class SiteAmenties extends React.Component {
               renderItem={({ item }) =>
                 <View style={SiteAmentiesStyles.carouselItem}><View style={[Helpers.alignItemsCenter, Helpers.justifyContentCenter]}>
                   <Image source={item.imageActive} style={SiteAmentiesStyles.carouselItemIcon} resizeMode='contain' />
-                  <Subtitle1 style={{ textAlign: 'center' }}>{item.en}</Subtitle1>
+                  <Subtitle1 style={{ textAlign: 'center' }}>{item[locale]}</Subtitle1>
                 </View>
                 </View>
               }
@@ -92,7 +92,8 @@ class SiteAmenties extends React.Component {
 }
 
 SiteAmenties.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.string).isRequired
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+  locale: PropTypes.string.isRequired
 }
 
 export default SiteAmenties;
