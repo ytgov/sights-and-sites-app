@@ -5,6 +5,7 @@ import { Image, View, ActivityIndicator } from 'react-native';
 import NearbySitesStyles from './nearby-sites.styles';
 import { H2, Helpers } from '../../../../theme/theme';
 import ListViewItem from '../../containers/list-view/list-view.item';
+import i18n from '../../../../locale/locale';
 
 const nearByIcon = require('../../../../../assets/stacks/listing/nearby-sites-icon.png');
 
@@ -39,7 +40,7 @@ class NearbySites extends React.Component {
       <View>
         <View style={NearbySitesStyles.nearbySitesBox}>
           <Image style={NearbySitesStyles.nearbySitesIcon} source={nearByIcon} resizeMode='contain' />
-          <H2 style={Helpers.textAlignCenter}>Nearby sites</H2>
+          <H2 style={Helpers.textAlignCenter}>{i18n.t('siteDetails.nearBySites')}</H2>
         </View>
         <ListViewItem parentLocation={parentLocation} item={item} locale={locale} navigation={navigation} />
       </View>

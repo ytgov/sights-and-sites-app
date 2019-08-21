@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Body1 } from '../../../../theme/theme';
+import i18n from '../../../../locale/locale';
 import { calculateDistanceBeetweenTwoLocations } from '../../../../shared/services/distance';
 import LocationType from '../../../../types/location.type';
 
@@ -17,7 +18,8 @@ class SiteDistance extends React.Component {
     } else if (canGrabLocation && location) {
       result = calculateDistanceBeetweenTwoLocations(location, siteLocation);
     }
-    return (result) ? <Body1 style={{ color: '#DB9F39' }}>{result}</Body1> : <Body1 style={{ color: '#DB9F39' }}>Can not access location data</Body1>
+    return (result) ? <Body1 style={{ color: '#DB9F39' }}>{result}</Body1> : <Body1 style={{ color: '#DB9F39' }}>
+      {i18n.t('location.noLocationData')}</Body1>
   }
 }
 

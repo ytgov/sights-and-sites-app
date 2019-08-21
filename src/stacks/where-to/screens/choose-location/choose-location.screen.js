@@ -7,7 +7,6 @@ import { Container, Header, Content, Footer, FooterTab, Button } from 'native-ba
 import i18n from '../../../../locale/locale';
 import { Helpers, COMMON, Caption, H2, Subtitle1 } from '../../../../theme/theme';
 import ChooseLocationStyles from './choose-location.styles';
-import { en, fr } from './choose-location.locales';
 import { success } from '../../../../shared/services/notify';
 import Badge from './choose-location.styled-components';
 import { resetFilters, setNearMeFilters, setMySitesFilters } from '../../../../store/actions/filters';
@@ -21,12 +20,6 @@ const mySitesIcon = require('../../../../../assets/stacks/where-to/my-sites-icon
 
 class IntroStepFourScreen extends React.Component {
   state = {
-  }
-
-  componentWillMount() {
-    // Load additional namespaces after initialization
-    i18n.addResourceBundle('en', 'translation', en);
-    i18n.addResourceBundle('fr', 'translation', fr);
   }
 
   componentDidMount() {
@@ -61,13 +54,14 @@ class IntroStepFourScreen extends React.Component {
 
           <Content>
             <View style={[Helpers.flexCenter]}>
-              <H2>{i18n.t('title')}</H2>
+              <H2>{i18n.t('chooseLocation.title')}</H2>
               <TouchableOpacity onPress={() => { this.toggleNearMeFilter() }} style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                 <View style={{ position: 'relative' }}>
                   {!!nearMeFilter && (<Badge />)}
                   <Image source={nearMeIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
                 </View>
-                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('nearMe')}</Subtitle1>
+                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{
+                  i18n.t('chooseLocation.nearMe')}</Subtitle1>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => { navigation.navigate('ChooseHighway') }} style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
@@ -76,7 +70,8 @@ class IntroStepFourScreen extends React.Component {
                   <Image source={byHighwayIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
                 </View>
 
-                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('byHighway')}</Subtitle1>
+                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{
+                  i18n.t('chooseLocation.byHighway')}</Subtitle1>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => { navigation.navigate('ChooseRegion') }} style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
@@ -84,7 +79,8 @@ class IntroStepFourScreen extends React.Component {
                   {!!regionsFilter.length && (<Badge />)}
                   <Image source={byRegionIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
                 </View>
-                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('byRegion')}</Subtitle1>
+                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{
+                  i18n.t('chooseLocation.byRegion')}</Subtitle1>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => { this.toggleMySitesFilter() }} style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
@@ -92,7 +88,7 @@ class IntroStepFourScreen extends React.Component {
                   {!!mySitesFilter && (<Badge />)}
                   <Image source={mySitesIcon} resizeMode='contain' style={{ width: 40, height: 40 }} />
                 </View>
-                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('mySites')}</Subtitle1>
+                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('chooseLocation.mySites')}</Subtitle1>
               </TouchableOpacity>
             </View >
           </Content >

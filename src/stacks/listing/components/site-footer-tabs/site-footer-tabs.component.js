@@ -27,7 +27,7 @@ const SiteFooterTabs = props => {
   const onShare = async () => {
     const { networkAvailable } = props;
     if (!networkAvailable) {
-      error('Network is not available');
+      error(i18n.t('notifications.networkNotAvailable'));
       return false;
     }
     try {

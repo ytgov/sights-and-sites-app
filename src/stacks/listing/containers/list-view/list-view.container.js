@@ -7,6 +7,7 @@ import { APP_CONFIG } from '../../../../config';
 import NoItems from '../../../../shared/components/no-items/no-items.component';
 import LoadMore from '../../../../shared/components/load-more/load-more.component';
 import SiteType from '../../../../types/site.type';
+import i18n from '../../../../locale/locale';
 
 class ListViewContainer extends React.Component {
   state = {
@@ -31,12 +32,12 @@ class ListViewContainer extends React.Component {
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
               />
-              {(currentListingPage < listingPagesLimit) && <LoadMore callback={() => this.loadMore()} text='More sites' />}
+              {(currentListingPage < listingPagesLimit) && <LoadMore callback={() => this.loadMore()} text={
+                i18n.t('listContainer.moreSites')} />}
             </View>
           ) :
-            <NoItems value='No sites found' />
+            <NoItems value={i18n.t('listContainer.noSitesFound')} />
         }
-
       </View>
     )
   }

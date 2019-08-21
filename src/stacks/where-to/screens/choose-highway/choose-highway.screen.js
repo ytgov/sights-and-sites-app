@@ -9,7 +9,6 @@ import i18n from '../../../../locale/locale';
 import { COMMON, Helpers, Caption, H2, Subtitle1 } from '../../../../theme/theme';
 import ChooseHighwayStyles from './choose-highway.styles';
 import { HighwayBox, HighwayBoxSpacer, HighwayBadgeText } from './choose-highway.styled-components';
-import { en, fr } from './choose-highway.locales';
 import { setHighwayFilters } from '../../../../store/actions/filters';
 import { success } from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
@@ -21,12 +20,6 @@ const chooseHighwayBackground = require('../../../../../assets/common/common-bac
 class ChooseHighwayScreen extends React.Component {
   state = {
     selectedHighways: []
-  }
-
-  componentWillMount() {
-    // Load additional namespaces after initialization
-    i18n.addResourceBundle('en', 'translation', en);
-    i18n.addResourceBundle('fr', 'translation', fr);
   }
 
   componentDidMount() {
@@ -96,7 +89,7 @@ class ChooseHighwayScreen extends React.Component {
           </Header>
           <Content>
             <View>
-              <View><H2 style={Helpers.textAlignCenter}>{i18n.t('title')}</H2></View>
+              <View><H2 style={Helpers.textAlignCenter}>{i18n.t('chooseHighway.title')}</H2></View>
               <View style={ChooseHighwayStyles.highwaysBox}>
                 <Row style={{ flexWrap: 'wrap' }}>
                   <FlatList

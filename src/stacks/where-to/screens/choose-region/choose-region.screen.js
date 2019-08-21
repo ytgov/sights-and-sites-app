@@ -9,7 +9,6 @@ import i18n from '../../../../locale/locale';
 import { COMMON, Helpers, Caption, H2, Subtitle1 } from '../../../../theme/theme';
 import ChooseRegionStyles from './choose-region.styles';
 import { HighwayBox, HighwayBoxSpacer } from './choose-region.styled-components';
-import { en, fr } from './choose-region.locales';
 import { setRegionFilters } from '../../../../store/actions/filters';
 import { success } from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
@@ -19,12 +18,6 @@ const chooseHighwayBackground = require('../../../../../assets/common/common-bac
 class ChooseRegionScreen extends React.Component {
   state = {
     selectedHighways: []
-  }
-
-  componentWillMount() {
-    // Load additional namespaces after initialization
-    i18n.addResourceBundle('en', 'translation', en);
-    i18n.addResourceBundle('fr', 'translation', fr);
   }
 
   componentDidMount() {
@@ -90,7 +83,7 @@ class ChooseRegionScreen extends React.Component {
           </Header>
           <Content>
             <View>
-              <View><H2 style={Helpers.textAlignCenter}>{i18n.t('title')}</H2></View>
+              <View><H2 style={Helpers.textAlignCenter}>{i18n.t('chooseRegion.title')}</H2></View>
               <View style={ChooseRegionStyles.highwaysBox}>
                 <Row style={{ flexWrap: 'wrap' }}>
                   {

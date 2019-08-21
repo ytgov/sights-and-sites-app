@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Container, Header, Content } from 'native-base';
 import _ from 'lodash';
 import { Ionicons } from '@expo/vector-icons';
+import i18n from '../../../../locale/locale';
 import { COMMON, Helpers } from '../../../../theme/theme';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 import { searchSites, setSearchInProgress, incrementSearchPage, resetSearchQuery } from '../../../../store/actions/search';
@@ -61,7 +62,7 @@ class SearchScreen extends React.Component {
             <TextInput
               editable={!searchInProgress}
               autoFocus
-              placeholder='Search'
+              placeholder={i18n.t('search.placeholder')}
               placeholderTextColor='#000'
               style={SearchStyles.searchInput}
               defaultValue={searchQuery}
@@ -90,7 +91,7 @@ class SearchScreen extends React.Component {
                     onSearch={value => {
                       this.onSearch(value)
                     }} /> :
-                  <NoItems value='No recent queries' />
+                  <NoItems value={i18n.t('search.noRecentQueries')} />
                 }
               </View>
             )
@@ -98,7 +99,7 @@ class SearchScreen extends React.Component {
           {
             (!!searchQuery && !searchInProgress) && (
               <View>
-                {sites.length ? <SearchMatches data={sites} loadMore={() => this.loadMore()} currentSearchPage={currentSearchPage} searchPagesLimit={searchPagesLimit} locale={locale} navigation={navigation} /> : <NoItems value='No matches found' />
+                {sites.length ? <SearchMatches data={sites} loadMore={() => this.loadMore()} currentSearchPage={currentSearchPage} searchPagesLimit={searchPagesLimit} locale={locale} navigation={navigation} /> : <NoItems value={i18n.t('search.noMatchesFound')} />
                 }
               </View>
             )

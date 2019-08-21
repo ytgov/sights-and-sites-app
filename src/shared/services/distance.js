@@ -1,4 +1,5 @@
 import { getPreciseDistance } from 'geolib';
+import i18n from '../../locale/locale';
 
 function calculateDistanceBeetweenTwoLocations(source, target) {
   const measureAcuracy = 1;
@@ -10,12 +11,12 @@ function calculateDistanceBeetweenTwoLocations(source, target) {
     measureAcuracy
   )
   if (distance <= 500) {
-    response = `${distance} m from here`;
+    response = i18n.t('location.distanceToSiteInM', { distance });
     if (distance < 50) {
-      response = 'You`re at the spot'
+      response = i18n.t('location.distanceReached')
     }
   } else {
-    response = `${(distance / 1000).toFixed(2)} km from here`
+    response = i18n.t('location.distanceToSiteInKM', { distance: (distance / 1000).toFixed(2) });
   }
 
   return response;
