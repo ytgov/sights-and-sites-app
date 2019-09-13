@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Linking, SafeAreaView } from 'react-native';
+import { View, Image, Linking, SafeAreaView,Text } from 'react-native';
 import { Root, Container, Header, Content } from 'native-base';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 import { Helpers, COMMON, H2, Body1 } from '../../../../theme/theme';
@@ -21,8 +21,25 @@ class TravelTripsScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     const data = [
-      { title: 'Protecting historic resources', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus vehicula tincidunt. Cras bibendum nisi vitae porttitor iaculis. Etiam luctus eros vitae lectus hendrerit dictum. Fusce posuere non turpis non pretium. Nullam tortor tellus, condimentum eu ipsum nec, dapibus tempor elit. Sed nec porttitor urna.' },
-      { title: 'More wilderness safety tips', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus vehicula tincidunt. Cras bibendum nisi vitae porttitor iaculis. Etiam luctus eros vitae lectus hendrerit dictum. Fusce posuere non turpis non pretium. Nullam tortor tellus, condimentum eu ipsum nec, dapibus tempor elit. Sed nec porttitor urna.' }
+      { 
+        title: 'Protecting historic resources', 
+        content: 'Yukon’s historic resources are protected under the Historic Resources Act. Do no remove an artifact from an archaeological or historic site. Artifacts belong to all Yukoners and are held in the public trust. To report a find, contact' ,
+        contacts:[
+          {
+            name:"Yukon Archaeology ",
+            contact:"867-667-5983"
+          },
+          {
+            name:"Government of Yukon Toll-Free line ",
+            contact:"1-800-661-0408"
+          }
+        ]
+      },
+      { 
+        title: 'More wilderness safety tips', 
+        content: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers. `,
+        url:"https://yukon.ca/en/outdoor-recreation-and-wildlife/wilderness-safety/travel-safely-yukon-wilderness"
+      }
     ];
 
     return (
@@ -42,9 +59,19 @@ class TravelTripsScreen extends React.Component {
                 </View>
 
                 <View>
-                  <Body1 regular black>
-                    This territory is home to 14 Yukon First Nations. Indigenous people have deep cultural and spiritual connections to the land. These connections are sacred and Indigenous people continue to live, travel and harvest throughout their Traditional Territories. Please journey respectfully through Yukon First Nations Traditional Territories. More information about Yukon First Nations is available at Yukon.ca and Mapping the Way.
-                </Body1>
+                  <Body1 regular black>Tips for safe roadside wildlife viewing:{"\n"}</Body1>
+                  <Text>
+                    <Body1 bold black>STOP </Body1>
+                    <Body1 regular black>only when it is safe to do so, checking for traffic and clear sightlines.{"\n"}</Body1>
+                  </Text>
+                  <Text>
+                    <Body1 bold black>LOOK </Body1>
+                    <Body1 regular black>from the safety of your car. Use binoculars or a zoom lens for a closer look. {"\n"} </Body1>
+                  </Text>
+                  <Text>
+                    <Body1 bold black>LEAVE </Body1>
+                    <Body1 regular black>within one minute to keep wildlife safe. Animals that become too habituated to humans are at risk of being killed. {"\n"} </Body1>
+                  </Text>
                 </View>
 
                 <View>

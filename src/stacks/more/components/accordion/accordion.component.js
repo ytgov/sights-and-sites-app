@@ -1,8 +1,9 @@
 import React from 'react';
 import { Accordion } from 'native-base';
-import { View, Image } from 'react-native';
+import { View, Image,Linking,TouchableOpacity } from 'react-native';
 import AccordionType from '../../../../types/accordion.type';
 import { H3, Body1 } from '../../../../theme/theme';
+import moreComonStyles from "../../screens/more.common.styles"
 
 const accordionClosedIcon = require('../../../../../assets/stacks/more/accordion-closed-icon.png');
 const accordionOpenedIcon = require('../../../../../assets/stacks/more/accordion-opened-icon.png');
@@ -35,7 +36,36 @@ const AccordionCustom = props => {
         borderBottomColor: '#CBCBCB',
         borderBottomWidth: 1
       }}>
-        <Body1 regular black>{item.content}</Body1>
+        <Body1 regular black>
+          {item.content?item.content+"\n":null}
+          
+        </Body1>
+        {item.url ? 
+            <View style={moreComonStyles.linkBox}>
+              <TouchableOpacity onPress={() => { Linking.openURL(item.url) }}>
+                <View style={moreComonStyles.link}><Body1 black >More safe travel tips?</Body1></View>
+              </TouchableOpacity>
+            </View>
+          : null
+        }
+        {item.contacts ?
+          item.contacts.map((m,i)=><Body1 key={i} bold black>{m.name} At {m.contact}</Body1>)
+          : null
+        }
+
+        {
+          item.QA ?
+          item.QA.map((m,i)=>{
+            return (
+              <View key={i}>
+                <Body1 bold black> {m.q+"\n"}</Body1>
+                <Body1 regular black>{m.a+"\n"}</Body1>
+              </View>
+            )
+          })
+          : null
+        }
+
       </View>}
       dataArray={data} expanded={0} />
   )
