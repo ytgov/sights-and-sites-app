@@ -2,9 +2,13 @@ import React from 'react';
 import { ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { Root, Container, Header, Content } from 'native-base';
 import i18n from '../../../../locale/locale';
-import { Helpers, COMMON, H2, Subtitle1 } from '../../../../theme/theme';
+import { Helpers, COMMON, H2, H3,  Subtitle1, Body1 } from '../../../../theme/theme';
 import MoreStyles from './more.styles';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
+import LanguageSwitchIcon from "./more.styled-components"
+import { connect } from 'react-redux';
+import { setLocale } from '../../../../store/actions/locale';
+import { setSelectLocaleAction } from '../../../../store/actions/core';
 
 const moreBakcground = require('../../../../../assets/common/common-background.jpg');
 const currentConditionsIcon = require('../../../../../assets/stacks/more/current-conditions-icon.png');
@@ -15,6 +19,14 @@ const appInformationIcon = require('../../../../../assets/stacks/more/app-inform
 class MoreScreen extends React.Component {
   state = {
 
+  }
+
+  selectLanguage(language) {
+    const { locale, setLocaleDispatch, setSelectLocaleActionDispatch, navigation } = this.props;
+    setLocaleDispatch(language);
+    setSelectLocaleActionDispatch(true);
+    i18n.changeLanguage(locale);
+    navigation.navigate('Loading');
   }
 
   render() {
@@ -58,6 +70,30 @@ class MoreScreen extends React.Component {
                   </View>
                   <Subtitle1 style={[MoreStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('appInformation.title')}</Subtitle1>
                 </TouchableOpacity>
+
+                <View style={MoreStyles.LanguageLayout}>
+                  <TouchableOpacity onPress={() => {
+                      this.selectLanguage('en');
+                    }}>
+                      <View style={Helpers.flexCenter}>
+                        <LanguageSwitchIcon>
+                          <H3 style={MoreStyles.languageSwitchText}>en</H3>
+                        </LanguageSwitchIcon>
+                        <Body1 bold>ENGLISH</Body1>
+                      </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => {
+                      this.selectLanguage('fr');
+                    }}>
+                      <View style={Helpers.flexCenter}>
+                        <LanguageSwitchIcon>
+                          <H3 style={MoreStyles.languageSwitchText}>fr</H3>
+                        </LanguageSwitchIcon>
+                        <Body1 bold>FRANÇAIS</Body1>
+                      </View>
+                  </TouchableOpacity>
+                </View>
               </View >
             </Content >
           </ImageBackground>
@@ -67,4 +103,18 @@ class MoreScreen extends React.Component {
   }
 }
 
-export default MoreScreen;
+
+const mapStateToProps = (state) => {
+  return {
+    locale: state.localeStore.locale
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setLocaleDispatch: value => dispatch(setLocale(value)),
+    setSelectLocaleActionDispatch: value => dispatch(setSelectLocaleAction(value))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoreScreen);
