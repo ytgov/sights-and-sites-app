@@ -64,7 +64,7 @@ class SiteDetails extends React.Component {
     const isSiteInMySites = !!mySites.filter(site => site === id).length
 
     const nearBySite = findNearest(itemLocation, listingRaw.filter(site => site.site_id !== item.site_id).map(site => { return { id: site.site_id, latitude: site.latitude, longitude: site.longitude } }));
-    const nearBySiteID = nearBySite.site_id;
+    const nearBySiteID = nearBySite.id;
 
     return (
       <Container style={{ backgroundColor: '#000' }}>
@@ -104,7 +104,7 @@ class SiteDetails extends React.Component {
 
 SiteDetails.propTypes = {
   locale: PropTypes.string.isRequired,
-  mySites: PropTypes.arrayOf(PropTypes.string).isRequired,
+  mySites: PropTypes.arrayOf(PropTypes.number).isRequired,
   toggleMySitesStateDispatch: PropTypes.func.isRequired,
   setMySitesFiltersDispatch: PropTypes.func.isRequired,
   networkAvailable: PropTypes.bool.isRequired,

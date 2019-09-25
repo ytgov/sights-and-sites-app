@@ -28,7 +28,7 @@ class NearbySites extends React.Component {
 
   getSiteData() {
     const { listingRaw, itemId } = this.props;
-    const item = listingRaw.filter(site => site.id === itemId)[0];
+    const item = listingRaw.filter(site => site.site_id === itemId)[0];
     this.setState({ item, loading: false });
   }
 
@@ -48,7 +48,7 @@ class NearbySites extends React.Component {
 }
 
 NearbySites.propTypes = {
-  itemId: PropTypes.string.isRequired,
+  itemId: PropTypes.number.isRequired,
   locale: PropTypes.string.isRequired,
   parentLocation: PropTypes.shape({ id: PropTypes.string, latitude: PropTypes.number, longitude: PropTypes.number }),
   listingRaw: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired
