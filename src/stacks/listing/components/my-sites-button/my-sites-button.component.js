@@ -26,7 +26,7 @@ const MySitesButton = props => {
 }
 
 MySitesButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   isSiteInMySites: PropTypes.bool,
   toggleMySitesStateDispatch: PropTypes.func.isRequired,
   showAddToMySitesNotification: PropTypes.func.isRequired,

@@ -29,7 +29,7 @@ class ListViewContainer extends React.Component {
               <FlatList
                 style={ListViewStyles.listBox}
                 data={dataToRender}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.site_id.toString()}
                 renderItem={({ item }) => <ListViewItem locale={locale} item={item} navigation={navigation} />}
               />
               {(currentListingPage < listingPagesLimit) && <LoadMore callback={() => this.loadMore()} text={

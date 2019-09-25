@@ -11,18 +11,21 @@ const highwayIcon = require('../../../../../assets/stacks/listing/highway-number
 
 const SiteCardInfo = props => {
   const { item, locale, parentLocation } = props;
-  const itemInfo = item[locale];
-
+  const itemInfo = item;
+  const itemLocation = {
+    latitude:item.latitude,
+    longitude:item.longitude
+  }
   return (
     <View>
-      <H3 black>{itemInfo.title}</H3>
-      <SiteDistance parentLocation={parentLocation} siteLocation={item.location} />
+      <H3 black>{itemInfo.site_name}</H3>
+      <SiteDistance parentLocation={parentLocation} siteLocation={itemLocation} />
       <View style={SiteCardInfoStyles.highwayInfoBox}>
         <View style={SiteCardInfoStyles.highwayIcon}>
           <Image source={highwayIcon} resizeMode='contain' style={{ width: 18, height: 19 }} />
-          <HighwayBadgeText>{itemInfo.highway.number}</HighwayBadgeText>
+          <HighwayBadgeText>{itemInfo.highway_km}</HighwayBadgeText>
         </View>
-        <Caption black style={{ fontSize: 14 }}>{itemInfo.highway.name}</Caption>
+        <Caption black style={{ fontSize: 14 }}>{itemInfo.highway_name}</Caption>
       </View>
     </View>
   )

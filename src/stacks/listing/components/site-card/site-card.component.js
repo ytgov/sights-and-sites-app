@@ -18,7 +18,7 @@ const SiteCard = props => {
         <TouchableOpacity onPress={() => navigation.navigate('SiteDetails', { item })}>
           <View style={SiteCardStyles.siteTypesBox}>
             {
-              item.siteTypes.map(siteType => {
+              item.site_types.map(siteType => {
                 // TODO move site amenties to global config
                 switch (siteType) {
                   case 1: {

@@ -8,249 +8,51 @@ class MapViewContainer extends React.Component {
   state = {
     places : [
       {
-        "Site-ID" : 42,
-        "Site_Name" : "Cheechako Hill",
-        "Site-Type" : [
-          "Camping",
-          "History and Culture",
-          "Wildlife and Landscape"
+        site_id: 1728,
+        changed_ts: 1531850203,
+        site_name: "Tagish Bridge",
+        site_types: [
+        "Recreation site (day use only)"
         ],
-        "Region" : [
-          "Klondike"
+        regions: [
+        "Southern Lakes"
         ],
-        "Latitude" : 63.9436,
-        "Longitude" : -139.33685,
-        "Highway-Name" : "Klondike Highway",
-        "Highway-KM" : 712.7,
-        "Seconday-Road-Name" : "Bonanza Creek Road",
-        "Secondary-Road-KM" : 14,
-        "Community" : "Dawson",
-        "Warning" : "The Goldfields loop is an active mining region.\nPlease respect private property. 🤪",
-        "Site-Directions" : "Travelling northbound turn left off the highway and follow the Bonanza Creek Road for 14 km. À bientôt !",
-        "Site_Description" : "An interpretive panel tells the story behind Cheechako Hill and the good fortune of \"Cheechako\" Oliver O'Millet. You can also read about some of the mechanisms used to mine uphill.",
-        "Image" : "1-Cheechako_Hill-A",
-        "FN-Traditional-Territory" : [
-          "Tr’ondëk Hwëch’in",
-          "Tetlit Gwich’in Council Primary Use Area"
+        latitude: 60.316,
+        longitude: 134.27,
+        highway_name: "",
+        highway_km: 0,
+        secondary_road_name: "",
+        secondary_road_km: 0,
+        community: "",
+        warning: "",
+        site_directions: "",
+        site_description: "<ul> <li>The Tagish River, also known as Six Mile River, enters Marsh Lake here.</li> <li>Tagish means &ldquo;break-up of ice.&rdquo;</li> <li>Swans and waterfowl rest here in March.</li> <li>The Tagish Bridge is popular place to fish. You can get there from the recreation site.</li> </ul> ",
+        images: [
+        { }
         ],
-        "Rest-Stop" : false,
-        "Historic-Site" : true,
-        "Artifact" : true,
-        "Campsite-WC-Accessible" : false,
-        "Number-of-Campsites" : 3,
-        "Campsite-Walk-in" : true,
-        "Campsite-Pull-through" : false,
-        "Outhouse" : true,
-        "Outhouse-Accessible" : false,
-        "Trail" : true,
-        "Picnic-Table" : true,
-        "Picnic-Shelter" : false,
-        "Fire-Ring" : true,
-        "Garbage-Can" : true,
-        "Recycle-Bin" : false,
-        "Food-Storage" : true,
-        "Playground" : true,
-        "Boat-Launch" : false,
-        "Dock" : false,
-        "Water-Supply" : true,
-        "Beach" : false,
-        "Change-Room" : false
-      },
-      {
-        "Site-ID" : 42,
-        "Site_Name" : "Cheechako Hill",
-        "Site-Type" : [
-          "Camping",
-          "History and Culture",
-          "Wildlife and Landscape"
-        ],
-        "Region" : [
-          "Klondike"
-        ],
-        "Latitude" : 66.9436,
-        "Longitude" : -141.33685,
-        "Highway-Name" : "Klondike Highway",
-        "Highway-KM" : 712.7,
-        "Seconday-Road-Name" : "Bonanza Creek Road",
-        "Secondary-Road-KM" : 14,
-        "Community" : "Dawson",
-        "Warning" : "The Goldfields loop is an active mining region.\nPlease respect private property. 🤪",
-        "Site-Directions" : "Travelling northbound turn left off the highway and follow the Bonanza Creek Road for 14 km. À bientôt !",
-        "Site_Description" : "An interpretive panel tells the story behind Cheechako Hill and the good fortune of \"Cheechako\" Oliver O'Millet. You can also read about some of the mechanisms used to mine uphill.",
-        "Image" : "1-Cheechako_Hill-A",
-        "FN-Traditional-Territory" : [
-          "Tr’ondëk Hwëch’in",
-          "Tetlit Gwich’in Council Primary Use Area"
-        ],
-        "Rest-Stop" : false,
-        "Historic-Site" : true,
-        "Artifact" : true,
-        "Campsite-WC-Accessible" : false,
-        "Number-of-Campsites" : 3,
-        "Campsite-Walk-in" : true,
-        "Campsite-Pull-through" : false,
-        "Outhouse" : true,
-        "Outhouse-Accessible" : false,
-        "Trail" : true,
-        "Picnic-Table" : true,
-        "Picnic-Shelter" : false,
-        "Fire-Ring" : true,
-        "Garbage-Can" : true,
-        "Recycle-Bin" : false,
-        "Food-Storage" : true,
-        "Playground" : true,
-        "Boat-Launch" : false,
-        "Dock" : false,
-        "Water-Supply" : true,
-        "Beach" : false,
-        "Change-Room" : false
-      },
-      {
-        "Site-ID" : 42,
-        "Site_Name" : "Cheechako Hill",
-        "Site-Type" : [
-          "Camping",
-          "History and Culture",
-          "Wildlife and Landscape"
-        ],
-        "Region" : [
-          "Klondike"
-        ],
-        "Latitude" : 64.9436,
-        "Longitude" : -138.33685,
-        "Highway-Name" : "Klondike Highway",
-        "Highway-KM" : 712.7,
-        "Seconday-Road-Name" : "Bonanza Creek Road",
-        "Secondary-Road-KM" : 14,
-        "Community" : "Dawson",
-        "Warning" : "The Goldfields loop is an active mining region.\nPlease respect private property. 🤪",
-        "Site-Directions" : "Travelling northbound turn left off the highway and follow the Bonanza Creek Road for 14 km. À bientôt !",
-        "Site_Description" : "An interpretive panel tells the story behind Cheechako Hill and the good fortune of \"Cheechako\" Oliver O'Millet. You can also read about some of the mechanisms used to mine uphill.",
-        "Image" : "1-Cheechako_Hill-A",
-        "FN-Traditional-Territory" : [
-          "Tr’ondëk Hwëch’in",
-          "Tetlit Gwich’in Council Primary Use Area"
-        ],
-        "Rest-Stop" : false,
-        "Historic-Site" : true,
-        "Artifact" : true,
-        "Campsite-WC-Accessible" : false,
-        "Number-of-Campsites" : 3,
-        "Campsite-Walk-in" : true,
-        "Campsite-Pull-through" : false,
-        "Outhouse" : true,
-        "Outhouse-Accessible" : false,
-        "Trail" : true,
-        "Picnic-Table" : true,
-        "Picnic-Shelter" : false,
-        "Fire-Ring" : true,
-        "Garbage-Can" : true,
-        "Recycle-Bin" : false,
-        "Food-Storage" : true,
-        "Playground" : true,
-        "Boat-Launch" : false,
-        "Dock" : false,
-        "Water-Supply" : true,
-        "Beach" : false,
-        "Change-Room" : false
-      },
-      {
-        "Site-ID" : 42,
-        "Site_Name" : "Cheechako Hill",
-        "Site-Type" : [
-          "Camping",
-          "History and Culture",
-          "Wildlife and Landscape"
-        ],
-        "Region" : [
-          "Klondike"
-        ],
-        "Latitude" : 60.9436,
-        "Longitude" : -140.33685,
-        "Highway-Name" : "Klondike Highway",
-        "Highway-KM" : 712.7,
-        "Seconday-Road-Name" : "Bonanza Creek Road",
-        "Secondary-Road-KM" : 14,
-        "Community" : "Dawson",
-        "Warning" : "The Goldfields loop is an active mining region.\nPlease respect private property. 🤪",
-        "Site-Directions" : "Travelling northbound turn left off the highway and follow the Bonanza Creek Road for 14 km. À bientôt !",
-        "Site_Description" : "An interpretive panel tells the story behind Cheechako Hill and the good fortune of \"Cheechako\" Oliver O'Millet. You can also read about some of the mechanisms used to mine uphill.",
-        "Image" : "1-Cheechako_Hill-A",
-        "FN-Traditional-Territory" : [
-          "Tr’ondëk Hwëch’in",
-          "Tetlit Gwich’in Council Primary Use Area"
-        ],
-        "Rest-Stop" : false,
-        "Historic-Site" : true,
-        "Artifact" : true,
-        "Campsite-WC-Accessible" : false,
-        "Number-of-Campsites" : 3,
-        "Campsite-Walk-in" : true,
-        "Campsite-Pull-through" : false,
-        "Outhouse" : true,
-        "Outhouse-Accessible" : false,
-        "Trail" : true,
-        "Picnic-Table" : true,
-        "Picnic-Shelter" : false,
-        "Fire-Ring" : true,
-        "Garbage-Can" : true,
-        "Recycle-Bin" : false,
-        "Food-Storage" : true,
-        "Playground" : true,
-        "Boat-Launch" : false,
-        "Dock" : false,
-        "Water-Supply" : true,
-        "Beach" : false,
-        "Change-Room" : false
-      },
-      {
-        "Site-ID" : 42,
-        "Site_Name" : "Cheechako Hill",
-        "Site-Type" : [
-          "Camping",
-          "History and Culture",
-          "Wildlife and Landscape"
-        ],
-        "Region" : [
-          "Klondike"
-        ],
-        "Latitude" : 65.9436,
-        "Longitude" : -137.33685,
-        "Highway-Name" : "Klondike Highway",
-        "Highway-KM" : 712.7,
-        "Seconday-Road-Name" : "Bonanza Creek Road",
-        "Secondary-Road-KM" : 14,
-        "Community" : "Dawson",
-        "Warning" : "The Goldfields loop is an active mining region.\nPlease respect private property. 🤪",
-        "Site-Directions" : "Travelling northbound turn left off the highway and follow the Bonanza Creek Road for 14 km. À bientôt !",
-        "Site_Description" : "An interpretive panel tells the story behind Cheechako Hill and the good fortune of \"Cheechako\" Oliver O'Millet. You can also read about some of the mechanisms used to mine uphill.",
-        "Image" : "1-Cheechako_Hill-A",
-        "FN-Traditional-Territory" : [
-          "Tr’ondëk Hwëch’in",
-          "Tetlit Gwich’in Council Primary Use Area"
-        ],
-        "Rest-Stop" : false,
-        "Historic-Site" : true,
-        "Artifact" : true,
-        "Campsite-WC-Accessible" : false,
-        "Number-of-Campsites" : 3,
-        "Campsite-Walk-in" : true,
-        "Campsite-Pull-through" : false,
-        "Outhouse" : true,
-        "Outhouse-Accessible" : false,
-        "Trail" : true,
-        "Picnic-Table" : true,
-        "Picnic-Shelter" : false,
-        "Fire-Ring" : true,
-        "Garbage-Can" : true,
-        "Recycle-Bin" : false,
-        "Food-Storage" : true,
-        "Playground" : true,
-        "Boat-Launch" : false,
-        "Dock" : false,
-        "Water-Supply" : true,
-        "Beach" : false,
-        "Change-Room" : false
+        fn_traditional_territories: [ ],
+        rest_stop: false,
+        historic_site: false,
+        artifact: false,
+        number_of_campsites: 0,
+        campsite_wc_accessible: false,
+        campsite_walk_in: false,
+        campsite_pull_through: false,
+        outhouse: true,
+        outhouse_accessible: true,
+        trail: false,
+        picnic_table: false,
+        picnic_shelter: false,
+        fire_ring: false,
+        garbage_can: true,
+        recycle_bin: false,
+        food_storage: false,
+        playground: false,
+        boat_launch: true,
+        dock: false,
+        water_supply: false,
+        beach: false,
+        change_room: false
       }
     ]
   }
@@ -262,7 +64,7 @@ class MapViewContainer extends React.Component {
     const { data  } = this.props
     let results = data.map((marker,i)=>{
       const latitude =marker.latitude
-      const longitude=marker.longitude
+      const longitude=-marker.longitude
       let coords = {
         latitude,
         longitude

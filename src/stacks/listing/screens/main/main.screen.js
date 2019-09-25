@@ -31,7 +31,7 @@ class MainScreen extends React.Component {
     axios.get(APP_CONFIG.placesUrl)
     .then(async res=>{
       await addListingDispatch(res.data.data)
-      //filterListingDispatch()
+      filterListingDispatch()
     })
     .catch(err=>console.log(err))
   }

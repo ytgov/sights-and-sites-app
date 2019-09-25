@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
 const SiteInfoType = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  site_name: PropTypes.string.isRequired,
+  site_description: PropTypes.string,
   highway: PropTypes.shape({
     number: PropTypes.number,
     name: PropTypes.name
@@ -10,16 +10,16 @@ const SiteInfoType = PropTypes.shape({
 })
 
 const SiteType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
+  site_id: PropTypes.number.isRequired,
   uri: PropTypes.string,
   highway: PropTypes.number,
   region: PropTypes.number,
-  siteTypes: PropTypes.arrayOf(PropTypes.number),
+  site_types: PropTypes.arrayOf(PropTypes.string),
   siteAmenties: PropTypes.arrayOf(PropTypes.string),
-  indexes: PropTypes.shape({
-    en: PropTypes.shape({ title: PropTypes.string.isRequired }),
-    fr: PropTypes.shape({ title: PropTypes.string.isRequired })
-  }).isRequired,
+  // indexes: PropTypes.shape({
+  //   en: PropTypes.shape({ title: PropTypes.string.isRequired }),
+  //   fr: PropTypes.shape({ title: PropTypes.string.isRequired })
+  // }).isRequired,
   en: SiteInfoType,
   fr: SiteInfoType
 })

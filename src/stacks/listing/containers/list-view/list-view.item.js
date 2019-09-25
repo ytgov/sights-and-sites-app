@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native-expo-image-cache';
 import SiteCard from '../../components/site-card/site-card.component';

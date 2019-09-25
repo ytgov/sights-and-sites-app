@@ -53,13 +53,18 @@ class SiteDetails extends React.Component {
     const { addToMySitesNotificationVisible } = this.state;
     const { navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw, networkAvailable } = this.props;
     const item = navigation.getParam('item');
+    const itemLocation = {
+      latitude:item.latitude,
+      longitude:item.longitude
+    }
 
     const preview = { uri: APP_CONFIG.cache.imagePreview };
-    const { id, uri } = item;
+    const { site_id, uri } = item;
+    const id = site_id
     const isSiteInMySites = !!mySites.filter(site => site === id).length
 
-    const nearBySite = findNearest(item.location, listingRaw.filter(site => site.id !== item.id).map(site => { return { id: site.id, latitude: site.location.latitude, longitude: site.location.longitude } }));
-    const nearBySiteID = nearBySite.id;
+    const nearBySite = findNearest(itemLocation, listingRaw.filter(site => site.site_id !== item.site_id).map(site => { return { id: site.site_id, latitude: site.latitude, longitude: site.longitude } }));
+    const nearBySiteID = nearBySite.site_id;
 
     return (
       <Container style={{ backgroundColor: '#000' }}>
@@ -75,17 +80,17 @@ class SiteDetails extends React.Component {
           </View>
           <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
             <SiteCardInfo item={item} locale={locale} />
-            <SiteAmenties items={item.siteAmenties} locale={locale} />
-            {!!item[locale].warning && <SiteWarning value={item[locale].warning} />}
+            {/* <SiteAmenties items={item.siteAmenties} locale={locale} /> */}
+            {!!item.warning && <SiteWarning value={item.warning} />}
             <Body1 black regular style={{ paddingTop: 16 }}>
               {
-                item[locale].description
+                item.site_description
               }
             </Body1>
           </View>
 
           {/* TODO Item id should be replaced with near by site id */}
-          {nearBySiteID && <NearbySites parentLocation={item.location} itemId={nearBySiteID} locale={locale} navigation={navigation} />}
+          {nearBySiteID && <NearbySites parentLocation={itemLocation} itemId={nearBySiteID} locale={locale} navigation={navigation} />}
         </Content>
 
         <View style={{ position: 'relative', height: 'auto' }}>
