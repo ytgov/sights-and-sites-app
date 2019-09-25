@@ -259,19 +259,22 @@ class MapViewContainer extends React.Component {
   }
 
   renderMarkers=()=>{
-    let results = this.state.places.map((marker,i)=>{
-
-      const coords = {
-        latitude:marker.Latitude,
-        longitude:marker.Longitude
+    const { data  } = this.props
+    let results = data.map((marker,i)=>{
+      const latitude =marker.latitude
+      const longitude=marker.longitude
+      let coords = {
+        latitude,
+        longitude
       }
-      console.log("marker",coords)
+
+
+
 
       return <Marker
         key={i}
         coordinate={coords}
-        title={marker.Site_Name}
-        description={marker.Site_Description}
+        title={marker.site_name}
       />
     })
     return results

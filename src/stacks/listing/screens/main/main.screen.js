@@ -8,17 +8,32 @@ import { Body1, COMMON, Helpers } from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
 import { toggleSitesTypeFilter, setSitesTypeFilters } from '../../../../store/actions/filters';
-import { toggleListingView, incrementListingPage } from '../../../../store/actions/listing';
+import { toggleListingView, incrementListingPage, addListing, filterListing } from '../../../../store/actions/listing';
 import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
 import ListViewContainer from '../../containers/list-view/list-view.container';
 import SiteType from '../../../../types/site.type';
+import axios from "axios"
+import {APP_CONFIG} from "../../../../config"
 
 const searchIcon = require('../../../../../assets/common/search-icon.png');
 
 class MainScreen extends React.Component {
   state = {
 
+  }
+  componentDidMount(){
+    this.getPlaces()
+  }
+
+  getPlaces=()=>{
+    const { addListingDispatch, filterListingDispatch } = this.props
+    axios.get(APP_CONFIG.placesUrl)
+    .then(async res=>{
+      await addListingDispatch(res.data.data)
+      //filterListingDispatch()
+    })
+    .catch(err=>console.log(err))
   }
 
   render() {
@@ -109,7 +124,11 @@ const mapDispatchToProps = dispatch => {
     setSitesTypeFiltersDispatch: value => dispatch(setSitesTypeFilters(value)),
     toggleSitesTypeFilterDispatch: value => dispatch(toggleSitesTypeFilter(value)),
     toggleListingViewDispatch: value => dispatch(toggleListingView(value)),
-    incrementListingPageDispatch: () => dispatch(incrementListingPage())
+    incrementListingPageDispatch: () => dispatch(incrementListingPage()),
+    addListingDispatch: (value) => dispatch(addListing(value)),
+    filterListingDispatch: () => dispatch(filterListing())
+
+
   };
 };
 

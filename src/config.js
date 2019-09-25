@@ -16,7 +16,8 @@ export const APP_CONFIG = {
     imagePreview: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC0SURBVHgB7dAxAQAgEAAhdf7+qQxlB2+FCOyZuYtvZ5EIjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYCQwEhgJjARGAiOBkcBIYPQAzCsBkBG+hRUAAAAASUVORK5CYII=',
     transitionDuration: 500,
     tint: 'dark'
-  }
+  },
+  placesUrl:"https://yukon.cms-uat.yukon.ca/en/api/v1/campground-and-recreation-sites"
 }
 
 export const SITE_AMENTIES = {

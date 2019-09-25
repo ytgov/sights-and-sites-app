@@ -1,5 +1,5 @@
 import orderByDistance from 'geolib/es/orderByDistance';
-import { TOGGLE_LISTING_VIEW, FILTER_LISTING, INCREMENT_LISTING_PAGE } from '../types';
+import { TOGGLE_LISTING_VIEW, FILTER_LISTING, INCREMENT_LISTING_PAGE, ADD_LISTING } from '../types';
 import { APP_CONFIG } from '../../config';
 
 const { itemsToShow } = APP_CONFIG.listing;
@@ -215,6 +215,12 @@ export default function listingReducer(state = initialState, action) {
       return {
         ...state,
         currentListingPage: state.currentListingPage + 1
+      }
+    }
+    case ADD_LISTING: {
+      return {
+        ...state,
+        listingRaw: action.payload
       }
     }
     default:
