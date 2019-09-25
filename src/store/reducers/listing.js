@@ -182,8 +182,8 @@ function filterListing(filters, location, listingRaw) {
     result = listingRaw.filter(item => mySites.includes(item.site_id))
   }
   if (nearMeFilter && location) {
-    const resultIDs = orderByDistance(location, listingRaw.map(item => { return { id: item.id, latitude: item.location.latitude, longitude: item.location.longitude } })).map(item => item.id);
-    result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.id) - resultIDs.indexOf(b.id));
+    const resultIDs = orderByDistance(location, listingRaw.map(item => { return { id: item.site_id, latitude: item.latitude, longitude: item.longitude } })).map(item => item.id);
+    result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.site_id) - resultIDs.indexOf(b.site_id));
   }
 
   // Site Type
