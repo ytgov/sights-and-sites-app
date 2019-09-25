@@ -179,7 +179,7 @@ function filterListing(filters, location, listingRaw) {
     result = listingRaw.filter(item => regionsFilter.includes(item.region))
   }
   if (mySitesFilter) {
-    result = listingRaw.filter(item => mySites.includes(item.id))
+    result = listingRaw.filter(item => mySites.includes(item.site_id))
   }
   if (nearMeFilter && location) {
     const resultIDs = orderByDistance(location, listingRaw.map(item => { return { id: item.id, latitude: item.location.latitude, longitude: item.location.longitude } })).map(item => item.id);
