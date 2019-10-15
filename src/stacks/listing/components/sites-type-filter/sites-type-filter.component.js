@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import i18n from '../../../../locale/locale';
-import { H3, Caption, Helpers } from '../../../../theme/theme';
+import {Caption, H3, Helpers} from '../../../../theme/theme';
 import SitesTypeFilterStyles from './sites-type-filter.styles';
-import { FilterButtton, FilterImageOverlay, FilterImage } from './sites-type-filter.styled-components';
+import {FilterButtton, FilterImage, FilterImageOverlay} from './sites-type-filter.styled-components';
 
 const siteTypeCampingIcon = require('../../../../../assets/stacks/tabs/site-type-camping-icon.png');
 const siteTypeWildlifeIcon = require('../../../../../assets/stacks/tabs/site-type-wildlife-icon.png');
@@ -13,64 +13,69 @@ const siteTypeHistoryIcon = require('../../../../../assets/stacks/tabs/site-type
 const siteTypeActiveOverlay = require('../../../../../assets/stacks/tabs/site-type-active-overlay.png');
 
 const siteTypeFilters = [
-  {
-    id: 1,
-    image: siteTypeCampingIcon,
-    title: 'siteTypes.camping'
-  },
-  {
-    id: 2,
-    image: siteTypeWildlifeIcon,
-    title: 'siteTypes.wildlife'
-  },
-  {
-    id: 3,
-    image: siteTypeRecreationIcon,
-    title: 'siteTypes.recreation'
-  },
-  {
-    id: 4,
-    image: siteTypeHistoryIcon,
-    title: 'siteTypes.history'
-  }
+    {
+        id: 1,
+        image: siteTypeCampingIcon,
+        title: 'siteTypes.camping'
+    },
+    {
+        id: 2,
+        image: siteTypeWildlifeIcon,
+        title: 'siteTypes.wildlife'
+    },
+    {
+        id: 3,
+        image: siteTypeRecreationIcon,
+        title: 'siteTypes.recreation'
+    },
+    {
+        id: 4,
+        image: siteTypeHistoryIcon,
+        title: 'siteTypes.history'
+    }
 ];
 
 const siteTypeActive = (filters, id) => {
-  return filters.indexOf(id) >= 0;
+    return filters.indexOf(id) >= 0;
 }
 
 const SitesTypeFilter = props => {
-  const { sitesTypeFilter, sitesTypeFilterActive, setSitesTypeFiltersDispatch } = props;
-  return (
-    sitesTypeFilterActive ?
-      (<View style={SitesTypeFilterStyles.filtersBox} >
-        <View>
-          <H3 style={Helpers.textAlignCenter}>{i18n.t('siteTypes.filterTitle')}</H3>
-        </View>
+    const {sitesTypeFilter, sitesTypeFilterActive, setSitesTypeFiltersDispatch} = props;
+    return (
+        sitesTypeFilterActive ?
+            (<View style={SitesTypeFilterStyles.filtersBox}>
+                <View>
+                    <H3 style={Helpers.textAlignCenter}>{i18n.t('siteTypes.filterTitle')}</H3>
+                </View>
 
-        <View style={SitesTypeFilterStyles.filtersRow}>
-          {
-            siteTypeFilters.map(filter => {
-              return (
-                <FilterButtton onPress={() => { setSitesTypeFiltersDispatch(filter.id) }} key={filter.id}>
-                  <View style={Helpers.positionRelative}>
-                    {siteTypeActive(sitesTypeFilter, filter.id) && <FilterImageOverlay resizeMode="contain" source={siteTypeActiveOverlay} />}
-                    <FilterImage active={siteTypeActive(sitesTypeFilter, filter.id)} resizeMode="contain" source={filter.image} />
-                  </View>
-                  <Caption style={[Helpers.textAlignCenter, { lineHeight: 15 }]}>{i18n.t(filter.title)}</Caption>
-                </FilterButtton>
-              )
-            })
-          }
-        </View>
-      </View>) : null)
+                <View style={SitesTypeFilterStyles.filtersRow}>
+                    {
+                        siteTypeFilters.map(filter => {
+                            return (
+                                <FilterButtton onPress={() => {
+                                    setSitesTypeFiltersDispatch(filter.id)
+                                }} key={filter.id}>
+                                    <View style={Helpers.positionRelative}>
+                                        {siteTypeActive(sitesTypeFilter, filter.id) &&
+                                        <FilterImageOverlay resizeMode="contain" source={siteTypeActiveOverlay}/>}
+                                        <FilterImage active={siteTypeActive(sitesTypeFilter, filter.id)}
+                                                     resizeMode="contain" source={filter.image}/>
+                                    </View>
+                                    <Caption
+                                        style={[Helpers.textAlignCenter, {lineHeight: 15}]}>{i18n.t(filter.title)}</Caption>
+                                </FilterButtton>
+                            )
+                        })
+                    }
+                </View>
+            </View>) : null)
 }
 
 
 SitesTypeFilter.propTypes = {
-  sitesTypeFilterActive: PropTypes.bool.isRequired,
-  sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
-  setSitesTypeFiltersDispatch: PropTypes.func.isRequired
+    sitesTypeFilterActive: PropTypes.bool.isRequired,
+    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    setSitesTypeFiltersDispatch: PropTypes.func.isRequired
 }
 
 export default SitesTypeFilter;

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
 const QueryType = PropTypes.shape({
-  query: PropTypes.string.isRequired,
-  queryFormatted: PropTypes.string.isRequired
+    query: PropTypes.string.isRequired,
+    queryFormatted: PropTypes.string.isRequired
 
 })
 

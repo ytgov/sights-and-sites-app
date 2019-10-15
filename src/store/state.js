@@ -1,4 +1,3 @@
-const INITIAL_STATE = {
-}
+const INITIAL_STATE = {}
 
 export default INITIAL_STATE;

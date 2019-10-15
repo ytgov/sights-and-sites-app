@@ -19,7 +19,9 @@ const FilterImage = styled.Image`
   width: 40;
   height: 40;
   marginBottom: 5;
-  opacity: ${ props => { return props.active ? 0.4 : 1 }} 
+  opacity: ${props => {
+    return props.active ? 0.4 : 1
+}} 
 `;
 
-export { FilterButtton, FilterImageOverlay, FilterImage };
+export {FilterButtton, FilterImageOverlay, FilterImage};

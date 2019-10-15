@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Body2 } from '../../../theme/theme';
+import {Body2} from '../../../theme/theme';
 
 const HighwayBoxSpacer = styled.View`
   padding-left: 5;
@@ -28,7 +28,7 @@ const HighwayBadgeText = styled(Body2)`
 `;
 
 export {
-  HighwayBoxSpacer,
-  HighwayBox,
-  HighwayBadgeText
+    HighwayBoxSpacer,
+    HighwayBox,
+    HighwayBadgeText
 }

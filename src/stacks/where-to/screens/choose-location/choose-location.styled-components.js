@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { COLORS } from '../../../../theme/config';
+import {COLORS} from '../../../../theme/config';
 
 const Badge = styled.View`
   width: 9;
