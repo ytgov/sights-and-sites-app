@@ -66,7 +66,7 @@ class SiteDetails extends React.Component {
         const nearBySite = findNearest(itemLocation, listingRaw.filter(site => site.site_id !== item.site_id).map(site => {
             return {id: site.site_id, latitude: site.latitude, longitude: site.longitude}
         }));
-        const nearBySiteID = nearBySite.id;
+        const nearBySiteID = nearBySite ? nearBySite.id : null;
 
         return (
             <Container style={{backgroundColor: '#000'}}>

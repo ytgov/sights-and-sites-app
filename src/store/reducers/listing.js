@@ -190,7 +190,7 @@ function filterListing(filters, location, listingRaw) {
 
     // Site Type
     if (sitesTypeFilter.length) {
-        result = result.filter(item => sitesTypeFilter.filter(element => item.siteTypes.includes(element)).length >= 1)
+        result = result.filter(item => sitesTypeFilter.filter(element => item.site_types.includes(element)).length >= 1)
     }
     return result;
 }

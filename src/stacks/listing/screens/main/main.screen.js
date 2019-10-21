@@ -27,7 +27,11 @@ class MainScreen extends React.Component {
 
     getPlaces = () => {
         const {addListingDispatch, filterListingDispatch} = this.props
-        axios.get(APP_CONFIG.placesUrl)
+        axios.get(APP_CONFIG.placesUrl, {
+            headers: {
+                "accept-language": i18n.language
+            }
+        })
             .then(async res => {
                 await addListingDispatch(res.data.data)
                 filterListingDispatch()
