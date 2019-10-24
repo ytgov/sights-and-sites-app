@@ -17,7 +17,8 @@ export const APP_CONFIG = {
         transitionDuration: 500,
         tint: 'dark'
     },
-    placesUrl: 'https://yukon.cms-uat.yukon.ca/en/api/v1/campground-and-recreation-sites'
+    placesUrl: 'https://virtserver.swaggerhub.com/GOY/CampgroundAndRecreationSites/1.0.0/sites'
+    // placesUrl: 'https://yukon.cms-uat.yukon.ca/en/api/v1/campground-and-recreation-sites'
 }
 
 export const SITE_AMENTIES = {

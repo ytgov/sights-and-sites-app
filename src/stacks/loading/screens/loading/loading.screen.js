@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {ActivityIndicator, ImageBackground} from 'react-native';
 import {Helpers} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
-import {filterListing} from '../../../../store/actions/listing';
+import {addListing, filterListing} from '../../../../store/actions/listing';
 
 const background = require('../../../../../assets/common/common-background.jpg');
 
@@ -17,8 +17,11 @@ class LoadingScreen extends React.Component {
             locale,
             hasUserSelectedLocale,
             hasUserPassedOnboarding,
-            filterListingDispatch
+            filterListingDispatch,
+            addListingDispatch
         } = this.props;
+        // TODO: remove in production
+        addListingDispatch([]);
 
         filterListingDispatch();
         setTimeout(() => {
@@ -59,7 +62,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        filterListingDispatch: value => dispatch(filterListing(value))
+        filterListingDispatch: value => dispatch(filterListing(value)),
+        addListingDispatch: (value) => dispatch(addListing(value)),
     };
 };
 

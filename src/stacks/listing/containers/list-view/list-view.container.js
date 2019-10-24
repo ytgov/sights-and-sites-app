@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, View, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import ListViewStyles from './list-view.styles';
 import ListViewItem from './list-view.item';
