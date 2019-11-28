@@ -16,7 +16,7 @@ class ListViewItem extends React.PureComponent {
     render() {
         const {item, locale, navigation, parentLocation} = this.props;
         const preview = {uri: APP_CONFIG.cache.imagePreview};
-        const {uri} = item;
+        const uri = item.image_url;
 
         return (
             <View noIndent style={ListViewStyles.listItem}>

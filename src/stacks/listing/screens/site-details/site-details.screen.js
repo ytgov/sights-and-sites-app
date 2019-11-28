@@ -59,7 +59,8 @@ class SiteDetails extends React.Component {
         }
 
         const preview = {uri: APP_CONFIG.cache.imagePreview};
-        const {site_id, uri} = item;
+        const {site_id,} = item;
+        const uri = item.image_url;
         const id = site_id
         const isSiteInMySites = !!mySites.filter(site => site === id).length
 
