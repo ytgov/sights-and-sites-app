@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "yukon",
     "name": "Yukon",
     "slug": "yukon",
     "privacy": "unlisted",
@@ -17,6 +18,10 @@
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
+    "notification": {
+      "icon": "./assets/icon.png",
+      "iosDisplayInForeground": true
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -24,7 +29,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "userInterfaceStyle": "light",
+      "bundleIdentifier": "ca.yukon",
+      "supportsTablet": true,
+      "icon": "./assets/images/icon.png",
+      "buildNumber": "9",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Light"
+      }
+    },
+    "android": {
+      "package": "ca.yukon",
+      "icon": "./assets/images/icon.png",
+      "permissions": [
+        "ACCESS_FINE_LOCATION"
+      ]
     },
     "description": ""
   }
