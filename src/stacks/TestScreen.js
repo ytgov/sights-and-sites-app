@@ -14,7 +14,6 @@ export default class TestScreen extends React.Component{
                         </Text>
                     </View>
 
-                    <Mapbox.MapView></Mapbox.MapView>
 
                 </Content>
             </Container>
