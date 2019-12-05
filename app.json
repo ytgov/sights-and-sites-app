@@ -33,7 +33,7 @@
       "bundleIdentifier": "ca.yukon",
       "supportsTablet": true,
       "icon": "./assets/images/icon.png",
-      "buildNumber": "9",
+      "buildNumber": "1",
       "infoPlist": {
         "UIUserInterfaceStyle": "Light"
       },
