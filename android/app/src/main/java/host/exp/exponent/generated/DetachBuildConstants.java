@@ -3,6 +3,6 @@ package host.exp.exponent.generated;
 // This file is auto-generated. Please don't rename!
 public class DetachBuildConstants {
 
-  public static final String DEVELOPMENT_URL = "";
+  public static final String DEVELOPMENT_URL = "yukon://192.168.8.101:19000";
 
 }

@@ -30,7 +30,7 @@
     ],
     "ios": {
       "userInterfaceStyle": "light",
-      "bundleIdentifier": "ca.yukon",
+      "bundleIdentifier": "com.247labs.yukon",
       "supportsTablet": true,
       "icon": "./assets/images/icon.png",
       "buildNumber": "1",
@@ -41,7 +41,7 @@
       "publishManifestPath": "ios/yukon/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "ca.yukon",
+      "package": "com.247labs.yukon",
       "icon": "./assets/images/icon.png",
       "permissions": [
         "ACCESS_FINE_LOCATION"

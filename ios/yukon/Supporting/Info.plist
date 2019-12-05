@@ -31,7 +31,7 @@
 			<string>OAuthRedirect</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ca.yukon</string>
+				<string>com.247labs.yukon</string>
 			</array>
 		</dict>
 	</array>
