@@ -41,7 +41,7 @@
       "publishManifestPath": "ios/yukon/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "com.247labs.yukon",
+      "package": "com.labs.yukon",
       "icon": "./assets/images/icon.png",
       "permissions": [
         "ACCESS_FINE_LOCATION"
