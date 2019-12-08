@@ -125,6 +125,8 @@ PODS:
   - lottie-ios (2.5.3)
   - React (0.59.8):
     - React/Core (= 0.59.8)
+  - react-native-mapbox-gl (7.0.8):
+    - React
   - React/ART (0.59.8):
     - React/Core
   - React/Core (0.59.8):
@@ -211,6 +213,7 @@ DEPENDENCIES:
   - EXWebBrowser (from `../node_modules/expo-web-browser/ios`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - "react-native-mapbox-gl (from `../node_modules/@react-native-mapbox-gl/maps`)"
   - React/ART (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -307,6 +310,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-mapbox-gl:
+    :path: "../node_modules/@react-native-mapbox-gl/maps"
   UMBarCodeScannerInterface:
     :path: !ruby/object:Pathname
     path: "../node_modules/unimodules-barcode-scanner-interface/ios"
@@ -387,6 +392,7 @@ SPEC CHECKSUMS:
   JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   React: 841af16feb8e7936838a626bfa1b8faaa07d9e6c
+  react-native-mapbox-gl: fcd88e2bf0ddea552b0209cc2770a5ac2b9c9910
   UMBarCodeScannerInterface: d5a6fdc98ed6241225b0a8432a7f4e2b397668bc
   UMCameraInterface: 68870a3197fee85bd5afca5609ba4a5b7257d19d
   UMConstantsInterface: d25b8e8887ca7aaf568c06caf08f4d40734ee4ef
@@ -401,6 +407,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 1e70fe58b872355f0ecb44fb81bb1a16484047f0
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 500854b6650ad37d203b37f24d493aa947c602f8
+PODFILE CHECKSUM: 18f3d4fc085406525a28ba0a97a3d95639b90ecc
 
 COCOAPODS: 1.8.4
