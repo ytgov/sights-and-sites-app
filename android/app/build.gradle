@@ -30,7 +30,7 @@ android {
 
   defaultConfig {
     applicationId 'ca.yukon'
-    minSdkVersion safeExtGet("minSdkVersion", 21)
+    minSdkVersion safeExtGet("minSdkVersion", 28)
     targetSdkVersion safeExtGet("targetSdkVersion", 28)
     versionCode 1
     versionName '1.0.0'

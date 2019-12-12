@@ -22,7 +22,9 @@ export default async () => Promise.all([
 
     cacheImages([
         // Common
-        require('../assets/images/pin.png'),
+        require('../assets/images/pin.png' +
+            '' +
+            ''),
         require('../assets/common/logo-circle.png'),
         require('../assets/common/logo.png'),
         require('../assets/common/logo-white.png'),
