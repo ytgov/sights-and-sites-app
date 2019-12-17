@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {Image, TouchableOpacity, View, Platform} from 'react-native';
 import {connect} from 'react-redux';
 import {Container, Content, Header} from 'native-base';
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ import ListViewContainer from '../../containers/list-view/list-view.container';
 import SiteType from '../../../../types/site.type';
 import axios from 'axios'
 import {APP_CONFIG} from '../../../../config'
+import IosMapViewContainer from '../../containers/map-view/ios-map-view.container';
 
 const searchIcon = require('../../../../../assets/common/search-icon.png');
 
@@ -77,7 +78,7 @@ class MainScreen extends React.Component {
                 <Content>
                     {
                         (selectedListingView === 'MAP') ?
-                            <MapViewContainer data={listingFiltered} navigation={navigation}/> : <ListViewContainer
+                            ((Platform.OS === 'ios') ? <IosMapViewContainer data={listingFiltered} navigation={navigation}/> :<MapViewContainer data={listingFiltered} navigation={navigation}/>) : <ListViewContainer
                                 data={listingFiltered}
                                 currentListingPage={currentListingPage}
                                 incrementListingPageDispatch={incrementListingPageDispatch}

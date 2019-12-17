@@ -13,7 +13,7 @@ const SiteType = PropTypes.shape({
     site_id: PropTypes.number.isRequired,
     uri: PropTypes.string,
     highway: PropTypes.number,
-    region: PropTypes.number,
+    region: PropTypes.String,
     site_types: PropTypes.arrayOf(PropTypes.string),
     siteAmenties: PropTypes.arrayOf(PropTypes.string),
     // indexes: PropTypes.shape({

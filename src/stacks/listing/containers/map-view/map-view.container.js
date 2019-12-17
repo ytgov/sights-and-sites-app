@@ -1,38 +1,48 @@
 import React from 'react';
-import {Dimensions, Image} from 'react-native';
+import {Dimensions, Image, Text, View} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
-
+import pinIcon from '../../../../../assets/images/pin.png';
 MapboxGL.setAccessToken('pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg');
 const {width, height} = Dimensions.get('window');
+const styles = {
+    icon: {
+        iconImage: ['get', 'icon'],
 
-
+        iconSize: 0.15,
+    },
+};
 class MapViewContainer extends React.Component {
-    state = {
-        featureCollection: {
-            type: 'FeatureCollection',
-            features: []
-        }
-    }
-
-    renderMarkers = () => {
-        const items = [];
+    renderMarker = () => {
         const {data} = this.props;
-        data.map(marker => {
-            items.push(
-                <MapboxGL.PointAnnotation
-                    key={marker.site_id.toString()+'-key'}
-                    id={marker.site_id.toString()+'-id'}
-                    coordinate={[-marker.longitude, marker.latitude]}
-                    title={"test"}
-                >
-                    <Image style={{width: 20, height: 20}} resizeMode="contain" source={require('../../../../../assets/images/pin.png')}/>
-                    <MapboxGL.Callout title={marker.site_name} />
-                </MapboxGL.PointAnnotation>,
-            )
-        });
-        return items;
 
-    };
+        const features = {
+            type: 'FeatureCollection',
+            features: data.map(marker => {
+                return {
+                    type: 'Feature',
+                    id: marker.site_id,
+                    properties: {
+                        icon: 'example',
+                        name: marker.site_name,
+                        description: marker.site_name,
+                        title: marker.site_name,
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [-marker.longitude, marker.latitude],
+                    },
+                }
+            }),
+        };
+        return (
+            <MapboxGL.ShapeSource
+                id="exampleShapeSource"
+                shape={features}
+            >
+                <MapboxGL.SymbolLayer id="exampleIconName" style={styles.icon} />
+            </MapboxGL.ShapeSource>
+        )
+    }
 
     render() {
         return (
@@ -44,7 +54,9 @@ class MapViewContainer extends React.Component {
                 //     longitudeDelta: 0.0421,
                 // }}
                 style={{width, height, flex: 1}}>
-                {this.renderMarkers()}
+
+                <MapboxGL.Images images={{example: pinIcon, assets: ['pin']}} />
+                {this.renderMarker()}
             </MapboxGL.MapView>
         )
     }
