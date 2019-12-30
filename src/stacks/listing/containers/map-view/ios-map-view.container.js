@@ -22,7 +22,7 @@ class IosMapViewContainer extends React.Component {
                 <MapboxGL.PointAnnotation
                     key={marker.site_id.toString()+'-key'}
                     id={marker.site_id.toString()+'-id'}
-                    coordinate={[-marker.longitude, marker.latitude]}
+                    coordinate={[marker.longitude, marker.latitude]}
                     style={{zIndex: 10000}}
                     title={marker.site_name}
                 >

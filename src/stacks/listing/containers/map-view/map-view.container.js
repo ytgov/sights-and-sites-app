@@ -35,7 +35,7 @@ class MapViewContainer extends React.Component {
                     },
                     geometry: {
                         type: 'Point',
-                        coordinates: [-marker.longitude, marker.latitude],
+                        coordinates: [marker.longitude, marker.latitude],
                     },
                 }
             }),
