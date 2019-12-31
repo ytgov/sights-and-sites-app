@@ -43,6 +43,7 @@ class ChooseHighwayScreen extends React.Component {
     applySelection() {
         const {selectedHighways} = this.state;
         const {navigation, setHighwayFiltersDispatch} = this.props;
+        console.info("setHighwayFilters ==>", selectedHighways)
         setHighwayFiltersDispatch(selectedHighways);
         success(i18n.t('notifications.onFiltersUpdate'));
         navigation.goBack();
@@ -59,10 +60,10 @@ class ChooseHighwayScreen extends React.Component {
                 <HighwayBoxSpacer>
                     <HighwayBox>
                         <TouchableOpacity onPress={() => {
-                            this.toggleHighway(highway.id)
+                            this.toggleHighway(highway.name)
                         }}>
                             {
-                                (selectedHighways.indexOf(highway.id) >= 0) ?
+                                (selectedHighways.indexOf(highway.name) >= 0) ?
                                     <Ionicons
                                         style={[ChooseHighwayStyles.toggleIcon, ChooseHighwayStyles.toggleIconActive]}
                                         name="ios-checkmark" size={24} color="#FFF"/>

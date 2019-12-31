@@ -173,7 +173,7 @@ function filterListing(filters, location, listingRaw) {
         return listingRaw;
     }
     if (highwaysFilter.length) {
-        result = listingRaw.filter(item => highwaysFilter.includes(item.highway))
+        result = listingRaw.filter(item => highwaysFilter.includes(item.highway_name))
     }
     if (regionsFilter.length) {
         result = listingRaw.filter(item => regionsFilter.includes(item.region))

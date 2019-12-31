@@ -124,7 +124,7 @@ class IntroStepFourScreen extends React.Component {
 IntroStepFourScreen.propTypes = {
     nearMeFilter: PropTypes.bool.isRequired,
     mySitesFilter: PropTypes.bool.isRequired,
-    highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
     setNearMeFiltersDispatch: PropTypes.func.isRequired,
     setMySitesFiltersDispatch: PropTypes.func.isRequired,
