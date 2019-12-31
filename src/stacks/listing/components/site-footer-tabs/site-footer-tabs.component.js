@@ -7,6 +7,7 @@ import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
 import SiteType from '../../../../types/site.type';
 import {error} from '../../../../shared/services/notify';
+import {Linking} from 'expo';
 
 const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
@@ -16,9 +17,13 @@ const SiteFooterTabs = props => {
     const {navigation, item, locale, setMySitesFiltersDispatch} = props;
 
     const formatSharedMessage = () => {
-        let message = `${item[locale].title} \n\n`;
-        message += `${item[locale].descriprtion} \n\n`;
-        message += `${item[locale].highway.name} \n\n`;
+        let uri = Linking.makeUrl('/app');
+        let message = `${item.site_name} \n\n`;
+        message += `${item.site_description} \n\n`;
+        if(item.image_url) {
+            message += `${item.image_url} \n\n`;
+        }
+        message += `${item.site_directions} \n\n`;
         message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
         message += item.uri;
         return message;
