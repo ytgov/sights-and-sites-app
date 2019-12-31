@@ -57,10 +57,10 @@ class ChooseRegionScreen extends React.Component {
                 <HighwayBoxSpacer>
                     <HighwayBox style={{height: 100}}>
                         <TouchableOpacity style={{height: 100, position: 'relative'}} onPress={() => {
-                            this.toggleHighway(highway.id)
+                            this.toggleHighway(highway.name)
                         }}>
                             {
-                                (selectedHighways.indexOf(highway.id) >= 0) ?
+                                (selectedHighways.indexOf(highway.name) >= 0) ?
                                     <Ionicons
                                         style={[ChooseRegionStyles.toggleIcon, ChooseRegionStyles.toggleIconActive]}
                                         name="ios-checkmark" size={24} color="#FFF"/>

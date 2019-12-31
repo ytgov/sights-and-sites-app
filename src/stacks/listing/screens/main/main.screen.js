@@ -105,7 +105,7 @@ MainScreen.propTypes = {
     sitesTypeFilterActive: PropTypes.bool.isRequired,
     sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
     highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
-    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     toggleSitesTypeFilterDispatch: PropTypes.func.isRequired,
     toggleListingViewDispatch: PropTypes.func.isRequired,
     selectedListingView: PropTypes.string.isRequired,

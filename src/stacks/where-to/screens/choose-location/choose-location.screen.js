@@ -125,7 +125,7 @@ IntroStepFourScreen.propTypes = {
     nearMeFilter: PropTypes.bool.isRequired,
     mySitesFilter: PropTypes.bool.isRequired,
     highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
-    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     setNearMeFiltersDispatch: PropTypes.func.isRequired,
     setMySitesFiltersDispatch: PropTypes.func.isRequired,
     resetFiltersDispatch: PropTypes.func.isRequired
