@@ -49,7 +49,7 @@ FooterTabs.propTypes = {
     mySitesFilter: PropTypes.bool.isRequired,
     highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
-    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     toggleSitesTypeFilterDispatch: PropTypes.func.isRequired
 }
 

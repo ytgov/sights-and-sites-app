@@ -1,6 +1,7 @@
 import orderByDistance from 'geolib/es/orderByDistance';
 import {ADD_LISTING, FILTER_LISTING, INCREMENT_LISTING_PAGE, TOGGLE_LISTING_VIEW} from '../types';
 import {APP_CONFIG} from '../../config';
+import i18n from '../../locale/locale';
 
 const {itemsToShow} = APP_CONFIG.listing;
 
@@ -190,7 +191,26 @@ function filterListing(filters, location, listingRaw) {
 
     // Site Type
     if (sitesTypeFilter.length) {
-        result = result.filter(item => sitesTypeFilter.filter(element => item.site_types.includes(element)).length >= 1)
+        result = result.filter(item => {
+            let res = [];
+            // sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1
+            console.info("sitesTypeFilter ==>", sitesTypeFilter)
+            sitesTypeFilter.map(site_type => {
+                let keywords = String(i18n.t(site_type)).split(' ');
+                if(item.site_types) {
+                    item.site_types.map(type => {
+                        if(type.includes(keywords[0])) {
+                            res.push(keywords[0]);
+                        }
+                    })
+                }
+
+
+            });
+
+            return (!!res.length && res.length <= sitesTypeFilter.length);
+        })
+        // result = result.filter(item => sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1)
     }
     return result;
 }

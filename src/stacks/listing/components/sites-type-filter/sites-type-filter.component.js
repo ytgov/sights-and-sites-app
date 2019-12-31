@@ -53,12 +53,12 @@ const SitesTypeFilter = props => {
                         siteTypeFilters.map(filter => {
                             return (
                                 <FilterButtton onPress={() => {
-                                    setSitesTypeFiltersDispatch(filter.id)
-                                }} key={filter.id}>
+                                    setSitesTypeFiltersDispatch(filter.title)
+                                }} key={filter.title}>
                                     <View style={Helpers.positionRelative}>
-                                        {siteTypeActive(sitesTypeFilter, filter.id) &&
+                                        {siteTypeActive(sitesTypeFilter, filter.title) &&
                                         <FilterImageOverlay resizeMode="contain" source={siteTypeActiveOverlay}/>}
-                                        <FilterImage active={siteTypeActive(sitesTypeFilter, filter.id)}
+                                        <FilterImage active={siteTypeActive(sitesTypeFilter, filter.title)}
                                                      resizeMode="contain" source={filter.image}/>
                                     </View>
                                     <Caption
@@ -74,7 +74,7 @@ const SitesTypeFilter = props => {
 
 SitesTypeFilter.propTypes = {
     sitesTypeFilterActive: PropTypes.bool.isRequired,
-    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     setSitesTypeFiltersDispatch: PropTypes.func.isRequired
 }
 

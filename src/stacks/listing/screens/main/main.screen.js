@@ -103,7 +103,7 @@ MainScreen.propTypes = {
     nearMeFilter: PropTypes.bool.isRequired,
     mySitesFilter: PropTypes.bool.isRequired,
     sitesTypeFilterActive: PropTypes.bool.isRequired,
-    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     toggleSitesTypeFilterDispatch: PropTypes.func.isRequired,
