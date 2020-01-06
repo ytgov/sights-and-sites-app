@@ -88,13 +88,23 @@ class SiteDetails extends React.Component {
                     </View>
                     <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
                         <SiteCardInfo item={item} locale={locale}/>
-                        {/* <SiteAmenties items={item.siteAmenties} locale={locale} /> */}
+
                         {!!item.warning && <SiteWarning value={item.warning}/>}
                         <Body1 black regular style={{paddingTop: 16}}>
                             {
                                 item.site_description
                             }
                         </Body1>
+
+                        {
+                            !!item.site_directions && <Body1 black regular style={{paddingTop: 16}}>
+                               {
+                                   item.site_directions
+                               }
+                            </Body1>
+                        }
+
+
                     </View>
 
                     {/* TODO Item id should be replaced with near by site id */}

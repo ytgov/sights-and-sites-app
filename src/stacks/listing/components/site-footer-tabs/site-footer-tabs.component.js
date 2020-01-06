@@ -25,7 +25,6 @@ const SiteFooterTabs = props => {
         }
         message += `${item.site_directions} \n\n`;
         message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
-        message += item.uri;
         return message;
     }
 

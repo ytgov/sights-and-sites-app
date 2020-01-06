@@ -6,6 +6,7 @@ import {Caption, H3} from '../../../../theme/theme';
 import HighwayBadgeText from './site-card-info.styled-components';
 import SiteType from '../../../../types/site.type';
 import SiteDistance from '../site-distance/site-distance.component';
+import SiteAmenties from '../site-amenties/site-amenties.component';
 
 const highwayIcon = require('../../../../../assets/stacks/listing/highway-number-background-icon.png');
 
@@ -19,6 +20,7 @@ const SiteCardInfo = props => {
     return (
         <View>
             <H3 black>{itemInfo.site_name}</H3>
+            <SiteAmenties item={item} locale={locale} />
             <SiteDistance parentLocation={parentLocation} siteLocation={itemLocation}/>
             <View style={SiteCardInfoStyles.highwayInfoBox}>
                 <View style={SiteCardInfoStyles.highwayIcon}>

@@ -1,7 +1,16 @@
 /* eslint-disable global-require */
 import {Asset} from 'expo-asset';
 import * as Font from 'expo-font';
-
+Object.defineProperty(Array.prototype, 'chunk_inefficient', {
+    value: function(chunkSize) {
+        var array = this;
+        return [].concat.apply([],
+            array.map(function(elem, i) {
+                return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+            })
+        );
+    }
+});
 function cacheImages(images) {
     return images.map(image => {
         if (typeof image === 'string') {
