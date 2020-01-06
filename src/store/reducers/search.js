@@ -22,9 +22,11 @@ export default function searchReducer(state = initialState, action) {
             }
         }
         case RESET_SEARCH_QUERY: {
+            console.info("RESET_SEARCH_QUERY ==>")
             return {
                 ...state,
-                searchQuery: ''
+                searchQuery: '',
+                searchInProgress: false
             }
         }
         case SEARCH_SITES: {
@@ -33,7 +35,8 @@ export default function searchReducer(state = initialState, action) {
             if (recentQueries.length > recentQueriesToShow) {
                 recentQueries.shift();
             }
-            const searchMatched = listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id);
+            const searchMatched = listing.filter(site => site.site_name.includes(queryFormatted)).map(site => site.site_id);
+            // const searchMatched = listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id);
             return {
                 ...state,
                 recentQueries,

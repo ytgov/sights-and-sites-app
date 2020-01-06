@@ -28,6 +28,11 @@ class SearchScreen extends React.Component {
 
     onSearchDebounced = _.debounce(this.onSearch, APP_CONFIG.search.debounceDelay);
 
+    componentDidMount() {
+        const {resetSearchQueryDispatch} = this.props;
+        resetSearchQueryDispatch();
+    }
+
     componentWillUnmount() {
         const {resetSearchQueryDispatch} = this.props;
         resetSearchQueryDispatch();
@@ -57,9 +62,7 @@ class SearchScreen extends React.Component {
 
     render() {
         const {navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, currentSearchPage, recentQueries, searchPagesLimit, resetSearchQueryDispatch} = this.props;
-        const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);
-        ;
-
+        const sites = searchMatched.map(id => listingRaw.filter(site => site.site_id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);
         return (
             <Container style={{backgroundColor: '#000'}}>
                 <Header style={[COMMON.header, COMMON.headerWhite]}>

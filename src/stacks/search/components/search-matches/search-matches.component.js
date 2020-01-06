@@ -11,7 +11,7 @@ const SearchMatches = props => {
         <View>
             <FlatList
                 data={data}
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item) => item.site_id}
                 renderItem={({item}) => <ListViewItem locale={locale} item={item} navigation={navigation}/>}
             />
             {(currentSearchPage < searchPagesLimit) && <LoadMore callback={() => loadMore()} text='More sites'/>}
