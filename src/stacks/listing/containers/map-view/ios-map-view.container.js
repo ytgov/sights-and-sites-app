@@ -76,8 +76,6 @@ class IosMapViewContainer extends React.Component {
         }
         return (
             <MapboxGL.MapView
-
-
                 style={{width, height, flex: 1}}>
                 <MapboxGL.Camera
                     centerCoordinate={[initialRegion.longitude, initialRegion.latitude]}

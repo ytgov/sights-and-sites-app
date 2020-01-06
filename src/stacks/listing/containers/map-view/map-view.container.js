@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import pinIcon from '../../../../../assets/images/pin.png';
 
@@ -52,10 +52,43 @@ class MapViewContainer extends React.Component {
     }
 
     render() {
+        const initialRegion = {
+            latitude: 63.389423,
+            longitude: -136.714739,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+            zoomLevel: 2,
+
+        };
+        const {data} = this.props;
+
+
+        if (!data.length) {
+            return (<View style={{
+                    width,
+                    height: (height - 200),
+                    flex: 1,
+                    justifyContent: 'center',
+                    textAlign: 'center'
+                }}>
+                    <Text style={{
+                        color: '#FFF',
+                        fontSize: 24,
+                        textAlign: 'center',
+                        paddingBottom: 20,
+                    }}>Loading the map ...</Text>
+                    <ActivityIndicator style={{}} size="large" color="#FFF"/>
+                </View>
+            )
+        }
         return (
             <View style={{flex: 1, width, height}}>
                 <MapboxGL.MapView
                     style={{width, height, flex: 1}}>
+                    <MapboxGL.Camera
+                        centerCoordinate={[initialRegion.longitude, initialRegion.latitude]}
+                        zoomLevel={initialRegion.zoomLevel}
+                    />
 
                     <MapboxGL.Images images={{example: pinIcon, assets: ['pin']}}/>
                     {this.renderMarker()}
