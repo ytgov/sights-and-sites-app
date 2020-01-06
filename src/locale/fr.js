@@ -86,7 +86,7 @@ export default {
             'title': 'A propos des Territoires Traditionnels'
         },
         'travelTrips': {
-            'title': 'Wilderness Travel Voyages'
+            'title': 'Conseils de voyage en milieu sauvage'
         },
         'appInformation': {
             'title': 'Informations sur l`application'

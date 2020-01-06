@@ -92,7 +92,7 @@ export default {
             'title': 'About Traditional Territories'
         },
         'travelTrips': {
-            'title': 'Wilderness Travel Trips'
+            'title': 'Wilderness Travel Tips'
         },
         'appInformation': {
             'title': 'App Information'

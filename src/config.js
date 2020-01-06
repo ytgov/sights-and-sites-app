@@ -2,12 +2,12 @@
 export const APP_CONFIG = {
     version: '1.0.0',
     listing: {
-        itemsToShow: 2
+        itemsToShow: 10
     },
     search: {
         debounceDelay: 1000,
         recentQueriesToShow: 10,
-        itemsToShow: 5
+        itemsToShow: 10
     },
     location: {
         locationUpdateFrequency: 5000
