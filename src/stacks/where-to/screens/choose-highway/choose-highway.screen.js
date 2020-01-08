@@ -44,7 +44,7 @@ class ChooseHighwayScreen extends React.Component {
     applySelection() {
         const {selectedHighways} = this.state;
         const {navigation, setHighwayFiltersDispatch} = this.props;
-        console.info("setHighwayFilters ==>", selectedHighways)
+        console.info('setHighwayFilters ==>', selectedHighways)
         setHighwayFiltersDispatch(selectedHighways);
         success(i18n.t('notifications.onFiltersUpdate'));
         navigation.goBack();
@@ -60,24 +60,32 @@ class ChooseHighwayScreen extends React.Component {
             <Col style={{width: '50%'}} key={`${highway.id}`}>
                 <HighwayBoxSpacer>
                     <HighwayBox>
-                        <TouchableOpacity onPress={() => {
+                        <TouchableOpacity style={{flexDirection: 'row', minHeight: 70}} onPress={() => {
                             this.toggleHighway(highway.name)
                         }}>
-                            {
-                                (selectedHighways.indexOf(highway.name) >= 0) ?
-                                    <Ionicons
-                                        style={[ChooseHighwayStyles.toggleIcon, ChooseHighwayStyles.toggleIconActive]}
-                                        name="ios-checkmark" size={24} color="#FFF"/>
-                                    :
-                                    <Ionicons style={ChooseHighwayStyles.toggleIcon} name="ios-add" size={24}
-                                              color="#FFF"/>
-                            }
-                            <Subtitle1 style={ChooseHighwayStyles.highwayName}
-                                       numberOfLines={1}>{highway.name}</Subtitle1>
-                            <View style={{position: 'relative', width: 18}}>
-                                <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
-                                <HighwayBadgeText black>{highway.roadNumber}</HighwayBadgeText>
+                            <View style={{paddingRight: 10}}>
+                                {
+                                    (selectedHighways.indexOf(highway.name) >= 0) ?
+                                        <Ionicons
+                                            style={[ChooseHighwayStyles.toggleIcon, ChooseHighwayStyles.toggleIconActive]}
+                                            name="ios-checkmark" size={24} color="#FFF"/>
+                                        :
+                                        <Ionicons style={ChooseHighwayStyles.toggleIcon} name="ios-add" size={24}
+                                                  color="#FFF"/>
+                                }
+                                <View style={{position: 'relative', width: 18, marginTop: 10}}>
+                                    <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
+                                    <HighwayBadgeText black>{highway.roadNumber}</HighwayBadgeText>
+                                </View>
                             </View>
+
+                            <Subtitle1 style={[
+                                ChooseHighwayStyles.highwayName,
+                                {
+                                    maxWidth: '80%'
+                                }
+                            ]}>{highway.name}</Subtitle1>
+
                         </TouchableOpacity>
                     </HighwayBox>
                 </HighwayBoxSpacer>
