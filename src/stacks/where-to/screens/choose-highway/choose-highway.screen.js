@@ -9,7 +9,7 @@ import i18n from '../../../../locale/locale';
 import {Caption, COMMON, H2, Helpers, Subtitle1} from '../../../../theme/theme';
 import ChooseHighwayStyles from './choose-highway.styles';
 import {HighwayBadgeText, HighwayBox, HighwayBoxSpacer} from './choose-highway.styled-components';
-import {setHighwayFilters} from '../../../../store/actions/filters';
+import {resetHighways, setHighwayFilters} from '../../../../store/actions/filters';
 import {success} from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
@@ -23,7 +23,8 @@ class ChooseHighwayScreen extends React.Component {
     }
 
     componentDidMount() {
-        const {highwaysFilter} = this.props;
+        const {highwaysFilter, resetHighwaysDispatch} = this.props;
+        resetHighwaysDispatch();
         const selectedHighways = cloneDeep(highwaysFilter);
         this.setState({selectedHighways});
     }
@@ -153,7 +154,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setHighwayFiltersDispatch: value => dispatch(setHighwayFilters(value))
+        setHighwayFiltersDispatch: value => dispatch(setHighwayFilters(value)),
+        resetHighwaysDispatch: value => dispatch(resetHighways(value))
     };
 };
 

@@ -1,6 +1,6 @@
 import {
-    RESET_FILTERS,
-    SET_HIGHWAY_FILTERS,
+    RESET_FILTERS, RESET_REGION,
+    SET_HIGHWAY_FILTERS, SET_HIGHWAY_SELECTION,
     SET_MY_SITES_FILTERS,
     SET_NEAR_ME_FILTERS,
     SET_REGION_FILTERS,
@@ -8,6 +8,19 @@ import {
     SET_SITES_TYPE_FILTER_VISIBILITY,
     TOGGLE_MY_SITES_STATE
 } from '../types';
+
+
+export function resetRegions() {
+    return {
+        type: RESET_REGION,
+    }
+}
+
+export function resetHighways() {
+    return {
+        type: SET_HIGHWAY_SELECTION,
+    }
+}
 
 
 export function setHighwayFilters(value) {

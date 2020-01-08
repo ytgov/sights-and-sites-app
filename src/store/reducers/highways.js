@@ -14,12 +14,12 @@ const initialState = {
         },
         {
             id: 3,
-            name: 'Haines Riad',
+            name: 'Haines Road',
             roadNumber: 3,
         },
         {
             id: 4,
-            name: 'Campbell Highway',
+            name: 'Robert Campbell Highway',
             roadNumber: 4,
         },
         {
@@ -29,7 +29,7 @@ const initialState = {
         },
         {
             id: 6,
-            name: 'Canol Highway',
+            name: 'Canol Road',
             roadNumber: 6,
         },
         {
@@ -69,7 +69,7 @@ const initialState = {
         },
         {
             id: 37,
-            name: 'Cassiar Highway',
+            name: 'Stewart-Cassiar Highway',
             roadNumber: 37
         }
     ]
@@ -79,7 +79,7 @@ export default function highwaysReducer(state = initialState, action) {
     switch (action.type) {
         case SET_HIGHWAY_SELECTION: {
             return {
-                highways: action.payload
+                highways: initialState.highways
             }
         }
         default:

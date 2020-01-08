@@ -1,3 +1,5 @@
+import {RESET_REGION} from '../types';
+
 const region1Image = require('../../../assets/stacks/where-to/region1.png');
 const region2Image = require('../../../assets/stacks/where-to/region2.png');
 const region3Image = require('../../../assets/stacks/where-to/region3.png');
@@ -11,7 +13,7 @@ const initialState = {
     regions: [
         {
             id: 1,
-            name: 'Northen and Arctic',
+            name: 'North Yukon',
             image: region1Image
         },
         {
@@ -50,8 +52,17 @@ const initialState = {
             image: region8Image
         }
     ]
-}
+};
 
-export default function regionsReducer(state = initialState) {
-    return state;
+export default function regionsReducer(state = initialState, action) {
+    switch (action.type) {
+        case RESET_REGION: {
+            return {
+                ...state,
+                regions: initialState.regions
+            }
+        }
+        default:
+            return state;
+    }
 }

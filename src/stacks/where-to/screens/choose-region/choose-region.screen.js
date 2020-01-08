@@ -9,7 +9,7 @@ import i18n from '../../../../locale/locale';
 import {Caption, COMMON, H2, Helpers, Subtitle1} from '../../../../theme/theme';
 import ChooseRegionStyles from './choose-region.styles';
 import {HighwayBox, HighwayBoxSpacer} from './choose-region.styled-components';
-import {setRegionFilters} from '../../../../store/actions/filters';
+import {resetRegions, setRegionFilters} from '../../../../store/actions/filters';
 import {success} from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
@@ -21,7 +21,8 @@ class ChooseRegionScreen extends React.Component {
     }
 
     componentDidMount() {
-        const {regionsFilter} = this.props;
+        const {regionsFilter, resetRegionsDispatch} = this.props;
+        resetRegionsDispatch()
         const selectedHighways = cloneDeep(regionsFilter);
         this.setState({selectedHighways});
     }
@@ -149,7 +150,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setRegionsFiltersDispatch: value => dispatch(setRegionFilters(value))
+        setRegionsFiltersDispatch: value => dispatch(setRegionFilters(value)),
+        resetRegionsDispatch: () => dispatch(resetRegions())
     };
 };
 
