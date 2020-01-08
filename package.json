@@ -52,6 +52,7 @@
     "redux-observable": "^1.1.0",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
+    "rn-tooltip": "^2.0.0",
     "rxjs": "^6.5.2",
     "sentry-expo": "^2.0.1",
     "styled-components": "^4.3.2"

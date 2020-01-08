@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import SiteCardInfoStyles from './site-card-info.styles';
 import {Caption, H3} from '../../../../theme/theme';
@@ -7,6 +7,7 @@ import HighwayBadgeText from './site-card-info.styled-components';
 import SiteType from '../../../../types/site.type';
 import SiteDistance from '../site-distance/site-distance.component';
 import SiteAmenties from '../site-amenties/site-amenties.component';
+import Tooltip from 'rn-tooltip';
 
 const highwayIcon = require('../../../../../assets/stacks/listing/highway-number-background-icon.png');
 
@@ -20,13 +21,17 @@ const SiteCardInfo = props => {
     return (
         <View>
             <H3 black>{itemInfo.site_name}</H3>
-            <SiteAmenties item={item} locale={locale} />
+            <SiteAmenties item={item} locale={locale}/>
             <SiteDistance parentLocation={parentLocation} siteLocation={itemLocation}/>
             <View style={SiteCardInfoStyles.highwayInfoBox}>
                 <View style={SiteCardInfoStyles.highwayIcon}>
-                    <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
-                    <HighwayBadgeText>{itemInfo.highway_km}</HighwayBadgeText>
+                    <Tooltip popover={<HighwayBadgeText>{itemInfo.highway_km}</HighwayBadgeText>}
+                             withOverlay={false}>
+                        <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
+                        <HighwayBadgeText>{String(itemInfo.highway_km).substring(0, 1)}</HighwayBadgeText>
+                    </Tooltip>
                 </View>
+
                 <Caption black style={{fontSize: 14}}>{itemInfo.highway_name}</Caption>
             </View>
         </View>
