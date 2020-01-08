@@ -148,8 +148,10 @@ class MapViewContainer extends React.Component {
                                     <Text>X</Text>
                                 </TouchableOpacity>
                             </View>
-                            <SiteTypes item={this.state.selectedItem.properties}/>
-                            <SiteCardInfo item={this.state.selectedItem.properties} locale={'en'}/>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('SiteDetails', {item:this.state.selectedItem.properties})}>
+                                <SiteTypes item={this.state.selectedItem.properties}/>
+                                <SiteCardInfo item={this.state.selectedItem.properties} locale={'en'}/>
+                            </TouchableOpacity>
 
                         </View>
                     ) : null
