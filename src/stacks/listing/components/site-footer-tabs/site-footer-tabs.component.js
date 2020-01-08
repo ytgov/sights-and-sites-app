@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Share, View} from 'react-native';
+import {Image, Share, View, Platform} from 'react-native';
 import {Button, Footer, FooterTab} from 'native-base';
 import PropTypes from 'prop-types';
 import {Caption, COMMON, Helpers} from '../../../../theme/theme';
@@ -59,6 +59,11 @@ const SiteFooterTabs = props => {
         <Footer style={COMMON.footer}>
             <FooterTab style={{backgroundColor: '#000000'}}>
                 <Button vertical onPress={() => {
+                    if (Platform.OS === 'ios') {
+                        Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);
+                    } else {
+                        Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);
+                    }
                 }}>
                     <View style={Helpers.positionRelative}>
                         <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={directionsIcon}/>
