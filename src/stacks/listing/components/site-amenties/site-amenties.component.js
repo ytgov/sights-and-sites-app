@@ -32,11 +32,11 @@ class SiteAmenties extends React.Component {
         return (
             <View style={SiteAmentiesStyles.amenitiesList}>
                 {
-                    this.getAmenties(item).chunk_inefficient(Math.floor(width / 50)).map(items => (
-                        <View style={{flexDirection: 'row', width}}>
+                    this.getAmenties(item).chunk_inefficient(Math.floor(width / 50)).map((items, index) => (
+                        <View key={'amen-t-'+index} style={{flexDirection: 'row', width}}>
                             {
                                 items.map(item => (
-                                    <Image source={item.imageInactive} style={SiteAmentiesStyles.amenitiesListIcon}
+                                    <Image source={item.imageInactive} key={item.id} style={SiteAmentiesStyles.amenitiesListIcon}
                                            resizeMode='contain'/>
                                 ))
                             }

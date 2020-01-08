@@ -1,52 +1,80 @@
 import React from 'react';
 import {ActivityIndicator, Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
+// import pinIcon from '../../../../../assets/stacks/listing/amenties/active/y_boat.png';
 import pinIcon from '../../../../../assets/images/pin.png';
+import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
+import SiteTypes from '../../components/site-types/site-types.component';
+import {COLORS} from '../../../../theme/config';
 
 MapboxGL.setAccessToken('pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg');
 const {width, height} = Dimensions.get('window');
 const styles = {
     icon: {
-        iconImage: ['get', 'icon'],
-
+        iconImage: pinIcon,
+        iconAllowOverlap: true,
         iconSize: 0.15,
+
     },
 };
 
 class MapViewContainer extends React.Component {
-    state = {
-        selectedItem: {}
-    };
+    constructor(props) {
+        super(props);
 
-    renderMarker = () => {
+        this.state = {
+            featureCollection: MapboxGL.geoUtils.makeFeatureCollection(),
+            selectedItem: {}
+        };
+
+        this.onPress = this.onPress.bind(this);
+        this.onSourceLayerPress = this.onSourceLayerPress.bind(this);
+    }
+
+    async onPress(e) {
+
+        // console.info('New Feature ==>', e)
+    }
+
+
+    onSourceLayerPress(e) {
+        const selectedItem = e.nativeEvent.payload;
+        if (selectedItem && selectedItem.properties) {
+            this.setState({selectedItem})
+        }
+        console.log('You pressed a layer here is your feature', selectedItem); // eslint-disable-line
+    }
+
+    renderShapedSources() {
         const {data} = this.props;
 
-        const features = {
-            type: 'FeatureCollection',
-            features: data.map(marker => {
-                return {
+        let featureCollection = MapboxGL.geoUtils.makeFeatureCollection();
+        data.map(marker => {
+            featureCollection = MapboxGL.geoUtils.addToFeatureCollection(
+                featureCollection,
+                {
                     type: 'Feature',
                     id: marker.site_id,
-                    properties: {
-                        icon: 'example',
-                        name: marker.site_name,
-                        description: marker.site_name,
-                        title: marker.site_name,
-                    },
+                    properties: marker,
                     geometry: {
                         type: 'Point',
                         coordinates: [marker.longitude, marker.latitude],
                     },
-                }
-            }),
-        };
+                },
+            );
+        });
         return (
             <MapboxGL.ShapeSource
-                id="exampleShapeSource"
-                shape={features}
-                onPress={item => this.setState({selectedItem: item.nativeEvent.payload})}
+                id="symbolLocationSource"
+                hitbox={{width: 20, height: 20}}
+                onPress={this.onSourceLayerPress}
+                shape={featureCollection}
             >
-                <MapboxGL.SymbolLayer id="exampleIconName" style={styles.icon}/>
+                <MapboxGL.SymbolLayer
+                    id="symbolLocationSymbols"
+                    minZoomLevel={1}
+                    style={styles.icon}
+                />
             </MapboxGL.ShapeSource>
         )
     }
@@ -84,14 +112,15 @@ class MapViewContainer extends React.Component {
         return (
             <View style={{flex: 1, width, height}}>
                 <MapboxGL.MapView
-                    style={{width, height, flex: 1}}>
+                    ref={c => (this._map = c)}
+                    style={{width, height, flex: 1}}
+                    onPress={this.onPress}
+                >
                     <MapboxGL.Camera
                         centerCoordinate={[initialRegion.longitude, initialRegion.latitude]}
                         zoomLevel={initialRegion.zoomLevel}
                     />
-
-                    <MapboxGL.Images images={{example: pinIcon, assets: ['pin']}}/>
-                    {this.renderMarker()}
+                    {this.renderShapedSources()}
                 </MapboxGL.MapView>
                 {
                     (this.state.selectedItem && this.state.selectedItem.properties) ? (
@@ -104,13 +133,24 @@ class MapViewContainer extends React.Component {
                             zIndex: 10000,
                             bottom: 200,
                             left: '5%',
-                            flexDirection: 'row',
-                            justifyContent: 'space-between'
+                            borderTopColor: COLORS.accent,
+                            borderTopWidth: 4,
                         }}>
-                            <Text>{this.state.selectedItem.properties.title}</Text>
-                            <TouchableOpacity onPress={() => this.setState({selectedItem: {}})}>
-                                <Text>X</Text>
-                            </TouchableOpacity>
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between'
+                            }}>
+                                <View style={{width: 10}} />
+                                <TouchableOpacity style={{
+                                    width: 30,
+                                    height: 30
+                                }} onPress={() => this.setState({selectedItem: {}})}>
+                                    <Text>X</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <SiteTypes item={this.state.selectedItem.properties}/>
+                            <SiteCardInfo item={this.state.selectedItem.properties} locale={'en'}/>
+
                         </View>
                     ) : null
                 }

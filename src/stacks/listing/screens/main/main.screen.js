@@ -78,7 +78,7 @@ class MainScreen extends React.Component {
                 <Content>
                     {
                         (selectedListingView === 'MAP') ?
-                            ((Platform.OS === 'ios') ? <IosMapViewContainer data={listingFiltered} navigation={navigation}/> :<MapViewContainer data={listingFiltered} navigation={navigation}/>) : <ListViewContainer
+                            (<MapViewContainer data={listingFiltered} navigation={navigation}/>) : <ListViewContainer
                                 data={listingFiltered}
                                 currentListingPage={currentListingPage}
                                 incrementListingPageDispatch={incrementListingPageDispatch}
