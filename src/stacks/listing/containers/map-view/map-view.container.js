@@ -1,7 +1,6 @@
 import React from 'react';
-import {ActivityIndicator, Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, AppState, Dimensions, NetInfo, Text, TouchableOpacity, View} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
-// import pinIcon from '../../../../../assets/stacks/listing/amenties/active/y_boat.png';
 import pinIcon from '../../../../../assets/images/pin.png';
 import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
 import SiteTypes from '../../components/site-types/site-types.component';
@@ -24,12 +23,35 @@ class MapViewContainer extends React.Component {
 
         this.state = {
             featureCollection: MapboxGL.geoUtils.makeFeatureCollection(),
-            selectedItem: {}
+            selectedItem: {},
+            isConnected: true
         };
 
         this.onPress = this.onPress.bind(this);
         this.onSourceLayerPress = this.onSourceLayerPress.bind(this);
     }
+
+    async componentDidMount() {
+
+        AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+        const isConnected = await NetInfo.isConnected.fetch();
+
+        this.setState({
+            isConnected,
+        });
+    }
+
+    componentWillUnmount() {
+        AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
+    }
+
+    async _handleAppStateChange(nextAppState) {
+        const isConnected = await NetInfo.isConnected.fetch();
+        this.setState({
+            isConnected,
+        });
+    };
+
 
     async onPress(e) {
 
@@ -90,27 +112,34 @@ class MapViewContainer extends React.Component {
         };
         const {data} = this.props;
 
-
-        if (!data.length) {
-            return (<View style={{
-                    width,
-                    height: (height - 200),
-                    flex: 1,
-                    justifyContent: 'center',
-                    textAlign: 'center'
-                }}>
-                    <Text style={{
-                        color: '#FFF',
-                        fontSize: 24,
-                        textAlign: 'center',
-                        paddingBottom: 20,
-                    }}>Loading the map ...</Text>
-                    <ActivityIndicator style={{}} size="large" color="#FFF"/>
-                </View>
-            )
-        }
         return (
             <View style={{flex: 1, width, height}}>
+                {
+                    (!this.state.isConnected) && (
+                        <View style={{
+                            backgroundColor: '#FF5252',
+                            padding: 10,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: 40,
+                            zIndex: 100
+                        }}>
+                            <Text style={{
+                                fontSize: 15,
+                                color: "#FFF"
+                            }}>No Internet Connection</Text>
+                        </View>
+                    )
+                }
+                {
+                    (!data) && (
+                        <ActivityIndicator style={{
+                            marginTop: 10,
+                            marginBottom: -50,
+                            zIndex: 1000
+                        }} size="large" color="#000"/>
+                    )
+                }
                 <MapboxGL.MapView
                     ref={c => (this._map = c)}
                     style={{width, height, flex: 1}}
@@ -140,7 +169,7 @@ class MapViewContainer extends React.Component {
                                 flexDirection: 'row',
                                 justifyContent: 'space-between'
                             }}>
-                                <View style={{width: 10}} />
+                                <View style={{width: 10}}/>
                                 <TouchableOpacity style={{
                                     width: 30,
                                     height: 30
@@ -148,7 +177,8 @@ class MapViewContainer extends React.Component {
                                     <Text>X</Text>
                                 </TouchableOpacity>
                             </View>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('SiteDetails', {item:this.state.selectedItem.properties})}>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('SiteDetails', {item: this.state.selectedItem.properties})}>
                                 <SiteTypes item={this.state.selectedItem.properties}/>
                                 <SiteCardInfo item={this.state.selectedItem.properties} locale={'en'}/>
                             </TouchableOpacity>

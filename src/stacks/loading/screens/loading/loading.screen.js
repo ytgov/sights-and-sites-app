@@ -5,6 +5,8 @@ import {ActivityIndicator, ImageBackground} from 'react-native';
 import {Helpers} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 import {addListing, filterListing} from '../../../../store/actions/listing';
+import axios from 'axios';
+import {APP_CONFIG} from '../../../../config';
 
 const background = require('../../../../../assets/common/common-background.jpg');
 
@@ -21,20 +23,33 @@ class LoadingScreen extends React.Component {
             addListingDispatch
         } = this.props;
         // TODO: remove in production
-        addListingDispatch([]);
+        // addListingDispatch([]);
 
-        filterListingDispatch();
-        setTimeout(() => {
-            if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                navigation.navigate('Welcome');
-                return false;
+        axios.get(APP_CONFIG.placesUrl, {
+            headers: {
+                'accept-language': i18n.language,
+                'api-key': APP_CONFIG.apiKey
             }
-            i18n.changeLanguage(locale);
-            navigation.navigate('Main');
-            return true;
-        }, 1000)
+        })
+            .then(async res => {
+                await addListingDispatch(res.data.data);
+                filterListingDispatch();
+                if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
+                    navigation.navigate('Welcome');
+                    return false;
+                }
+                await i18n.changeLanguage(locale);
+                navigation.navigate('Main');
+            })
+            .catch(err => {
+                if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
+                    navigation.navigate('Welcome');
+                    return false;
+                }
+                i18n.changeLanguage(locale);
+                navigation.navigate('Main');
+            })
     }
-
     render() {
         return (
             <ImageBackground style={[Helpers.alignItemsCenter, Helpers.fullHeight, Helpers.justifyContentCenter]}

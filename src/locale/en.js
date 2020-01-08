@@ -70,7 +70,8 @@ export default {
         // LISTING STACK
         'listContainer': {
             moreSites: 'More sites',
-            noSitesFound: 'No sites found'
+            noSitesFound: 'No sites found',
+            noFavouritesFound: 'No favourites or "my sites" have been chosen yet'
         },
         'siteDetails': {
             nearBySites: 'Nearby site'

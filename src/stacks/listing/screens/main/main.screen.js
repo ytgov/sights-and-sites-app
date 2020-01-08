@@ -22,24 +22,6 @@ const searchIcon = require('../../../../../assets/common/search-icon.png');
 class MainScreen extends React.Component {
     state = {}
 
-    componentDidMount() {
-        this.getPlaces()
-    }
-
-    getPlaces = () => {
-        const {addListingDispatch, filterListingDispatch} = this.props
-        axios.get(APP_CONFIG.placesUrl, {
-            headers: {
-                "accept-language": i18n.language,
-                "api-key": APP_CONFIG.apiKey
-            }
-        })
-            .then(async res => {
-                await addListingDispatch(res.data.data)
-                filterListingDispatch()
-            })
-            .catch(err => console.log(err))
-    }
 
     render() {
         const {navigation, locale, listingFiltered, toggleListingViewDispatch, incrementListingPageDispatch, selectedListingView, currentListingPage, listingPagesLimit, listingItemsCount} = this.props;
