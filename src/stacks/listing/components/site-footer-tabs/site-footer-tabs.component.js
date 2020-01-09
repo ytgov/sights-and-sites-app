@@ -37,6 +37,7 @@ const SiteFooterTabs = props => {
         }
         try {
             const result = await Share.share({
+                subject: item.site_name,
                 message: formatSharedMessage()
             });
 
