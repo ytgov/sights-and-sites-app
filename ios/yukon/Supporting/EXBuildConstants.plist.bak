@@ -16,6 +16,6 @@
 	<key>TEMPORARY_SDK_VERSION</key>
 	<string>35.0.0</string>
 	<key>developmentUrl</key>
-	<string>yukon://192.168.8.102:80</string>
+	<string>yukon://192.168.8.102:19000</string>
 </dict>
 </plist>

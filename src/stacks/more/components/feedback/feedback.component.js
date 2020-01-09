@@ -24,7 +24,7 @@ class Feedback extends React.Component {
             buttonIndex => {
                 switch (buttonIndex) {
                     case 0:
-                        Linking.openURL(`tel:+${phone.replace(/-/g, '')}`);
+                        Linking.openURL(`tel:+${phone}`);
                         break;
                     case 1:
                         Linking.openURL(`mailto: ${email} `);
