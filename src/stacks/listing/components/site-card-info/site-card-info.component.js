@@ -25,14 +25,13 @@ const SiteCardInfo = props => {
             <SiteDistance parentLocation={parentLocation} siteLocation={itemLocation}/>
             <View style={SiteCardInfoStyles.highwayInfoBox}>
                 <View style={SiteCardInfoStyles.highwayIcon}>
-                    <Tooltip popover={<HighwayBadgeText>{itemInfo.highway_km}</HighwayBadgeText>}
-                             withOverlay={false}>
-                        <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
-                        <HighwayBadgeText>{String(itemInfo.highway_km).substring(0, 1)}</HighwayBadgeText>
-                    </Tooltip>
+                    <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
+                    <HighwayBadgeText>{String(itemInfo.highway_km).substring(0, 1)}</HighwayBadgeText>
                 </View>
 
-                <Caption black style={{fontSize: 14}}>{itemInfo.highway_name}</Caption>
+                <Caption black style={{fontSize: 14}}>
+                    {itemInfo.highway_name}, km {itemInfo.highway_km}.
+                </Caption>
             </View>
         </View>
     )

@@ -6,7 +6,7 @@ import FeedbackStyles from './feedback.styles';
 
 const feedbackIcon = require('../../../../../assets/stacks/more/feedback-icon.png');
 
-const phone = '867-667-5386';
+const phone = '1-867-667-5386';
 const email = 'heritage.planning@gov.yk.ca';
 
 class Feedback extends React.Component {
