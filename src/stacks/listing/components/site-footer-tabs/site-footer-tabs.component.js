@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Share, View, Platform} from 'react-native';
+import {Image, Platform, Share, View} from 'react-native';
 import {Button, Footer, FooterTab} from 'native-base';
 import PropTypes from 'prop-types';
 import {Caption, COMMON, Helpers} from '../../../../theme/theme';
@@ -17,11 +17,8 @@ const SiteFooterTabs = props => {
     const {navigation, item, locale, setMySitesFiltersDispatch} = props;
 
     const formatSharedMessage = () => {
-        let uri = Linking.makeUrl('/app');
         let message = `${item.site_name} \n\n`;
-        if(item.image_url) {
-            message += `${item.image_url} \n\n`;
-        }
+
 
         message += `${item.site_description} \n\n`;
 
@@ -37,11 +34,12 @@ const SiteFooterTabs = props => {
         }
         try {
             const result = await Share.share({
-
+                title: item.site_name,
+                url: item.image_url,
                 message: formatSharedMessage()
             }, {
-                title: item.site_name,
                 subject: item.site_name,
+                dialogTitle: 'Share: ' + item.site_name
             });
 
             if (result.action === Share.sharedAction) {
