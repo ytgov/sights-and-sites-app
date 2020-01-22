@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a556f692-e68e-4140-be58-36b8da667036" name="Default Changelist" comment="" />
+    <list default="true" id="a556f692-e68e-4140-be58-36b8da667036" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/DetachBuildConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/DetachBuildConstants.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +16,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.56.105:5555" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Android_Accelerated_Oreo" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -24,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+            <state relative-caret-position="171">
+              <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -52,8 +57,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -66,6 +69,8 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -184,13 +189,13 @@
       <window_info anchor="bottom" id="Run" order="0" weight="0.32941177" />
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Android Profiler" order="3" />
+      <window_info anchor="bottom" id="Android Profiler" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="4" />
       <window_info anchor="bottom" id="Terminal" order="5" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="6" sideWeight="0.50027305" side_tool="true" visible="true" weight="0.54453784" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="6" sideWeight="0.50136536" side_tool="true" visible="true" weight="0.54453784" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49972692" visible="true" weight="0.54453784" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.49863464" visible="true" weight="0.54453784" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -204,8 +209,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+        <state relative-caret-position="171">
+          <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
         </state>
       </provider>
     </entry>

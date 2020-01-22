@@ -87,8 +87,8 @@ export const SITE_AMENTIES = {
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_dock.png'),
         imageActive: require('../assets/stacks/listing/amenties/active/y_dock.png')
     },
-    'hiking_trails': {
-        id: 'hiking_trails',
+    'trail': {
+        id: 'trail',
         en: 'Hiking trails',
         fr: 'Sentiers de randonnée',
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_hiking_trails.png'),
@@ -122,8 +122,8 @@ export const SITE_AMENTIES = {
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_hand_pump.png'),
         imageActive: require('../assets/stacks/listing/amenties/active/y_hand_pump.png')
     },
-    'sandy_or_cobble_beach': {
-        id: 'sandy_or_cobble_beach',
+    'beach': {
+        id: 'beach',
         en: 'Beach',
         fr: 'Plage',
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_beach.png'),

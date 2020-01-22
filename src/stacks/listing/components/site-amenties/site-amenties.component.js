@@ -14,8 +14,8 @@ class SiteAmenties extends React.Component {
         let data = [
             'outhouse', 'bear_proof_garbage_bins', 'bear_proof_recycling_bins',
             'picnic_tables', 'cook_shelter', 'fire_ring', 'bear_proof_cache_or_lockers',
-            'boat_launch', 'dock', 'hiking_trails', 'playground', 'outhouse_accessible',
-            'campsite_designed_for_the_mobility_impaired', 'hand_pump_or_water_tank', 'sandy_or_cobble_beach',
+            'boat_launch', 'dock', 'trail', 'playground', 'outhouse_accessible',
+            'campsite_designed_for_the_mobility_impaired', 'hand_pump_or_water_tank', 'beach',
             'viewing_structures', 'interpretive_centre', 'group_campsite', 'tent_pads', 'swimming_area', 'change_room', 'outdoor_amphitheatre'
         ];
 
