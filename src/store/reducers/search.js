@@ -22,7 +22,7 @@ export default function searchReducer(state = initialState, action) {
             }
         }
         case RESET_SEARCH_QUERY: {
-            console.info("RESET_SEARCH_QUERY ==>")
+            console.info('RESET_SEARCH_QUERY ==>')
             return {
                 ...state,
                 searchQuery: '',
@@ -35,7 +35,24 @@ export default function searchReducer(state = initialState, action) {
             if (recentQueries.length > recentQueriesToShow) {
                 recentQueries.shift();
             }
-            const searchMatched = listing.filter(site => site.site_name.includes(queryFormatted)).map(site => site.site_id);
+            console.info('Called Search =>', queryFormatted)
+            const searchMatched = listing.filter(site => {
+                let matched = false;
+                if (site.site_name && String(site.site_name).toLowerCase().includes(queryFormatted)) {
+                    matched = true;
+                }
+
+                if (site.highway_name && String(site.highway_name).toLowerCase().includes(queryFormatted)) {
+                    matched = true;
+                }
+
+                if (site.secondary_road_name && String(site.secondary_road_name).toLowerCase().includes(queryFormatted)) {
+                    matched = true;
+                }
+
+
+                return matched
+            }).map(site => site.site_id);
             // const searchMatched = listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id);
             return {
                 ...state,
