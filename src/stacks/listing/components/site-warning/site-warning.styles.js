@@ -10,7 +10,8 @@ const SiteWarningStyles = StyleSheet.create({
         borderTopColor: '#CBCBCB',
         borderBottomWidth: 1,
         borderBottomColor: '#CBCBCB',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        width: '100%'
     },
     warningIcon: {
         width: 36,
@@ -19,7 +20,8 @@ const SiteWarningStyles = StyleSheet.create({
         marginRight: 15
     },
     warningText: {
-        color: COLORS.warning
+        color: COLORS.warning,
+        width: '85%',
     }
 });
 
