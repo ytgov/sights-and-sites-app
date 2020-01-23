@@ -1,10 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import i18n from '../../../../locale/locale';
 import {Caption, H3, Helpers} from '../../../../theme/theme';
 import SitesTypeFilterStyles from './sites-type-filter.styles';
 import {FilterButtton, FilterImage, FilterImageOverlay} from './sites-type-filter.styled-components';
+import {toggleSitesTypeFilter} from '../../../../store/actions/filters';
+import {connect} from 'react-redux';
 
 const siteTypeCampingIcon = require('../../../../../assets/stacks/tabs/site-type-camping-icon.png');
 const siteTypeWildlifeIcon = require('../../../../../assets/stacks/tabs/site-type-wildlife-icon.png');
@@ -43,7 +45,8 @@ const SitesTypeFilter = props => {
     const {sitesTypeFilter, sitesTypeFilterActive, setSitesTypeFiltersDispatch} = props;
     return (
         sitesTypeFilterActive ?
-            (<View style={SitesTypeFilterStyles.filtersBox}>
+            (<TouchableOpacity onPress={() => props.toggleSitesTypeFilterDispatch(false)}
+                               style={SitesTypeFilterStyles.filtersBox}>
                 <View>
                     <H3 style={Helpers.textAlignCenter}>{i18n.t('siteTypes.filterTitle')}</H3>
                 </View>
@@ -68,14 +71,24 @@ const SitesTypeFilter = props => {
                         })
                     }
                 </View>
-            </View>) : null)
-}
+            </TouchableOpacity>) : null)
+};
 
 
 SitesTypeFilter.propTypes = {
     sitesTypeFilterActive: PropTypes.bool.isRequired,
     sitesTypeFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
-    setSitesTypeFiltersDispatch: PropTypes.func.isRequired
-}
+    setSitesTypeFiltersDispatch: PropTypes.func.isRequired,
+    toggleSitesTypeFilterDispatch: PropTypes.func.isRequired
+};
 
-export default SitesTypeFilter;
+const siteTypeFilterStateToProps = (state) => {
+    return {};
+};
+const siteTypeFilterDispatchToProps = dispatch => {
+    return {
+        toggleSitesTypeFilterDispatch: value => dispatch(toggleSitesTypeFilter(value)),
+    };
+};
+export default connect(siteTypeFilterStateToProps, siteTypeFilterDispatchToProps)(SitesTypeFilter);
+
