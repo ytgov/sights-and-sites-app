@@ -4,6 +4,7 @@ import {Image, Linking, TouchableOpacity, View} from 'react-native';
 import AccordionType from '../../../../types/accordion.type';
 import {Body1, H3} from '../../../../theme/theme';
 import moreComonStyles from '../../screens/more.common.styles'
+import {Body2} from '../../../../theme/typings';
 
 const accordionClosedIcon = require('../../../../../assets/stacks/more/accordion-closed-icon.png');
 const accordionOpenedIcon = require('../../../../../assets/stacks/more/accordion-opened-icon.png');
@@ -69,11 +70,42 @@ const AccordionCustom = props => {
                                 <View key={i}>
                                     <Body1 bold black> {m.q + '\n'}</Body1>
                                     <Body1 regular black>{m.a + '\n'}</Body1>
+                                    {
+                                        m.list ? m.list.map((item, index) => {
+                                            return (
+                                                <View style={{paddingLeft: 10}} key={`list-${index}`}>
+                                                    {item.q ? <Body2 bold black> {item.q + '\n'}</Body2> : null}
+                                                    {item.a ? <Body2 regular black>{item.a + '\n'}</Body2> : null}
+                                                    {
+                                                        item.items ? item.items.map((text, aa) => (
+                                                            <View style={{paddingLeft: 10, flexDirection: 'row'}}  key={`list-${index}-${aa}`}>
+                                                                <Body2 bold black style={{paddingRight: 5, paddingTop: 2.5}}>*</Body2>
+                                                                <Body2 regular black>{text + '\n'}</Body2>
+                                                            </View>
+                                                        )):null
+                                                    }
+                                                </View>
+                                            )
+                                        }) : null
+                                    }
+                                    {
+                                        m.links ? m.links.map((link, index) => (
+                                            <View key={`link-${index}`} style={moreComonStyles.linkBox}>
+                                                <TouchableOpacity onPress={() => {
+                                                    Linking.openURL(link.url)
+                                                }}>
+                                                    <View style={moreComonStyles.link}><Body2 black>{link.title}</Body2></View>
+                                                </TouchableOpacity>
+                                            </View>
+                                        )) :null
+                                    }
                                 </View>
                             )
                         })
                         : null
                 }
+
+
 
             </View>}
             dataArray={data} expanded={0}/>

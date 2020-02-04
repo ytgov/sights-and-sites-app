@@ -62,7 +62,54 @@ The purpose of this privacy statement is to inform you of the personal informati
             },
             {
                 title: 'Terms & Conditions',
-                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus vehicula tincidunt. Cras bibendum nisi vitae porttitor iaculis. Etiam luctus eros vitae lectus hendrerit dictum. Fusce posuere non turpis non pretium. Nullam tortor tellus, condimentum eu ipsum nec, dapibus tempor elit. Sed nec porttitor urna.'
+                content: '',
+                QA: [
+                    {
+                        q: 'Avis de non responsabilité',
+                        a: 'Ces renseignements sont distribués « tels quels » et ne présentent aucune garantie exprimée ou implicite. L’information peut être utilisée à la condition qu’il soit formellement entendu que ni le gouvernement, ni ses ministres, employés ou agents ne seront responsables des pertes ou des dommages de quelque nature que ce soit qui pourraient résulter de l’utilisation des renseignements fournis dans cette application ou sur les sites externes pour lesquels elle offre des liens.',
+                    },
+                    {
+                        q: 'Avis de confidentialité',
+                        a: 'Le gouvernement du Yukon s’engage à protéger vos renseignements personnels. La collecte, l’utilisation, la divulgation, la conservation et l’élimination de l’information recueillie à partir des ressources en ligne du gouvernement du Yukon telles que les sites Web et les applications mobiles sont faits en conformité avec la Loi sur l’accès à l’information et la protection des renseignements personnels et la Loi sur les archives.\n \n' +
+                            'Le présent avis de confidentialité a pour objet de vous faire savoir quels renseignements personnels pourraient être recueillis lorsque vous utilisez cette application.',
+                    },
+                    {
+                        q: 'Collecte de renseignements personnels',
+                        a: 'La collecte de renseignements personnels recueillis à partir des sites Web du gouvernement est effectuée conformément au paragraphe 29c) de la Loi sur l’accès à l’information et la protection de la vie privée aux fins indiquées ci-après : \n',
+                        list: [
+                            {
+                                q: '1. Communiquer avec le ministère du Tourisme et de la Culture, gouvernement du Yukon',
+                                a: 'Si vous choisissez d’envoyer par courriel une demande de renseignements ou des commentaires généraux sur l’application mobile, vos renseignements personnels peuvent être utilisés pour répondre à votre courriel.\n' +
+                                    'Les courriels et autres méthodes électroniques utilisées pour communiquer avec le gouvernement du Yukon ne sont pas protégés, à moins d’indication contraire, clairement énoncée. Il est donc recommandé de ne pas transmettre de renseignements personnels de nature délicate par ces moyens.'
+                            },
+                            {
+                                q: '2. Fichier de journalisation',
+                                a: 'Nous recueillons les informations que votre appareil envoie lorsque vous utilisez notre application mobile (« fichier de journalisation »).'
+                            },
+                            {
+                                a: 'Le fichier de journalisation contient des informations telles que :',
+                                items: [
+                                    'l’adresse de protocole Internet (adresse IP) de votre ordinateur,',
+                                    'la date et l’heure de la demande.'
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        q: 'Renseignements :',
+                        a: 'Pour toute question, veuillez contacter la Section des lieux d’intérêt historique, ministère du Tourisme et de la Culture, gouvernement du Yukon.\n',
+                        links: [
+                            {
+                                url: 'mailto:Heritage.planning@gov.yk.ca',
+                                title: 'Heritage.planning@gov.yk.ca'
+                            },
+                            {
+                                url: 'tel:1-867-667-5386',
+                                title: '1-867-667-5386'
+                            }
+                        ]
+                    }
+                ],
             }
         ];
 
