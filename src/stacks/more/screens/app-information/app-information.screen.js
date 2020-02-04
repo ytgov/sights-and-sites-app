@@ -6,6 +6,7 @@ import {Body1, COMMON, H2, Helpers} from '../../../../theme/theme';
 import AppInformationStyles from './app-information.styles';
 import Feedback from '../../components/feedback/feedback.component';
 import AccordionCustom from '../../components/accordion/accordion.component';
+import i18n from '../../../../locale/locale';
 
 const appInformationIcon = require('../../../../../assets/stacks/more/app-information-icon.png');
 const logo = require('../../../../../assets/common/logo.png');
@@ -23,45 +24,45 @@ class AppInformationScreen extends React.Component {
                 QA: [
                     {
                         q: 'Pourquoi l\'application souhaite-t-elle accéder à ma position?',
-                        a: `The app uses the location provided by your device to show you helpful results, like nearby sites.
-This app does not store the location, it is only used within your device. You can enable location settings within the app or on your device.`
+                        a: `L'application utilise l'emplacement fourni par votre appareil pour vous montrer des résultats utiles, comme les sites à proximité.
+Cette application ne stocke pas l'emplacement, elle est uniquement utilisée dans votre appareil. Vous pouvez activer les paramètres de localisation dans l'application ou sur votre appareil.`
                     },
                     {
-                        q: 'I don’t want to enable location services',
-                        a: 'No problem! You can still search and filter sites, however you will not be able to navigate to these sites or see nearby sites within the app.'
+                        q: 'Je ne souhaite pas activer les services de localisation',
+                        a: 'Aucun problème! Vous pouvez toujours rechercher et filtrer les sites, mais vous ne pourrez pas accéder à ces sites ou voir les sites à proximité dans l\'application.'
                     }
                 ]
 
             },
             {
-                title: 'Mobile Data',
-                content: ' If your device is connected to the internet, it will use mobile data to update the app if required.',
+                title: 'Données mobiles',
+                content: 'Si votre appareil est connecté à Internet, il utilisera les données mobiles pour mettre à jour l\'application si nécessaire.',
                 QA: [
                     {
-                        q: 'Can I use the app offline?',
-                        a: `The app functions entirely offline. The maps are downloaded to your device when you give the app permission to do so.`
+                        q: 'Puis-je utiliser l\'application hors ligne?',
+                        a: `L'application fonctionne entièrement hors ligne. Les cartes sont téléchargées sur votre appareil lorsque vous autorisez l'application à le faire.`
                     },
                     {
-                        q: 'When is the information in the app updated? ',
+                        q: 'Quand sont les informations dans la mise à jour de l\'application?',
                         a:
-                            `The app is updated periodically with new data when it becomes available. This includes:
+                            `L'application est mise à jour périodiquement avec de nouvelles données lorsqu'elles deviennent disponibles. Ceci comprend:
 
-\u2022 New sites
-\u2022 Existing site services
-\u2022 Directions
-\u2022 Map details
+\u2022 De nouveaux sites
+\u2022 Services de site existants
+\u2022 Instructions
+\u2022 Détails de la carte
             `
                     }
                 ]
             },
             {
-                title: 'Privacy Policy',
-                content: `The Government of Yukon is committed to protecting your privacy. The collection, use, disclosure, retention, and disposal of information collected via Government of Yukon online properties, such as our websites is done in compliance with the Access to Information and Protection of Privacy Act and the Archives Act.
+                title: 'Politique de confidentialité',
+                content: `Le gouvernement du Yukon s'engage à protéger votre vie privée. La collecte, l'utilisation, la divulgation, la conservation et l'élimination des informations recueillies via les propriétés en ligne du gouvernement du Yukon, telles que nos sites Web, se font conformément à la Loi sur l'accès à l'information et la protection de la vie privée et à la Loi sur les archives.
 
-The purpose of this privacy statement is to inform you of the personal information that may be collected from you when you interact with the Government of Yukon online.`
+Le but de cette déclaration de confidentialité est de vous informer des renseignements personnels qui peuvent être recueillis auprès de vous lorsque vous interagissez avec le gouvernement du Yukon en ligne.`
             },
             {
-                title: 'Terms & Conditions',
+                title: 'Termes et conditions',
                 content: '',
                 QA: [
                     {
@@ -112,7 +113,7 @@ The purpose of this privacy statement is to inform you of the personal informati
                 ],
             }
         ];
-        const data = [
+        const en_data = [
             {
                 title: 'Location Services',
                 content: '',
@@ -161,39 +162,39 @@ The purpose of this privacy statement is to inform you of the personal informati
                 content: '',
                 QA: [
                     {
-                        q: 'Avis de non responsabilité',
-                        a: 'Ces renseignements sont distribués « tels quels » et ne présentent aucune garantie exprimée ou implicite. L’information peut être utilisée à la condition qu’il soit formellement entendu que ni le gouvernement, ni ses ministres, employés ou agents ne seront responsables des pertes ou des dommages de quelque nature que ce soit qui pourraient résulter de l’utilisation des renseignements fournis dans cette application ou sur les sites externes pour lesquels elle offre des liens.',
+                        q: 'Disclaimer',
+                        a: 'This information is distributed "as is" and does not represent any expressed or implied warranties. Information may be used on the condition that it is formally understood that neither the government nor its ministers, employees or agents will be liable for loss or damage of any kind that may result from the use of the information provided in this application or on external sites to which it offers links.',
                     },
                     {
-                        q: 'Avis de confidentialité',
-                        a: 'Le gouvernement du Yukon s’engage à protéger vos renseignements personnels. La collecte, l’utilisation, la divulgation, la conservation et l’élimination de l’information recueillie à partir des ressources en ligne du gouvernement du Yukon telles que les sites Web et les applications mobiles sont faits en conformité avec la Loi sur l’accès à l’information et la protection des renseignements personnels et la Loi sur les archives.\n \n' +
-                            'Le présent avis de confidentialité a pour objet de vous faire savoir quels renseignements personnels pourraient être recueillis lorsque vous utilisez cette application.',
+                        q: 'Privacy Notice',
+                        a: 'The Government of Yukon is committed to protecting your personal information. The collection, use, disclosure, retention and disposal of information collected from Yukon government online resources such as websites and mobile applications is done in accordance with the access to information and the protection of personal information and the Archives Act. \n \n ' +
+                            'The purpose of this privacy notice is to let you know what personal information may be collected while using this application.',
                     },
                     {
-                        q: 'Collecte de renseignements personnels',
-                        a: 'La collecte de renseignements personnels recueillis à partir des sites Web du gouvernement est effectuée conformément au paragraphe 29c) de la Loi sur l’accès à l’information et la protection de la vie privée aux fins indiquées ci-après : \n',
+                        q: 'Collection of personal information',
+                        a: 'The collection of personal information collected from government websites is carried out in accordance with section 29 (c) of the Access to Information and Protection of Privacy Act for the purposes indicated below: \n',
                         list: [
                             {
-                                q: '1. Communiquer avec le ministère du Tourisme et de la Culture, gouvernement du Yukon',
-                                a: 'Si vous choisissez d’envoyer par courriel une demande de renseignements ou des commentaires généraux sur l’application mobile, vos renseignements personnels peuvent être utilisés pour répondre à votre courriel.\n' +
-                                    'Les courriels et autres méthodes électroniques utilisées pour communiquer avec le gouvernement du Yukon ne sont pas protégés, à moins d’indication contraire, clairement énoncée. Il est donc recommandé de ne pas transmettre de renseignements personnels de nature délicate par ces moyens.'
+                                q: '1. Contact the Department of Tourism and Culture, Government of Yukon',
+                                a: 'If you choose to email an inquiry or general feedback on the mobile app, your personal information may be used to respond to your email.\n' +
+                                    'E-mail and other electronic methods used to communicate with the Yukon government are not protected unless clearly stated otherwise. It is therefore recommended not to transmit sensitive personal information by these means.'
                             },
                             {
-                                q: '2. Fichier de journalisation',
-                                a: 'Nous recueillons les informations que votre appareil envoie lorsque vous utilisez notre application mobile (« fichier de journalisation »).'
+                                q: '2. Log file',
+                                a: 'We collect the information that your device sends when you use our mobile application ("log file").'
                             },
                             {
-                                a: 'Le fichier de journalisation contient des informations telles que :',
+                                a: 'The log file contains information such as:',
                                 items: [
-                                    'l’adresse de protocole Internet (adresse IP) de votre ordinateur,',
-                                    'la date et l’heure de la demande.'
+                                    'The Internet Protocol address (IP address) of your computer,',
+                                    'The date and time of the request.'
                                 ]
                             }
                         ]
                     },
                     {
-                        q: 'Renseignements :',
-                        a: 'Pour toute question, veuillez contacter la Section des lieux d’intérêt historique, ministère du Tourisme et de la Culture, gouvernement du Yukon.\n',
+                        q: 'Information :',
+                        a: 'If you have any questions, please contact the Places of Historic Interest Section, Department of Tourism and Culture, Government of Yukon.\n',
                         links: [
                             {
                                 url: 'mailto:Heritage.planning@gov.yk.ca',
@@ -208,7 +209,7 @@ The purpose of this privacy statement is to inform you of the personal informati
                 ],
             }
         ];
-
+        const locale = i18n.language
         return (
             <Root>
                 <Container style={COMMON.content}>
@@ -243,7 +244,7 @@ The purpose of this privacy statement is to inform you of the personal informati
                                 </View>
 
                                 <View>
-                                    <AccordionCustom data={fr_data}/>
+                                    <AccordionCustom data={i18n.language === 'en' ? en_data : fr_data}/>
                                 </View>
                             </View>
                         </Content>
