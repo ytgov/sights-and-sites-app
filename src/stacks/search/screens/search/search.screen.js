@@ -38,6 +38,17 @@ class SearchScreen extends React.Component {
         resetSearchQueryDispatch();
     }
 
+    search(query) {
+        const {setSearchInProgressDispatch, searchSitesDispatch} = this.props;
+        const queryFormatted = formatSearchIndex(query);
+        if (!queryFormatted) {
+            return false
+        }
+        searchSitesDispatch({
+            query,
+            queryFormatted
+        });
+    }
     onSearch(query) {
         const {setSearchInProgressDispatch, searchSitesDispatch} = this.props;
         const queryFormatted = formatSearchIndex(query);
@@ -71,17 +82,14 @@ class SearchScreen extends React.Component {
                         <TextInput
                             editable={!searchInProgress}
                             autoFocus
+                            autoCapitalize={'none'}
+                            autoCompleteType={'off'}
+                            autoCorrect={false}
                             placeholder={i18n.t('search.placeholder')}
                             placeholderTextColor='#000'
                             style={SearchStyles.searchInput}
                             defaultValue={searchQuery}
-                            onChangeText={query => {
-                                if (!formatSearchIndex(query)) {
-                                    resetSearchQueryDispatch()
-                                } else {
-                                    this.onSearchDebounced(query)
-                                }
-                            }}/>
+                            onChangeText={query => this.search(query)}/>
                         {
                             (!!searchQuery) && (
                                 <TouchableOpacity style={SearchStyles.clearQueryButton}

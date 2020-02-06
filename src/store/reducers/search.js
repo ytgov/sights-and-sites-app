@@ -35,18 +35,37 @@ export default function searchReducer(state = initialState, action) {
             if (recentQueries.length > recentQueriesToShow) {
                 recentQueries.shift();
             }
-            console.info('Called Search =>', queryFormatted)
+            let query_value = String(query).toLowerCase();
+            console.info('Called Search =>', queryFormatted, query)
             const searchMatched = listing.filter(site => {
                 let matched = false;
-                if (site.site_name && String(site.site_name).toLowerCase().includes(queryFormatted)) {
+                if (
+                    site.site_name &&
+                    (
+                        String(site.site_name).toLowerCase().includes(queryFormatted) ||
+                        String(site.site_name).toLowerCase().includes(query_value)
+                    )
+                ) {
                     matched = true;
                 }
 
-                if (site.highway_name && String(site.highway_name).toLowerCase().includes(queryFormatted)) {
+                if (
+                    site.highway_name &&
+                    (
+                        String(site.highway_name).toLowerCase().includes(queryFormatted) ||
+                        String(site.highway_name).toLowerCase().includes(query_value)
+                    )
+                ) {
                     matched = true;
                 }
 
-                if (site.secondary_road_name && String(site.secondary_road_name).toLowerCase().includes(queryFormatted)) {
+                if (
+                    site.secondary_road_name &&
+                    (
+                        String(site.secondary_road_name).toLowerCase().includes(queryFormatted) ||
+                        String(site.secondary_road_name).toLowerCase().includes(query_value)
+                    )
+                ) {
                     matched = true;
                 }
 
