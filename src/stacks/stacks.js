@@ -15,7 +15,7 @@ const RootNavigation = createSwitchNavigator(
         Test: TestScreen
     },
     {
-        // initialRouteName: 'Main',
+        // initialRouteName: 'Test',
         initialRouteName: 'Loading',
     }
 );

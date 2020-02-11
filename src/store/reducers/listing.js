@@ -1,5 +1,5 @@
 import orderByDistance from 'geolib/es/orderByDistance';
-import {ADD_LISTING, FILTER_LISTING, INCREMENT_LISTING_PAGE, TOGGLE_LISTING_VIEW} from '../types';
+import {ADD_LISTING, FILTER_LISTING, INCREMENT_LISTING_PAGE, TOGGLE_LISTING_VIEW, UPDATED_GM_LISTING} from '../types';
 import {APP_CONFIG} from '../../config';
 import i18n from '../../locale/locale';
 
@@ -13,7 +13,7 @@ const initialState = {
     listingPagesLimit: 1,
     listingRaw: [],
     listingFiltered: []
-}
+};
 
 function filterListing(filters, location, listingRaw) {
     const {highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter} = filters;
@@ -89,9 +89,56 @@ export default function listingReducer(state = initialState, action) {
             }
         }
         case ADD_LISTING: {
+            let sites = action.payload;
+            let listingRaw = state.listingRaw;
+            if(listingRaw.length) {
+                sites = sites.map(site => {
+                    let item = listingRaw.filter(_i => _i.site_id === site.site_id)[0]
+                    if(item) {
+                        return  {
+                            ...item,
+                            ...site
+                        }
+                    }
+                    return site
+                });
+            }
+
             return {
                 ...state,
-                listingRaw: action.payload
+                listingRaw: sites
+            }
+        }
+        case UPDATED_GM_LISTING: {
+            let item = action.payload;
+            let listingFiltered = state.listingFiltered;
+            let listingRaw = state.listingRaw;
+
+            listingRaw = listingRaw.map(list => {
+                if (list.site_id === item.site_id) {
+                    return {
+                        ...list,
+                        // map: null,
+                        map: item.map,
+                    }
+                }
+                return list
+            });
+            listingFiltered = listingFiltered.map(list => {
+                if (list.site_id === item.site_id) {
+                    return {
+                        ...list,
+                        // map: null,
+                        map: item.map,
+                    }
+                }
+                return list
+            });
+
+            return {
+                ...state,
+                listingFiltered,
+                listingRaw
             }
         }
         default:

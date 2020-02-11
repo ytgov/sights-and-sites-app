@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Platform, Share, View} from 'react-native';
+import {Image, Share, View} from 'react-native';
 import {Button, Footer, FooterTab} from 'native-base';
 import PropTypes from 'prop-types';
 import {Caption, COMMON, Helpers} from '../../../../theme/theme';
@@ -7,9 +7,8 @@ import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
 import SiteType from '../../../../types/site.type';
 import {error} from '../../../../shared/services/notify';
-import {Linking} from 'expo';
+import MapDirectionModal from '../map-direction-modal/map-direction-modal.component';
 
-const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
 const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png');
 
@@ -59,18 +58,7 @@ const SiteFooterTabs = props => {
     return (
         <Footer style={COMMON.footer}>
             <FooterTab style={{backgroundColor: '#000000'}}>
-                <Button vertical onPress={() => {
-                    if (Platform.OS === 'ios') {
-                        Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);
-                    } else {
-                        Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);
-                    }
-                }}>
-                    <View style={Helpers.positionRelative}>
-                        <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={directionsIcon}/>
-                    </View>
-                    <Caption>{i18n.t('siteTabs.directions')}</Caption>
-                </Button>
+                <MapDirectionModal item={props.item} networkAvailable={props.networkAvailable}/>
                 <Button vertical onPress={() => {
                     onShare()
                 }}>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {ActivityIndicator, ImageBackground} from 'react-native';
 import {Helpers} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
-import {addListing, filterListing} from '../../../../store/actions/listing';
+import {addGMListing, addListing, filterListing} from '../../../../store/actions/listing';
 import axios from 'axios';
 import {APP_CONFIG} from '../../../../config';
 
@@ -50,6 +50,7 @@ class LoadingScreen extends React.Component {
                 navigation.navigate('Main');
             })
     }
+
     render() {
         return (
             <ImageBackground style={[Helpers.alignItemsCenter, Helpers.fullHeight, Helpers.justifyContentCenter]}

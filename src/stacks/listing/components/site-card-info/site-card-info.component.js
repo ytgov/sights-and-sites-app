@@ -22,7 +22,7 @@ const SiteCardInfo = props => {
         <View>
             <H3 black>{itemInfo.site_name}</H3>
             <SiteAmenties item={item} locale={locale}/>
-            <SiteDistance parentLocation={parentLocation} siteLocation={itemLocation}/>
+            <SiteDistance parentLocation={parentLocation} site={item} siteLocation={itemLocation}/>
             <View style={SiteCardInfoStyles.highwayInfoBox}>
                 <View style={SiteCardInfoStyles.highwayIcon}>
                     <Image source={highwayIcon} resizeMode='contain' style={{width: 18, height: 19}}/>
