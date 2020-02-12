@@ -134,12 +134,18 @@ class MapDirectionModal extends React.Component {
                         {
                             item.map ? (
                                 <View>
-                                    <Text> {item.map.fetched ? '': 'Approx: '} {getFormattedDistanceText(item.map.distance)}</Text>
+                                    <Text> {item.map.fetched ? '' : 'Approx: '} {getFormattedDistanceText(item.map.distance)}</Text>
                                 </View>
                             ) : null
                         }
 
 
+                        <View>
+                            <Caption black style={{fontSize: 14}}>
+                                {item.site_directions}
+                            </Caption>
+
+                        </View>
                         {/*<ScrollView style={{height: 200}}>*/}
                         {/*    <Text>{JSON.stringify(item)}</Text>*/}
                         {/*</ScrollView>*/}
