@@ -8,38 +8,14 @@ import SiteFooterTabsStyles from '../site-footer-tabs/site-footer-tabs.styles';
 import i18n from '../../../../locale/locale';
 import {Button, Text} from 'native-base';
 import Modal from 'react-native-modal';
-import MapboxGL from '@react-native-mapbox-gl/maps';
 import {COLORS} from '../../../../theme/config';
 import {connect} from 'react-redux';
 import {getFormattedDistanceText} from '../../../../shared/services/distance';
 import {fetchGMLocation} from '../../../../store/actions/listing';
 
-const accessToken = 'pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg';
-MapboxGL.setAccessToken(accessToken);
 
 const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 
-const layerStyles = {
-    origin: {
-        circleRadius: 5,
-        circleColor: 'white',
-    },
-    destination: {
-        circleRadius: 5,
-        circleColor: 'white',
-    },
-    route: {
-        lineColor: '#314ccd',
-        lineCap: 'round',
-        // lineCap: MapboxGL.LineJoin.Round,
-        lineWidth: 3,
-        lineOpacity: 1,
-    },
-    progress: {
-        lineColor: '#314ccd',
-        lineWidth: 3,
-    },
-};
 
 class MapDirectionModal extends React.Component {
     state = {
@@ -67,62 +43,6 @@ class MapDirectionModal extends React.Component {
                     backgroundColor: '#FFF',
                     height: (Dimensions.get('window').height / 2)
                 }}>
-                    <MapboxGL.MapView
-                        styleURL={MapboxGL.StyleURL.Light}
-                        zoomLevel={15}
-                        style={{
-                            height: (Dimensions.get('window').height / 2)
-                        }}>
-                        {
-                            location && <MapboxGL.Camera
-                                centerCoordinate={[location.longitude, location.latitude]}
-                                zoomLevel={5}
-                            />
-                        }
-                        {
-                            location && <MapboxGL.PointAnnotation
-                                key={'my-location'}
-                                id={'myLocation'}
-                                coordinate={[location.longitude, location.latitude]}
-                                style={{zIndex: 10000}}
-                                title={'My Location'}
-                            >
-                                <Image style={{width: 20, height: 20, zIndex: 1000}} resizeMode="contain"
-                                       source={require('../../../../../assets/images/pin.png')}/>
-                                <MapboxGL.Callout title={'My Location'}/>
-                            </MapboxGL.PointAnnotation>
-                        }
-                        <MapboxGL.PointAnnotation
-                            key={'site-location'}
-                            id={'siteLocation'}
-                            coordinate={[item.longitude, item.latitude]}
-                            style={{zIndex: 10000}}
-                            title={item.site_name}
-                        >
-                            <Image style={{width: 20, height: 20, zIndex: 1000}} resizeMode="contain"
-                                   source={require('../../../../../assets/images/pin.png')}/>
-                            <MapboxGL.Callout title={item.site_name}/>
-                        </MapboxGL.PointAnnotation>
-                        {
-                            (item.map && item.map.coordinates) ? (
-                                <MapboxGL.ShapeSource id='line1' shape={{
-                                    'type': 'FeatureCollection',
-                                    'features': [
-                                        {
-                                            'type': 'Feature',
-                                            'properties': {},
-                                            'geometry': {
-                                                'type': 'LineString',
-                                                'coordinates': item.map.coordinates
-                                            }
-                                        }
-                                    ]
-                                }}>
-                                    <MapboxGL.LineLayer id='linelayer1' style={layerStyles.route}/>
-                                </MapboxGL.ShapeSource>
-                            ) : null
-                        }
-                    </MapboxGL.MapView>
 
                     <View style={{flex: 1, justifyContent: 'space-between', padding: 15}}>
                         {
@@ -151,16 +71,16 @@ class MapDirectionModal extends React.Component {
                         {/*</ScrollView>*/}
 
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                            <Button style={{backgroundColor: COLORS.primary}} onPress={() => {
-                                if (Platform.OS === 'ios') {
-                                    Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);
-                                } else {
-                                    Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);
-                                }
-                            }}>
-                                <Text style={{color: '#FFF'}}>Open in maps</Text>
-                            </Button>
-                            <View style={{width: 15}}/>
+                            {/*<Button style={{backgroundColor: COLORS.primary}} onPress={() => {*/}
+                            {/*    if (Platform.OS === 'ios') {*/}
+                            {/*        Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);*/}
+                            {/*    } else {*/}
+                            {/*        Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);*/}
+                            {/*    }*/}
+                            {/*}}>*/}
+                            {/*    <Text style={{color: '#FFF'}}>Open in maps</Text>*/}
+                            {/*</Button>*/}
+                            {/*<View style={{width: 15}}/>*/}
                             <Button style={{backgroundColor: COLORS.accent}}
                                     onPress={() => this.setState({modal: false})}>
                                 <Text style={{color: '#FFF'}}>Close</Text>
