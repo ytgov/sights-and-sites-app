@@ -33,22 +33,6 @@ export function addListing(value) {
     }
 }
 
-export function getGMSiteInfo(site, source = {
-    latitude: 34.6532,
-    longitude: -79.3832
-}) {
-    return async function (dispatch, store) {
-        let state = store();
-        if (state.listingStore && state.listingStore.listingFiltered && state.listingStore.listingFiltered.length) {
-            let site_exists = state.listingStore.listingGM.filter(list => list.site_id === site.site_id)
-            if (state.listingStore.listingGM && site_exists.length) {
-                return site_exists[0]
-            } else {
-                console.info('We Should Refresh')
-            }
-        }
-    }
-}
 
 export function fetchGMLocation(source, site) {
     return async function (dispatch) {

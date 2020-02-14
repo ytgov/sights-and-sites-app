@@ -1,7 +1,8 @@
-import orderByDistance from 'geolib/es/orderByDistance';
 import {ADD_LISTING, FILTER_LISTING, INCREMENT_LISTING_PAGE, TOGGLE_LISTING_VIEW, UPDATED_GM_LISTING} from '../types';
 import {APP_CONFIG} from '../../config';
 import i18n from '../../locale/locale';
+import {getPreciseDistance} from 'geolib';
+import orderByDistance from 'geolib/es/orderByDistance';
 
 const {itemsToShow} = APP_CONFIG.listing;
 
@@ -17,6 +18,7 @@ const initialState = {
 
 function filterListing(filters, location, listingRaw) {
     const {highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter} = filters;
+    console.info('======+> filterListing', nearMeFilter, location);
     let result = listingRaw;
 
     if (!highwaysFilter.length && !mySitesFilter && !nearMeFilter && !regionsFilter.length && !sitesTypeFilter.length) {
@@ -32,10 +34,28 @@ function filterListing(filters, location, listingRaw) {
         result = listingRaw.filter(item => mySites.includes(item.site_id))
     }
     if (nearMeFilter && location) {
-        const resultIDs = orderByDistance(location, listingRaw.map(item => {
-            return {id: item.site_id, latitude: item.latitude, longitude: item.longitude}
-        })).map(item => item.id);
-        result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.site_id) - resultIDs.indexOf(b.site_id));
+        console.info('======> Near Me Filter')
+        // const resultIDs = orderByDistance(location, listingRaw.map(item => {
+        //     return {id: item.site_id, latitude: item.latitude, longitude: item.longitude}
+        // })).map(item => item.id);
+        result = listingRaw
+            .filter(item => {
+                if (item && item.map && item.map.distance) {
+                    return (item.map.distance / 1000) < 200;
+                } else {
+                    let distance = getPreciseDistance(
+                        {latitude: location.latitude, longitude: location.longitude},
+                        {latitude: item.latitude, longitude: item.longitude},
+                        1
+                    );
+                    if ((distance / 1000) < 200) {
+                        return true
+                    }
+                }
+
+                return false;
+            })
+        // result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.site_id) - resultIDs.indexOf(b.site_id));
     }
 
     // Site Type
@@ -91,11 +111,11 @@ export default function listingReducer(state = initialState, action) {
         case ADD_LISTING: {
             let sites = action.payload;
             let listingRaw = state.listingRaw;
-            if(listingRaw.length) {
+            if (listingRaw.length) {
                 sites = sites.map(site => {
                     let item = listingRaw.filter(_i => _i.site_id === site.site_id)[0]
-                    if(item) {
-                        return  {
+                    if (item) {
+                        return {
                             ...item,
                             ...site
                         }

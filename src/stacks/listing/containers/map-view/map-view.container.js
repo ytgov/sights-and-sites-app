@@ -145,6 +145,7 @@ class MapViewContainer extends React.Component {
                     style={{width, height, flex: 1}}
                     onPress={this.onPress}
                 >
+                    <MapboxGL.UserLocation />
                     <MapboxGL.Camera
                         centerCoordinate={[initialRegion.longitude, initialRegion.latitude]}
                         zoomLevel={initialRegion.zoomLevel}
