@@ -84,10 +84,10 @@ export default {
             'title': 'Conditions Actuelles'
         },
         'traditionalTerritories': {
-            'title': 'A propos des Territoires Traditionnels'
+            'title': 'Les peuples autochtones du Yukon'
         },
         'travelTrips': {
-            'title': 'Conseils de voyage en milieu sauvage'
+            'title': 'Règles de sécurité à suivre dans la nature'
         },
         'appInformation': {
             'title': 'Informations sur l`application'

@@ -56,7 +56,7 @@ class MoreScreen extends React.Component {
                                 }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <View style={{position: 'relative'}}>
                                         <Image source={traditionalTerritoriesIcon} resizeMode='contain'
-                                               style={{width: 40, height: 40}}/>
+                                               style={{width: 55, height: 55}}/>
                                     </View>
 
                                     <Subtitle1
@@ -68,7 +68,7 @@ class MoreScreen extends React.Component {
                                 }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <View style={{position: 'relative'}}>
                                         <Image source={travelTripsIcon} resizeMode='contain'
-                                               style={{width: 40, height: 40}}/>
+                                               style={{width: 55, height: 55}}/>
                                     </View>
                                     <Subtitle1
                                         style={[MoreStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('travelTrips.title')}</Subtitle1>

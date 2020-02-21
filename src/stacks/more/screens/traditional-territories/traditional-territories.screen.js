@@ -25,7 +25,7 @@ class TraditionalTerritoriesScreen extends React.Component {
                             <View style={TraditionalTerritoriesStyles.contentPadded}>
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={traditionalTerritoriesIcon} resizeMode='contain'
-                                           style={{width: 40, height: 40, marginBottom: 12}}/>
+                                           style={{width: 55, height: 55, marginBottom: 12}}/>
                                     <H2 black style={Helpers.textAlignCenter}>About Traditional Territories</H2>
                                     <View style={TraditionalTerritoriesStyles.separator}/>
                                 </View>
