@@ -3,6 +3,7 @@ import {Image, Linking, TouchableOpacity, View} from 'react-native';
 import {ActionSheet} from 'native-base';
 import {H3} from '../../../../theme/theme';
 import FeedbackStyles from './feedback.styles';
+import i18n from '../../../../locale/locale';
 
 const feedbackIcon = require('../../../../../assets/stacks/more/feedback-icon.png');
 
@@ -43,7 +44,7 @@ class Feedback extends React.Component {
                     Feedback.onFeedbackAction('General Enquiries')
                 }} style={[FeedbackStyles.button, FeedbackStyles.buttonWithBorder]}>
                     <Image source={feedbackIcon} style={FeedbackStyles.icon} resizeMode='contain'/>
-                    <H3 style={FeedbackStyles.text}>General Enquiries</H3>
+                    <H3 style={FeedbackStyles.text}>{i18n.language === 'en' ? 'General Enquiries' : 'Renseignements'}</H3>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
                     Feedback.onFeedbackAction('App Feedback')

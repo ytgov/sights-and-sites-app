@@ -228,14 +228,27 @@ The purpose of this privacy statement is to inform you of the personal informati
                                 </View>
 
                                 <View>
-                                    <Body1 regular black>
-                                        The Yukon Road Trip app is your guide to Government of Yukon’s road accessible
-                                        campgrounds, wildlife viewing, cultural and historical points of interest.
-                                        Connect with the natural and cultural history that surrounds you.
-
-                                    </Body1>
+                                    {
+                                        i18n.language === 'en' ?
+                                            (
+                                                <Body1 regular black>
+                                                    The Yukon Road Trip app is your guide to Government of Yukon’s road
+                                                    accessible
+                                                    campgrounds, wildlife viewing, cultural and historical points of
+                                                    interest.
+                                                    Connect with the natural and cultural history that surrounds you.
+                                                </Body1>
+                                            ) :
+                                            (
+                                                <Body1 regular black>
+                                                    Cette appli est votre guide sur les terrains de camping, la vie sauvage ainsi que les lieux d’intérêt culturel
+                                                    et historique qui sont accessibles par le réseau routier du Yukon. Explorez les sites par route ou par
+                                                    région ou bien recherchez un site à proximité. Découvrez l’histoire naturelle et culturelle qui vous
+                                                    entoure.
+                                                </Body1>
+                                            )
+                                    }
                                 </View>
-
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, {
                                     paddingTop: 10,
                                     paddingBottom: 20

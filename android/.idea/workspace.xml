@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a556f692-e68e-4140-be58-36b8da667036" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ios/yukon/Supporting/EXBuildConstants.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/yukon/Supporting/EXBuildConstants.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/yukon/Supporting/EXBuildConstants.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/yukon/Supporting/EXBuildConstants.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/shell-app.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/shell-app.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/yukon/Supporting/shell-app-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/yukon/Supporting/shell-app-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/yukon/Supporting/shell-app.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/yukon/Supporting/shell-app.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stacks/more/components/feedback/feedback.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stacks/more/components/feedback/feedback.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stacks/more/screens/app-information/app-information.screen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stacks/more/screens/app-information/app-information.screen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +21,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Android_Accelerated_Oreo" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.56.105:5555" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -27,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state relative-caret-position="213">
+              <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -224,8 +231,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="33" column="55" lean-forward="true" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        <state relative-caret-position="213">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
         </state>
       </provider>
     </entry>
