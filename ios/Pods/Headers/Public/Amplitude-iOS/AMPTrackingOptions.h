@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPTrackingOptions.h
+../../../Amplitude-iOS/Sources/Amplitude/AMPTrackingOptions.h

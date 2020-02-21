@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/SSLCertificatePinning/ISPPinnedNSURLConnectionDelegate.h
+../../../Amplitude-iOS/Sources/Amplitude/SSLCertificatePinning/ISPPinnedNSURLConnectionDelegate.h

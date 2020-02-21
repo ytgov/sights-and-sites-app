@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/Amplitude.h
+../../../Amplitude-iOS/Sources/Amplitude/Amplitude.h

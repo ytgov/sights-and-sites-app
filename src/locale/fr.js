@@ -1,7 +1,7 @@
 export default {
     'translation': {
         // Actions
-        'actionNext': 'SUIVANTE',
+        'actionNext': 'SUITE',
         'actionApply': 'Appliquer',
         'actionClearAll': 'Tout effacer',
 
@@ -18,9 +18,9 @@ export default {
             'more': 'Plus'
         },
         'siteTabs': {
-            'directions': 'Directions',
+            'directions': 'Itinéraire',
             'share': 'Partager',
-            'mySites': 'Mes Sites'
+            'mySites': 'Mes lieux préférés'
         },
         'listingTypes': {
             'map': 'CARTE',
@@ -29,9 +29,9 @@ export default {
         'siteTypes': {
             'filterTitle': 'Choisissez un type de site',
             'camping': 'Camping',
-            'wildlife': `Faune &${'\n'}paysage`,
-            'recreation': 'Des loisirs',
-            'history': `L'histoire &${'\n'}culture`,
+            'wildlife': `Nature et paysages`,
+            'recreation': 'Vous êtes prêt?',
+            'history': `Histoire et culture`,
         },
         'common': {
             'loadMoreDefault': 'Charger plus',
@@ -48,14 +48,14 @@ export default {
         // Choose location
         'chooseLocation': {
             title: 'Choisir un lieu',
-            nearMe: 'Proche de moi',
-            byHighway: 'Par autoroute',
+            nearMe: 'À proximité',
+            byHighway: 'Sur mar route',
             byRegion: 'Par région',
-            mySites: 'Mes sites'
+            mySites: 'Mes lieux préférés'
         },
         // Choose highway
         'chooseHighway': {
-            title: 'Choisissez une autoroute',
+            title: 'Choisir une route',
         },
         // Choose region
         'chooseRegion': {

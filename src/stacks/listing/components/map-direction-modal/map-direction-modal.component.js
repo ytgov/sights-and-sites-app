@@ -1,9 +1,8 @@
 import React from 'react';
-import {Dimensions, Image, Platform, View} from 'react-native';
+import {Dimensions, Image, View} from 'react-native';
 import SiteType from '../../../../types/site.type';
 import PropTypes from 'prop-types';
-import {Linking} from 'expo';
-import {Caption, Helpers} from '../../../../theme/theme';
+import {Caption, H3, Helpers} from '../../../../theme/theme';
 import SiteFooterTabsStyles from '../site-footer-tabs/site-footer-tabs.styles';
 import i18n from '../../../../locale/locale';
 import {Button, Text} from 'native-base';
@@ -38,13 +37,16 @@ class MapDirectionModal extends React.Component {
                 deviceWidth={Dimensions.get('window').width}
             >
                 <View style={{
-                    flex: 1,
-                    marginTop: 30,
-                    backgroundColor: '#FFF',
-                    height: (Dimensions.get('window').height / 2)
+                    backgroundColor: 'white',
+                    padding: 15,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 4,
+                    borderColor: 'rgba(0, 0, 0, 0.1)',
+                    // height: (Dimensions.get('window').height / 2)
                 }}>
 
-                    <View style={{flex: 1, justifyContent: 'space-between', padding: 15}}>
+                    <View>
                         {
                             (item.map && !item.map.fetched) ? (
                                 <Text style={{color: COLORS.warning}}>We can't provide you with the exact direction
@@ -53,39 +55,41 @@ class MapDirectionModal extends React.Component {
                         }
                         {
                             item.map ? (
-                                <View>
-                                    <Text> {item.map.fetched ? '' : 'Approx: '} {getFormattedDistanceText(item.map.distance)}</Text>
+                                <View style={{paddingVertical: 15}}>
+                                    <H3 black>Distance :</H3>
+                                    <Text>{item.map.fetched ? '' : 'Approx: '} {getFormattedDistanceText(item.map.distance)}</Text>
                                 </View>
                             ) : null
                         }
 
+                        {
+                            item.site_directions ? (
+                                <View style={{paddingVertical: 15}}>
+                                    <H3 black>Site Directions :</H3>
+                                    <Caption black style={{fontSize: 14}}>
+                                        {item.site_directions}
+                                    </Caption>
+                                </View>
+                            ) : false
+                        }
 
-                        <View>
-                            <Caption black style={{fontSize: 14}}>
-                                {item.site_directions}
-                            </Caption>
+                        {
+                            item.secondary_road_name ? (
+                                <View style={{paddingVertical: 15}}>
+                                    <H3 black>Secondary Road :</H3>
+                                    <Caption black style={{fontSize: 14}}>
+                                        {item.secondary_road_name} {item.secondary_road_km ? ', ': ''} {item.secondary_road_km} {item.secondary_road_km ? ' km': ''}
+                                    </Caption>
+                                </View>
+                            ) : false
+                        }
+                    </View>
 
-                        </View>
-                        {/*<ScrollView style={{height: 200}}>*/}
-                        {/*    <Text>{JSON.stringify(item)}</Text>*/}
-                        {/*</ScrollView>*/}
-
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                            {/*<Button style={{backgroundColor: COLORS.primary}} onPress={() => {*/}
-                            {/*    if (Platform.OS === 'ios') {*/}
-                            {/*        Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);*/}
-                            {/*    } else {*/}
-                            {/*        Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);*/}
-                            {/*    }*/}
-                            {/*}}>*/}
-                            {/*    <Text style={{color: '#FFF'}}>Open in maps</Text>*/}
-                            {/*</Button>*/}
-                            {/*<View style={{width: 15}}/>*/}
-                            <Button style={{backgroundColor: COLORS.accent}}
-                                    onPress={() => this.setState({modal: false})}>
-                                <Text style={{color: '#FFF'}}>Close</Text>
-                            </Button>
-                        </View>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <Button style={{backgroundColor: COLORS.accent}}
+                                onPress={() => this.setState({modal: false})}>
+                            <Text style={{color: '#FFF'}}>Close</Text>
+                        </Button>
                     </View>
                 </View>
             </Modal>

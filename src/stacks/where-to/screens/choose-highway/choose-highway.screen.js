@@ -84,7 +84,7 @@ class ChooseHighwayScreen extends React.Component {
                                 {
                                     maxWidth: '80%'
                                 }
-                            ]}>{highway.name}</Subtitle1>
+                            ]}>{i18n.language === 'en' ? highway.name : highway.fr_name}</Subtitle1>
 
                         </TouchableOpacity>
                     </HighwayBox>

@@ -15,8 +15,8 @@ const en = {
     subtitle: 'Save your favourite sites or create a wish list for future trips',
 };
 const fr = {
-    title: 'Mes sites',
-    subtitle: 'Enregistrez vos sites favoris ou créez une liste de souhaits pour de futurs voyages',
+    title: 'Mes lieux préférés',
+    subtitle: "Conservez vos lieux préférés ou créez une liste de voyages à faire.",
 };
 
 const introStepThreeBackground = require('../../../../../assets/stacks/intro/intro-step-three-background.jpg');

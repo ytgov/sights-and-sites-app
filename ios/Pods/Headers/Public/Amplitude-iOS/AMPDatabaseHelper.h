@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPDatabaseHelper.h
+../../../Amplitude-iOS/Sources/Amplitude/AMPDatabaseHelper.h

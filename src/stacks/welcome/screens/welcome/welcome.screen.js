@@ -42,8 +42,8 @@ class WelcomeScreen extends React.Component {
                         <Col>
                             <View style={Helpers.flexCenter}>
                                 <Image style={WelcomeScreenStyles.logoWhite} source={logoWhite} resizeMode="contain"/>
-                                <Subtitle1 style={WelcomeScreenStyles.subtitle}>Your guide to our roadside sites.
-                                    Votre guide concernant nos sites routiers.</Subtitle1>
+                                <Subtitle1 style={WelcomeScreenStyles.subtitle}>Your guide to our roadside sites</Subtitle1>
+                                <Subtitle1 style={WelcomeScreenStyles.subtitle}>Votre guide concernant nos sites routiers.</Subtitle1>
                             </View>
                         </Col>
                     </Row>

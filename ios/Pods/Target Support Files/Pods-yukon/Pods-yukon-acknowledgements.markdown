@@ -1216,7 +1216,7 @@ third-party archives.
 
 ## GoogleMaps
 
-Copyright 2019 Google
+Copyright 2020 Google
 
 ## GoogleSignIn
 

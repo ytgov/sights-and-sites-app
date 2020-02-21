@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPRevenue.h
+../../../Amplitude-iOS/Sources/Amplitude/AMPRevenue.h

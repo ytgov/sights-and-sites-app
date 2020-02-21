@@ -15,8 +15,8 @@ const en = {
     subtitle: 'Explore over 230 Yukon sites, even when you’re offline',
 };
 const fr = {
-    title: 'Choisissez un site',
-    subtitle: 'Explorez plus de 230 sites du Yukon, même lorsque vous êtes hors ligne',
+    title: 'Choisir un site',
+    subtitle: "Explorez plus de 270 sites du Yukon, même quand vous n'étes pas connecté.",
 };
 
 const introStepTwoBackground = require('../../../../../assets/stacks/intro/intro-step-two-background.jpg');

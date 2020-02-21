@@ -70,7 +70,7 @@ class ChooseRegionScreen extends React.Component {
                                               color="#FFF"/>
                             }
                             <Subtitle1 style={ChooseRegionStyles.highwayName}
-                                       numberOfLines={1}>{highway.name}</Subtitle1>
+                                       numberOfLines={1}>{i18n.language === 'en' ? highway.name : highway.fr_name}</Subtitle1>
                             <Image source={highway.image} resizeMode='contain'
                                    style={{position: 'absolute', height: 80, width: 64, right: -10}}/>
                         </TouchableOpacity>

@@ -34,7 +34,7 @@ const fr = {
     et comment naviguer sur ces sites.
     Vous pouvez changer votre préférence
     sur votre appareil.`,
-    ready: 'Prêt',
+    ready: 'Vous êtes prêt?',
     actionStart: 'COMMENÇONS'
 };
 

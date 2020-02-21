@@ -17,8 +17,8 @@ const en = {
     subtitle: 'Explore by highway, by region or near you',
 };
 const fr = {
-    title: 'Vers quoi?',
-    subtitle: 'Explorez par autoroute, par région ou près de chez vous',
+    title: 'Où aller?',
+    subtitle: "Recherche d'un site pare route ou par région ou d'un site à proximité",
 };
 
 const introStepOneBackground = require('../../../../../assets/stacks/intro/intro-step-one-background.jpg');

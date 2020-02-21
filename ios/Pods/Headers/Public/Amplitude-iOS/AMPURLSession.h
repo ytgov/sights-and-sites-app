@@ -1,1 +1,1 @@
-../../../Amplitude-iOS/Amplitude/AMPURLSession.h
+../../../Amplitude-iOS/Sources/Amplitude/AMPURLSession.h
