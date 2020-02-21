@@ -53,7 +53,8 @@ const AccordionCustom = props => {
                         <TouchableOpacity onPress={() => {
                             Linking.openURL(item.url)
                         }}>
-                            <View style={moreComonStyles.link}><Body1 black>More safe travel tips?</Body1></View>
+                            <View style={moreComonStyles.link}><Body1
+                                black>{item.url_text ? item.url_text : 'More safe travel tips?'}</Body1></View>
                         </TouchableOpacity>
                     </View>
                     : null
@@ -78,11 +79,15 @@ const AccordionCustom = props => {
                                                     {item.a ? <Body2 regular black>{item.a + '\n'}</Body2> : null}
                                                     {
                                                         item.items ? item.items.map((text, aa) => (
-                                                            <View style={{paddingLeft: 10, flexDirection: 'row'}}  key={`list-${index}-${aa}`}>
-                                                                <Body2 bold black style={{paddingRight: 5, paddingTop: 2.5}}>*</Body2>
+                                                            <View style={{paddingLeft: 10, flexDirection: 'row'}}
+                                                                  key={`list-${index}-${aa}`}>
+                                                                <Body2 bold black style={{
+                                                                    paddingRight: 5,
+                                                                    paddingTop: 2.5
+                                                                }}>*</Body2>
                                                                 <Body2 regular black>{text + '\n'}</Body2>
                                                             </View>
-                                                        )):null
+                                                        )) : null
                                                     }
                                                 </View>
                                             )
@@ -97,14 +102,13 @@ const AccordionCustom = props => {
                                                     <View style={moreComonStyles.link}><Body2 black>{link.title}</Body2></View>
                                                 </TouchableOpacity>
                                             </View>
-                                        )) :null
+                                        )) : null
                                     }
                                 </View>
                             )
                         })
                         : null
                 }
-
 
 
             </View>}
