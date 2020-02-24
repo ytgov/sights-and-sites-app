@@ -68,24 +68,24 @@ const initialState = {
             fr_name: 'Route Silver Trail',
             roadNumber: 11
         },
-        {
-            id: 14,
-            name: 'Takhini Hot Springs Road',
-            fr_name: 'Takhini Hot Springs',
-            roadNumber: 14
-        },
-        {
-            id: 15,
-            name: 'Mitchell Road',
-            fr_name: 'Route Mitchell',
-            roadNumber: 15
-        },
-        {
-            id: 37,
-            name: 'Stewart-Cassiar Highway',
-            fr_name: 'Route de Cassiar',
-            roadNumber: 37
-        }
+        // {
+        //     id: 14,
+        //     name: 'Takhini Hot Springs Road',
+        //     fr_name: 'Takhini Hot Springs',
+        //     roadNumber: 14
+        // },
+        // {
+        //     id: 15,
+        //     name: 'Mitchell Road',
+        //     fr_name: 'Route Mitchell',
+        //     roadNumber: 15
+        // },
+        // {
+        //     id: 37,
+        //     name: 'Stewart-Cassiar Highway',
+        //     fr_name: 'Route de Cassiar',
+        //     roadNumber: 37
+        // }
     ]
 }
 
