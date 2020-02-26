@@ -49,7 +49,7 @@ export default {
         'chooseLocation': {
             title: 'Choisir un lieu',
             nearMe: 'À proximité',
-            byHighway: 'Sur mar route',
+            byHighway: 'Sur ma route',
             byRegion: 'Par région',
             mySites: 'Mes lieux préférés'
         },
@@ -59,7 +59,7 @@ export default {
         },
         // Choose region
         'chooseRegion': {
-            title: 'Choisissez une région'
+            title: 'Choisir une région'
         },
         // LISTING STACK
         'listContainer': {
@@ -84,10 +84,10 @@ export default {
             'title': 'Conditions Actuelles'
         },
         'traditionalTerritories': {
-            'title': 'Les peuples autochtones du Yukon'
+            'title': 'Territoires traditionnels'
         },
         'travelTrips': {
-            'title': 'Règles de sécurité à suivre dans la nature'
+            'title': 'Se déplacer dans la nature'
         },
         'appInformation': {
             'title': 'Informations sur l`application'

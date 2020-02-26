@@ -41,16 +41,16 @@ class Feedback extends React.Component {
         return (
             <View>
                 <TouchableOpacity onPress={() => {
-                    Feedback.onFeedbackAction('General Enquiries')
+                    Feedback.onFeedbackAction(i18n.language === 'en' ? 'General Enquiries' : 'Renseignements')
                 }} style={[FeedbackStyles.button, FeedbackStyles.buttonWithBorder]}>
                     <Image source={feedbackIcon} style={FeedbackStyles.icon} resizeMode='contain'/>
                     <H3 style={FeedbackStyles.text}>{i18n.language === 'en' ? 'General Enquiries' : 'Renseignements'}</H3>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    Feedback.onFeedbackAction('App Feedback')
+                    Feedback.onFeedbackAction(i18n.language === 'en' ? 'App Feedback' : 'Commentaires sur l’application')
                 }} style={FeedbackStyles.button}>
                     <Image source={feedbackIcon} style={FeedbackStyles.icon} resizeMode='contain'/>
-                    <H3 style={FeedbackStyles.text}>App Feedback</H3>
+                    <H3 style={FeedbackStyles.text}>{i18n.language === 'en' ? 'App Feedback' : 'Commentaires sur l’application'}</H3>
                 </TouchableOpacity>
             </View>
         )

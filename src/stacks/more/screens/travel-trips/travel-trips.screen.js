@@ -26,16 +26,15 @@ class TravelTripsScreen extends React.Component {
         const data = [
             {
                 title: 'Préservation du patrimoine historique',
-                content: 'La Loi sur le patrimoine historique garantit la préservation du patrimoine historique du Yukon. Ne' +
-                    'déplacez jamais un artéfact d’un lieu archéologique ou historique. Pour signaler une découverte,' +
-                    'contactez Archéologie Yukon par téléphone au 867-667-5983 ou au 1-800-661-0408, poste 5983 (sans' +
-                    'frais au Yukon). Les artéfacts appartiennent aux Yukonnais et le gouvernement du Yukon en est le' +
+                content: 'La Loi sur le patrimoine historique garantit la préservation du patrimoine historique du Yukon.  Ne ' +
+                    'déplacez jamais un artéfact d’un lieu archéologique ou historique. Pour signaler une découverte, ' +
+                    'contactez Archéologie Yukon par téléphone au 867-667-5983 ou au 1-800-661-0408, poste 5983 (sans ' +
+                    'frais au Yukon). Les artéfacts appartiennent aux Yukonnais et le gouvernement du Yukon en est le ' +
                     'dépositaire.',
             },
             {
                 title: 'Plus de règles de sécurité à suivre dans la nature',
-                content: `Avant de partir à la découverte d’un sentier, renseignez-vous sur le secteur et faites-vous un plan. Au
-Yukon, de nombreux sentiers ont une longueur de plusieurs centaines de kilomètres.`,
+                content: `Avant de partir à la découverte d’un sentier, renseignez-vous sur le secteur et faites-vous un plan. Au Yukon, de nombreux sentiers ont une longueur de plusieurs centaines de kilomètres.`,
                 url: 'https://yukon.ca/fr/plein-air-faune-et-flore/securite-en-milieu-sauvage/se-deplacer-en-toute-securite-dans-la-nature',
                 url_text: 'Consultez le site pour obtenir d’autres conseils sur le tourisme d’aventure.'
             }
@@ -54,20 +53,19 @@ Yukon, de nombreux sentiers ont une longueur de plusieurs centaines de kilomètr
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={travelTripsIcon} resizeMode='contain'
                                            style={{width: 55, height: 55, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>Règles de sécurité à suivre dans la
-                                        nature</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>Se déplacer dans la nature</H2>
                                     <View style={TravelTripsStyles.separator}/>
                                 </View>
 
                                 <View>
-                                    <Body1 regular black>Règles de sécurité à suivre dans la nature:{'\n'}</Body1>
+                                    <Body1 regular black>Conseils pour observer la faune sans danger à proximité de la route:{'\n'}</Body1>
                                     <Text>
                                         <Body1 bold black>ARRÊTEZ-VOUS </Body1>
                                         <Body1 regular black>
                                             seulement quand vous pouvez le faire en toute sécurité, c’est-à-dire après
                                             avoir vérifié
                                             la circulation et vous être assuré que votre véhicule est bien
-                                            visible..{'\n'}
+                                            visible.{'\n'}
                                         </Body1>
                                     </Text>
                                     <Text>

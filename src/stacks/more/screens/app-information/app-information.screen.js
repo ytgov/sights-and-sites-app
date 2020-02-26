@@ -19,38 +19,41 @@ class AppInformationScreen extends React.Component {
         const {navigation} = this.props;
         const fr_data = [
             {
-                title: 'Services de location',
+                title: 'Géolocalisation',
                 content: '',
                 QA: [
                     {
                         q: 'Pourquoi l\'application souhaite-t-elle accéder à ma position?',
-                        a: `L'application utilise l'emplacement fourni par votre appareil pour vous montrer des résultats utiles, comme les sites à proximité.
+                        a: `L'application utilise l'emplacement fourni par votre appareil pour vous montrer des résultats utiles, comme les sites à proximité. \n
 Cette application ne stocke pas l'emplacement, elle est uniquement utilisée dans votre appareil. Vous pouvez activer les paramètres de localisation dans l'application ou sur votre appareil.`
                     },
                     {
                         q: 'Je ne souhaite pas activer les services de localisation',
-                        a: 'Aucun problème! Vous pouvez toujours rechercher et filtrer les sites, mais vous ne pourrez pas accéder à ces sites ou voir les sites à proximité dans l\'application.'
+                        a: 'Aucun problème! Vous pouvez quand même rechercher et filtrer des lieux. Cependant, vous ne pourrez ' +
+                            'pas naviguer jusqu’à ces lieux ou voir les lieux situés à proximité dans l’application. \n\n' +
+                            'Si votre appareil est connecté à Internet, il utilisera les données mobiles pour mettre l’application à jour, ' +
+                            'au besoin.'
                     }
                 ]
 
             },
             {
                 title: 'Données mobiles',
-                content: 'Si votre appareil est connecté à Internet, il utilisera les données mobiles pour mettre à jour l\'application si nécessaire.',
+                content: 'Si votre appareil est connecté à Internet, il utilisera les données mobiles pour mettre l’application à jour, au besoin.',
                 QA: [
                     {
                         q: 'Puis-je utiliser l\'application hors ligne?',
-                        a: `L'application fonctionne entièrement hors ligne. Les cartes sont téléchargées sur votre appareil lorsque vous autorisez l'application à le faire.`
+                        a: `L’application fonctionne entièrement hors ligne. Les cartes se téléchargent sur votre appareil si vous autorisez l’application à le faire.`
                     },
                     {
-                        q: 'Quand sont les informations dans la mise à jour de l\'application?',
+                        q: 'Quand les données de l’application sont-elles mises à jour?',
                         a:
-                            `L'application est mise à jour périodiquement avec de nouvelles données lorsqu'elles deviennent disponibles. Ceci comprend:
+                            `L’application est mise à jour périodiquement lorsque de nouvelles données sont disponibles, par exemple :
 
-\u2022 De nouveaux sites
-\u2022 Services de site existants
-\u2022 Instructions
-\u2022 Détails de la carte
+\u2022 Nouveaux lieux
+\u2022 Services relatifs à des lieux existants
+\u2022 Itinéraires
+\u2022 Détails sur les cartes
             `
                     }
                 ]
@@ -223,7 +226,7 @@ The purpose of this privacy statement is to inform you of the personal informati
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={appInformationIcon} resizeMode='contain'
                                            style={{width: 40, height: 40, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>App Information</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>{i18n.language === 'en' ? 'App Information' : 'Renseignements sur l’application'}</H2>
                                     <View style={AppInformationStyles.separator}/>
                                 </View>
 

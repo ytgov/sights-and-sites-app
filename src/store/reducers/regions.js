@@ -14,7 +14,7 @@ const initialState = {
         {
             id: 1,
             name: 'North Yukon',
-            fr_name: 'North et Arctique',
+            fr_name: 'Nord et Arctique',
             image: region1Image
         },
         {

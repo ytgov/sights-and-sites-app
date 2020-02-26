@@ -32,7 +32,7 @@ class TraditionalTerritoriesScreen extends React.Component {
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={traditionalTerritoriesIcon} resizeMode='contain'
                                            style={{width: 55, height: 55, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>Les peuples autochtones du Yukon</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>Territoires traditionnels</H2>
                                     <View style={TraditionalTerritoriesStyles.separator}/>
                                 </View>
 

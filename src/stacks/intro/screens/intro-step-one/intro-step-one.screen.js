@@ -18,7 +18,7 @@ const en = {
 };
 const fr = {
     title: 'Où aller?',
-    subtitle: "Recherche d'un site pare route ou par région ou d'un site à proximité",
+    subtitle: "Recherche d'un site par route ou par région ou d'un site à proximité",
 };
 
 const introStepOneBackground = require('../../../../../assets/stacks/intro/intro-step-one-background.jpg');

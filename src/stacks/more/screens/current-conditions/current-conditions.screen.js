@@ -35,7 +35,7 @@ class CurrentConditionsScreen extends React.Component {
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={currentConditionsIcon} resizeMode='contain'
                                            style={{width: 40, height: 40, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>Current Conditions</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>Conditions actuelles</H2>
                                     <View style={CurrentConditionStyles.separator}/>
                                 </View>
                                 <View>
