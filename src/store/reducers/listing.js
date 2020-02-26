@@ -34,15 +34,11 @@ function filterListing(filters, location, listingRaw) {
         result = listingRaw.filter(item => mySites.includes(item.site_id))
     }
     if (nearMeFilter && location) {
-        console.info('======> Near Me Filter')
-        // const resultIDs = orderByDistance(location, listingRaw.map(item => {
-        //     return {id: item.site_id, latitude: item.latitude, longitude: item.longitude}
-        // })).map(item => item.id);
         result = listingRaw
             .filter(item => {
-                if (item && item.map && item.map.distance) {
+                if (item && item.map && item.map.distance) { // filter by the roadway distance
                     return (item.map.distance / 1000) < 200;
-                } else {
+                } else { // in case roadway fails filter by straight line
                     let distance = getPreciseDistance(
                         {latitude: location.latitude, longitude: location.longitude},
                         {latitude: item.latitude, longitude: item.longitude},
@@ -55,7 +51,6 @@ function filterListing(filters, location, listingRaw) {
 
                 return false;
             })
-        // result = listingRaw.slice().sort((a, b) => resultIDs.indexOf(a.site_id) - resultIDs.indexOf(b.site_id));
     }
 
     // Site Type
