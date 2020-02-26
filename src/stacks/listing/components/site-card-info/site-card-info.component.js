@@ -46,8 +46,9 @@ const SiteCardInfo = props => {
                             <HighwayBadgeText>{heighways[itemInfo.highway_name]}</HighwayBadgeText>
                         </View>
 
-                        <Caption black style={{fontSize: 14}}>
-                            {itemInfo.highway_name}, km {itemInfo.highway_km}.
+                        <Caption black style={{fontSize: 14, width: '90%'}}>
+                            {itemInfo.highway_name}, km {itemInfo.highway_km}
+                            {itemInfo.secondary_road_name ? `. ${itemInfo.secondary_road_name} km ${itemInfo.secondary_road_km}.` : null}
                         </Caption>
                     </View>
                 ) : null

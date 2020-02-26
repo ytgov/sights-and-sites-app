@@ -86,18 +86,25 @@ class TraditionalTerritoriesScreen extends React.Component {
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={traditionalTerritoriesIcon} resizeMode='contain'
                                            style={{width: 55, height: 55, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>About Traditional Territories</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>First Nations in Yukon</H2>
                                     <View style={TraditionalTerritoriesStyles.separator}/>
                                 </View>
 
                                 <View>
                                     <Body1 regular black>
-                                        This territory is home to 14 Yukon First Nations. Indigenous people have deep
-                                        cultural and spiritual connections to the land. These connections are sacred and
-                                        Indigenous people continue to live, travel and harvest throughout their
-                                        Traditional Territories. Please journey respectfully through Yukon First Nations
-                                        Traditional Territories. More information about Yukon First Nations is available
-                                        at Yukon.ca and Mapping the Way.
+                                        Yukon is home to many First Nations with various political, cultural and linguistic backgrounds. These groups share deep traditional and spiritual connections to their ancestral lands. As you explore Yukon, please demonstrate respect for the sacred land that sustains Indigenous ways of life. More information is available at
+                                        <Text style={{color: '#08f'}} onPress={() => {
+                                            CurrentConditionsScreen.openLink('https://yukon.ca/en/about-yukon-first-nations')
+                                        }}>
+                                            {' '}Yukon.ca{' '}
+                                        </Text>
+                                        ,
+                                        <Text style={{color: '#08f'}} onPress={() => {
+                                            CurrentConditionsScreen.openLink('https://mappingtheway.ca/')
+                                        }}>
+                                            {' '}Mapping the Way{' '}
+                                        </Text>
+                                        and at each Yukon First Nations official website.
                                     </Body1>
                                 </View>
                             </View>

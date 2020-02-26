@@ -4,7 +4,8 @@ const SiteCardInfoStyles = StyleSheet.create({
     highwayInfoBox: {
         paddingTop: 8,
         flexDirection: 'row',
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+        width: '100%'
     },
     highwayIcon: {
         position: 'relative',

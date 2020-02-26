@@ -90,7 +90,7 @@ export default {
             'title': 'Current Conditions'
         },
         'traditionalTerritories': {
-            'title': 'About Traditional Territories'
+            'title': 'First Nations in Yukon'
         },
         'travelTrips': {
             'title': 'Wilderness Travel Tips'
