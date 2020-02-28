@@ -81,7 +81,7 @@ export default {
             'title': 'Plus',
         },
         'currentConditions': {
-            'title': 'Conditions Actuelles'
+            'title': 'Conditions actuelles'
         },
         'traditionalTerritories': {
             'title': 'Territoires traditionnels'
@@ -90,7 +90,7 @@ export default {
             'title': 'Se déplacer dans la nature'
         },
         'appInformation': {
-            'title': 'Informations sur l`application'
+            'title': 'Renseignements'
         }
     },
 }

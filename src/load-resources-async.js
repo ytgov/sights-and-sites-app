@@ -26,7 +26,8 @@ export default async () => Promise.all([
         'montserrat-bold': require('../assets/fonts/Montserrat/Montserrat-Bold.ttf'),
         'montserrat-semibold': require('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf'),
         'montserrat-regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
-        'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf')
+        'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf'),
+        'montserrat-italic': require('../assets/fonts/Montserrat/Montserrat-Italic.ttf'),
     }),
 
     cacheImages([

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Accordion} from 'native-base';
-import {Image, Linking, TouchableOpacity, View} from 'react-native';
+import {Image, Linking, TouchableOpacity, View, Text} from 'react-native';
 import AccordionType from '../../../../types/accordion.type';
 import {Body1, H3} from '../../../../theme/theme';
 import moreComonStyles from '../../screens/more.common.styles'
@@ -44,9 +44,11 @@ const AccordionCustom = props => {
                 borderBottomColor: '#CBCBCB',
                 borderBottomWidth: 1
             }}>
-                <Body1 regular black>
-                    {item.content ? item.content + '\n' : null}
 
+                <Body1 regular black>
+                    {item.content_italicized ? (<Text style={{fontFamily: 'montserrat-italic'}}>{item.content_italicized}</Text>) : null}
+
+                    {item.content ? item.content + '\n' : null}
                 </Body1>
                 {item.url ?
                     <View style={moreComonStyles.linkBox}>

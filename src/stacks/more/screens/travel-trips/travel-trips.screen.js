@@ -26,14 +26,15 @@ class TravelTripsScreen extends React.Component {
         const data = [
             {
                 title: 'Préservation du patrimoine historique',
-                content: 'La Loi sur le patrimoine historique garantit la préservation du patrimoine historique du Yukon.  Ne ' +
+                content_italicized: 'La Loi sur le patrimoine historique',
+                content: ' garantit la préservation du patrimoine historique du Yukon.  Ne ' +
                     'déplacez jamais un artéfact d’un lieu archéologique ou historique. Pour signaler une découverte, ' +
                     'contactez Archéologie Yukon par téléphone au 867-667-5983 ou au 1-800-661-0408, poste 5983 (sans ' +
                     'frais au Yukon). Les artéfacts appartiennent aux Yukonnais et le gouvernement du Yukon en est le ' +
                     'dépositaire.',
             },
             {
-                title: 'Plus de règles de sécurité à suivre dans la nature',
+                title: 'Règles de sécurité à suivre dans la nature',
                 content: `Avant de partir à la découverte d’un sentier, renseignez-vous sur le secteur et faites-vous un plan. Au Yukon, de nombreux sentiers ont une longueur de plusieurs centaines de kilomètres.`,
                 url: 'https://yukon.ca/fr/plein-air-faune-et-flore/securite-en-milieu-sauvage/se-deplacer-en-toute-securite-dans-la-nature',
                 url_text: 'Consultez le site pour obtenir d’autres conseils sur le tourisme d’aventure.'

@@ -23,12 +23,12 @@ class AppInformationScreen extends React.Component {
                 content: '',
                 QA: [
                     {
-                        q: 'Pourquoi l\'application souhaite-t-elle accéder à ma position?',
-                        a: `L'application utilise l'emplacement fourni par votre appareil pour vous montrer des résultats utiles, comme les sites à proximité. \n
-Cette application ne stocke pas l'emplacement, elle est uniquement utilisée dans votre appareil. Vous pouvez activer les paramètres de localisation dans l'application ou sur votre appareil.`
+                        q: 'Pourquoi l’application cherche-t-elle à me localiser?',
+                        a: `L’application utilise la localisation fournie par votre appareil pour vous donner des résultats utiles, comme des lieux situés à proximité. \n
+Cette application ne conserve pas la localisation en mémoire. La localisation n’est utilisée que dans votre appareil. Vous pouvez activer la localisation dans l’application ou sur votre appareil.`
                     },
                     {
-                        q: 'Je ne souhaite pas activer les services de localisation',
+                        q: 'Je ne souhaite pas activer l’option de localisation.',
                         a: 'Aucun problème! Vous pouvez quand même rechercher et filtrer des lieux. Cependant, vous ne pourrez ' +
                             'pas naviguer jusqu’à ces lieux ou voir les lieux situés à proximité dans l’application. \n\n' +
                             'Si votre appareil est connecté à Internet, il utilisera les données mobiles pour mettre l’application à jour, ' +
