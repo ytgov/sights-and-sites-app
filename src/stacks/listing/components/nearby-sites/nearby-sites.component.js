@@ -11,7 +11,7 @@ const nearByIcon = require('../../../../../assets/stacks/listing/nearby-sites-ic
 
 class NearbySites extends React.Component {
     state = {
-        item: null,
+        items: [],
         loading: true
     }
 
@@ -27,14 +27,14 @@ class NearbySites extends React.Component {
     }
 
     getSiteData() {
-        const {listingRaw, itemId} = this.props;
-        const item = listingRaw.filter(site => site.site_id === itemId)[0];
-        this.setState({item, loading: false});
+        const {listingRaw, itemId, items} = this.props;
+        const data = listingRaw.filter(site => items.filter(id => id === site.site_id).length);
+        this.setState({items: data, loading: false});
     }
 
     render() {
         const {navigation, locale, parentLocation} = this.props;
-        const {item, loading} = this.state;
+        const {loading} = this.state;
         return loading ?
             <ActivityIndicator style={{}} size="large" color="#ffffff"/> :
             <View>
@@ -42,7 +42,14 @@ class NearbySites extends React.Component {
                     <Image style={NearbySitesStyles.nearbySitesIcon} source={nearByIcon} resizeMode='contain'/>
                     <H2 style={Helpers.textAlignCenter}>{i18n.t('siteDetails.nearBySites')}</H2>
                 </View>
-                <ListViewItem parentLocation={parentLocation} item={item} locale={locale} navigation={navigation}/>
+                {
+                    this.state.items.map(item => (
+                        <ListViewItem key={`list-view-item-${item.site_id}`} parentLocation={parentLocation} item={item}
+                                      locale={locale}
+                                      navigation={navigation}/>
+                    ))
+                }
+
             </View>
     }
 }
