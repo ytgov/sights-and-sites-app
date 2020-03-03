@@ -90,7 +90,7 @@ export default {
             'title': 'Se déplacer dans la nature'
         },
         'appInformation': {
-            'title': 'Renseignements'
+            'title': "Renseignements sur l'application"
         }
     },
 }
