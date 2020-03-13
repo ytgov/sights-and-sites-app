@@ -34,7 +34,7 @@ const AccordionCustom = props => {
             }}>
                 <Image source={expanded ? accordionOpenedIcon : accordionClosedIcon} resizeMode='contain'
                        style={{width: 20, height: 20, marginRight: 17}}/>
-                <H3 black>{item.title}</H3>
+                <H3 style={{width: '90%'}} black>{item.title}</H3>
             </View>}
             renderContent={item => <View style={{
                 paddingTop: 15,
