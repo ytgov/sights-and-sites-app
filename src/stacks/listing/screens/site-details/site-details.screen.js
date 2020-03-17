@@ -105,14 +105,14 @@ class SiteDetails extends React.Component {
                         <SiteCardInfo item={item} locale={locale}/>
 
                         {!!item.warning && <SiteWarning value={item.warning}/>}
-                        <Body1 black regular style={{paddingTop: 16}}>
+                        <Body1 black regular style={{paddingTop: 16, width: '95%'}}>
                             {
                                 item.site_description
                             }
                         </Body1>
 
                         {
-                            !!item.site_directions && <Body1 black regular style={{paddingTop: 16}}>
+                            !!item.site_directions && <Body1 black regular style={{paddingTop: 16, width: '95%'}}>
                                 {
                                     item.site_directions
                                 }

@@ -14,7 +14,7 @@ export default {
         },
 
         'footerTabs': {
-            'whereTo': 'Where to?',
+            'whereTo': 'Filter by',
             'siteType': 'Site type',
             'more': 'More'
         },

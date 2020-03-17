@@ -13,7 +13,7 @@ export default {
             'networkNotAvailable': 'Le réseau n`est pas disponible'
         },
         'footerTabs': {
-            'whereTo': 'Où aller?',
+            'whereTo': 'Filtrer par',
             'siteType': 'Type de site',
             'more': 'Plus'
         },
