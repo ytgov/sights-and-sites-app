@@ -19,7 +19,7 @@ export default {
         },
         'siteTabs': {
             'directions': 'Itinéraire',
-            'map_view': 'Sur la carte',
+            'map_view': 'Vue Cartographique',
             'share': 'Partager',
             'mySites': 'Mes lieux préférés'
         },
