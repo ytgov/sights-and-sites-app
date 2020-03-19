@@ -7,7 +7,7 @@ import i18n from '../../../../locale/locale';
 import {Body1, COMMON, Helpers} from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
-import {setSitesTypeFilters, toggleSitesTypeFilter} from '../../../../store/actions/filters';
+import {resetFilters, setSitesTypeFilters, toggleSitesTypeFilter} from '../../../../store/actions/filters';
 import {addListing, filterListing, incrementListingPage, toggleListingView} from '../../../../store/actions/listing';
 import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
@@ -16,6 +16,7 @@ import SiteType from '../../../../types/site.type';
 import axios from 'axios'
 import {APP_CONFIG} from '../../../../config'
 import IosMapViewContainer from '../../containers/map-view/ios-map-view.container';
+import FooterClearAll from '../../components/footer-clear-all/footer-clear-all.component';
 
 const searchIcon = require('../../../../../assets/common/search-icon.png');
 
@@ -72,6 +73,7 @@ class MainScreen extends React.Component {
                 </Content>
 
                 <View style={{position: 'relative', height: 'auto'}}>
+                    <FooterClearAll {...this.props} />
                     <FooterTabs {...this.props} />
                     <SitesTypeFilter {...this.props} />
                 </View>
@@ -89,6 +91,7 @@ MainScreen.propTypes = {
     highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     toggleSitesTypeFilterDispatch: PropTypes.func.isRequired,
+    resetFiltersDispatch: PropTypes.func.isRequired,
     toggleListingViewDispatch: PropTypes.func.isRequired,
     selectedListingView: PropTypes.string.isRequired,
     listingFiltered: PropTypes.arrayOf(SiteType), incrementListingPageDispatch: PropTypes.func.isRequired,
@@ -122,6 +125,7 @@ const mapDispatchToProps = dispatch => {
     return {
         setSitesTypeFiltersDispatch: value => dispatch(setSitesTypeFilters(value)),
         toggleSitesTypeFilterDispatch: value => dispatch(toggleSitesTypeFilter(value)),
+        resetFiltersDispatch: () => dispatch(resetFilters()),
         toggleListingViewDispatch: value => dispatch(toggleListingView(value)),
         incrementListingPageDispatch: () => dispatch(incrementListingPage()),
         addListingDispatch: (value) => dispatch(addListing(value)),
