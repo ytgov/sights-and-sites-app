@@ -9,11 +9,11 @@ import {Ionicons} from '@expo/vector-icons';
 const FooterClearAll = props => {
     const {resetFiltersDispatch, highwaysFilter, regionsFilter, nearMeFilter, mySitesFilter, sitesTypeFilter} = props;
     return (
-        sitesTypeFilter.length ||
-        mySitesFilter.length ||
-        nearMeFilter.length ||
-        highwaysFilter.length ||
-        regionsFilter.length
+        !!sitesTypeFilter.length ||
+        !!mySitesFilter ||
+        !!nearMeFilter ||
+        !!highwaysFilter.length ||
+        !!regionsFilter.length
     ) ? (
         <Footer style={COMMON.footer}>
             <FooterTab style={{backgroundColor: '#000000'}}>

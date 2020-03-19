@@ -21,6 +21,7 @@ export default {
 
         'siteTabs': {
             'directions': 'Directions',
+            'map_view': 'Map View',
             'share': 'Share',
             'mySites': 'My Sites'
         },

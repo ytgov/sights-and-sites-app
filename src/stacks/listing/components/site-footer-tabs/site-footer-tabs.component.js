@@ -8,6 +8,7 @@ import SiteFooterTabsStyles from './site-footer-tabs.styles';
 import SiteType from '../../../../types/site.type';
 import {error} from '../../../../shared/services/notify';
 import MapDirectionModal from '../map-direction-modal/map-direction-modal.component';
+import MapViewModal from '../map-view-modal/map-view-modal.component';
 
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
 const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png');
@@ -59,6 +60,8 @@ const SiteFooterTabs = props => {
         <Footer style={COMMON.footer}>
             <FooterTab style={{backgroundColor: '#000000'}}>
                 <MapDirectionModal item={props.item} networkAvailable={props.networkAvailable}/>
+                <MapViewModal item={props.item} networkAvailable={props.networkAvailable}/>
+
                 <Button vertical onPress={() => {
                     onShare()
                 }}>
@@ -67,6 +70,7 @@ const SiteFooterTabs = props => {
                     </View>
                     <Caption>{i18n.t('siteTabs.share')}</Caption>
                 </Button>
+
                 <Button badge vertical onPress={() => {
                     setMySitesFiltersDispatch(true);
                     navigation.navigate('Map');

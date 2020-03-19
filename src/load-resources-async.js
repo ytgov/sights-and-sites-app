@@ -54,6 +54,7 @@ export default async () => Promise.all([
         // Site tabs
         require('../assets/stacks/tabs/directions-icon.png'),
         require('../assets/stacks/tabs/share-icon.png'),
+        require('../assets/stacks/tabs/map-icon.png'),
         require('../assets/stacks/tabs/my-sites-icon.png'),
         // Welcome Stack
         require('../assets/stacks/welcome/welcome-background.jpg'),
