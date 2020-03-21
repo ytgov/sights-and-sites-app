@@ -12,11 +12,11 @@ import SwipeConfig from '../swipe-config';
 // TODO Refactor and move to separate service
 const en = {
     title: 'Choose a site',
-    subtitle: 'Explore over 230 Yukon sites, even when you’re offline',
+    subtitle: 'Explore over 280 Yukon sites, even when you’re offline',
 };
 const fr = {
-    title: 'Choisissez un site',
-    subtitle: 'Explorez plus de 230 sites du Yukon, même lorsque vous êtes hors ligne',
+    title: 'Choisir un site',
+    subtitle: "Explorez plus de 280 sites du Yukon, même quand vous n’êtes pas connecté.",
 };
 
 const introStepTwoBackground = require('../../../../../assets/stacks/intro/intro-step-two-background.jpg');

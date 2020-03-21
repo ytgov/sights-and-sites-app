@@ -9,7 +9,7 @@ const NavigationBackButton = props => {
 
     return (
         // <TouchableOpacity style={{ width: 30, alignItems: 'flex-start', justifyContent: 'flex-start' }} onPress={() => { props.navigation.goBack(null) }}></TouchableOpacity>
-        <TouchableOpacity onPress={() => {
+        <TouchableOpacity style={{width: 50}} onPress={() => {
             props.navigation.goBack(null)
         }}>
             <Ionicons name="ios-arrow-back" size={32} color={dark ? '#929496' : '#FFFFFF'}

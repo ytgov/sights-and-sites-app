@@ -24,13 +24,37 @@ import SiteType from '../../../../types/site.type';
 import QueryType from '../../../../types/query.type';
 
 class SearchScreen extends React.Component {
-    state = {}
+    state = {
+        query: ''
+    }
 
     onSearchDebounced = _.debounce(this.onSearch, APP_CONFIG.search.debounceDelay);
 
+    componentDidMount() {
+        const {resetSearchQueryDispatch} = this.props;
+        resetSearchQueryDispatch(null);
+    }
+
     componentWillUnmount() {
         const {resetSearchQueryDispatch} = this.props;
-        resetSearchQueryDispatch();
+        let query = this.state.query;
+        const queryFormatted = formatSearchIndex(query);
+        resetSearchQueryDispatch({
+            query,
+            queryFormatted
+        });
+    }
+
+    search(query) {
+        const {setSearchInProgressDispatch, searchSitesDispatch} = this.props;
+        const queryFormatted = formatSearchIndex(query);
+        if (!queryFormatted) {
+            return false
+        }
+        this.setState({query}, () => searchSitesDispatch({
+            query,
+            queryFormatted
+        }))
     }
 
     onSearch(query) {
@@ -57,9 +81,7 @@ class SearchScreen extends React.Component {
 
     render() {
         const {navigation, searchQuery, searchInProgress, listingRaw, locale, searchMatched, currentSearchPage, recentQueries, searchPagesLimit, resetSearchQueryDispatch} = this.props;
-        const sites = searchMatched.map(id => listingRaw.filter(site => site.id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);
-        ;
-
+        const sites = searchMatched.map(id => listingRaw.filter(site => site.site_id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);
         return (
             <Container style={{backgroundColor: '#000'}}>
                 <Header style={[COMMON.header, COMMON.headerWhite]}>
@@ -68,21 +90,18 @@ class SearchScreen extends React.Component {
                         <TextInput
                             editable={!searchInProgress}
                             autoFocus
+                            autoCapitalize={'none'}
+                            autoCompleteType={'off'}
+                            autoCorrect={false}
                             placeholder={i18n.t('search.placeholder')}
                             placeholderTextColor='#000'
                             style={SearchStyles.searchInput}
                             defaultValue={searchQuery}
-                            onChangeText={query => {
-                                if (!formatSearchIndex(query)) {
-                                    resetSearchQueryDispatch()
-                                } else {
-                                    this.onSearchDebounced(query)
-                                }
-                            }}/>
+                            onChangeText={query => this.search(query)}/>
                         {
                             (!!searchQuery) && (
                                 <TouchableOpacity style={SearchStyles.clearQueryButton}
-                                                  onPress={() => resetSearchQueryDispatch()}>
+                                                  onPress={() => resetSearchQueryDispatch(null)}>
                                     <Ionicons name="ios-close-circle" size={24} color="#929496"
                                               style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]}/>
                                 </TouchableOpacity>
@@ -169,7 +188,7 @@ const mapDispatchToProps = dispatch => {
     return {
         searchSitesDispatch: value => dispatch(searchSites(value)),
         setSearchInProgressDispatch: value => dispatch(setSearchInProgress(value)),
-        resetSearchQueryDispatch: () => dispatch(resetSearchQuery()),
+        resetSearchQueryDispatch: (value) => dispatch(resetSearchQuery(value)),
         incrementSearchPageDispatch: () => dispatch(incrementSearchPage())
     };
 };

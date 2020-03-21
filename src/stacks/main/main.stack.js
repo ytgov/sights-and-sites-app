@@ -30,7 +30,8 @@ const MainStack = createStackNavigator({
         })
     }
 }, {
-    initialRouteName: 'Listing'
+    // initialRouteName: 'Search',
+    initialRouteName: 'Listing',
 });
 
 export default MainStack;

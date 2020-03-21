@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {resetLocation, updateLocation} from '../../../store/actions/core';
 import {trackLocation} from '../../services/location';
 import {APP_CONFIG} from '../../../config';
+import {addGMListing} from '../../../store/actions/listing';
 
 const timer = require('react-native-timer');
 
@@ -30,12 +31,12 @@ class LocationGate extends React.Component {
     }
 
     trackLocation() {
-        const {updateLocationDispatch, resetLocationDispatch} = this.props;
+        const {updateLocationDispatch, resetLocationDispatch, addGMListingDispatch} = this.props;
         const {locationUpdateFrequency} = APP_CONFIG.location;
         InteractionManager.runAfterInteractions(() => {
             if (!timer.intervalExists(this, LOCATION_GRAB_INTERVAL)) {
-                timer.setInterval(this, LOCATION_GRAB_INTERVAL, () => {
-                    trackLocation(updateLocationDispatch, resetLocationDispatch)
+                timer.setInterval(this, LOCATION_GRAB_INTERVAL, async () => {
+                    await trackLocation(updateLocationDispatch, resetLocationDispatch, addGMListingDispatch)
                 }, locationUpdateFrequency);
             }
         })
@@ -51,6 +52,7 @@ LocationGate.propTypes = {
     hasUserPassedOnboarding: PropTypes.bool.isRequired,
     updateLocationDispatch: PropTypes.func.isRequired,
     resetLocationDispatch: PropTypes.func.isRequired,
+    addGMListingDispatch: PropTypes.func.isRequired,
     children: PropTypes.node.isRequired
 }
 
@@ -63,7 +65,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateLocationDispatch: value => dispatch(updateLocation(value)),
-        resetLocationDispatch: () => dispatch(resetLocation())
+        resetLocationDispatch: () => dispatch(resetLocation()),
+        addGMListingDispatch: (value) => dispatch(addGMListing(value)),
+
     };
 };
 

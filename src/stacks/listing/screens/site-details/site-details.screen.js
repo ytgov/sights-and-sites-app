@@ -19,6 +19,7 @@ import AddToMySitesNotification
     from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 import SiteType from '../../../../types/site.type';
 import {APP_CONFIG} from '../../../../config';
+import {getPreciseDistance} from 'geolib';
 
 const fallback = require('../../../../../assets/common/fallback.png');
 
@@ -68,6 +69,20 @@ class SiteDetails extends React.Component {
             return {id: site.site_id, latitude: site.latitude, longitude: site.longitude}
         }));
         const nearBySiteID = nearBySite ? nearBySite.id : null;
+        const nearBySites = listingRaw.filter(site => {
+            if (site.site_id !== item.site_id) {
+                let distance = getPreciseDistance(
+                    {latitude: site.latitude, longitude: site.longitude},
+                    {latitude: item.latitude, longitude: item.longitude},
+                    1
+                );
+                if ((distance / 1000) < 200) {
+                    return true
+                }
+            }
+            return false;
+        })
+            .map(site => site.site_id);
 
         return (
             <Container style={{backgroundColor: '#000'}}>
@@ -88,18 +103,29 @@ class SiteDetails extends React.Component {
                     </View>
                     <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
                         <SiteCardInfo item={item} locale={locale}/>
-                        {/* <SiteAmenties items={item.siteAmenties} locale={locale} /> */}
+
                         {!!item.warning && <SiteWarning value={item.warning}/>}
-                        <Body1 black regular style={{paddingTop: 16}}>
+                        <Body1 black regular style={{paddingTop: 16, width: '95%'}}>
                             {
                                 item.site_description
                             }
                         </Body1>
+
+                        {
+                            !!item.site_directions && <Body1 black regular style={{paddingTop: 16, width: '95%'}}>
+                                {
+                                    item.site_directions
+                                }
+                            </Body1>
+                        }
+
+
                     </View>
 
                     {/* TODO Item id should be replaced with near by site id */}
-                    {nearBySiteID && <NearbySites parentLocation={itemLocation} itemId={nearBySiteID} locale={locale}
-                                                  navigation={navigation}/>}
+                    {nearBySiteID &&
+                    <NearbySites parentLocation={itemLocation} items={nearBySites} itemId={nearBySiteID} locale={locale}
+                                 navigation={navigation}/>}
                 </Content>
 
                 <View style={{position: 'relative', height: 'auto'}}>

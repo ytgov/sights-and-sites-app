@@ -32,6 +32,14 @@ export default function coreReducer(state = initialState, action) {
             return {
                 ...state,
                 canGrabLocation: true,
+                // location: { // Just for testing canada
+                //     latitude: 46.333389,
+                //     longitude: -75.58429,
+                // },
+                // location: { // Just for testing tunisia
+                //     latitude: 43.7452,
+                //     longitude: 10.7613,
+                // },
                 location: action.payload
             }
         }

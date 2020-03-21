@@ -1,7 +1,7 @@
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 
-async function trackLocation(onLocation, onLocationReset) {
+async function trackLocation(onLocation, onLocationReset, addGMListingDispatch) {
     const enabled = await Location.hasServicesEnabledAsync();
     const {status} = await Permissions.askAsync(
         Permissions.LOCATION
@@ -23,6 +23,10 @@ async function trackLocation(onLocation, onLocationReset) {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude
         });
+
+        // TODO:: dispatch the site map fetcher
+        console.info("======> dispatch the site map fetcher");
+       addGMListingDispatch()
     }).catch(() => {
         onLocationReset();
     });

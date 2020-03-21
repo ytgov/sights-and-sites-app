@@ -14,13 +14,14 @@ export default {
         },
 
         'footerTabs': {
-            'whereTo': 'Where to?',
+            'whereTo': 'Filter by',
             'siteType': 'Site type',
             'more': 'More'
         },
 
         'siteTabs': {
             'directions': 'Directions',
+            'map_view': 'Map View',
             'share': 'Share',
             'mySites': 'My Sites'
         },
@@ -46,7 +47,7 @@ export default {
         'location': {
             'distanceToSiteInKM': '{{distance}} km from here',
             'distanceToSiteInM': '{{distance}} m from here',
-            'distanceReached': 'You`re at the spot',
+            'distanceReached': "You're at the spot",
             'noLocationData': 'Can not access location data'
         },
 
@@ -70,7 +71,8 @@ export default {
         // LISTING STACK
         'listContainer': {
             moreSites: 'More sites',
-            noSitesFound: 'No sites found'
+            noSitesFound: 'No sites found',
+            noFavouritesFound: 'No favourites or "my sites" have been chosen yet'
         },
         'siteDetails': {
             nearBySites: 'Nearby site'
@@ -89,10 +91,10 @@ export default {
             'title': 'Current Conditions'
         },
         'traditionalTerritories': {
-            'title': 'About Traditional Territories'
+            'title': 'First Nations in Yukon'
         },
         'travelTrips': {
-            'title': 'Wilderness Travel Trips'
+            'title': 'Wilderness Travel Tips'
         },
         'appInformation': {
             'title': 'App Information'

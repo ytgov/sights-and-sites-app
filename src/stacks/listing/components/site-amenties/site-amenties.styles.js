@@ -8,13 +8,8 @@ export const CAROUSEL_CONFIG = {
 
 const SiteAmentiesStyles = StyleSheet.create({
     amenitiesList: {
-        marginTop: 16,
-        paddingTop: 16,
-        paddingBottom: 16,
-        borderTopWidth: 1,
-        borderTopColor: '#CBCBCB',
-        borderBottomWidth: 1,
-        borderBottomColor: '#CBCBCB'
+        paddingTop: 5,
+        paddingBottom: 5,
     },
     amenitiesListIconBox: {
         marginRight: 8
@@ -23,7 +18,7 @@ const SiteAmentiesStyles = StyleSheet.create({
         width: CAROUSEL_CONFIG.carouselArrowWidth, height: 22
     },
     amenitiesListIcon: {
-        width: 40, height: 40
+        width: 40, height: 40, margin: 4
     },
     carouselBox: {
         flexDirection: 'row',

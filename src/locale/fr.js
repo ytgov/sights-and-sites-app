@@ -1,7 +1,7 @@
 export default {
     'translation': {
         // Actions
-        'actionNext': 'SUIVANTE',
+        'actionNext': 'SUITE',
         'actionApply': 'Appliquer',
         'actionClearAll': 'Tout effacer',
 
@@ -10,17 +10,18 @@ export default {
             'onFiltersUpdate': 'Les filtres ont été mis à jour',
             'onFiltersClear': 'Les filtres ont été effacés',
             'onAddToMySites': 'Ajoutée! Pour voir tous vos sites, appuyez sur le coeur ci-dessous',
-            'networkNotAvailable': 'Le réseau n`est pas disponible'
+            'networkNotAvailable': "Le réseau n'est pas disponible"
         },
         'footerTabs': {
-            'whereTo': 'Où aller?',
+            'whereTo': 'Filtrer par',
             'siteType': 'Type de site',
             'more': 'Plus'
         },
         'siteTabs': {
-            'directions': 'Directions',
+            'directions': 'Itinéraire',
+            'map_view': 'Vue Cartographique',
             'share': 'Partager',
-            'mySites': 'Mes Sites'
+            'mySites': 'Mes lieux préférés'
         },
         'listingTypes': {
             'map': 'CARTE',
@@ -29,42 +30,43 @@ export default {
         'siteTypes': {
             'filterTitle': 'Choisissez un type de site',
             'camping': 'Camping',
-            'wildlife': `Faune &${'\n'}paysage`,
-            'recreation': 'Des loisirs',
-            'history': `L'histoire &${'\n'}culture`,
+            'wildlife': `Nature et paysages`,
+            'recreation': 'Vous êtes prêt?',
+            'history': `Histoire et culture`,
         },
         'common': {
             'loadMoreDefault': 'Charger plus',
             'noItemsDefault': 'Pas d\'objet'
         },
         'location': {
-            'distanceToSiteInKM': '{{distance}} km d`ici',
-            'distanceToSiteInM': '{{distance}} m d`ici',
+            'distanceToSiteInKM': "{{distance}} km d'ici",
+            'distanceToSiteInM': "{{distance}} m d'ici",
             'distanceReached': 'Vous êtes sur place',
-            'noLocationData': 'Impossible d`accéder aux données de localisation'
+            'noLocationData': "Impossible d'accéder aux données de localisation"
         },
 
         // WHERETO STACK
         // Choose location
         'chooseLocation': {
             title: 'Choisir un lieu',
-            nearMe: 'Proche de moi',
-            byHighway: 'Par autoroute',
+            nearMe: 'À proximité',
+            byHighway: 'Sur ma route',
             byRegion: 'Par région',
-            mySites: 'Mes sites'
+            mySites: 'Mes lieux préférés'
         },
         // Choose highway
         'chooseHighway': {
-            title: 'Choisissez une autoroute',
+            title: 'Choisir une route',
         },
         // Choose region
         'chooseRegion': {
-            title: 'Choisissez une région'
+            title: 'Choisir une région'
         },
         // LISTING STACK
         'listContainer': {
             moreSites: 'Plus de sites',
-            noSitesFound: 'Aucun site trouvé'
+            noSitesFound: 'Aucun site trouvé',
+            noFavouritesFound: 'Aucun favori ou "mes sites" n\'ont encore été choisis'
         },
         'siteDetails': {
             nearBySites: 'Site à proximité'
@@ -80,16 +82,16 @@ export default {
             'title': 'Plus',
         },
         'currentConditions': {
-            'title': 'Conditions Actuelles'
+            'title': 'Conditions actuelles'
         },
         'traditionalTerritories': {
-            'title': 'A propos des Territoires Traditionnels'
+            'title': 'Territoires traditionnels'
         },
         'travelTrips': {
-            'title': 'Wilderness Travel Voyages'
+            'title': 'Se déplacer dans la nature'
         },
         'appInformation': {
-            'title': 'Informations sur l`application'
+            'title': "Renseignements sur l'application"
         }
     },
 }

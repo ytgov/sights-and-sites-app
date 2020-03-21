@@ -9,7 +9,7 @@ import i18n from '../../../../locale/locale';
 import {Caption, COMMON, H2, Helpers, Subtitle1} from '../../../../theme/theme';
 import ChooseRegionStyles from './choose-region.styles';
 import {HighwayBox, HighwayBoxSpacer} from './choose-region.styled-components';
-import {setRegionFilters} from '../../../../store/actions/filters';
+import {resetRegions, setRegionFilters} from '../../../../store/actions/filters';
 import {success} from '../../../../shared/services/notify';
 import NavigationBackButton from '../../../../shared/components/navigation/back-button';
 
@@ -21,7 +21,8 @@ class ChooseRegionScreen extends React.Component {
     }
 
     componentDidMount() {
-        const {regionsFilter} = this.props;
+        const {regionsFilter, resetRegionsDispatch} = this.props;
+        resetRegionsDispatch()
         const selectedHighways = cloneDeep(regionsFilter);
         this.setState({selectedHighways});
     }
@@ -57,10 +58,10 @@ class ChooseRegionScreen extends React.Component {
                 <HighwayBoxSpacer>
                     <HighwayBox style={{height: 100}}>
                         <TouchableOpacity style={{height: 100, position: 'relative'}} onPress={() => {
-                            this.toggleHighway(highway.id)
+                            this.toggleHighway(highway.name)
                         }}>
                             {
-                                (selectedHighways.indexOf(highway.id) >= 0) ?
+                                (selectedHighways.indexOf(highway.name) >= 0) ?
                                     <Ionicons
                                         style={[ChooseRegionStyles.toggleIcon, ChooseRegionStyles.toggleIconActive]}
                                         name="ios-checkmark" size={24} color="#FFF"/>
@@ -69,7 +70,7 @@ class ChooseRegionScreen extends React.Component {
                                               color="#FFF"/>
                             }
                             <Subtitle1 style={ChooseRegionStyles.highwayName}
-                                       numberOfLines={1}>{highway.name}</Subtitle1>
+                                       numberOfLines={1}>{i18n.language === 'en' ? highway.name : highway.fr_name}</Subtitle1>
                             <Image source={highway.image} resizeMode='contain'
                                    style={{position: 'absolute', height: 80, width: 64, right: -10}}/>
                         </TouchableOpacity>
@@ -149,7 +150,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setRegionsFiltersDispatch: value => dispatch(setRegionFilters(value))
+        setRegionsFiltersDispatch: value => dispatch(setRegionFilters(value)),
+        resetRegionsDispatch: () => dispatch(resetRegions())
     };
 };
 

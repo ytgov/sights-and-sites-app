@@ -7,8 +7,9 @@ import i18n from '../../../../locale/locale';
 import SiteFooterTabsStyles from './site-footer-tabs.styles';
 import SiteType from '../../../../types/site.type';
 import {error} from '../../../../shared/services/notify';
+import MapDirectionModal from '../map-direction-modal/map-direction-modal.component';
+import MapViewModal from '../map-view-modal/map-view-modal.component';
 
-const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
 const shareIcon = require('../../../../../assets/stacks/tabs/share-icon.png');
 const mySitesIcon = require('../../../../../assets/stacks/tabs/my-sites-icon.png');
 
@@ -16,11 +17,12 @@ const SiteFooterTabs = props => {
     const {navigation, item, locale, setMySitesFiltersDispatch} = props;
 
     const formatSharedMessage = () => {
-        let message = `${item[locale].title} \n\n`;
-        message += `${item[locale].descriprtion} \n\n`;
-        message += `${item[locale].highway.name} \n\n`;
+        let message = `${item.site_name} \n\n`;
+
+
+        message += `${item.site_description} \n\n`;
+
         message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
-        message += item.uri;
         return message;
     }
 
@@ -32,7 +34,11 @@ const SiteFooterTabs = props => {
         }
         try {
             const result = await Share.share({
+                title: item.site_name,
                 message: formatSharedMessage()
+            }, {
+                subject: item.site_name,
+                dialogTitle: 'Share: ' + item.site_name
             });
 
             if (result.action === Share.sharedAction) {
@@ -53,13 +59,9 @@ const SiteFooterTabs = props => {
     return (
         <Footer style={COMMON.footer}>
             <FooterTab style={{backgroundColor: '#000000'}}>
-                <Button vertical onPress={() => {
-                }}>
-                    <View style={Helpers.positionRelative}>
-                        <Image style={SiteFooterTabsStyles.tabIcon} resizeMode='contain' source={directionsIcon}/>
-                    </View>
-                    <Caption>{i18n.t('siteTabs.directions')}</Caption>
-                </Button>
+                <MapDirectionModal item={props.item} networkAvailable={props.networkAvailable}/>
+                <MapViewModal item={props.item} networkAvailable={props.networkAvailable}/>
+
                 <Button vertical onPress={() => {
                     onShare()
                 }}>
@@ -68,6 +70,7 @@ const SiteFooterTabs = props => {
                     </View>
                     <Caption>{i18n.t('siteTabs.share')}</Caption>
                 </Button>
+
                 <Button badge vertical onPress={() => {
                     setMySitesFiltersDispatch(true);
                     navigation.navigate('Map');

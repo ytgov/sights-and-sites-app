@@ -63,6 +63,9 @@ const Body1 = styled.Text`
 
 const Body2 = styled.Text`
   font-family: 'montserrat-regular';
+  font-family: ${props => {
+    return props.bold ? 'montserrat-bold' : 'montserrat-regular'
+  }}
   font-size: ${TYPINGS.body2};
   line-height: ${TYPINGS.body2 + lineHeightOffset};
   color: ${props => {

@@ -1,7 +1,16 @@
 /* eslint-disable global-require */
 import {Asset} from 'expo-asset';
 import * as Font from 'expo-font';
-
+Object.defineProperty(Array.prototype, 'chunk_inefficient', {
+    value: function(chunkSize) {
+        var array = this;
+        return [].concat.apply([],
+            array.map(function(elem, i) {
+                return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+            })
+        );
+    }
+});
 function cacheImages(images) {
     return images.map(image => {
         if (typeof image === 'string') {
@@ -17,11 +26,15 @@ export default async () => Promise.all([
         'montserrat-bold': require('../assets/fonts/Montserrat/Montserrat-Bold.ttf'),
         'montserrat-semibold': require('../assets/fonts/Montserrat/Montserrat-SemiBold.ttf'),
         'montserrat-regular': require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
-        'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf')
+        'montserrat-medium': require('../assets/fonts/Montserrat/Montserrat-Medium.ttf'),
+        'montserrat-italic': require('../assets/fonts/Montserrat/Montserrat-Italic.ttf'),
     }),
 
     cacheImages([
         // Common
+        require('../assets/images/pin.png' +
+            '' +
+            ''),
         require('../assets/common/logo-circle.png'),
         require('../assets/common/logo.png'),
         require('../assets/common/logo-white.png'),
@@ -41,6 +54,7 @@ export default async () => Promise.all([
         // Site tabs
         require('../assets/stacks/tabs/directions-icon.png'),
         require('../assets/stacks/tabs/share-icon.png'),
+        require('../assets/stacks/tabs/map-icon.png'),
         require('../assets/stacks/tabs/my-sites-icon.png'),
         // Welcome Stack
         require('../assets/stacks/welcome/welcome-background.jpg'),

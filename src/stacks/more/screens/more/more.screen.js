@@ -9,6 +9,9 @@ import LanguageSwitchIcon from './more.styled-components'
 import {connect} from 'react-redux';
 import {setLocale} from '../../../../store/actions/locale';
 import {setSelectLocaleAction} from '../../../../store/actions/core';
+import axios from 'axios';
+import {APP_CONFIG} from '../../../../config';
+import {addListing, filterListing} from '../../../../store/actions/listing';
 
 const moreBakcground = require('../../../../../assets/common/common-background.jpg');
 const currentConditionsIcon = require('../../../../../assets/stacks/more/current-conditions-icon.png');
@@ -19,12 +22,36 @@ const appInformationIcon = require('../../../../../assets/stacks/more/app-inform
 class MoreScreen extends React.Component {
     state = {}
 
-    selectLanguage(language) {
+    async selectLanguage(language) {
         const {locale, setLocaleDispatch, setSelectLocaleActionDispatch, navigation} = this.props;
         setLocaleDispatch(language);
         setSelectLocaleActionDispatch(true);
-        i18n.changeLanguage(locale);
+        await i18n.changeLanguage(language);
+        this.reloadSites(language)
         navigation.navigate('Loading');
+    }
+
+    reloadSites(language) {
+        console.info("Reload Sites")
+        const {
+            addListingDispatch,
+            filterListingDispatch,
+            hasUserPassedOnboarding,
+        } = this.props;
+        axios.get(APP_CONFIG.placesUrl, {
+            headers: {
+                'accept-language': language,
+                'api-key': APP_CONFIG.apiKey
+            }
+        })
+            .then(async res => {
+                console.info("Success!!", res)
+                await addListingDispatch(res.data.data);
+                filterListingDispatch();
+            })
+            .catch(err => {
+                console.info("error ==>", err)
+            })
     }
 
     render() {
@@ -56,7 +83,7 @@ class MoreScreen extends React.Component {
                                 }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <View style={{position: 'relative'}}>
                                         <Image source={traditionalTerritoriesIcon} resizeMode='contain'
-                                               style={{width: 40, height: 40}}/>
+                                               style={{width: 55, height: 55}}/>
                                     </View>
 
                                     <Subtitle1
@@ -68,7 +95,7 @@ class MoreScreen extends React.Component {
                                 }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <View style={{position: 'relative'}}>
                                         <Image source={travelTripsIcon} resizeMode='contain'
-                                               style={{width: 40, height: 40}}/>
+                                               style={{width: 55, height: 55}}/>
                                     </View>
                                     <Subtitle1
                                         style={[MoreStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('travelTrips.title')}</Subtitle1>
@@ -120,14 +147,19 @@ class MoreScreen extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        locale: state.localeStore.locale
+        locale: state.localeStore.locale,
+        hasUserSelectedLocale: state.coreStore.hasUserSelectedLocale,
+        hasUserPassedOnboarding: state.coreStore.hasUserPassedOnboarding,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setLocaleDispatch: value => dispatch(setLocale(value)),
-        setSelectLocaleActionDispatch: value => dispatch(setSelectLocaleAction(value))
+        setSelectLocaleActionDispatch: value => dispatch(setSelectLocaleAction(value)),
+        addListingDispatch: (value) => dispatch(addListing(value)),
+        filterListingDispatch: value => dispatch(filterListing(value)),
+
     };
 };
 

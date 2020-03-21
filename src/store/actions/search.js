@@ -7,10 +7,10 @@ export function setSearchInProgress(value) {
     }
 }
 
-export function resetSearchQuery() {
+export function resetSearchQuery(value) {
     return {
         type: RESET_SEARCH_QUERY,
-        payload: ''
+        payload: value
     }
 }
 

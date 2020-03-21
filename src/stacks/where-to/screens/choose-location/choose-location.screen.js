@@ -43,7 +43,7 @@ class IntroStepFourScreen extends React.Component {
     }
 
     render() {
-        const {navigation, nearMeFilter, mySitesFilter, highwaysFilter, regionsFilter} = this.props;
+        const {navigation, nearMeFilter, mySitesFilter, highwaysFilter, regionsFilter, location} = this.props;
         return (
             <Container>
                 <ImageBackground source={chooseLocationBackground} style={{width: '100%', height: '100%'}}>
@@ -54,17 +54,20 @@ class IntroStepFourScreen extends React.Component {
                     <Content>
                         <View style={[Helpers.flexCenter]}>
                             <H2>{i18n.t('chooseLocation.title')}</H2>
-                            <TouchableOpacity onPress={() => {
-                                this.toggleNearMeFilter()
-                            }}
-                                              style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                                <View style={{position: 'relative'}}>
-                                    {!!nearMeFilter && (<Badge/>)}
-                                    <Image source={nearMeIcon} resizeMode='contain' style={{width: 40, height: 40}}/>
-                                </View>
-                                <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{
-                                    i18n.t('chooseLocation.nearMe')}</Subtitle1>
-                            </TouchableOpacity>
+                            {
+                                location ? <TouchableOpacity onPress={() => {
+                                    this.toggleNearMeFilter()
+                                }}
+                                                             style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                                    <View style={{position: 'relative'}}>
+                                        {!!nearMeFilter && (<Badge/>)}
+                                        <Image source={nearMeIcon} resizeMode='contain'
+                                               style={{width: 40, height: 40}}/>
+                                    </View>
+                                    <Subtitle1 style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{
+                                        i18n.t('chooseLocation.nearMe')}</Subtitle1>
+                                </TouchableOpacity> : null
+                            }
 
                             <TouchableOpacity onPress={() => {
                                 navigation.navigate('ChooseHighway')
@@ -124,8 +127,8 @@ class IntroStepFourScreen extends React.Component {
 IntroStepFourScreen.propTypes = {
     nearMeFilter: PropTypes.bool.isRequired,
     mySitesFilter: PropTypes.bool.isRequired,
-    highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
-    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number])).isRequired,
+    highwaysFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
+    regionsFilter: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string])).isRequired,
     setNearMeFiltersDispatch: PropTypes.func.isRequired,
     setMySitesFiltersDispatch: PropTypes.func.isRequired,
     resetFiltersDispatch: PropTypes.func.isRequired
@@ -136,7 +139,8 @@ const mapStateToProps = state => {
         nearMeFilter: state.filtersStore.nearMeFilter,
         mySitesFilter: state.filtersStore.mySitesFilter,
         highwaysFilter: state.filtersStore.highwaysFilter,
-        regionsFilter: state.filtersStore.regionsFilter
+        regionsFilter: state.filtersStore.regionsFilter,
+        location: state.coreStore.location,
     };
 };
 

@@ -1,98 +1,196 @@
 import React from 'react';
-import MapView, {Marker} from 'react-native-maps';
-import {Dimensions} from 'react-native';
+import {ActivityIndicator, AppState, Dimensions, NetInfo, Text, TouchableOpacity, View} from 'react-native';
+import MapboxGL from '@react-native-mapbox-gl/maps';
+import pinIcon from '../../../../../assets/images/pin.png';
+import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
+import SiteTypes from '../../components/site-types/site-types.component';
+import {COLORS} from '../../../../theme/config';
+import {APP_CONFIG} from '../../../../config';
 
+MapboxGL.setAccessToken(APP_CONFIG.map_box);
 const {width, height} = Dimensions.get('window');
+const styles = {
+    icon: {
+        iconImage: pinIcon,
+        iconAllowOverlap: true,
+        iconSize: 0.15,
+
+    },
+};
 
 class MapViewContainer extends React.Component {
-    state = {
-        places: [
-            {
-                site_id: 1728,
-                changed_ts: 1531850203,
-                site_name: 'Tagish Bridge',
-                site_types: [
-                    'Recreation site (day use only)'
-                ],
-                regions: [
-                    'Southern Lakes'
-                ],
-                latitude: 60.316,
-                longitude: 134.27,
-                highway_name: '',
-                highway_km: 0,
-                secondary_road_name: '',
-                secondary_road_km: 0,
-                community: '',
-                warning: '',
-                site_directions: '',
-                site_description: '<ul> <li>The Tagish River, also known as Six Mile River, enters Marsh Lake here.</li> <li>Tagish means &ldquo;break-up of ice.&rdquo;</li> <li>Swans and waterfowl rest here in March.</li> <li>The Tagish Bridge is popular place to fish. You can get there from the recreation site.</li> </ul> ',
-                images: [
-                    {}
-                ],
-                fn_traditional_territories: [],
-                rest_stop: false,
-                historic_site: false,
-                artifact: false,
-                number_of_campsites: 0,
-                campsite_wc_accessible: false,
-                campsite_walk_in: false,
-                campsite_pull_through: false,
-                outhouse: true,
-                outhouse_accessible: true,
-                trail: false,
-                picnic_table: false,
-                picnic_shelter: false,
-                fire_ring: false,
-                garbage_can: true,
-                recycle_bin: false,
-                food_storage: false,
-                playground: false,
-                boat_launch: true,
-                dock: false,
-                water_supply: false,
-                beach: false,
-                change_room: false
-            }
-        ]
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            featureCollection: MapboxGL.geoUtils.makeFeatureCollection(),
+            selectedItem: {},
+            isConnected: true
+        };
+
+        this.onPress = this.onPress.bind(this);
+        this.onSourceLayerPress = this.onSourceLayerPress.bind(this);
     }
 
-    componentDidMount() {
+    async componentDidMount() {
 
+        AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+        const isConnected = await NetInfo.isConnected.fetch();
+
+        this.setState({
+            isConnected,
+        });
     }
 
-    renderMarkers = () => {
-        const {data} = this.props
-        let results = data.map((marker, i) => {
-            const latitude = marker.latitude
-            const longitude = -marker.longitude
-            let coords = {
-                latitude,
-                longitude
-            }
+    componentWillUnmount() {
+        AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
+    }
+
+    async _handleAppStateChange(nextAppState) {
+        const isConnected = await NetInfo.isConnected.fetch();
+        this.setState({
+            isConnected,
+        });
+    };
 
 
-            return <Marker
-                key={i}
-                coordinate={coords}
-                title={marker.site_name}
-            />
-        })
-        return results
+    async onPress(e) {
+
+        // console.info('New Feature ==>', e)
+    }
+
+
+    onSourceLayerPress(e) {
+        const selectedItem = e.nativeEvent.payload;
+        if (selectedItem && selectedItem.properties) {
+            this.setState({selectedItem})
+        }
+        console.log('You pressed a layer here is your feature', selectedItem); // eslint-disable-line
+    }
+
+    renderShapedSources() {
+        const {data} = this.props;
+
+        let featureCollection = MapboxGL.geoUtils.makeFeatureCollection();
+        data.map(marker => {
+            featureCollection = MapboxGL.geoUtils.addToFeatureCollection(
+                featureCollection,
+                {
+                    type: 'Feature',
+                    id: marker.site_id,
+                    properties: marker,
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [marker.longitude, marker.latitude],
+                    },
+                },
+            );
+        });
+        return (
+            <MapboxGL.ShapeSource
+                id="symbolLocationSource"
+                hitbox={{width: 20, height: 20}}
+                onPress={this.onSourceLayerPress}
+                shape={featureCollection}
+            >
+                <MapboxGL.SymbolLayer
+                    id="symbolLocationSymbols"
+                    minZoomLevel={1}
+                    style={styles.icon}
+                />
+            </MapboxGL.ShapeSource>
+        )
     }
 
     render() {
+        const initialRegion = {
+            latitude: 63.389423,
+            longitude: -136.714739,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+            zoomLevel: 2,
+
+        };
+        const {data} = this.props;
+
         return (
-            <MapView
-                initialRegion={{
-                    latitude: 63.389423,
-                    longitude: -136.714739,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                }}
-                style={{width, height, flex: 1}}>
-                {this.renderMarkers()}
-            </MapView>
+            <View style={{flex: 1, width, height}}>
+                {
+                    (!this.state.isConnected) && (
+                        <View style={{
+                            backgroundColor: '#FF5252',
+                            padding: 10,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            height: 40,
+                            zIndex: 100
+                        }}>
+                            <Text style={{
+                                fontSize: 15,
+                                color: "#FFF"
+                            }}>No Internet Connection</Text>
+                        </View>
+                    )
+                }
+                {
+                    (!data) && (
+                        <ActivityIndicator style={{
+                            marginTop: 10,
+                            marginBottom: -50,
+                            zIndex: 1000
+                        }} size="large" color="#000"/>
+                    )
+                }
+                <MapboxGL.MapView
+                    ref={c => (this._map = c)}
+                    style={{width, height, flex: 1}}
+                    onPress={this.onPress}
+                >
+                    <MapboxGL.UserLocation />
+                    <MapboxGL.Camera
+                        centerCoordinate={[initialRegion.longitude, initialRegion.latitude]}
+                        zoomLevel={initialRegion.zoomLevel}
+                    />
+                    {this.renderShapedSources()}
+                </MapboxGL.MapView>
+                {
+                    (this.state.selectedItem && this.state.selectedItem.properties) ? (
+                        <View style={{
+                            backgroundColor: 'white',
+                            width: '90%',
+                            padding: 15,
+                            borderRadius: 5,
+                            position: 'absolute',
+                            zIndex: 10000,
+                            bottom: 200,
+                            left: '5%',
+                            borderTopColor: COLORS.accent,
+                            borderTopWidth: 4,
+                        }}>
+                            <View style={{
+                                flexDirection: 'row',
+                                justifyContent: 'space-between'
+                            }}>
+                                <View style={{width: 10}}/>
+                                <TouchableOpacity style={{
+                                    width: 30,
+                                    height: 30
+                                }} onPress={() => this.setState({selectedItem: {}})}>
+                                    <Text>X</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('SiteDetails', {item: this.state.selectedItem.properties})}>
+                                <SiteTypes item={this.state.selectedItem.properties}/>
+                                <SiteCardInfo item={this.state.selectedItem.properties} locale={'en'}/>
+                            </TouchableOpacity>
+
+                        </View>
+                    ) : null
+                }
+
+
+            </View>
         )
     }
 }
