@@ -47,7 +47,7 @@ export default {
         'location': {
             'distanceToSiteInKM': '{{distance}} km from here',
             'distanceToSiteInM': '{{distance}} m from here',
-            'distanceReached': 'You`re at the spot',
+            'distanceReached': "You're at the spot",
             'noLocationData': 'Can not access location data'
         },
 

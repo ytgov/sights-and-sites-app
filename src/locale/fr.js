@@ -10,7 +10,7 @@ export default {
             'onFiltersUpdate': 'Les filtres ont été mis à jour',
             'onFiltersClear': 'Les filtres ont été effacés',
             'onAddToMySites': 'Ajoutée! Pour voir tous vos sites, appuyez sur le coeur ci-dessous',
-            'networkNotAvailable': 'Le réseau n`est pas disponible'
+            'networkNotAvailable': "Le réseau n'est pas disponible"
         },
         'footerTabs': {
             'whereTo': 'Filtrer par',
@@ -39,10 +39,10 @@ export default {
             'noItemsDefault': 'Pas d\'objet'
         },
         'location': {
-            'distanceToSiteInKM': '{{distance}} km d`ici',
-            'distanceToSiteInM': '{{distance}} m d`ici',
+            'distanceToSiteInKM': "{{distance}} km d'ici",
+            'distanceToSiteInM': "{{distance}} m d'ici",
             'distanceReached': 'Vous êtes sur place',
-            'noLocationData': 'Impossible d`accéder aux données de localisation'
+            'noLocationData': "Impossible d'accéder aux données de localisation"
         },
 
         // WHERETO STACK
