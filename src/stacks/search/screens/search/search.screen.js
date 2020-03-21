@@ -24,18 +24,25 @@ import SiteType from '../../../../types/site.type';
 import QueryType from '../../../../types/query.type';
 
 class SearchScreen extends React.Component {
-    state = {}
+    state = {
+        query: ''
+    }
 
     onSearchDebounced = _.debounce(this.onSearch, APP_CONFIG.search.debounceDelay);
 
     componentDidMount() {
         const {resetSearchQueryDispatch} = this.props;
-        resetSearchQueryDispatch();
+        resetSearchQueryDispatch(null);
     }
 
     componentWillUnmount() {
         const {resetSearchQueryDispatch} = this.props;
-        resetSearchQueryDispatch();
+        let query = this.state.query;
+        const queryFormatted = formatSearchIndex(query);
+        resetSearchQueryDispatch({
+            query,
+            queryFormatted
+        });
     }
 
     search(query) {
@@ -44,11 +51,12 @@ class SearchScreen extends React.Component {
         if (!queryFormatted) {
             return false
         }
-        searchSitesDispatch({
+        this.setState({query}, () => searchSitesDispatch({
             query,
             queryFormatted
-        });
+        }))
     }
+
     onSearch(query) {
         const {setSearchInProgressDispatch, searchSitesDispatch} = this.props;
         const queryFormatted = formatSearchIndex(query);
@@ -93,7 +101,7 @@ class SearchScreen extends React.Component {
                         {
                             (!!searchQuery) && (
                                 <TouchableOpacity style={SearchStyles.clearQueryButton}
-                                                  onPress={() => resetSearchQueryDispatch()}>
+                                                  onPress={() => resetSearchQueryDispatch(null)}>
                                     <Ionicons name="ios-close-circle" size={24} color="#929496"
                                               style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]}/>
                                 </TouchableOpacity>
@@ -180,7 +188,7 @@ const mapDispatchToProps = dispatch => {
     return {
         searchSitesDispatch: value => dispatch(searchSites(value)),
         setSearchInProgressDispatch: value => dispatch(setSearchInProgress(value)),
-        resetSearchQueryDispatch: () => dispatch(resetSearchQuery()),
+        resetSearchQueryDispatch: (value) => dispatch(resetSearchQuery(value)),
         incrementSearchPageDispatch: () => dispatch(incrementSearchPage())
     };
 };

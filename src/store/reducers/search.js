@@ -23,20 +23,27 @@ export default function searchReducer(state = initialState, action) {
         }
         case RESET_SEARCH_QUERY: {
             console.info('RESET_SEARCH_QUERY ==>')
+            let queryObj = action.payload;
+            let recentQueries = state.recentQueries;
+            if (queryObj != null && queryObj.query) {
+                recentQueries = recentQueries.filter(qq => {
+                   return !(qq.queryFormatted.includes(queryObj.queryFormatted) || queryObj.queryFormatted.includes(qq.queryFormatted))
+                });
+                recentQueries = [
+                    ...recentQueries,
+                    queryObj,
+                ];
+            }
             return {
                 ...state,
+                recentQueries,
                 searchQuery: '',
                 searchInProgress: false
             }
         }
         case SEARCH_SITES: {
             const {listing, query, queryFormatted, locale} = action.payload;
-            const recentQueries = [...state.recentQueries, {query, queryFormatted}];
-            if (recentQueries.length > recentQueriesToShow) {
-                recentQueries.shift();
-            }
             let query_value = String(query).toLowerCase();
-            console.info('Called Search =>', queryFormatted, query)
             const searchMatched = listing.filter(site => {
                 let matched = false;
                 if (
@@ -75,7 +82,6 @@ export default function searchReducer(state = initialState, action) {
             // const searchMatched = listing.filter(site => site.indexes[locale].title.includes(queryFormatted)).map(site => site.id);
             return {
                 ...state,
-                recentQueries,
                 searchQuery: query,
                 searchInProgress: false,
                 searchItemsCount: searchMatched.length,
