@@ -5,8 +5,9 @@ import pinIcon from '../../../../../assets/images/pin.png';
 import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
 import SiteTypes from '../../components/site-types/site-types.component';
 import {COLORS} from '../../../../theme/config';
+import {APP_CONFIG} from '../../../../config';
 
-MapboxGL.setAccessToken('pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg');
+MapboxGL.setAccessToken(APP_CONFIG.map_box);
 const {width, height} = Dimensions.get('window');
 const styles = {
     icon: {

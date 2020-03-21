@@ -17,6 +17,7 @@ export const APP_CONFIG = {
         transitionDuration: 500,
         tint: 'dark'
     },
+    map_box: 'pk.eyJ1IjoieWdlc2VydmljZXMiLCJhIjoiY2s4MDgyZ3JhMGQ0dDNscGU1YmplOTEzNCJ9.94bGsBH18qzFY-Cd5kjZvA',
     apiKey: 'bb09d14d65ca684ade6aab47b19d4c0d',
     placesUrl: 'https://api.yukon.ca/campground-and-recreation/v1/sites'
     // placesUrl: 'https://virtserver.swaggerhub.com/GOY/CampgroundAndRecreationSites/1.0.0/sites'

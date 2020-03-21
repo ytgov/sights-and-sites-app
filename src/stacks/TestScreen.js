@@ -4,8 +4,9 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 import MapboxClient from '@mapbox/mapbox-sdk';
 import MapboxDirectionClient from '@mapbox/mapbox-sdk/services/directions';
 import {Button, Container, Header, Text} from 'native-base';
+import {APP_CONFIG} from '../config';
 
-const accessToken = 'pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg';
+const accessToken = APP_CONFIG.map_box;
 MapboxGL.setAccessToken(accessToken);
 const mapboxClient = new MapboxClient({accessToken});
 const mapboxDirectionClient = new MapboxDirectionClient(mapboxClient);

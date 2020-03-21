@@ -2,8 +2,9 @@ import React from 'react';
 import {ActivityIndicator, Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import pinIcon from '../../../../../assets/images/pin.png';
+import {APP_CONFIG} from '../../../../config';
 
-MapboxGL.setAccessToken('pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg');
+MapboxGL.setAccessToken(APP_CONFIG.map_box);
 const {width, height} = Dimensions.get('window');
 const styles = {
     icon: {

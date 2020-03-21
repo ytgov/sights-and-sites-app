@@ -13,8 +13,9 @@ import {COLORS} from '../../../../theme/config';
 import {connect} from 'react-redux';
 import {getFormattedDistanceText} from '../../../../shared/services/distance';
 import {fetchGMLocation} from '../../../../store/actions/listing';
+import {APP_CONFIG} from '../../../../config';
 
-const accessToken = 'pk.eyJ1IjoiMjQ3bGFicyIsImEiOiJjankwNjc0Y2IwYWZrM2RwanZzcG92MnFoIn0.YahNe0xRjc58mSA5CveCSg';
+const accessToken = APP_CONFIG.map_box;
 MapboxGL.setAccessToken(accessToken);
 
 const directionsIcon = require('../../../../../assets/stacks/tabs/directions-icon.png');
