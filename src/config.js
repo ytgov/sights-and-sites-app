@@ -27,7 +27,7 @@ export const APP_CONFIG = {
 export const SITE_AMENTIES = {
     'outhouse': {
         id: 'outhouse',
-        en: 'Unisex outhouses',
+        en: 'Outhouse unisex',
         fr: 'Toilettes extérieures unisexes',
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_outhouses.png'),
         imageActive: require('../assets/stacks/listing/amenties/active/y_outhouses.png')
@@ -104,8 +104,8 @@ export const SITE_AMENTIES = {
     },
     'outhouse_accessible': {
         id: 'outhouse_accessible',
-        en: 'Accessible outhouse',
-        fr: 'Toilette extérieure accessible',
+        en: 'At least one wheelchair accessible outhouse',
+        fr: 'Au moins une toilette extérieure accessible en fauteuil roulant',
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_wheelchair.png'),
         imageActive: require('../assets/stacks/listing/amenties/active/y_wheelchair.png')
     },
@@ -125,8 +125,8 @@ export const SITE_AMENTIES = {
     },
     'beach': {
         id: 'beach',
-        en: 'Beach',
-        fr: 'Plage',
+        en: 'Sandy or cobble beach within short walking distance',
+        fr: 'Plage de sable ou de galets facilement accessible à pied',
         imageInactive: require('../assets/stacks/listing/amenties/inactive/b_beach.png'),
         imageActive: require('../assets/stacks/listing/amenties/active/y_beach.png')
     },

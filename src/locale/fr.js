@@ -85,7 +85,7 @@ export default {
             'title': 'Conditions actuelles'
         },
         'traditionalTerritories': {
-            'title': 'Territoires traditionnels'
+            'title': 'Premiéres nations du yukon'
         },
         'travelTrips': {
             'title': 'Se déplacer dans la nature'

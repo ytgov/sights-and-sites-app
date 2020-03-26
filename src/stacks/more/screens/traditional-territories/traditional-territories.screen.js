@@ -32,13 +32,13 @@ class TraditionalTerritoriesScreen extends React.Component {
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <Image source={traditionalTerritoriesIcon} resizeMode='contain'
                                            style={{width: 55, height: 55, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>Territoires traditionnels</H2>
+                                    <H2 black style={Helpers.textAlignCenter}>Premiéres nations du yukon</H2>
                                     <View style={TraditionalTerritoriesStyles.separator}/>
                                 </View>
 
                                 <View>
                                     <Body1 regular black>
-                                        Le Yukon est un territoire où vivent un grand nombre de groupes autochtones
+                                        Le Yukon est un territoire où vivent un grand nombre de premiéres nations
                                         ayant divers héritages
                                         politiques, culturels et linguistiques. Ces groupes ont en commun un profond
                                         attachement sentimental
@@ -53,13 +53,13 @@ class TraditionalTerritoriesScreen extends React.Component {
                                         }}>
                                             {' '}Yukon.ca{' '}
                                         </Text>
-                                         et sur
+                                         ,
                                         <Text style={{color: '#08f'}} onPress={() => {
                                             CurrentConditionsScreen.openLink('https://mappingtheway.ca/')
                                         }}>
                                             {' '}Mapping the Way{' '}
                                         </Text>
-                                        (en anglais).
+                                        et le site Web officiel de chaque Premiére nation.
                                     </Body1>
                                 </View>
                             </View>
