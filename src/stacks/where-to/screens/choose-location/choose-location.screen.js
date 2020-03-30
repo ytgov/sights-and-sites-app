@@ -16,7 +16,8 @@ const chooseLocationBackground = require('../../../../../assets/common/common-ba
 const nearMeIcon = require('../../../../../assets/stacks/where-to/near-me-icon.png');
 const byHighwayIcon = require('../../../../../assets/stacks/where-to/by-highway-icon.png');
 const byRegionIcon = require('../../../../../assets/stacks/where-to/by-region-icon.png');
-const mySitesIcon = require('../../../../../assets/stacks/where-to/my-sites-icon.png');
+const mySitesIcon = require('../../../../../assets/stacks/where-to/empty-heart.png');
+const mySitesIconActive = require('../../../../../assets/stacks/where-to/heart.png');
 
 class IntroStepFourScreen extends React.Component {
     state = {}
@@ -100,7 +101,8 @@ class IntroStepFourScreen extends React.Component {
                                               style={[ChooseLocationStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                 <View style={{position: 'relative'}}>
                                     {!!mySitesFilter && (<Badge/>)}
-                                    <Image source={mySitesIcon} resizeMode='contain' style={{width: 40, height: 40}}/>
+                                    <Image source={mySitesIconActive}
+                                           resizeMode='contain' style={{width: 40, height: 40}}/>
                                 </View>
                                 <Subtitle1
                                     style={[ChooseLocationStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('chooseLocation.mySites')}</Subtitle1>

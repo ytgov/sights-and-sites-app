@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {Image, TouchableOpacity} from 'react-native';
 import MySitesButtonStyles from './my-sites-button.styles';
 
-const mySitesNotActiveIcon = require('../../../../../assets/stacks/listing/my-sites-not-active-icon.png');
-const mySitesActiveIcon = require('../../../../../assets/stacks/listing/my-sites-active-icon.png');
+const mySitesNotActiveIcon = require('../../../../../assets/stacks/where-to/empty-heart.png');
+const mySitesActiveIcon = require('../../../../../assets/stacks/where-to/heart.png');
 
 const MySitesButton = props => {
     const {id, isSiteInMySites, toggleMySitesStateDispatch, showAddToMySitesNotification, filterListingDispatch} = props;
