@@ -1,13 +1,12 @@
 import React from 'react';
-import {Dimensions, Image, View, TouchableOpacity} from 'react-native';
+import {Dimensions, Image, TouchableOpacity, View} from 'react-native';
 import SiteType from '../../../../types/site.type';
 import PropTypes from 'prop-types';
 import {Caption, Helpers} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
-import {Button, Text, Icon} from 'native-base';
+import {Button, Icon} from 'native-base';
 import Modal from 'react-native-modal';
 import MapboxGL from '@react-native-mapbox-gl/maps';
-import {COLORS} from '../../../../theme/config';
 import {connect} from 'react-redux';
 import {fetchGMLocation} from '../../../../store/actions/listing';
 import {APP_CONFIG} from '../../../../config';
