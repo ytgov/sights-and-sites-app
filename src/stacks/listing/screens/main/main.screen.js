@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, TouchableOpacity, View, Platform} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
 import {Container, Content, Header} from 'native-base';
 import PropTypes from 'prop-types';
@@ -13,9 +13,6 @@ import MainScreenStyles from './main.screen.styles';
 import MapViewContainer from '../../containers/map-view/map-view.container';
 import ListViewContainer from '../../containers/list-view/list-view.container';
 import SiteType from '../../../../types/site.type';
-import axios from 'axios'
-import {APP_CONFIG} from '../../../../config'
-import IosMapViewContainer from '../../containers/map-view/ios-map-view.container';
 import FooterClearAll from '../../components/footer-clear-all/footer-clear-all.component';
 
 const searchIcon = require('../../../../../assets/common/search-icon.png');

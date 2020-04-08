@@ -10,12 +10,21 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 import {connect} from 'react-redux';
 import {fetchGMLocation} from '../../../../store/actions/listing';
 import {APP_CONFIG} from '../../../../config';
+import pinIcon from '../../../../../assets/images/pin.png';
 
 const accessToken = APP_CONFIG.map_box;
 MapboxGL.setAccessToken(accessToken);
 
 const mapIcon = require('../../../../../assets/stacks/tabs/map-icon.png');
 
+const styles = {
+    icon: {
+        iconImage: pinIcon,
+        iconAllowOverlap: true,
+        iconSize: 0.15,
+
+    },
+};
 
 class MapViewModal extends React.Component {
     state = {
@@ -50,31 +59,23 @@ class MapViewModal extends React.Component {
                         width: 50,
                         height: 50
                     }}
-                            onPress={() => this.setState({modal: false})}>
-                        <Icon name='close' />
+                                      onPress={() => this.setState({modal: false})}>
+                        <Icon name='close'/>
                     </TouchableOpacity>
                     <MapboxGL.MapView
-                        styleURL={MapboxGL.StyleURL.Light}
-                        zoomLevel={15}
+                        ref={c => (this._map = c)}
                         style={{
-                            flex: 1
+                            flex: 1,
+                            height: (Dimensions.get('window').height / 1.5)
                         }}>
+                        <MapboxGL.UserLocation />
+
                         <MapboxGL.Camera
                             centerCoordinate={[item.longitude, item.latitude]}
                             zoomLevel={10}
                         />
 
-                        <MapboxGL.PointAnnotation
-                            key={'site-location'}
-                            id={'siteLocation'}
-                            coordinate={[item.longitude, item.latitude]}
-                            style={{zIndex: 10000}}
-                            title={item.site_name}
-                        >
-                            <Image style={{width: 20, height: 20, zIndex: 1000}} resizeMode="contain"
-                                   source={require('../../../../../assets/images/pin.png')}/>
-                            <MapboxGL.Callout title={item.site_name}/>
-                        </MapboxGL.PointAnnotation>
+                        <MapboxGL.PointAnnotation id='itemModalAnnotation' coordinate={[item.longitude, item.latitude]} />
                     </MapboxGL.MapView>
                 </View>
             </Modal>

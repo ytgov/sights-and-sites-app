@@ -116,7 +116,7 @@ class MapViewContainer extends React.Component {
         return (
             <View style={{flex: 1, width, height}}>
                 {
-                    (!this.state.isConnected) && (
+                    (!this.state.isConnected) ? (
                         <View style={{
                             backgroundColor: '#FF5252',
                             padding: 10,
@@ -130,7 +130,7 @@ class MapViewContainer extends React.Component {
                                 color: "#FFF"
                             }}>No Internet Connection</Text>
                         </View>
-                    )
+                    ) : null
                 }
                 {
                     (!data) && (
