@@ -2,6 +2,7 @@ import React from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import {Updates} from 'expo'
 import Modal from 'react-native-modal';
+import i18n from '../../locale/locale';
 
 class AppUpdater extends React.Component {
     state = {
@@ -59,8 +60,14 @@ class AppUpdater extends React.Component {
                         <Text style={{
                             fontWeight: 'bold',
                             fontSize: 22,
-                            color: 'red'
-                        }}>New App Update Available</Text>
+                            color: 'red',
+                            textAlign: 'center'
+                        }}>
+                            {
+                                i18n.language === 'en' ? 'Refresh the list of Yukon roadside sites to begin'
+                                    : 'Rafraîchir la liste des sites routiers du Yukon pour commencer'
+                            }
+                        </Text>
                         <TouchableOpacity onPress={() => this.setState({update_available: false})}>
                             <Text>X</Text>
                         </TouchableOpacity>
@@ -78,7 +85,11 @@ class AppUpdater extends React.Component {
                                     paddingHorizontal: 25,
                                     paddingVertical: 10
                                 }}>
-                                    <Text style={{color: 'white'}}>Download</Text>
+                                    <Text style={{color: 'white'}}>
+                                        {
+                                            i18n.language === 'en' ? 'Refresh' : 'Rafraîchir'
+                                        }
+                                    </Text>
                                 </TouchableOpacity>
                             )
                         }
