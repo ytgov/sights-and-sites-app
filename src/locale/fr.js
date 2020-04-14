@@ -19,9 +19,9 @@ export default {
         },
         'siteTabs': {
             'directions': 'Itinéraire',
-            'map_view': 'Vue Cartographique',
+            'map_view': 'Carte',
             'share': 'Partager',
-            'mySites': 'Mes lieux préférés'
+            'mySites': 'Favoris'
         },
         'listingTypes': {
             'map': 'CARTE',
