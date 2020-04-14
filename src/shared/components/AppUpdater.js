@@ -15,8 +15,10 @@ class AppUpdater extends React.Component {
             if (update.isAvailable) {
                 await Updates.fetchUpdateAsync();
                 Toast.show({
-                    text: 'App Updated'
-                })
+                    text: 'App Update Ready'
+                });
+                await Updates.reloadFromCache();
+
             }
         } catch (e) {
             console.info('DEV MODE')
