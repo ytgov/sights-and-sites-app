@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/badi/code/temp-code/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "/Users/badi/code/expo-projects/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "/Users/badi/.gradle/caches/transforms-2/files-2.1/6e1c3aa384c0bde2d05f603637d0bdf7/appcompat-1.1.0/res/values-zh-rCN/values-zh-rCN.xml",

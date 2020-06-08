@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/badi/code/temp-code/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-iw/values-iw.xml",
+            "outputFile": "/Users/badi/code/expo-projects/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "/Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/res/values-iw/values-iw.xml",
