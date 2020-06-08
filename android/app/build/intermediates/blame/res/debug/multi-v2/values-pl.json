@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/badi/code/temp-code/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
+            "outputFile": "/Users/badi/code/expo-projects/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
                     "source": "/Users/badi/.gradle/caches/transforms-2/files-2.1/a39337839ebda2672da1c777379f7c60/core-1.4.0-alpha01/res/values-pl/values-pl.xml",

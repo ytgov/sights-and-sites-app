@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/badi/code/temp-code/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml",
+            "outputFile": "/Users/badi/code/expo-projects/yukon/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml",
             "map": [
                 {
                     "source": "/Users/badi/.gradle/caches/transforms-2/files-2.1/c2dd84b474805aca1aca9f297b6bdbea/jetified-play-services-basement-16.0.1/res/values-es/values.xml",
