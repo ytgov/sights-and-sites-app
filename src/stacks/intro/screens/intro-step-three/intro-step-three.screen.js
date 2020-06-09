@@ -25,7 +25,7 @@ const heartIcon = require('../../../../../assets/stacks/intro/heart.png');
 class IntroStepThreeScreen extends React.Component {
     state = {}
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         // Load additional namespaces after initialization
         i18n.addResourceBundle('en', 'translation', en);
         i18n.addResourceBundle('fr', 'translation', fr);

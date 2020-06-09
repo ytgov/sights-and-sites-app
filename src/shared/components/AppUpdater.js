@@ -1,5 +1,5 @@
 import React from 'react';
-import {Updates} from 'expo'
+import * as Updates from 'expo-updates';
 import {Toast} from 'native-base'
 
 class AppUpdater extends React.Component {
