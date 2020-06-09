@@ -1,5 +1,5 @@
 import React from 'react';
-import {UIManager, Image, View} from 'react-native';
+import {Image, UIManager, View} from 'react-native';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import configureStore from './src/store';
@@ -7,15 +7,14 @@ import AppRoot from './src';
 import LocationGate from './src/shared/components/location-gate/location-gate.component';
 import NetworkGate from './src/shared/components/netwrok-gate/netwrok-gate.component';
 import LoadResourcesAsync from './src/load-resources-async';
-import * as Sentry from 'sentry-expo';
-import AppUpdater from './src/shared/components/AppUpdater';
+// import * as Sentry from 'sentry-expo';
 import * as SplashScreen from 'expo-splash-screen';
 
-Sentry.init({
-  dsn: 'https://98306b38a625451ab47ea15a41a77c1b@sentry.io/1795244',
-  enableInExpoDevelopment: false,
-  debug: true
-});
+// Sentry.init({
+//   dsn: 'https://98306b38a625451ab47ea15a41a77c1b@sentry.io/1795244',
+//   enableInExpoDevelopment: false,
+//   debug: true
+// });
 
 const { store, persistor } = configureStore();
 
@@ -25,6 +24,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
+    console.disableYellowBox = true;
     if (UIManager.setLayoutAnimationEnabledExperimental) {
       UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     }
@@ -65,7 +65,6 @@ export default class App extends React.Component {
           <PersistGate loading={null} persistor={persistor}>
             <NetworkGate>
               <LocationGate>
-                <AppUpdater/>
                 <AppRoot />
               </LocationGate>
             </NetworkGate>
