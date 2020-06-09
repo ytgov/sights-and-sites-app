@@ -25,7 +25,7 @@ const filterIcon = require('../../../../../assets/stacks/intro/filter.png');
 class IntroStepTwoScreen extends React.Component {
     state = {}
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         // Load additional namespaces after initialization
         i18n.addResourceBundle('en', 'translation', en);
         i18n.addResourceBundle('fr', 'translation', fr);
