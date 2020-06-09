@@ -24,10 +24,6 @@ export default class App extends React.Component {
     isLoadingComplete: false
   }
 
-  componentDidMount() {
-
-  }
-
   async componentDidMount() {
     if (UIManager.setLayoutAnimationEnabledExperimental) {
       UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
