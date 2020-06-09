@@ -3563,7 +3563,7 @@ expo-sqlite@~8.1.0:
     "@types/websql" "^0.0.27"
     lodash "^4.17.15"
 
-expo-updates@~0.2.0:
+expo-updates@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.2.7.tgz#8197efebbb548181954f0aa5efbd2c02070bed9c"
   integrity sha512-6CACrRpx3Xj9zoYC1zuLyGfLBL4fvBRW3A1rGV9z573RIhd4Utq4XtlkzQ/VaK4Utw9cClqWZgWfwnanGmulnQ==

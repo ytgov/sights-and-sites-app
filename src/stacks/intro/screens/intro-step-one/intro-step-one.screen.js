@@ -27,7 +27,7 @@ const dotIcon = require('../../../../../assets/stacks/intro/dot.png');
 class IntroStepOneScreen extends React.Component {
     state = {}
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         const {locale} = this.props;
         // Load additional namespaces after initialization
         i18n.addResourceBundle('en', 'translation', en);
