@@ -406,7 +406,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.247labs.yukon;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.yk.gov.yukonroadtrip;
 				PRODUCT_NAME = "Yukon Road Trip";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -427,7 +427,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.247labs.yukon;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.yk.gov.yukonroadtrip;
 				PRODUCT_NAME = "Yukon Road Trip";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
