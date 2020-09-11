@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  yukon
+
+  Created by Dave Rogers on 2020-09-11.
+  Copyright © 2020 Government of Yukon. All rights reserved.
+*/
+
+NSLocationAlwaysAndWhenInUseUsageDescription = "Cette application utilise la localisation fournie par votre appareil pour vous donner des résultats utiles, comme des lieux situés à proximité. Cette application ne conserve pas la localisation en mémoire.";
+
+NSLocationAlwaysUsageDescription = "Cette application utilise la localisation fournie par votre appareil pour vous donner des résultats utiles, comme des lieux situés à proximité. Cette application ne conserve pas la localisation en mémoire.";
+
+NSLocationWhenInUseUsageDescription = "Cette application utilise la localisation fournie par votre appareil pour vous donner des résultats utiles, comme des lieux situés à proximité. Cette application ne conserve pas la localisation en mémoire.";
