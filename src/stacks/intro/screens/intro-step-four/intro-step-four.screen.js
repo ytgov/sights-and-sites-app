@@ -64,12 +64,15 @@ class IntroStepFourScreen extends React.Component {
         const {status} = await Permissions.askAsync(
             Permissions.LOCATION
         );
-        if (status !== 'granted') {
-            error(i18n.t('notifications.permissionsRequest'));
-        } else {
-            setOnboardingFinishedDispatch();
-            navigation.navigate('Main');
-        }
+
+//      20200911 drogers: Apple will not accept the app unless it can be run without location
+//      permissions enabled.
+//        if (status !== 'granted') {
+//            error(i18n.t('notifications.permissionsRequest'));
+//        } else {
+        setOnboardingFinishedDispatch();
+        navigation.navigate('Main');
+//        }
     }
 
     render() {
