@@ -1,15 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 
 class MainScreen extends React.Component {
-  state = {
-  }
+    state = {}
 
-  render() {
-    return (
-      <View />
-    );
-  }
+    render() {
+        return (
+            <View/>
+        );
+    }
 }
 
 export default MainScreen;

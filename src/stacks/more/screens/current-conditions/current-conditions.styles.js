@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import MoreCommonStyles from '../more.common.styles';
 
 const CurrentConditionStyles = StyleSheet.create({
-  ...MoreCommonStyles
+    ...MoreCommonStyles
 });
 
 export default CurrentConditionStyles;

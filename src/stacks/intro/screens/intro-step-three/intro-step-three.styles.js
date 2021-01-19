@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import IntroStepsCommonStyles from '../intro.styles';
 
 const IntroStepThreeStyles = StyleSheet.create({
-  ...IntroStepsCommonStyles
+    ...IntroStepsCommonStyles
 });
 
 export default IntroStepThreeStyles;

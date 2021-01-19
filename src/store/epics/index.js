@@ -1,8 +1,8 @@
-import { combineEpics } from 'redux-observable';
+import {combineEpics} from 'redux-observable';
 import listingFilter from './filters';
 
 const rootEpic = combineEpics(
-  listingFilter
+    listingFilter
 );
 
 export default rootEpic;

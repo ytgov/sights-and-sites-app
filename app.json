@@ -1,21 +1,24 @@
 {
   "expo": {
-    "name": "Yukon",
+    "name": "Yukon Road Trip",
     "slug": "yukon",
-    "privacy": "public",
-    "sdkVersion": "33.0.0",
+    "privacy": "unlisted",
+    "version": "1.0.0",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
+    },
+    "notification": {
+      "icon": "./assets/icon.png",
+      "iosDisplayInForeground": true
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,8 +27,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "userInterfaceStyle": "light",
+      "bundleIdentifier": "com.247labs.yukon",
+      "supportsTablet": true,
+      "icon": "./assets/images/icon.png",
+      "buildNumber": "1",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Light"
+      }
     },
-    "description": ""
+    "android": {
+      "package": "com.labs.yukon",
+      "icon": "./assets/images/icon.png",
+      "permissions": [
+        "ACCESS_FINE_LOCATION"
+      ]
+    }
   }
 }
