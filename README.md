@@ -33,21 +33,34 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+### Setup Local Env
+#### Clone this repos
+`git clone git clone https://github.com/ytgov/yukon-road-trip.git`
+
+#### Install dependencies
+From `yukon-roadtrip-app`, run `npm install`
+
 ### Generate the Application keystore
 this key will be used by Google to sign you app releases. Once uploaded, this key cannot be changed. 
-From `/android/app`, run: `keytool -genkey -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000`
+From `/android/app/`, run: `keytool -genkey -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000`
 You will be prompted to choose a password. Store it safely.
 
 ### Generate Upload key
 This key will be used to sign your builds locally. This one can be invalidated and recreated if necessary (but not without Google support). Same as previous step, store the password safely.
-From `/android/app`, run: `keytool -genkey -v -keystore upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000`
-From `/android/app`, run: `keytool -export -rfc -keystore upload.keystore -alias upload -file upload_certificate.pem`
+From `/android/app/`, run: `keytool -genkey -v -keystore upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000`
+From `/android/app/`, run: `keytool -export -rfc -keystore upload.keystore -alias upload -file upload_certificate.pem`
 
 ### Set keystore password as gradle env variables
 In `android/gradle.properties`, set the values of `MYAPP_UPLOAD_STORE_PASSWORD` and `MYAPP_UPLOAD_KEY_PASSWORD` to the password you chose at the previous step.
 
 ### Build
-From `/`, run `./gradlew bundleRelease`
+#### Start the Reeact-native Android server
+In a separate terminal: 
+From `/`, run `npx react-native run-android`
+Keep it running during the next step
+
+#### run the build script
+From `/android/`, run `./gradlew bundleRelease`
 
 ### Test your build
 ### Launch the Android simulator
