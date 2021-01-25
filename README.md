@@ -33,9 +33,15 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-### Generate keystore
+### Generate the Application keystore
+this key will be used by Google to sign you app releases. Once uploaded, this key cannot be changed. 
 From `/android/app`, run: `$ sudo keytool -genkey -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000`
-You will be prompted to choose a password. Keep it for the next step. 
+You will be prompted to choose a password. Keep it for the next step.
+
+### Generate Upload key
+This key will be used to sign your builds locally. This one can be invalidated and recreated if necessary (but not without Google support)
+From `/android/app`, run: `$ sudo keytool -genkey -v -keystore upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000`
+From `/android/app`, run: `keytool -export -rfc -keystore upload.keystore -alias upload -file upload_certificate.pem`
 
 ### Set keystore password as gradle env variables
 In `android/gradle.properties`, set the values of `MYAPP_UPLOAD_STORE_PASSWORD` and `MYAPP_UPLOAD_KEY_PASSWORD` to the password you chose at the previous step.
@@ -50,8 +56,26 @@ From `/`, run `emulator -avd <avd_name>` where `<avd_name>` is the name of the A
 ### Launch the app
 From `/`, run `npx react-native run-android --variant=release`
 
-### Voilà
-Your APK is located at `android/app/build/outputs/apk/release/app-release.apk`
+## App publishing process
+### Create a new app
+Open the Google Play Console and create a new application.
+
+### Create a production release
+Click on "Release" -> "Production" -> "Create new release". ⚠️ Stop before clicking on "Continue" under "Play App Signing"
+
+### Configure Play App Signing
+Click on "Manage preferences", select the option "Export and upload a key from a java keystore" and follow the instructions on screen:
+
+- 1 and 2 using the release Application keystore you generated earlier (release.keystore)
+
+- Upload the upload certificate created earlier (upload_certificate.pem).
+
+### Upload your app bundle
+click on "Upload" and upload the .abb file located at `android/app/release/app-release.abb`
+
+### Complete version details
+Fil the fields and submit the form.
+
 
 ## Useful references
 [React Native build process](https://reactnative.dev/docs/signed-apk-android)
