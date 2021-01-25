@@ -35,12 +35,12 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 ### Generate the Application keystore
 this key will be used by Google to sign you app releases. Once uploaded, this key cannot be changed. 
-From `/android/app`, run: `$ sudo keytool -genkey -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000`
-You will be prompted to choose a password. Keep it for the next step.
+From `/android/app`, run: `keytool -genkey -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000`
+You will be prompted to choose a password. Store it safely.
 
 ### Generate Upload key
-This key will be used to sign your builds locally. This one can be invalidated and recreated if necessary (but not without Google support)
-From `/android/app`, run: `$ sudo keytool -genkey -v -keystore upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000`
+This key will be used to sign your builds locally. This one can be invalidated and recreated if necessary (but not without Google support). Same as previous step, store the password safely.
+From `/android/app`, run: `keytool -genkey -v -keystore upload.keystore -alias upload -keyalg RSA -keysize 2048 -validity 10000`
 From `/android/app`, run: `keytool -export -rfc -keystore upload.keystore -alias upload -file upload_certificate.pem`
 
 ### Set keystore password as gradle env variables
