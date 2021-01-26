@@ -51,10 +51,12 @@ From `/android/app/`, run: `keytool -genkey -v -keystore upload.keystore -alias 
 From `/android/app/`, run: `keytool -export -rfc -keystore upload.keystore -alias upload -file upload_certificate.pem`
 
 ### Set keystore password as gradle env variables
-In `android/gradle.properties`, set the values of `MYAPP_UPLOAD_STORE_PASSWORD` and `MYAPP_UPLOAD_KEY_PASSWORD` to the password you chose at the previous step.
+In `android/gradle.properties`, set the values of `MYAPP_UPLOAD_STORE_PASSWORD` and `MYAPP_UPLOAD_KEY_PASSWORD` to the password you chose at the previous step (Upload key).
 
 ### Build
-#### Start the Reeact-native Android server
+#### Start the React-native Android server
+*(not sure it's really necessary but the next step wasn't working before I did that)*
+
 In a separate terminal: 
 From `/`, run `npx react-native run-android`
 Keep it running during the next step
