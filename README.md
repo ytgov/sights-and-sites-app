@@ -84,7 +84,7 @@ Click on "Manage preferences", select the option "Export and upload a key from a
 - Upload the upload certificate created earlier (upload_certificate.pem).
 
 ### Upload your app bundle
-click on "Upload" and upload the .abb file located at `android/app/release/app-release.abb`
+click on "Upload" and upload the .abb file located at `android/app/build/outputs/bundle/release/app-release.abb`
 
 ### Complete version details
 Fil the fields and submit the form.
