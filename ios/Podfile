@@ -36,6 +36,13 @@ target 'yukon' do
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
 
+  # Fix image not loading in IOS 14.3
+  # https://github.com/facebook/react-native/issues/29279#issuecomment-769153034
+  post_install do |installer|
+    find_and_replace("../node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m",
+    "_currentFrame.CGImage;","_currentFrame.CGImage ;} else { [super displayLayer:layer];")
+  end
+
   # Other native modules
 
   # Automatically detect installed unimodules
@@ -45,4 +52,17 @@ target 'yukon' do
   use_native_modules!
 
   use_frameworks!
+end
+
+def find_and_replace(dir, findstr, replacestr)
+  Dir[dir].each do |name|
+      text = File.read(name)
+      replace = text.gsub(findstr,replacestr)
+      if text != replace
+          puts "Fix: " + name
+          File.open(name, "w") { |file| file.puts replace }
+          STDOUT.flush
+      end
+  end
+  Dir[dir + '*/'].each(&method(:find_and_replace))
 end
