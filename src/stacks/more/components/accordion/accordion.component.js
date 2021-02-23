@@ -114,7 +114,7 @@ const AccordionCustom = props => {
 
 
             </View>}
-            dataArray={data} expanded={0}/>
+            dataArray={data} expanded={[0]}/>
     )
 }
 
