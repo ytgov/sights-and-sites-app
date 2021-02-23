@@ -4,6 +4,7 @@
     "slug": "yukon",
     "privacy": "unlisted",
     "version": "1.0.0",
+    "sdkVersion": "40.0.0",
     "platforms": [
       "ios",
       "android",
