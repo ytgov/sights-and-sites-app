@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native'
+import {View, Text} from 'react-native'
 import {connect} from 'react-redux';
 import {Image} from 'react-native-expo-image-cache';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import NavigationBackButton from '../../../../shared/components/navigation/back-
 import SiteFooterTabs from '../../components/site-footer-tabs/site-footer-tabs.component';
 import MySitesButton from '../../components/my-sites-button/my-sites-button.component';
 import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
+import SiteTypes from '../../components/site-types/site-types.component';
 import SiteWarning from '../../components/site-warning/site-warning.component';
 import {filterListing} from '../../../../store/actions/listing';
 import {setMySitesFilters, toggleMySitesState} from '../../../../store/actions/filters';
@@ -102,6 +103,7 @@ class SiteDetails extends React.Component {
                                        filterListingDispatch={filterListingDispatch}/>
                     </View>
                     <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
+                        <SiteTypes item={item} />
                         <SiteCardInfo item={item} locale={locale}/>
 
                         {!!item.warning && <SiteWarning value={item.warning}/>}
