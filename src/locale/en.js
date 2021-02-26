@@ -97,7 +97,8 @@ export default {
             'title': 'Wilderness Travel Tips'
         },
         'appInformation': {
-            'title': 'App Information'
+            'title': 'App Information',
+            'onboarding': 'Introduction'
         }
     },
 }

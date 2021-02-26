@@ -4,16 +4,22 @@ import SiteDetails from './screens/site-details/site-details.screen';
 
 const ListingStack = createStackNavigator({
     Map: {
-        screen: MainScreen,
-        navigationOptions: () => ({
-            header: null
-        })
+        screen: MainScreen
     },
     SiteDetails: {
-        screen: SiteDetails,
-        navigationOptions: () => ({
-            header: null
-        })
+        screen: SiteDetails
+    }
+}, {
+    defaultNavigationOptions: {
+        headerTitleStyle: {
+            color: 'white'
+        },
+        headerStyle: {
+            backgroundColor: 'black'
+        },
+        headerRightContainerStyle: {
+            marginRight: 12
+        }
     }
 });
 

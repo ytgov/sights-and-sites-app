@@ -88,7 +88,7 @@ export default function filtersReducer(state = initialState, action) {
         case RESET_FILTERS: {
             return {
                 ...initialState,
-                sitesTypeFilter: state.sitesTypeFilter,
+                sitesTypeFilter: [], 
                 mySites: state.mySites,
             }
         }
