@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux';
 import {Image} from 'react-native-expo-image-cache';
 import PropTypes from 'prop-types';
@@ -21,10 +21,18 @@ import AddToMySitesNotification
 import SiteType from '../../../../types/site.type';
 import {APP_CONFIG} from '../../../../config';
 import {getPreciseDistance} from 'geolib';
+import MainScreenStyles from '../main/main.screen.styles';
 
 const fallback = require('../../../../../assets/common/fallback.png');
 
 class SiteDetails extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Site details',
+            headerLeft: <NavigationBackButton navigation={navigation}/>
+        }
+    }
+
     addToMySitesNotificationTimeout = null;
 
     state = {
@@ -87,9 +95,6 @@ class SiteDetails extends React.Component {
 
         return (
             <Container style={{backgroundColor: '#000'}}>
-                <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content">
-                    <NavigationBackButton navigation={navigation}/>
-                </Header>
                 <Content>
                     <View style={COMMON.content}>
                         <View style={[SiteDetailsStyles.siteImgBox]}>
