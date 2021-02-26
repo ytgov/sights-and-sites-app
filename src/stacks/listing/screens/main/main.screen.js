@@ -18,22 +18,25 @@ import FooterClearAll from '../../components/footer-clear-all/footer-clear-all.c
 const searchIcon = require('../../../../../assets/common/search-icon.png');
 
 class MainScreen extends React.Component {
-    state = {}
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Listing',
+            headerRight: (
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate('Search')
+                }}>
+                    <Image source={searchIcon} style={MainScreenStyles.searchIcon}/>
+                </TouchableOpacity>
+            )
+        }
+    }
 
+    state = {}
 
     render() {
         const {navigation, locale, listingFiltered, toggleListingViewDispatch, incrementListingPageDispatch, selectedListingView, currentListingPage, listingPagesLimit, listingItemsCount} = this.props;
         return (
             <Container style={{backgroundColor: '#000'}}>
-                <Header style={[COMMON.header, COMMON.headerBlack, {justifyContent: 'flex-end'}]}
-                        iosBarStyle="light-content">
-                    <TouchableOpacity onPress={() => {
-                        navigation.navigate('Search')
-                    }}>
-                        <Image source={searchIcon} style={MainScreenStyles.searchIcon}/>
-                    </TouchableOpacity>
-                </Header>
-
                 <View style={Helpers.flexDirectionRow}>
                     <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxLeft]}>
                         <TouchableOpacity

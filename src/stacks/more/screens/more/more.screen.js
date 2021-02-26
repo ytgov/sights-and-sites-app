@@ -112,6 +112,17 @@ class MoreScreen extends React.Component {
                                         style={[MoreStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('appInformation.title')}</Subtitle1>
                                 </TouchableOpacity>
 
+                                <TouchableOpacity onPress={() => {
+                                    navigation.navigate('IntroStepOne')
+                                }} style={[MoreStyles.btnBox, Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                                    <View style={{position: 'relative'}}>
+                                        <Image source={currentConditionsIcon} resizeMode='contain'
+                                               style={{width: 40, height: 40}}/>
+                                    </View>
+                                    <Subtitle1
+                                        style={[MoreStyles.btnText, Helpers.textAlignCenter]}>{i18n.t('appInformation.onboarding')}</Subtitle1>
+                                </TouchableOpacity>
+
                                 <View style={MoreStyles.LanguageLayout}>
                                     <TouchableOpacity onPress={() => {
                                         this.selectLanguage('en');
