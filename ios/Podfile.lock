@@ -1,17 +1,19 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
-  - EXBlur (8.1.0):
+  - EXBlur (8.2.2):
     - UMCore
-  - EXConstants (9.0.0):
+  - EXConstants (10.0.1):
     - UMConstantsInterface
+    - UMCore
+  - EXDevice (2.4.0):
     - UMCore
   - EXErrorRecovery (1.1.0):
     - UMCore
   - EXFileSystem (8.1.0):
     - UMCore
     - UMFileSystemInterface
-  - EXFont (8.1.1):
+  - EXFont (8.4.0):
     - UMCore
     - UMFontInterface
   - EXImageLoader (1.0.1):
@@ -22,13 +24,13 @@ PODS:
     - UMCore
   - EXLinearGradient (8.1.0):
     - UMCore
-  - EXLocalization (8.1.0):
+  - EXLocalization (8.2.1):
     - UMCore
-  - EXLocation (8.1.0):
+  - EXLocation (8.3.0):
     - UMCore
     - UMPermissionsInterface
     - UMTaskManagerInterface
-  - EXPermissions (8.1.0):
+  - EXPermissions (8.2.0):
     - UMCore
     - UMPermissionsInterface
   - EXSplashScreen (0.2.3):
@@ -36,7 +38,7 @@ PODS:
   - EXSQLite (8.1.0):
     - UMCore
     - UMFileSystemInterface
-  - EXUpdates (0.2.9):
+  - EXUpdates (0.2.14):
     - React
     - UMCore
   - EXWebBrowser (8.2.1):
@@ -228,8 +230,8 @@ PODS:
   - react-native-mapbox-gl (7.2.0):
     - Mapbox-iOS-SDK (~> 5.6)
     - React
-  - react-native-netinfo (5.9.2):
-    - React
+  - react-native-netinfo (5.9.10):
+    - React-Core
   - React-RCTActionSheet (0.61.5):
     - React-Core/RCTActionSheetHeaders (= 0.61.5)
   - React-RCTAnimation (0.61.5):
@@ -295,7 +297,8 @@ PODS:
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXBlur (from `../node_modules/expo-blur/ios`)
-  - EXConstants (from `../node_modules/expo-constants/ios`)
+  - EXConstants (from `../node_modules/sentry-expo/node_modules/expo-constants/ios`)
+  - EXDevice (from `../node_modules/expo-device/ios`)
   - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
@@ -368,7 +371,9 @@ EXTERNAL SOURCES:
   EXBlur:
     :path: "../node_modules/expo-blur/ios"
   EXConstants:
-    :path: "../node_modules/expo-constants/ios"
+    :path: "../node_modules/sentry-expo/node_modules/expo-constants/ios"
+  EXDevice:
+    :path: "../node_modules/expo-device/ios"
   EXErrorRecovery:
     :path: "../node_modules/expo-error-recovery/ios"
   EXFileSystem:
@@ -485,20 +490,21 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
-  EXBlur: aa14d84bff6e9c2232fbcaf54ad809eee1cc41dc
-  EXConstants: 5304709b1bea70a4828f48ba4c7fc3ec3b2d9b17
+  EXBlur: 569d38c2b0b7b000866d928bc36acadfdc02ea8e
+  EXConstants: d9483a8fe0a963dd7ee3389f371303773e6ecd37
+  EXDevice: 01f54314f618aa4098893f66cd8f2a8a411f33ee
   EXErrorRecovery: 8f4c21ab2f51bf75defe4536f841a37de59b0661
   EXFileSystem: cf4232ba7c62dc49b78c2d36005f97b6fddf0b01
-  EXFont: b60f7a8900e3a12e7be3b2a40e19b22c7b5f89ba
+  EXFont: 30c64ed8735a180e3f20046e4fdac4ea074d71d3
   EXImageLoader: 5ad6896fa1ef2ee814b551873cbf7a7baccc694a
   EXKeepAwake: d045bc2cf1ad5a04f0323cc7c894b95b414042e0
   EXLinearGradient: 97d8095d1e4ad96f7893e010e564796ed8aeea42
-  EXLocalization: 1997068470bdfb7601fd58dbbf85ba1cde36fb82
-  EXLocation: bbd487fd96a18a3ad9725389bbb94c4a5f78edf3
-  EXPermissions: 24b97f734ce9172d245a5be38ad9ccfcb6135964
+  EXLocalization: b5bcfc925ed83123b585d46d3bd54d7b7118f307
+  EXLocation: 7615a912e30e8834679d9a07c86d99602f45b479
+  EXPermissions: 98c3c036bada9342d3e6a51a18bb1166f9085e67
   EXSplashScreen: 6568daa178c8e17f2197d29cea858f0e0b61b695
   EXSQLite: 877ad6c8eb169353a2f94d5ad26510ffadd46a1f
-  EXUpdates: 7176be81088b1628c94fa5546aceefba119fcae6
+  EXUpdates: f3c4943abb6ab28cc55cbeac4ff4612701f82725
   EXWebBrowser: 5902f99ac5ac551e5c82ff46f13a337b323aa9ea
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
@@ -516,7 +522,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
   react-native-mapbox-gl: f94bda32d55284b202d72359ed7d5d43f5223c89
-  react-native-netinfo: cb74e17062b2af5a16a4b137f32495f241df1a8e
+  react-native-netinfo: 30fb89fa913c342be82a887b56e96be6d71201dd
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -546,6 +552,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: cb890c79c63885504ddc0efd7a7d01481760aca2
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 9b3be5833e7f57944addadb01da027cd43377118
+PODFILE CHECKSUM: b217ff8b3936960c6a96cace49c73f5d897e01ce
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux';
 import {Image} from 'react-native-expo-image-cache';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import NavigationBackButton from '../../../../shared/components/navigation/back-
 import SiteFooterTabs from '../../components/site-footer-tabs/site-footer-tabs.component';
 import MySitesButton from '../../components/my-sites-button/my-sites-button.component';
 import SiteCardInfo from '../../components/site-card-info/site-card-info.component';
+import SiteTypes from '../../components/site-types/site-types.component';
 import SiteWarning from '../../components/site-warning/site-warning.component';
 import {filterListing} from '../../../../store/actions/listing';
 import {setMySitesFilters, toggleMySitesState} from '../../../../store/actions/filters';
@@ -20,10 +21,18 @@ import AddToMySitesNotification
 import SiteType from '../../../../types/site.type';
 import {APP_CONFIG} from '../../../../config';
 import {getPreciseDistance} from 'geolib';
+import MainScreenStyles from '../main/main.screen.styles';
 
 const fallback = require('../../../../../assets/common/fallback.png');
 
 class SiteDetails extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Site details',
+            headerLeft: <NavigationBackButton navigation={navigation}/>
+        }
+    }
+
     addToMySitesNotificationTimeout = null;
 
     state = {
@@ -86,9 +95,6 @@ class SiteDetails extends React.Component {
 
         return (
             <Container style={{backgroundColor: '#000'}}>
-                <Header style={[COMMON.header, COMMON.headerBlack]} iosBarStyle="light-content">
-                    <NavigationBackButton navigation={navigation}/>
-                </Header>
                 <Content>
                     <View style={COMMON.content}>
                         <View style={[SiteDetailsStyles.siteImgBox]}>
@@ -102,6 +108,7 @@ class SiteDetails extends React.Component {
                                        filterListingDispatch={filterListingDispatch}/>
                     </View>
                     <View style={[COMMON.content, SiteDetailsStyles.siteContentBox]}>
+                        <SiteTypes item={item} />
                         <SiteCardInfo item={item} locale={locale}/>
 
                         {!!item.warning && <SiteWarning value={item.warning}/>}

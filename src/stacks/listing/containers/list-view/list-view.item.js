@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {Image} from 'react-native-expo-image-cache';
 import SiteCard from '../../components/site-card/site-card.component';
@@ -21,13 +21,15 @@ class ListViewItem extends React.PureComponent {
         return (
             <View noIndent style={ListViewStyles.listItem}>
                 <View style={ListViewStyles.listItemImgBox}>
-                    <Image
-                        {...{preview, uri}}
-                        tint={APP_CONFIG.cache.tint}
-                        transitionDuration={APP_CONFIG.cache.transitionDuration}
-                        resizeMode='cover'
-                        fallback={fallback}
-                        style={ListViewStyles.listItemImg}/>
+                    <TouchableOpacity onPress={() => navigation.navigate('SiteDetails', {item})}>
+                        <Image
+                            {...{preview, uri}}
+                            tint={APP_CONFIG.cache.tint}
+                            transitionDuration={APP_CONFIG.cache.transitionDuration}
+                            resizeMode='cover'
+                            fallback={fallback}
+                            style={ListViewStyles.listItemImg}/>
+                    </TouchableOpacity>
                 </View>
                 <SiteCard item={item} parentLocation={parentLocation} locale={locale} navigation={navigation}/>
             </View>
