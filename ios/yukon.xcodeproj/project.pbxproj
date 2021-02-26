@@ -410,6 +410,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				INFOPLIST_FILE = yukon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.4;
 				OTHER_LDFLAGS = (
@@ -431,6 +432,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				INFOPLIST_FILE = yukon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.4;
 				OTHER_LDFLAGS = (
