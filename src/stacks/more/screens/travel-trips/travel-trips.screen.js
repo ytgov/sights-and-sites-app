@@ -107,11 +107,11 @@ class TravelTripsScreen extends React.Component {
                 content: 'Yukon’s historic resources are protected under the Historic Resources Act. Do no remove an artifact from an archaeological or historic site. Artifacts belong to all Yukoners and are held in the public trust. To report a find, contact',
                 contacts: [
                     {
-                        name: 'Yukon Archaeology ',
+                        name: 'Yukon Archaeology',
                         contact: '867-667-5983'
                     },
                     {
-                        name: 'Government of Yukon Toll-Free line ',
+                        name: 'Government of Yukon Toll-Free line',
                         contact: '1-800-661-0408'
                     }
                 ]
