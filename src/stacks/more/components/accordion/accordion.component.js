@@ -62,7 +62,7 @@ const AccordionCustom = props => {
                     : null
                 }
                 {item.contacts ?
-                    item.contacts.map((m, i) => <Body1 key={i} bold black>{m.name} At {m.contact}</Body1>)
+                    item.contacts.map((m, i) => <Body1 key={i} bold black>{m.name}: {m.contact}</Body1>)
                     : null
                 }
 
