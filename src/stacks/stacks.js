@@ -1,6 +1,7 @@
 import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
+
 import LoadingStack from './loading/loading.stack';
 import WelcomeStack from './welcome/welcome.stack';
 import IntroStack from './intro/intro.stack';
@@ -9,6 +10,9 @@ import TestScreen from './TestScreen';
 
 import CurrentConditionsScreen from './more/screens/current-conditions/current-conditions.screen';
 import TraditionalTerritoriesScreen from './more/screens/traditional-territories/traditional-territories.screen';
+import TravelTripsScreen from './more/screens/travel-trips/travel-trips.screen';
+import AppInformationScreen from './more/screens/app-information/app-information.screen';
+import IntroStepOneScreen from './intro/screens/intro-step-one/intro-step-one.screen';
 
 const RootNavigation = createSwitchNavigator(
     {
@@ -32,22 +36,26 @@ const RootDrawerNavigation = createDrawerNavigator(
                 title: 'Home'
             }
         },
-        CurrentConditionsScreen: {
+        CurrentConditions: {
             screen: CurrentConditionsScreen,
-            navigationOptions: {
-                title: 'CurrentConditions'
-            }
         },
-        TraditionalTerritoriesScreen: {
-            screen: TraditionalTerritoriesScreen,
-            navigationOptions: {
-                title: 'First Nations in Yukon'
-            }
+        TraditionalTerritories: {
+            screen: TraditionalTerritoriesScreen
+        },
+        TravelTrips: {
+            screen: TravelTripsScreen
+        },
+        AppInformation: {
+            screen: AppInformationScreen
+        },
+        AppInstructions: {
+            screen: IntroStepOneScreen
         }
     }, {
-        // contentComponent: SideMenu,
+        initialRouteName: 'MainRoot',
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
+        overlayColor: 'rgba(0, 151, 169, 0.7)',
     }
 );
 
