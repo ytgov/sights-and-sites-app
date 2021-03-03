@@ -1,7 +1,6 @@
 import React from 'react';
-import {Image, SafeAreaView, View} from 'react-native';
-import {Container, Content, Header, Root} from 'native-base';
-import NavigationBackButton from '../../../../shared/components/navigation/back-button';
+import {Image, View} from 'react-native';
+import {Content, Root} from 'native-base';
 import {Body1, COMMON, H2, Helpers} from '../../../../theme/theme';
 import AppInformationStyles from './app-information.styles';
 import Feedback from '../../components/feedback/feedback.component';
@@ -16,7 +15,6 @@ class AppInformationScreen extends React.Component {
     state = {}
 
     render() {
-        const {navigation} = this.props;
         const fr_data = [
             {
                 title: 'Géolocalisation',
@@ -215,58 +213,50 @@ The purpose of this privacy statement is to inform you of the personal informati
         const locale = i18n.language
         return (
             <Root>
-                <Container style={COMMON.content}>
-                    <Header style={COMMON.header}>
-                        <NavigationBackButton dark navigation={navigation}/>
-                    </Header>
-                    <SafeAreaView/>
-                    <SafeAreaView style={{paddingLeft: 0, padingRight: 0, flex: 1, backgroundColor: '#000'}}>
-                        <Content style={[COMMON.content]}>
-                            <View style={AppInformationStyles.contentPadded}>
-                                <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
-                                    <Image source={appInformationIcon} resizeMode='contain'
-                                           style={{width: 40, height: 40, marginBottom: 12}}/>
-                                    <H2 black style={Helpers.textAlignCenter}>{i18n.language === 'en' ? 'App Information' : 'Renseignements sur l’application'}</H2>
-                                    <View style={AppInformationStyles.separator}/>
-                                </View>
+                <Content style={[COMMON.content]}>
+                    <View style={AppInformationStyles.contentPadded}>
+                        <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
+                            <Image source={appInformationIcon} resizeMode='contain'
+                                   style={{width: 40, height: 40, marginBottom: 12}}/>
+                            <H2 black style={Helpers.textAlignCenter}>{i18n.language === 'en' ? 'App Information' : 'Renseignements sur l’application'}</H2>
+                            <View style={AppInformationStyles.separator}/>
+                        </View>
 
-                                <View>
-                                    {
-                                        i18n.language === 'en' ?
-                                            (
-                                                <Body1 regular black>
-                                                    The Yukon Road Trip app is your guide to Government of Yukon’s road
-                                                    accessible
-                                                    campgrounds, wildlife viewing, cultural and historical points of
-                                                    interest.
-                                                    Connect with the natural and cultural history that surrounds you.
-                                                </Body1>
-                                            ) :
-                                            (
-                                                <Body1 regular black>
-                                                    Cette appli est votre guide sur les terrains de camping, la vie sauvage ainsi que les lieux d’intérêt culturel
-                                                    et historique qui sont accessibles par le réseau routier du Yukon. Explorez les sites par route ou par
-                                                    région ou bien recherchez un site à proximité. Découvrez l’histoire naturelle et culturelle qui vous
-                                                    entoure.
-                                                </Body1>
-                                            )
-                                    }
-                                </View>
-                                <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, {
-                                    paddingTop: 10,
-                                    paddingBottom: 20
-                                }]}>
-                                    <Image source={logo} resizeMode='contain' style={{width: 104, height: 41}}/>
-                                </View>
+                        <View>
+                            {
+                                i18n.language === 'en' ?
+                                    (
+                                        <Body1 regular black>
+                                            The Yukon Road Trip app is your guide to Government of Yukon’s road
+                                            accessible
+                                            campgrounds, wildlife viewing, cultural and historical points of
+                                            interest.
+                                            Connect with the natural and cultural history that surrounds you.
+                                        </Body1>
+                                    ) :
+                                    (
+                                        <Body1 regular black>
+                                            Cette appli est votre guide sur les terrains de camping, la vie sauvage ainsi que les lieux d’intérêt culturel
+                                            et historique qui sont accessibles par le réseau routier du Yukon. Explorez les sites par route ou par
+                                            région ou bien recherchez un site à proximité. Découvrez l’histoire naturelle et culturelle qui vous
+                                            entoure.
+                                        </Body1>
+                                    )
+                            }
+                        </View>
+                        <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, {
+                            paddingTop: 10,
+                            paddingBottom: 20
+                        }]}>
+                            <Image source={logo} resizeMode='contain' style={{width: 104, height: 41}}/>
+                        </View>
 
-                                <View>
-                                    <AccordionCustom data={i18n.language === 'en' ? en_data : fr_data}/>
-                                </View>
-                            </View>
-                        </Content>
-                        <Feedback/>
-                    </SafeAreaView>
-                </Container>
+                        <View>
+                            <AccordionCustom data={i18n.language === 'en' ? en_data : fr_data}/>
+                        </View>
+                    </View>
+                </Content>
+                <Feedback/>
             </Root>
         )
     }
