@@ -17,6 +17,11 @@ const COMMON = StyleSheet.create({
     },
     content: {
         backgroundColor: '#FFFAF4'
+    },
+    headerSearch: {
+        backgroundColor: 'white',
+        alignItems: 'center',
+        marginHorizontal: 16
     }
 });
 
