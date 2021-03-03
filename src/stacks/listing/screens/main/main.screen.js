@@ -63,11 +63,11 @@ class MainScreen extends React.Component {
                     }
                 </Content>
 
-                <View style={{position: 'relative', height: 'auto'}}>
-                    <FooterClearAll {...this.props} />
-                    <FooterTabs {...this.props} />
-                    <SitesTypeFilter {...this.props} />
-                </View>
+                {/*<View style={{position: 'relative', height: 'auto'}}>*/}
+                {/*    <FooterClearAll {...this.props} />*/}
+                {/*    <FooterTabs {...this.props} />*/}
+                {/*    <SitesTypeFilter {...this.props} />*/}
+                {/*</View>*/}
             </Container>)
     }
 }
