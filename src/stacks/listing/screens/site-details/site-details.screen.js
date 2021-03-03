@@ -78,20 +78,21 @@ class SiteDetails extends React.Component {
             return {id: site.site_id, latitude: site.latitude, longitude: site.longitude}
         }));
         const nearBySiteID = nearBySite ? nearBySite.id : null;
-        const nearBySites = listingRaw.filter(site => {
-            if (site.site_id !== item.site_id) {
-                let distance = getPreciseDistance(
-                    {latitude: site.latitude, longitude: site.longitude},
-                    {latitude: item.latitude, longitude: item.longitude},
-                    1
-                );
-                if ((distance / 1000) < 200) {
-                    return true
-                }
-            }
-            return false;
-        })
-            .map(site => site.site_id);
+        const nearBySites = null;
+        // const nearBySites = listingRaw.filter(site => {
+        //     if (site.site_id !== item.site_id) {
+        //         let distance = getPreciseDistance(
+        //             {latitude: site.latitude, longitude: site.longitude},
+        //             {latitude: item.latitude, longitude: item.longitude},
+        //             1
+        //         );
+        //         if ((distance / 1000) < 200) {
+        //             return true
+        //         }
+        //     }
+        //     return false;
+        // })
+        //     .map(site => site.site_id);
 
         return (
             <Container style={{backgroundColor: '#000'}}>
@@ -130,9 +131,9 @@ class SiteDetails extends React.Component {
                     </View>
 
                     {/* TODO Item id should be replaced with near by site id */}
-                    {nearBySiteID &&
-                    <NearbySites parentLocation={itemLocation} items={nearBySites} itemId={nearBySiteID} locale={locale}
-                                 navigation={navigation}/>}
+                    {/*{nearBySiteID &&*/}
+                    {/*<NearbySites parentLocation={itemLocation} items={nearBySites} itemId={nearBySiteID} locale={locale}*/}
+                    {/*             navigation={navigation}/>}*/}
                 </Content>
 
                 <View style={{position: 'relative', height: 'auto'}}>

@@ -1,37 +1,96 @@
 import React from 'react';
+import {View} from 'react-native';
+import {SimpleLineIcons} from '@expo/vector-icons';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+import {createDrawerNavigator, DrawerActions} from 'react-navigation-drawer';
+import {createStackNavigator} from 'react-navigation-stack';
 
-import LoadingStack from './loading/loading.stack';
-import WelcomeStack from './welcome/welcome.stack';
+import {COMMON} from '../theme/theme';
+
+import LoadingScreen from './loading/screens/loading/loading.screen';
+import WelcomeScreen from './welcome/screens/welcome/welcome.screen';
 import IntroStack from './intro/intro.stack';
-import MainStack from './main/main.stack';
-import TestScreen from './TestScreen';
 
 import CurrentConditionsScreen from './more/screens/current-conditions/current-conditions.screen';
 import TraditionalTerritoriesScreen from './more/screens/traditional-territories/traditional-territories.screen';
 import TravelTripsScreen from './more/screens/travel-trips/travel-trips.screen';
 import AppInformationScreen from './more/screens/app-information/app-information.screen';
-import IntroStepOneScreen from './intro/screens/intro-step-one/intro-step-one.screen';
 
-const RootNavigation = createSwitchNavigator(
-    {
-        Loading: LoadingStack,
-        Welcome: WelcomeStack,
-        Intro: IntroStack,
-        Main: MainStack,
-        Test: TestScreen
-    },
-    {
-        // initialRouteName: 'Test',
-        initialRouteName: 'Loading',
+import MainScreen from './listing/screens/main/main.screen';
+import SiteDetails from './listing/screens/site-details/site-details.screen';
+import SearchScreen from './search/screens/search/search.screen';
+
+const MainStackNavigation = createStackNavigator({
+        MainScreen: {
+            screen: MainScreen,
+        },
+        SiteDetails: {
+            screen: SiteDetails
+        },
+    }, {
+        initialRouteName: 'MainScreen',
+        defaultNavigationOptions: ({navigation}) => ({
+            headerTitleStyle: {
+                color: 'white'
+            },
+            headerStyle: {
+                backgroundColor: '#0097A9',
+                borderBottomWidth: 0
+            },
+            headerRightContainerStyle: {
+                marginRight: 12
+            },
+            headerLeft: (
+                <View style={COMMON.headerLeft}>
+                    <SimpleLineIcons.Button name="menu"
+                                            size={18}
+                                            color="white"
+                                            backgroundColor="transparent"
+                                            borderRadius={0}
+                                            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
+                    <SimpleLineIcons.Button name="magnifier"
+                                            size={18}
+                                            color="white"
+                                            backgroundColor="transparent"
+                                            borderRadius={0}
+                                            onPress={() => navigation.navigate('Search')} />
+                </View>
+
+            ),
+            headerRight: (
+                <View style={COMMON.headerRight}>
+                    <SimpleLineIcons.Button name="map"
+                                            size={18}
+                                            backgroundColor="transparent"
+                                            borderRadius={0}
+                                            color="white"
+                                            onPress={() => {}} />
+                </View>
+            ),
+        })
     }
-);
+)
+
+const ModalStackNavigation = createStackNavigator({
+    MainStackNavigation: {
+        screen: MainStackNavigation,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Search: {
+        screen: SearchScreen,
+    }
+}, {
+    mode: 'modal',
+    transparentCard: true,
+    cardStyle: { opacity: 1 }
+})
 
 const RootDrawerNavigation = createDrawerNavigator(
     {
         MainRoot: {
-            screen: RootNavigation,
+            screen: ModalStackNavigation,
             navigationOptions: {
                 title: 'Home'
             }
@@ -49,15 +108,29 @@ const RootDrawerNavigation = createDrawerNavigator(
             screen: AppInformationScreen
         },
         AppInstructions: {
-            screen: IntroStepOneScreen
+            screen: IntroStack
         }
     }, {
         initialRouteName: 'MainRoot',
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
         overlayColor: 'rgba(0, 151, 169, 0.7)',
+        defaultNavigationOptions: {
+            header: null
+        }
+    }
+);
+
+const RootNavigation = createSwitchNavigator(
+    {
+        Loading: LoadingScreen,
+        Welcome: WelcomeScreen,
+        MainRootDrawer: RootDrawerNavigation,
+    },
+    {
+        initialRouteName: 'Loading',
     }
 );
 
 
-export default createAppContainer(RootDrawerNavigation);
+export default createAppContainer(RootNavigation);
