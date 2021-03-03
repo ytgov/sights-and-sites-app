@@ -1,20 +1,20 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import {Ionicons} from '@expo/vector-icons';
-import {Helpers} from '../../../theme/theme';
+import {SimpleLineIcons} from '@expo/vector-icons';
+import {withNavigation} from 'react-navigation';
 
-const NavigationBackButton = props => {
-    const {dark} = props;
+const NavigationBackButton = ({dark, navigation}) => {
+    const arrowColor = dark ? '#929496' : '#FFFFFF'
 
     return (
-        // <TouchableOpacity style={{ width: 30, alignItems: 'flex-start', justifyContent: 'flex-start' }} onPress={() => { props.navigation.goBack(null) }}></TouchableOpacity>
-        <TouchableOpacity style={{width: 50}} onPress={() => {
-            props.navigation.goBack(null)
-        }}>
-            <Ionicons name="ios-arrow-back" size={32} color={dark ? '#929496' : '#FFFFFF'}
-                      style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]}/>
-        </TouchableOpacity>
+        <SimpleLineIcons.Button name="arrow-left"
+                                size={18}
+                                color={arrowColor}
+                                iconStyle={{marginRight: 0}}
+                                backgroundColor={'transparent'}
+                                underlayColor={'transparent'}
+                                onPress={() => navigation.goBack(null)}
+        />
     )
 }
 
@@ -26,4 +26,4 @@ NavigationBackButton.defaultProps = {
     dark: false
 }
 
-export default NavigationBackButton;
+export default withNavigation(NavigationBackButton);
