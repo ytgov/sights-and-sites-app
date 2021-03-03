@@ -7,6 +7,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import {COMMON} from '../theme/theme';
 
+import SideMenu from '../shared/components/navigation/side-menu';
+
 import LoadingScreen from './loading/screens/loading/loading.screen';
 import WelcomeScreen from './welcome/screens/welcome/welcome.screen';
 import IntroStack from './intro/intro.stack';
@@ -95,26 +97,45 @@ const RootDrawerNavigation = createDrawerNavigator(
         MainRoot: {
             screen: ModalStackNavigation,
             navigationOptions: {
-                title: 'Home'
+                title: 'Home',
+                drawerIcon: <SimpleLineIcons name="home" size={18} color="black" />
             }
         },
         CurrentConditions: {
             screen: CurrentConditionsScreen,
+            navigationOptions: {
+                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+            }
         },
         TraditionalTerritories: {
-            screen: TraditionalTerritoriesScreen
+            screen: TraditionalTerritoriesScreen,
+            navigationOptions: {
+                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+            }
         },
         TravelTrips: {
-            screen: TravelTripsScreen
+            screen: TravelTripsScreen,
+            navigationOptions: {
+                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+            }
         },
         AppInformation: {
-            screen: AppInformationScreen
+            screen: AppInformationScreen,
+            navigationOptions: {
+                title: 'App Information',
+                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+            }
         },
         AppInstructions: {
-            screen: IntroStack
+            screen: IntroStack,
+            navigationOptions: {
+                title: 'App Instructions',
+                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+            }
         }
     }, {
         initialRouteName: 'MainRoot',
+        contentComponent: SideMenu,
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
         overlayColor: 'rgba(0, 151, 169, 0.7)',
