@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import LoadingScreen from './screens/loading/loading.screen';
 
 const LoadingStack = createStackNavigator({

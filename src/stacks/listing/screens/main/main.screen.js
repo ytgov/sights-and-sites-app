@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {Container, Content, Header} from 'native-base';
 import PropTypes from 'prop-types';
 import i18n from '../../../../locale/locale';
-import {Body1, COMMON, Helpers} from '../../../../theme/theme';
+import {Body1, Helpers} from '../../../../theme/theme';
 import FooterTabs from '../../components/footer-tabs/footer-tabs.component';
 import SitesTypeFilter from '../../components/sites-type-filter/sites-type-filter.component';
 import {resetFilters, setSitesTypeFilters, toggleSitesTypeFilter} from '../../../../store/actions/filters';

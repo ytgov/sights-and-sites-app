@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import IntroStepOneScreen from './screens/intro-step-one/intro-step-one.screen';
 import IntroStepTwoScreen from './screens/intro-step-two/intro-step-two.screen';
 import IntroStepThreeScreen from './screens/intro-step-three/intro-step-three.screen';

@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import MoreScreen from './screens/more/more.screen';
 import CurrentConditionsScreen from './screens/current-conditions/current-conditions.screen';
 import TraditionalTerritoriesScreen from './screens/traditional-territories/traditional-territories.screen';
