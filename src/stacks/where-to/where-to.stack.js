@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import ChooseLocationScreen from './screens/choose-location/choose-location.screen';
 import ChooseHighwayScreen from './screens/choose-highway/choose-highway.screen';
 import ChooseRegionScreen from './screens/choose-region/choose-region.screen';

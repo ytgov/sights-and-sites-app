@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import SearchScreen from './screens/search/search.screen';
 import SiteDetails from '../listing/screens/site-details/site-details.screen';
 

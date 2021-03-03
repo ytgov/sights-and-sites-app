@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 import ListingStack from '../listing/listing.stack';
 import WhereToStack from '../where-to/where-to.stack';
 import MoreStack from '../more/more.stack';
