@@ -24,6 +24,12 @@ import SiteType from '../../../../types/site.type';
 import QueryType from '../../../../types/query.type';
 
 class SearchScreen extends React.Component {
+    static navigationOptions = () => {
+        return {
+            header: null
+        }
+    }
+
     state = {
         query: ''
     }
@@ -84,7 +90,7 @@ class SearchScreen extends React.Component {
         const sites = searchMatched.map(id => listingRaw.filter(site => site.site_id === id)[0]).slice(0, currentSearchPage * APP_CONFIG.search.itemsToShow);
         return (
             <Container style={{backgroundColor: '#000'}}>
-                <Header style={[COMMON.header, COMMON.headerWhite]}>
+                <Header style={[COMMON.headerSearch]}>
                     <NavigationBackButton dark navigation={navigation}/>
                     <View style={SearchStyles.searchBox}>
                         <TextInput
