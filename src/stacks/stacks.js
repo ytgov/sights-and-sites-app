@@ -63,6 +63,13 @@ const MainStackNavigation = createStackNavigator({
             ),
             headerRight: (
                 <View style={COMMON.headerRight}>
+                    <SimpleLineIcons.Button name="list"
+                                            size={18}
+                                            backgroundColor="transparent"
+                                            underlayColor={'transparent'}
+                                            borderRadius={0}
+                                            color="white"
+                                            onPress={() => {}} />
                     <SimpleLineIcons.Button name="map"
                                             size={18}
                                             backgroundColor="transparent"
