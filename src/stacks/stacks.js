@@ -46,12 +46,14 @@ const MainStackNavigation = createStackNavigator({
                                             size={18}
                                             color="white"
                                             backgroundColor="transparent"
+                                            underlayColor={'transparent'}
                                             borderRadius={0}
                                             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
                     <SimpleLineIcons.Button name="magnifier"
                                             size={18}
                                             color="white"
                                             backgroundColor="transparent"
+                                            underlayColor={'transparent'}
                                             borderRadius={0}
                                             onPress={() => navigation.navigate('Search')} />
                 </View>
@@ -62,6 +64,7 @@ const MainStackNavigation = createStackNavigator({
                     <SimpleLineIcons.Button name="map"
                                             size={18}
                                             backgroundColor="transparent"
+                                            underlayColor={'transparent'}
                                             borderRadius={0}
                                             color="white"
                                             onPress={() => {}} />
