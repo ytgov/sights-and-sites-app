@@ -1,7 +1,7 @@
 import React from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {connect} from 'react-redux';
-import {Container, Content, Header} from 'native-base';
+import {Container, Content} from 'native-base';
 import PropTypes from 'prop-types';
 import i18n from '../../../../locale/locale';
 import {Body1, Helpers} from '../../../../theme/theme';
@@ -15,19 +15,10 @@ import ListViewContainer from '../../containers/list-view/list-view.container';
 import SiteType from '../../../../types/site.type';
 import FooterClearAll from '../../components/footer-clear-all/footer-clear-all.component';
 
-const searchIcon = require('../../../../../assets/common/search-icon.png');
-
 class MainScreen extends React.Component {
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = () => {
         return {
             title: 'Listing',
-            headerRight: (
-                <TouchableOpacity onPress={() => {
-                    navigation.navigate('Search')
-                }}>
-                    <Image source={searchIcon} style={MainScreenStyles.searchIcon}/>
-                </TouchableOpacity>
-            )
         }
     }
 
