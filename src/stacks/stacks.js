@@ -6,6 +6,7 @@ import {createDrawerNavigator, DrawerActions} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import {COMMON} from '../theme/theme';
+import {YUKON_COLORS} from '../theme/config';
 
 import SideMenu from '../shared/components/navigation/side-menu';
 
@@ -36,7 +37,7 @@ const MainStackNavigation = createStackNavigator({
                 color: 'white'
             },
             headerStyle: {
-                backgroundColor: '#0097A9',
+                backgroundColor: YUKON_COLORS.primary_200,
                 borderBottomWidth: 0
             },
             headerRightContainerStyle: {
