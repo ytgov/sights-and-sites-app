@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {Image} from 'react-native-expo-image-cache';
 import PropTypes from 'prop-types';
 import {Container, Content, Header} from 'native-base';
-import findNearest from 'geolib/es/findNearest';
 import SiteDetailsStyles from './site-details.styles';
 import {Body1, COMMON} from '../../../../theme/theme';
 import NearbySites from '../../components/nearby-sites/nearby-sites.component';
@@ -20,8 +19,6 @@ import AddToMySitesNotification
     from '../../components/add-to-my-sites-notification/add-to-my-sites-notification.component';
 import SiteType from '../../../../types/site.type';
 import {APP_CONFIG} from '../../../../config';
-import {getPreciseDistance} from 'geolib';
-import MainScreenStyles from '../main/main.screen.styles';
 
 const fallback = require('../../../../../assets/common/fallback.png');
 
@@ -38,6 +35,13 @@ class SiteDetails extends React.Component {
     state = {
         addToMySitesNotificationVisible: false,
         addToMySitesNotificationDelay: 2000,
+        nearBySite: {},
+        nearBySiteID: null,
+        nearBySites: []
+    }
+
+    componentDidMount() {
+        this.getNearBySites()
     }
 
     componentWillUnmount() {
@@ -59,6 +63,46 @@ class SiteDetails extends React.Component {
         })
     }
 
+    getNearBySites() {
+        const {listingRaw, navigation} = this.props
+        const item = navigation.getParam('item');
+
+        // const nearBySite = findNearest(itemLocation, listingRaw.filter(site => site.site_id !== item.site_id).map(site => {
+        //     return {id: site.site_id, latitude: site.latitude, longitude: site.longitude}
+        // }));
+
+        // const nearBySites = listingRaw.filter(site => {
+        //     if (site.site_id !== item.site_id) {
+        //         let distance = getPreciseDistance(
+        //             {latitude: site.latitude, longitude: site.longitude},
+        //             {latitude: item.latitude, longitude: item.longitude},
+        //             1
+        //         );
+        //         if ((distance / 1000) < 200) {
+        //             return true
+        //         }
+        //     }
+        //     return false;
+        // })
+        //     .map(site => site.site_id);
+
+
+        // @TODO: replace with real data from server
+        const nearBySite = {
+            id: item.site_id,
+            latitude: item.latitude,
+            longitude: item.longitude
+        }
+
+        const nearBySites = listingRaw.slice(0, 20).map(site => site.site_id)
+
+        this.setState({
+            nearBySite,
+            nearBySiteID: item.site_id,
+            nearBySites
+        })
+    }
+
     render() {
         const {addToMySitesNotificationVisible} = this.state;
         const {navigation, locale, mySites, toggleMySitesStateDispatch, setMySitesFiltersDispatch, filterListingDispatch, listingRaw, networkAvailable} = this.props;
@@ -74,24 +118,7 @@ class SiteDetails extends React.Component {
         const id = site_id
         const isSiteInMySites = !!mySites.filter(site => site === id).length
 
-        const nearBySite = findNearest(itemLocation, listingRaw.filter(site => site.site_id !== item.site_id).map(site => {
-            return {id: site.site_id, latitude: site.latitude, longitude: site.longitude}
-        }));
-        const nearBySiteID = nearBySite ? nearBySite.id : null;
-        const nearBySites = listingRaw.filter(site => {
-            if (site.site_id !== item.site_id) {
-                let distance = getPreciseDistance(
-                    {latitude: site.latitude, longitude: site.longitude},
-                    {latitude: item.latitude, longitude: item.longitude},
-                    1
-                );
-                if ((distance / 1000) < 200) {
-                    return true
-                }
-            }
-            return false;
-        })
-            .map(site => site.site_id);
+        const {nearBySiteID, nearBySites} = this.state;
 
         return (
             <Container style={{backgroundColor: '#000'}}>
@@ -129,17 +156,17 @@ class SiteDetails extends React.Component {
 
                     </View>
 
-                    {/* TODO Item id should be replaced with near by site id */}
-                    {nearBySiteID &&
-                    <NearbySites parentLocation={itemLocation} items={nearBySites} itemId={nearBySiteID} locale={locale}
-                                 navigation={navigation}/>}
+                    {/*/!* TODO Item id should be replaced with near by site id *!/*/}
+                    {/*{nearBySiteID &&*/}
+                    {/*<NearbySites parentLocation={itemLocation} items={nearBySites} itemId={nearBySiteID} locale={locale}*/}
+                    {/*             navigation={navigation}/>}*/}
                 </Content>
 
-                <View style={{position: 'relative', height: 'auto'}}>
-                    <SiteFooterTabs item={item} locale={locale} networkAvailable={networkAvailable}  {...this.props}
-                                    setMySitesFiltersDispatch={setMySitesFiltersDispatch}/>
-                    <AddToMySitesNotification visible={addToMySitesNotificationVisible}/>
-                </View>
+                {/*<View style={{position: 'relative', height: 'auto'}}>*/}
+                {/*    <SiteFooterTabs item={item} locale={locale} networkAvailable={networkAvailable}  {...this.props}*/}
+                {/*                    setMySitesFiltersDispatch={setMySitesFiltersDispatch}/>*/}
+                {/*    <AddToMySitesNotification visible={addToMySitesNotificationVisible}/>*/}
+                {/*</View>*/}
             </Container>
         )
     }

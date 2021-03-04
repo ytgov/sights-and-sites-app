@@ -39,7 +39,7 @@ class LoadingScreen extends React.Component {
                     return false;
                 }
                 await i18n.changeLanguage(locale);
-                navigation.navigate('Main');
+                navigation.navigate('MainRootDrawer');
             })
             .catch(err => {
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
@@ -47,7 +47,7 @@ class LoadingScreen extends React.Component {
                     return false;
                 }
                 i18n.changeLanguage(locale);
-                navigation.navigate('Main');
+                navigation.navigate('MainRootDrawer');
             })
     }
 
