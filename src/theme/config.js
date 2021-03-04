@@ -20,4 +20,19 @@ const COLORS = {
     white: '#FFFFFF'
 }
 
-export {TYPINGS, COLORS}
+const YUKON_COLORS = {
+    primary: '#F2A900',
+    primary_100: '#7A9A01',
+    primary_200: '#0097A9',
+    primary_300: '#63A2AE',
+    primary_400: '#512A44',
+    primary_500: '#DE4300',
+    primary_600: '#224C5B',
+    neutral: '#000000',
+    neutral_100: '#444141',
+    neutral_200: '#CCCCCC',
+    neutral_300: '#DDDDDD',
+    neutral_400: '#F1F1F1',
+}
+
+export {TYPINGS, COLORS, YUKON_COLORS}
