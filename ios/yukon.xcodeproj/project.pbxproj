@@ -153,6 +153,7 @@
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = Z593J8PD3M;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -410,7 +411,9 @@
 			baseConfigurationReference = 3B47C5AFCB8BDE514B7D1AC6 /* Pods-yukon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 5;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 6;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				INFOPLIST_FILE = yukon/Info.plist;
@@ -424,6 +427,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.yk.gov.yukonroadtrip;
 				PRODUCT_NAME = "Yukon Road Trip";
+				PROVISIONING_PROFILE_SPECIFIER = "ca.yk.gov.yukonroadtrip AppStore";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -433,7 +437,9 @@
 			baseConfigurationReference = 8AC623DBF3A3E2CB072F81F2 /* Pods-yukon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 5;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				INFOPLIST_FILE = yukon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -446,6 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.yk.gov.yukonroadtrip;
 				PRODUCT_NAME = "Yukon Road Trip";
+				PROVISIONING_PROFILE_SPECIFIER = "ca.yk.gov.yukonroadtrip AppStore";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
