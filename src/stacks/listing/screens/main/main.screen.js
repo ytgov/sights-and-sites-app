@@ -18,7 +18,7 @@ import FooterClearAll from '../../components/footer-clear-all/footer-clear-all.c
 class MainScreen extends React.Component {
     static navigationOptions = () => {
         return {
-            title: 'Listing',
+            title: i18n.t('listingTitle'),
         }
     }
 
