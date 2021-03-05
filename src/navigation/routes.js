@@ -3,6 +3,7 @@ const routes = {
     STACK_MODAL: 'StackModal',
     STACK_DRAWER: 'StackDrawer',
     STACK_APP_INSTRUCTION: 'StackIntro',
+    STACK_FILTERS: 'StackFilters',
 
     SCREEN_LOADING: 'Loading',
     SCREEN_WELCOME: 'Welcome',
@@ -21,6 +22,13 @@ const routes = {
     SCREEN_APP_INSTRUCTIONS_2: 'IntroStepTwo',
     SCREEN_APP_INSTRUCTIONS_3: 'IntroStepThree',
     SCREEN_APP_INSTRUCTIONS_4: 'IntroStepFour',
+
+    SCREEN_FILTER_INDEX: 'FilterIndex',
+    SCREEN_FILTER_SITE_TYPE: 'FilterBySiteType',
+    SCREEN_FILTER_REGION: 'FilterByRegion',
+    SCREEN_FILTER_HIGHWAY: 'FilterByHighway',
+    SCREEN_FILTER_NEAR_ME: 'FilterNearMe',
+    SCREEN_FILTER_MY_FAVORITES: 'FilterMyFavorites'
 }
 
 export default routes;
