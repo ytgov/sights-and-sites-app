@@ -7,6 +7,7 @@ import {Ionicons} from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import i18n from '../../../../locale/locale';
+import routes from '../../../../navigation/routes';
 import {Body1, H1, H3, Helpers, Subtitle1} from '../../../../theme/theme';
 import IntroStepFourStyles from './intro-step-four.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
@@ -52,7 +53,7 @@ class IntroStepFourScreen extends React.Component {
 
     onSwipeBackward() {
         const {navigation} = this.props;
-        navigation.navigate('IntroStepThree');
+        navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_3);
     }
 
     onSubmit() {
@@ -71,7 +72,7 @@ class IntroStepFourScreen extends React.Component {
 //            error(i18n.t('notifications.permissionsRequest'));
 //        } else {
         setOnboardingFinishedDispatch();
-        navigation.navigate('MainRootDrawer');
+        navigation.navigate(routes.STACK_DRAWER);
 //        }
     }
 

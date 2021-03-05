@@ -7,31 +7,33 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import {COMMON} from '../theme/theme';
 import {YUKON_COLORS} from '../theme/config';
+import routes from './routes';
 
-import SideMenu from '../shared/components/navigation/side-menu';
+import SideMenu from '../shared/components/side-menu/side-menu.component';
+import SideMenuIcon, { SideMenuIconType } from '../shared/components/side-menu/menu-icon.component';
 
-import LoadingScreen from './loading/screens/loading/loading.screen';
-import WelcomeScreen from './welcome/screens/welcome/welcome.screen';
-import IntroStack from './intro/intro.stack';
+import LoadingScreen from '../stacks/loading/screens/loading/loading.screen';
+import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
+import IntroStack from '../stacks/intro/intro.stack';
 
-import CurrentConditionsScreen from './more/screens/current-conditions/current-conditions.screen';
-import TraditionalTerritoriesScreen from './more/screens/traditional-territories/traditional-territories.screen';
-import TravelTripsScreen from './more/screens/travel-trips/travel-trips.screen';
-import AppInformationScreen from './more/screens/app-information/app-information.screen';
+import CurrentConditionsScreen from '../stacks/more/screens/current-conditions/current-conditions.screen';
+import TraditionalTerritoriesScreen from '../stacks/more/screens/traditional-territories/traditional-territories.screen';
+import TravelTripsScreen from '../stacks/more/screens/travel-trips/travel-trips.screen';
+import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';
 
-import MainScreen from './listing/screens/main/main.screen';
-import SiteDetails from './listing/screens/site-details/site-details.screen';
-import SearchScreen from './search/screens/search/search.screen';
+import MainScreen from '../stacks/listing/screens/main/main.screen';
+import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
+import SearchScreen from '../stacks/search/screens/search/search.screen';
 
 const MainStackNavigation = createStackNavigator({
-        MainScreen: {
+        [routes.STACK_MAIN]: {
             screen: MainScreen,
         },
-        SiteDetails: {
+        [routes.SCREEN_SITE_DETAILS]: {
             screen: SiteDetails
         },
     }, {
-        initialRouteName: 'MainScreen',
+        initialRouteName: routes.STACK_MAIN,
         defaultNavigationOptions: ({navigation}) => ({
             headerTitleStyle: {
                 color: 'white'
@@ -85,13 +87,13 @@ const MainStackNavigation = createStackNavigator({
 )
 
 const ModalStackNavigation = createStackNavigator({
-    MainStackNavigation: {
+    [routes.STACK_MAIN]: {
         screen: MainStackNavigation,
         navigationOptions: {
             header: null
         }
     },
-    Search: {
+    [routes.SCREEN_SEARCH]: {
         screen: SearchScreen,
     }
 }, {
@@ -102,47 +104,47 @@ const ModalStackNavigation = createStackNavigator({
 
 const RootDrawerNavigation = createDrawerNavigator(
     {
-        MainRoot: {
+        [routes.STACK_MODAL]: {
             screen: ModalStackNavigation,
             navigationOptions: {
                 title: 'Home',
-                drawerIcon: <SimpleLineIcons name="home" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
             }
         },
-        CurrentConditions: {
+        [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
             navigationOptions: {
-                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
             }
         },
-        TraditionalTerritories: {
+        [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
             screen: TraditionalTerritoriesScreen,
             navigationOptions: {
-                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
             }
         },
-        TravelTrips: {
+        [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
             screen: TravelTripsScreen,
             navigationOptions: {
-                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
             }
         },
-        AppInformation: {
+        [routes.SCREEN_APP_INFORMATION]: {
             screen: AppInformationScreen,
             navigationOptions: {
                 title: 'App Information',
-                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />
             }
         },
-        AppInstructions: {
+        [routes.STACK_APP_INSTRUCTION]: {
             screen: IntroStack,
             navigationOptions: {
                 title: 'App Instructions',
-                drawerIcon: <SimpleLineIcons name="briefcase" size={18} color="black" />
+                drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
             }
         }
     }, {
-        initialRouteName: 'MainRoot',
+        initialRouteName: routes.STACK_MODAL,
         contentComponent: SideMenu,
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
@@ -155,12 +157,13 @@ const RootDrawerNavigation = createDrawerNavigator(
 
 const RootNavigation = createSwitchNavigator(
     {
-        Loading: LoadingScreen,
-        Welcome: WelcomeScreen,
-        MainRootDrawer: RootDrawerNavigation,
+        [routes.SCREEN_LOADING]: LoadingScreen,
+        [routes.SCREEN_WELCOME]: WelcomeScreen,
+        [routes.STACK_APP_INSTRUCTION]: IntroStack,
+        [routes.STACK_DRAWER]: RootDrawerNavigation,
     },
     {
-        initialRouteName: 'Loading',
+        initialRouteName: routes.SCREEN_LOADING,
     }
 );
 
