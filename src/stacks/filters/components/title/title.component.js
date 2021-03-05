@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image} from 'react-native';
+import {View, Image, TouchableWithoutFeedback} from 'react-native';
+import {withNavigation} from 'react-navigation';
+
 import {H2} from '../../../../theme/typings';
 import styles from './title.styles';
 
 const arrow = require('./images/arrow-back.png');
 
-const Title = ({title, hasArrow}) => {
-    return (
-        <View style={styles.wrapper}>
-            {hasArrow &&
-                <Image source={arrow} style={styles.arrow} />}
-            <H2>{title}</H2>
-        </View>
-    );
+const Title = ({navigation, title, hasArrow}) => {
+    return <View style={styles.wrapper}>
+        {hasArrow && <TouchableWithoutFeedback onPress={() => navigation.pop()}>
+            <Image source={arrow} style={styles.arrow} />
+        </TouchableWithoutFeedback>}
+        <H2>{title}</H2>
+    </View>
 };
 
 Title.propTypes = {
@@ -25,4 +26,4 @@ Title.defaultProps = {
     hasArrow: false
 }
 
-export default Title;
+export default withNavigation(Title);
