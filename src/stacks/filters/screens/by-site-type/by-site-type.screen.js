@@ -5,7 +5,7 @@ import {FilterHeader} from '../../../../theme/layout';
 import ListTileCheckbox from '../../components/list-tile/list-tile-checkbox.component';
 import Title from '../../components/title/title.component';
 
-const indexBackground = require('./images/index.png');
+const background = require('./images/bg-site-type-camping.jpg');
 
 const filters = [
     { label: 'Camping', icon: require('./images/camping.png') },
@@ -16,7 +16,7 @@ const filters = [
 
 const FilterBySiteTypeScreen = () => {
     return (
-        <ScreenWrapper backgroundImage={indexBackground}>
+        <ScreenWrapper backgroundImage={background}>
             <FilterHeader>
                 <Title title={`Filter by site type`} hasArrow={true} />
             </FilterHeader>
