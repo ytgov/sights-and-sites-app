@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FlatList, View} from 'react-native';
-import ListViewItem from '../../../listing/containers/list-view/list-view.item';
+import ListViewItem from '../../../../stacks/listing/containers/list-view/list-view.item';
 import LoadMore from '../../../../shared/components/load-more/load-more.component';
 import SiteType from '../../../../types/site.type';
 

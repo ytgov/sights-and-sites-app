@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {Caption, COMMON} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 
-import Badge from '../../../where-to/screens/choose-location/choose-location.styled-components';
+import Badge from '../../../../stacks/where-to/screens/choose-location/choose-location.styled-components';
 
 const whereToIcon = require('../../../../../assets/stacks/tabs/where-to-icon.png');
 const siteTypeIcon = require('../../../../../assets/stacks/tabs/site-type-icon.png');

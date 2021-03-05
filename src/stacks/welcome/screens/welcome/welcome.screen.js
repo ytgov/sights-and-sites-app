@@ -5,6 +5,7 @@ import {Col, Grid, Row} from 'react-native-easy-grid';
 import PropTypes from 'prop-types';
 import {setLocale} from '../../../../store/actions/locale';
 import {setSelectLocaleAction} from '../../../../store/actions/core';
+import routes from '../../../../navigation/routes';
 import {Body1, H1, H3, Helpers, Subtitle1} from '../../../../theme/theme';
 import WelcomeScreenStyles from './welcome.styles';
 import LanguageSwitchIcon from './welcome.styled-components';
@@ -22,7 +23,7 @@ class WelcomeScreen extends React.Component {
         setLocaleDispatch(language);
         setSelectLocaleActionDispatch(true);
         i18n.changeLanguage(locale);
-        navigation.navigate('IntroStepOne');
+        navigation.navigate(routes.STACK_APP_INSTRUCTION);
     }
 
     render() {
