@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import en from './en';
 import fr from './fr';
 
@@ -17,11 +18,13 @@ export const getToggledLanguage = () => {
 }
 
 i18next
+    .use(initReactI18next)
     .init({
         interpolation: {
             escapeValue: false,
         },
         lng: 'en',
+        fallbackLng: 'en',
         resources: {
             en,
             fr
