@@ -1,5 +1,5 @@
 import React from 'react';
-import RootNavigation from './stacks/stacks';
+import RootNavigation from './navigation/stacks';
 import {APP_CONFIG} from './config';
 import {info} from './shared/services/notify';
 
