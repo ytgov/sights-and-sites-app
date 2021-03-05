@@ -57,9 +57,9 @@ const ListTile = (props) => {
 
 ListTile.propTypes = {
     checked: PropTypes.bool,
-    label: PropTypes.oneOf([
+    label: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.node
+        PropTypes.object
     ]).isRequired,
     leadingIcon: PropTypes.node,
     leadingIconActive: PropTypes.node,
