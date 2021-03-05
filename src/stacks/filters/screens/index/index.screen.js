@@ -1,8 +1,10 @@
 import React from 'react';
 
 import ScreenWrapper from '../../../../shared/components/screen-wrapper/screen-wrapper.component';
-import ListTile from '../../../../shared/components/list-tile/list-tile.component';
+import Title from '../../components/title/title.component';
+import ListTile from '../../components/list-tile/list-tile.component';
 import LabelArrow from './label-arrow.component';
+import {FilterHeader} from '../../../../theme/layout';
 
 const background = require('./images/bg-index.jpg');
 
@@ -26,6 +28,10 @@ const FilterIndexScreen = () => {
 
     return (
         <ScreenWrapper backgroundImage={background}>
+            <FilterHeader>
+                <Title title={`Filter by`} />
+            </FilterHeader>
+
             {cooked_filters.map((item, i) =>
                 <ListTile
                     key={i}
