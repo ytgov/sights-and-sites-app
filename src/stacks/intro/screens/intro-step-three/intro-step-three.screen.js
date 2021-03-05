@@ -8,6 +8,7 @@ import {Body1, H1, Helpers, Subtitle1} from '../../../../theme/theme';
 import IntroStepThreeStyles from './intro-step-three.styles';
 import IntroDotsComponent from '../../components/intro-dots/intro-dots.component';
 import SwipeConfig from '../swipe-config';
+import routes from '../../../../navigation/routes';
 
 // TODO Refactor and move to separate service
 const en = {
@@ -33,12 +34,12 @@ class IntroStepThreeScreen extends React.Component {
 
     onSwipeForward() {
         const {navigation} = this.props;
-        navigation.navigate('IntroStepFour');
+        navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_4);
     }
 
     onSwipeBackward() {
         const {navigation} = this.props;
-        navigation.navigate('IntroStepTwo');
+        navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_2);
     }
 
     render() {
@@ -69,7 +70,7 @@ class IntroStepThreeScreen extends React.Component {
                             <Col>
                                 <View style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter]}>
                                     <TouchableOpacity onPress={() => {
-                                        navigation.navigate('IntroStepFour')
+                                        navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_4)
                                     }}>
                                         <Ionicons name="ios-arrow-forward" size={32} color="#FFF"
                                                   style={[Helpers.justifyContentCenter, Helpers.alignItemsCenter, Helpers.textAlignCenter]}/>
