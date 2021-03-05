@@ -24,6 +24,7 @@ import AppInformationScreen from '../stacks/more/screens/app-information/app-inf
 import MainScreen from '../stacks/listing/screens/main/main.screen';
 import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
 import SearchScreen from '../stacks/search/screens/search/search.screen';
+import i18n from '../locale/locale';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -115,7 +116,7 @@ const RootDrawerNavigation = createDrawerNavigator(
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
             navigationOptions: {
-                title: 'Current Conditions',
+                title: i18n.t('currentConditions.title'),
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
             }
         },
@@ -136,7 +137,7 @@ const RootDrawerNavigation = createDrawerNavigator(
         [routes.SCREEN_APP_INFORMATION]: {
             screen: AppInformationScreen,
             navigationOptions: {
-                title: 'App Information',
+                title: i18n.t('appInformation.title'),
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />
             }
         },
