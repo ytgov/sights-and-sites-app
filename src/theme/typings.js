@@ -4,6 +4,12 @@ import {COLORS, TYPINGS} from './config';
 
 const {lineHeightOffset} = TYPINGS;
 
+export const YUKON_FONTS = {
+    MONTSERRAT_REGULAR: 'montserrat-regular',
+    MONTSERRAT_SEMI_BOLD: 'montserrat-semibold',
+    MONTSERRAT_BOLD: 'montserrat-bold'
+}
+
 const H1 = styled.Text`
   font-family: 'montserrat-bold';
   font-size: ${TYPINGS.h1};

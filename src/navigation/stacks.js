@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import {SimpleLineIcons} from '@expo/vector-icons';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator, DrawerActions} from 'react-navigation-drawer';
@@ -24,6 +24,8 @@ import AppInformationScreen from '../stacks/more/screens/app-information/app-inf
 import MainScreen from '../stacks/listing/screens/main/main.screen';
 import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
 import SearchScreen from '../stacks/search/screens/search/search.screen';
+
+const windowWidth = Dimensions.get('window').width;
 
 const MainStackNavigation = createStackNavigator({
         [routes.STACK_MAIN]: {
@@ -108,24 +110,26 @@ const RootDrawerNavigation = createDrawerNavigator(
             screen: ModalStackNavigation,
             navigationOptions: {
                 title: 'Home',
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
             }
         },
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
             navigationOptions: {
+                title: 'Current Conditions',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
             }
         },
         [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
             screen: TraditionalTerritoriesScreen,
             navigationOptions: {
+                title: 'First Nations in Yukon',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
             }
         },
         [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
             screen: TravelTripsScreen,
             navigationOptions: {
+                title: 'Wilderness Travel Tips',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
             }
         },
@@ -148,6 +152,7 @@ const RootDrawerNavigation = createDrawerNavigator(
         contentComponent: SideMenu,
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
+        drawerWidth: (windowWidth - 50),
         overlayColor: 'rgba(0, 151, 169, 0.7)',
         defaultNavigationOptions: {
             header: null
