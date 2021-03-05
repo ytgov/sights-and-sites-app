@@ -1,4 +1,5 @@
 import React from 'react';
+import routes from '../../../../navigation/routes';
 
 import ScreenWrapper from '../../../../shared/components/screen-wrapper/screen-wrapper.component';
 import Title from '../../components/title/title.component';
@@ -9,15 +10,15 @@ import {FilterHeader} from '../../../../theme/layout';
 const background = require('./images/bg-index.jpg');
 
 const filters = [
-    { label: 'Site type', withArrow: true, leadingIcon: require('./images/by-site-type.png'), leadingIconActive: require('./images/by-site-type-active.png') },
-    { label: 'Region', withArrow: true, leadingIcon: require('./images/by-region.png'), leadingIconActive: require('./images/by-region-active.png') },
-    { label: 'Highway', withArrow: true, leadingIcon: require('./images/by-highway.png'), leadingIconActive: require('./images/by-region-active.png') },
-    { label: 'Near me', leadingIcon: require('./images/near-me.png'), leadingIconActive: require('./images/near-me-active.png') },
-    { label: 'My favorites', leadingIcon: require('./images/my-favorites.png'), leadingIconActive: require('./images/my-favorites-active.png') },
+    { label: 'Site type', withArrow: true, destination: routes.SCREEN_FILTER_SITE_TYPE, leadingIcon: require('./images/by-site-type.png'), leadingIconActive: require('./images/by-site-type-active.png') },
+    { label: 'Region', withArrow: true, destination: routes.SCREEN_FILTER_REGION, leadingIcon: require('./images/by-region.png'), leadingIconActive: require('./images/by-region-active.png') },
+    { label: 'Highway', withArrow: true, destination: routes.SCREEN_FILTER_HIGHWAY, leadingIcon: require('./images/by-highway.png'), leadingIconActive: require('./images/by-region-active.png') },
+    { label: 'Near me', destination: routes.SCREEN_FILTER_NEAR_ME, leadingIcon: require('./images/near-me.png'), leadingIconActive: require('./images/near-me-active.png') },
+    { label: 'My favorites', destination: routes.SCREEN_FILTER_MY_FAVORITES, leadingIcon: require('./images/my-favorites.png'), leadingIconActive: require('./images/my-favorites-active.png') },
 ]
 
 
-const FilterIndexScreen = () => {
+const FilterIndexScreen = ({navigation}) => {
 
     const cooked_filters = filters.map(item => {
         return {
@@ -38,7 +39,7 @@ const FilterIndexScreen = () => {
                     label={item.label}
                     leadingIcon={item.leadingIcon}
                     leadingIconActive={item.leadingIconActive}
-                    onClick={() => console.log('here')} />
+                    onClick={() => navigation.navigate(item.destination)} />
             )}
         </ScreenWrapper>
     );
