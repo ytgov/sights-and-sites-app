@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {ActivityIndicator, ImageBackground} from 'react-native';
+import routes from '../../../../navigation/routes';
 import {Helpers} from '../../../../theme/theme';
 import i18n from '../../../../locale/locale';
 import {addGMListing, addListing, filterListing} from '../../../../store/actions/listing';
@@ -35,19 +36,19 @@ class LoadingScreen extends React.Component {
                 await addListingDispatch(res.data.data);
                 filterListingDispatch();
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                    navigation.navigate('Welcome');
+                    navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS);
                     return false;
                 }
                 await i18n.changeLanguage(locale);
-                navigation.navigate('MainRootDrawer');
+                navigation.navigate(routes.STACK_MAIN);
             })
             .catch(err => {
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                    navigation.navigate('Welcome');
+                    navigation.navigate(routes.SCREEN_WELCOME);
                     return false;
                 }
                 i18n.changeLanguage(locale);
-                navigation.navigate('MainRootDrawer');
+                navigation.navigate(routes.STACK_DRAWER);
             })
     }
 
