@@ -37,7 +37,10 @@ const MainStackNavigation = createStackNavigator({
             screen: SiteDetails
         },
         [routes.STACK_FILTERS]: {
-            screen: FilterStack
+            screen: FilterStack,
+            navigationOptions: {
+                title: ''
+            }
         }
     }, {
         initialRouteName: routes.STACK_MAIN,
