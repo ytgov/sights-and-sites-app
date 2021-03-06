@@ -22,7 +22,7 @@ const ListTileCheckbox = (props) => {
 
 ListTileCheckbox.propTypes = {
     checked: PropTypes.bool,
-    label: PropTypes.oneOf([
+    label: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node
     ]).isRequired,
