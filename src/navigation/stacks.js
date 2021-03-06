@@ -24,6 +24,7 @@ import AppInformationScreen from '../stacks/more/screens/app-information/app-inf
 import MainScreen from '../stacks/listing/screens/main/main.screen';
 import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
 import SearchScreen from '../stacks/search/screens/search/search.screen';
+import FilterStack from '../stacks/filters/filters.stack';
 import i18n from '../locale/locale';
 
 const windowWidth = Dimensions.get('window').width;
@@ -35,6 +36,12 @@ const MainStackNavigation = createStackNavigator({
         [routes.SCREEN_SITE_DETAILS]: {
             screen: SiteDetails
         },
+        [routes.STACK_FILTERS]: {
+            screen: FilterStack,
+            navigationOptions: {
+                title: ''
+            }
+        }
     }, {
         initialRouteName: routes.STACK_MAIN,
         defaultNavigationOptions: ({navigation}) => ({
@@ -63,12 +70,19 @@ const MainStackNavigation = createStackNavigator({
                                             backgroundColor="transparent"
                                             underlayColor={'transparent'}
                                             borderRadius={0}
-                                            onPress={() => navigation.navigate('Search')} />
+                                            onPress={() => navigation.navigate(routes.SCREEN_SEARCH)} />
                 </View>
 
             ),
             headerRight: (
                 <View style={COMMON.headerRight}>
+                    <SimpleLineIcons.Button name="equalizer"
+                                            size={18}
+                                            backgroundColor="transparent"
+                                            underlayColor={'transparent'}
+                                            borderRadius={0}
+                                            color="white"
+                                            onPress={() => navigation.navigate(routes.SCREEN_FILTER_INDEX)} />
                     <SimpleLineIcons.Button name="list"
                                             size={18}
                                             backgroundColor="transparent"
