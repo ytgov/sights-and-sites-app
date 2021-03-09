@@ -4,6 +4,7 @@ import {SimpleLineIcons} from '@expo/vector-icons';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator, DrawerActions} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import {COMMON} from '../theme/theme';
 import {YUKON_COLORS} from '../theme/config';
@@ -23,9 +24,13 @@ import AppInformationScreen from '../stacks/more/screens/app-information/app-inf
 
 import MainScreen from '../stacks/listing/screens/main/main.screen';
 import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
-import SearchScreen from '../stacks/search/screens/search/search.screen';
+
 import FilterStack from '../stacks/filters/filters.stack';
 import i18n from '../locale/locale';
+
+import ListingScreen from '../screens/listing';
+import HelpfulInfoScreen from '../screens/helpfulInfo';
+import SearchScreen from '../screens/search';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -119,13 +124,32 @@ const ModalStackNavigation = createStackNavigator({
     cardStyle: { opacity: 1 }
 })
 
+
+//// Start here
+
+const BottomTabNavigator = createBottomTabNavigator({
+    [routes.SCREEN_SEARCH]: {
+        screen: SearchScreen
+    },
+    [routes.SCREEN_LISTING]: {
+        screen: ListingScreen
+    },
+    [routes.SCREEN_HELPFUL_INFO]: {
+        screen: HelpfulInfoScreen,
+    }
+});
+
 const RootDrawerNavigation = createDrawerNavigator(
     {
         [routes.STACK_MODAL]: {
-            screen: ModalStackNavigation,
+            screen: BottomTabNavigator,
             navigationOptions: {
                 title: 'Home',
             }
+        },
+
+        bottomTab: {
+            screen: BottomTabNavigator
         },
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
@@ -180,7 +204,7 @@ const RootNavigation = createSwitchNavigator(
         [routes.SCREEN_LOADING]: LoadingScreen,
         [routes.SCREEN_WELCOME]: WelcomeScreen,
         [routes.STACK_APP_INSTRUCTION]: IntroStack,
-        [routes.STACK_DRAWER]: RootDrawerNavigation,
+        [routes.STACK_BOTTOM_TAB]: BottomTabNavigator,
     },
     {
         initialRouteName: routes.SCREEN_LOADING,

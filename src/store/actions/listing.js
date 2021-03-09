@@ -58,7 +58,7 @@ export function addGMListing() {
         }
         if (state.listingStore && state.listingStore.listingFiltered && state.listingStore.listingFiltered.length) {
             let sites = state.listingStore.listingFiltered;
-            // for (let index = 0; index < 2; index++) { // TODO:: make it loop through all the list in production
+            // for (let index = 0; index < 2; index++) { // TODO:: make it loop through all the listing in production
             for (let index = 0; index < sites.length; index++) {
                 let site = sites[index];
                 if (!site.map || (site.map && site.map.source !== location)) {
