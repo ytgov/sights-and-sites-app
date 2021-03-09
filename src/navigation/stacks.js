@@ -31,6 +31,12 @@ import i18n from '../locale/locale';
 import ListingScreen from '../screens/listing';
 import HelpfulInfoScreen from '../screens/helpfulInfo';
 import SearchScreen from '../screens/search';
+import {defaultTabBarOptions} from './defaultNavigationOptions';
+import BottomTabItem from './bottomTabItem';
+
+const searchIcon = require('./images/search.png');
+const helpfulInfoIcon = require('./images/helpful-info.png');
+const exploreRoadTrips = require('./images/explore-road-trips.png');
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -129,15 +135,37 @@ const ModalStackNavigation = createStackNavigator({
 
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
-        screen: SearchScreen
+        screen: SearchScreen,
+        navigationOptions: {
+            tabBarIcon: <BottomTabItem
+                icon={searchIcon}
+                label={'Search'} />
+        }
     },
     [routes.SCREEN_LISTING]: {
-        screen: ListingScreen
+        screen: ListingScreen,
+        navigationOptions: {
+            tabBarIcon: <BottomTabItem
+                icon={exploreRoadTrips}
+                label={'Explore Road Trips'}
+                bigIcon={true} />
+        }
     },
     [routes.SCREEN_HELPFUL_INFO]: {
         screen: HelpfulInfoScreen,
+        navigationOptions: {
+            tabBarIcon: <BottomTabItem
+                icon={helpfulInfoIcon}
+                label={'Helpful Info'} />
+        }
     }
+}, {
+    tabBarOptions: defaultTabBarOptions
 });
+
+const StackNavigator = createStackNavigator({
+    stackRoot: BottomTabNavigator
+})
 
 const RootDrawerNavigation = createDrawerNavigator(
     {
