@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ScreenWrapper from '../../../../shared/components/screen-wrapper/screen-wrapper.component';
+import ScreenWrapper from '../../../../components/screenWrapper';
 import {FilterHeader} from '../../../../theme/layout';
 import ListTileCheckbox from '../../components/list-tile/list-tile-checkbox.component';
 import Title from '../../components/title/title.component';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {ScrollView, View, ImageBackground, StyleSheet} from 'react-native';
 
-import styles from './screen-wrapper.styles';
+import styles from './styles';
 
 const ScreenWrapper = ({children, backgroundImage, backgroundColor}) => {
     if (backgroundImage) {
