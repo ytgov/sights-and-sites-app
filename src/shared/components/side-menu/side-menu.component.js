@@ -48,11 +48,19 @@ const SideMenu = (props) => {
 
                 <MaterialCommunityIcons.Button
                     name="close"
-                    size={24}
-                    color="black"
+                    size={22}
+                    color="white"
+                    padding={0}
+                    borderRadius={16}
+                    height={32}
+                    width={32}
+                    justifyContent={'center'}
+                    alignItems={'center'}
                     backgroundColor={'transparent'}
                     underlayColor={'transparent'}
+                    overflow={'hidden'}
                     iconStyle={{marginRight: 0}}
+                    style={{ backgroundColor: YUKON_COLORS.primary_600}}
                     onPress={() => navigation.closeDrawer()}
                 />
             </View>
@@ -61,7 +69,7 @@ const SideMenu = (props) => {
                 <DrawerItems
                     {...props}
                     items={filteredItems}
-                    activeLabelStyle={{ color: YUKON_COLORS.primary_200 }}
+                    activeTintColor={YUKON_COLORS.primary_400}
                     labelStyle={styles.menuLabel}
                     itemStyle={{lineHeight: 30, padding: 8 }}
                     iconContainerStyle={{ marginRight: 8, opacity: 1 }}  />
