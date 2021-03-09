@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ScrollView, View, ImageBackground, StyleSheet} from 'react-native';
+import {ScrollView, View, ImageBackground, SafeAreaView} from 'react-native';
 
 import styles from './styles';
 
@@ -20,17 +20,17 @@ const ScreenWrapper = ({children, backgroundImage, backgroundColor}) => {
         );
     } else  {
         return (
-            <View style={[styles.wrapper, {backgroundColor}]}>
-                <ScrollView>
-                    <View style={styles.inner}>
-                        {children}
-                    </View>
-                </ScrollView>
-            </View>
+            <SafeAreaView style={{ flex: 1 }}>
+                <View style={[styles.wrapper, {backgroundColor}]}>
+                    <ScrollView>
+                        <View style={styles.inner}>
+                            {children}
+                        </View>
+                    </ScrollView>
+                </View>
+            </SafeAreaView>
         )
     }
-
-
 };
 
 ScreenWrapper.propTypes = {
@@ -40,7 +40,7 @@ ScreenWrapper.propTypes = {
 
 ScreenWrapper.defaultProps = {
     backgroundImage: null,
-    backgroundColor: 'red'
+    backgroundColor: 'white'
 }
 
 export default ScreenWrapper;
