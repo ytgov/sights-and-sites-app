@@ -1,7 +1,7 @@
 import React from 'react';
 import routes from '../../../../navigation/routes';
 
-import ScreenWrapper from '../../../../shared/components/screen-wrapper/screen-wrapper.component';
+import ScreenWrapper from '../../../../components/screenWrapper';
 import Title from '../../components/title/title.component';
 import ListTile from '../../components/list-tile/list-tile.component';
 import LabelArrow from './label-arrow.component';
