@@ -31,7 +31,7 @@ import SearchScreen from '../screens/search';
 import BottomTabItem from './bottomTabItem';
 
 import FilterIndexScreen from '../screens/filters';
-import FilterBySiteTypeScreen from '../stacks/filters/screens/by-site-type/by-site-type.screen';
+import FilterByTypeScreen from '../screens/filters/filterByType';
 import FilterByRegionScreen from '../screens/filters/filterByRegion';
 import FilterByHighwayScreen from '../screens/filters/filterByHighway';
 import FilterByMyFavoritesScreen from '../screens/filters/filterMyFavorites';
@@ -50,7 +50,7 @@ const FilterStackNavigator = createStackNavigator({
         screen: FilterIndexScreen
     },
     [routes.SCREEN_FILTER_SITE_TYPE]: {
-        screen: FilterBySiteTypeScreen
+        screen: FilterByTypeScreen
     },
     [routes.SCREEN_FILTER_REGION]: {
         screen: FilterByRegionScreen
