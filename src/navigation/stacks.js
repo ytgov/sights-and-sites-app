@@ -10,7 +10,7 @@ import routes from './routes';
 import SideMenu from '../components/sideMenu';
 import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuIcon';
 
-import LoadingScreen from '../stacks/loading/screens/loading/loading.screen';
+import LoadingScreen from '../screens/loading';
 import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
 import IntroStack from '../stacks/intro/intro.stack';
 
