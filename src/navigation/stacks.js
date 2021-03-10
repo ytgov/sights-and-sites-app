@@ -66,7 +66,7 @@ const FilterStackNavigator = createStackNavigator({
     }
 }, {
     defaultNavigationOptions: {
-        headerMode: 'none'
+        header: null
     }
 });
 
