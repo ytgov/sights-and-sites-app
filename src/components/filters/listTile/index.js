@@ -30,9 +30,18 @@ const Index = (props) => {
     }
 
     let trailing = null;
+    console.log('here', typeof trailingIcon)
     if (trailingIcon) {
-        trailing = <Image style={trailingIconStyle}
-                          source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
+
+        // if trailingIcon is a referenced image (represented as number)
+        if (typeof trailingIcon === 'number') {
+            trailing = <Image style={trailingIconStyle}
+                              source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
+        }
+        // else trailingIcon is a component
+        else {
+            trailing = trailingIcon
+        }
     }
 
     // Handle onPress event.
