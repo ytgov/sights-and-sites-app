@@ -186,6 +186,19 @@ export default {
             recreation: 'Recreation',
             wildlifeLandscape: 'Wildlife & landscape',
             historyCulture: 'History & culture',
+        },
+        filterHighways: {
+            alaska: 'Alaska Highway',
+            klondike: 'Klondike Highway',
+            haines: 'Haines Road',
+            robertCampbell: 'Robert Campbell Highway',
+            dempster: 'Dempster Highway',
+            canol: 'Canol Road',
+            atlin: 'Atlin Road',
+            tagish: 'Tagish Road',
+            topOfTheWorld: 'Top of the World Highway',
+            nahanniRange: 'Nahanni Range Road',
+            silverTrail: 'Silver Trail'
         }
     },
 }
