@@ -6,7 +6,7 @@ const box = require('./images/box.png');
 const boxChecked = require('./images/box-checked.png');
 
 const ListTileCheckbox = (props) => {
-    const {checked, label, trailingIcon, trailingIconActive, onClick} = props
+    const {checked, label, trailingIcon, trailingIconActive, trailingIconStyle, onClick} = props
 
     return (
         <ListTile
@@ -16,7 +16,8 @@ const ListTileCheckbox = (props) => {
             leadingIcon={box}
             leadingIconActive={boxChecked}
             trailingIcon={trailingIcon}
-            trailingIconActive={trailingIconActive} />
+            trailingIconActive={trailingIconActive}
+            trailingIconStyle={trailingIconStyle} />
     );
 };
 
@@ -28,6 +29,10 @@ ListTileCheckbox.propTypes = {
     ]).isRequired,
     trailingIcon: PropTypes.node,
     trailingIconActive: PropTypes.node,
+    trailingIconStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.number
+    ]),
     onClick: PropTypes.func.isRequired,
 }
 

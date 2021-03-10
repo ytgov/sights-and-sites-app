@@ -161,6 +161,31 @@ export default {
                     }
                 },
             }
+        },
+
+        // FILTERS
+        filters: {
+            siteType: 'Site type',
+            region: 'Region',
+            highway: 'Highway',
+            nearMe: 'Near me',
+            myFavorites: 'My favorites'
+        },
+        filterRegions: {
+            campbell: 'Campbell',
+            klondike: 'Klondike',
+            kluane: 'Kluane',
+            northYukon: 'North Yukon',
+            silverTrail: 'Silver Trail',
+            southernLake: 'Southern Lakes',
+            watsonLake: 'Watson Lake',
+            whitehorse: 'Whitehorse',
+        },
+        filterTypes: {
+            camping: 'Camping',
+            recreation: 'Recreation',
+            wildlifeLandscape: 'Wildlife & landscape',
+            historyCulture: 'History & culture',
         }
     },
 }

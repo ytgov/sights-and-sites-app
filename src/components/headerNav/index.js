@@ -40,7 +40,11 @@ const HeaderNav = ({scene, activeItem, navigation}) => {
 };
 
 HeaderNav.propTypes = {
-    activeItem: PropTypes.objectOf(HeaderNavType)
+    activeItem: PropTypes.oneOf([
+        HeaderNavType.FILTERS,
+        HeaderNavType.LIST,
+        HeaderNavType.MAP
+    ])
 }
 
 export default withNavigation(HeaderNav);
