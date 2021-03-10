@@ -1,13 +1,10 @@
 import React from 'react';
-import {View, Dimensions} from 'react-native';
-import {SimpleLineIcons} from '@expo/vector-icons';
+import {Dimensions} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createDrawerNavigator, DrawerActions} from 'react-navigation-drawer';
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 
-import {COMMON} from '../theme/theme';
-import {YUKON_COLORS} from '../theme/config';
 import routes from './routes';
 
 import SideMenu from '../shared/components/side-menu/side-menu.component';
@@ -22,17 +19,24 @@ import TraditionalTerritoriesScreen from '../stacks/more/screens/traditional-ter
 import TravelTripsScreen from '../stacks/more/screens/travel-trips/travel-trips.screen';
 import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';
 
-import MainScreen from '../stacks/listing/screens/main/main.screen';
-import SiteDetails from '../stacks/listing/screens/site-details/site-details.screen';
-
-import FilterStack from '../stacks/filters/filters.stack';
 import i18n from '../locale/locale';
+import {defaultTabBarOptions} from './defaultNavigationOptions';
 
 import ListingScreen from '../screens/listing';
+import MapScreen from '../screens/map';
+
 import HelpfulInfoScreen from '../screens/helpfulInfo';
 import SearchScreen from '../screens/search';
-import {defaultTabBarOptions} from './defaultNavigationOptions';
+
 import BottomTabItem from './bottomTabItem';
+
+import FilterIndexScreen from '../screens/filters';
+import FilterBySiteTypeScreen from '../stacks/filters/screens/by-site-type/by-site-type.screen';
+import FilterByRegionScreen from '../screens/filters/filterByRegion';
+import FilterByHighwayScreen from '../screens/filters/filterByHighway';
+import FilterByMyFavoritesScreen from '../screens/filters/filterMyFavorites';
+import FilterByNearMeScreen from '../screens/filters/filterNearMe';
+import HeaderNav, {HeaderNavType} from '../components/headerNav';
 
 const searchIcon = require('./images/search.png');
 const helpfulInfoIcon = require('./images/helpful-info.png');
@@ -40,98 +44,53 @@ const exploreRoadTrips = require('./images/explore-road-trips.png');
 
 const windowWidth = Dimensions.get('window').width;
 
-const MainStackNavigation = createStackNavigator({
-        [routes.STACK_MAIN]: {
-            screen: MainScreen,
-        },
-        [routes.SCREEN_SITE_DETAILS]: {
-            screen: SiteDetails
-        },
-        [routes.STACK_FILTERS]: {
-            screen: FilterStack,
-            navigationOptions: {
-                title: ''
-            }
-        }
-    }, {
-        initialRouteName: routes.STACK_MAIN,
-        defaultNavigationOptions: ({navigation}) => ({
-            headerTitleStyle: {
-                color: 'white'
-            },
-            headerStyle: {
-                backgroundColor: YUKON_COLORS.primary_200,
-                borderBottomWidth: 0
-            },
-            headerRightContainerStyle: {
-                marginRight: 12
-            },
-            headerLeft: (
-                <View style={COMMON.headerLeft}>
-                    <SimpleLineIcons.Button name="menu"
-                                            size={18}
-                                            color="white"
-                                            backgroundColor="transparent"
-                                            underlayColor={'transparent'}
-                                            borderRadius={0}
-                                            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
-                    <SimpleLineIcons.Button name="magnifier"
-                                            size={18}
-                                            color="white"
-                                            backgroundColor="transparent"
-                                            underlayColor={'transparent'}
-                                            borderRadius={0}
-                                            onPress={() => navigation.navigate(routes.SCREEN_SEARCH)} />
-                </View>
-
-            ),
-            headerRight: (
-                <View style={COMMON.headerRight}>
-                    <SimpleLineIcons.Button name="equalizer"
-                                            size={18}
-                                            backgroundColor="transparent"
-                                            underlayColor={'transparent'}
-                                            borderRadius={0}
-                                            color="white"
-                                            onPress={() => navigation.navigate(routes.SCREEN_FILTER_INDEX)} />
-                    <SimpleLineIcons.Button name="list"
-                                            size={18}
-                                            backgroundColor="transparent"
-                                            underlayColor={'transparent'}
-                                            borderRadius={0}
-                                            color="white"
-                                            onPress={() => {}} />
-                    <SimpleLineIcons.Button name="map"
-                                            size={18}
-                                            backgroundColor="transparent"
-                                            underlayColor={'transparent'}
-                                            borderRadius={0}
-                                            color="white"
-                                            onPress={() => {}} />
-                </View>
-            ),
-        })
-    }
-)
-
-const ModalStackNavigation = createStackNavigator({
-    [routes.STACK_MAIN]: {
-        screen: MainStackNavigation,
-        navigationOptions: {
-            header: null
-        }
+//// Start here
+const FilterStackNavigator = createStackNavigator({
+    [routes.SCREEN_FILTER_INDEX]: {
+        screen: FilterIndexScreen
     },
-    [routes.SCREEN_SEARCH]: {
-        screen: SearchScreen,
+    [routes.SCREEN_FILTER_SITE_TYPE]: {
+        screen: FilterBySiteTypeScreen
+    },
+    [routes.SCREEN_FILTER_REGION]: {
+        screen: FilterByRegionScreen
+    },
+    [routes.SCREEN_FILTER_HIGHWAY]: {
+        screen: FilterByHighwayScreen
+    },
+    [routes.SCREEN_FILTER_MY_FAVORITES]: {
+        screen: FilterByMyFavoritesScreen
+    },
+    [routes.SCREEN_FILTER_NEAR_ME]: {
+        screen: FilterByNearMeScreen
     }
 }, {
-    mode: 'modal',
-    transparentCard: true,
-    cardStyle: { opacity: 1 }
-})
+    defaultNavigationOptions: {
+        headerMode: 'none'
+    }
+});
 
 
-//// Start here
+const MainStackNavigator = createStackNavigator({
+    [routes.STACK_FILTERS]: {
+        screen: FilterStackNavigator,
+        navigationOptions: {
+            header: (props) => <HeaderNav {...props}
+                                          activeItem={HeaderNavType.FILTERS} />
+        }
+    },
+    [routes.SCREEN_LISTING]: {
+        screen: ListingScreen,
+    },
+    [routes.SCREEN_MAP]: {
+        screen: MapScreen
+    }
+}, {
+    initialRouteName: routes.SCREEN_LISTING,
+    defaultNavigationOptions: {
+        headerMode: 'none'
+    }
+});
 
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
@@ -142,8 +101,8 @@ const BottomTabNavigator = createBottomTabNavigator({
                 label={'Search'} />
         }
     },
-    [routes.SCREEN_LISTING]: {
-        screen: ListingScreen,
+    [routes.STACK_MAIN]: {
+        screen: MainStackNavigator,
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={exploreRoadTrips}
@@ -160,24 +119,17 @@ const BottomTabNavigator = createBottomTabNavigator({
         }
     }
 }, {
-    tabBarOptions: defaultTabBarOptions
+    initialRouteName: routes.STACK_MAIN,
+    tabBarOptions: defaultTabBarOptions,
 });
-
-const StackNavigator = createStackNavigator({
-    stackRoot: BottomTabNavigator
-})
 
 const RootDrawerNavigation = createDrawerNavigator(
     {
-        [routes.STACK_MODAL]: {
+        [routes.STACK_BOTTOM_TAB]: {
             screen: BottomTabNavigator,
             navigationOptions: {
                 title: 'Home',
             }
-        },
-
-        bottomTab: {
-            screen: BottomTabNavigator
         },
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
@@ -215,7 +167,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             }
         }
     }, {
-        initialRouteName: routes.STACK_MODAL,
+        initialRouteName: routes.STACK_BOTTOM_TAB,
         contentComponent: SideMenu,
         drawerPosition: 'left',
         drawerBackgroundColor: 'white',
@@ -232,7 +184,7 @@ const RootNavigation = createSwitchNavigator(
         [routes.SCREEN_LOADING]: LoadingScreen,
         [routes.SCREEN_WELCOME]: WelcomeScreen,
         [routes.STACK_APP_INSTRUCTION]: IntroStack,
-        [routes.STACK_BOTTOM_TAB]: BottomTabNavigator,
+        [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
     },
     {
         initialRouteName: routes.SCREEN_LOADING,
