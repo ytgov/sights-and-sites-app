@@ -13,7 +13,8 @@ const Index = (props) => {
         leadingIcon,
         leadingIconActive,
         trailingIcon,
-        trailingIconActive
+        trailingIconActive,
+        trailingIconStyle
     } = props
 
     const [isChecked, setIsCheck] = useState(checked);
@@ -30,7 +31,8 @@ const Index = (props) => {
 
     let trailing = null;
     if (trailingIcon) {
-        trailing = <Image source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
+        trailing = <Image style={trailingIconStyle}
+                          source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
     }
 
     // Handle onPress event.
@@ -65,6 +67,10 @@ Index.propTypes = {
     leadingIconActive: PropTypes.node,
     trailingIcon: PropTypes.node,
     trailingIconActive: PropTypes.node,
+    trailingIconStyle: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.number
+    ]),
     onClick: PropTypes.func.isRequired,
 }
 

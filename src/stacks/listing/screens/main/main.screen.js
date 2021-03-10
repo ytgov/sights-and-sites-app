@@ -72,7 +72,7 @@ class MainScreen extends React.Component {
     }
 }
 
-// Need this props to pass to FooterTabs and SitesTypeFilter components
+// Need this props to pass to FooterTabs and SitesTypeFilter filters
 MainScreen.propTypes = {
     locale: PropTypes.string.isRequired,
     nearMeFilter: PropTypes.bool.isRequired,
