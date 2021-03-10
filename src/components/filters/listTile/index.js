@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {View, Image, TouchableWithoutFeedback} from 'react-native';
 import {Body1} from '../../../theme/typings';
 
-const ListTile = (props) => {
+import {styles, leadingStyle} from './styles'
+
+const Index = (props) => {
     const {
         label,
         onClick,
@@ -28,9 +30,7 @@ const ListTile = (props) => {
 
     let trailing = null;
     if (trailingIcon) {
-        trailing = <View style={trailingStyle.wrapper}>
-            <Image source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
-        </View>
+        trailing = <Image source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
     }
 
     // Handle onPress event.
@@ -55,7 +55,7 @@ const ListTile = (props) => {
     );
 };
 
-ListTile.propTypes = {
+Index.propTypes = {
     checked: PropTypes.bool,
     label: PropTypes.oneOfType([
         PropTypes.string,
@@ -68,7 +68,7 @@ ListTile.propTypes = {
     onClick: PropTypes.func.isRequired,
 }
 
-ListTile.defaultProps = {
+Index.defaultProps = {
     checked: false,
     icon: null,
     leadingIcon: null,
@@ -77,42 +77,5 @@ ListTile.defaultProps = {
     trailingIconActive: null,
 }
 
-export default ListTile;
+export default Index;
 
-const styles = StyleSheet.create({
-    wrapper: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingVertical: 12,
-        marginBottom: 2,
-    },
-    labelWrapper: {
-        flex: 1,
-        marginHorizontal: 16
-    },
-    icon: {
-        height: 46,
-        width: 46
-    }
-})
-
-const leadingStyle = StyleSheet.create({
-    wrapper: {
-        position: 'relative',
-    },
-    default: {
-        // height: 29,
-        // width: 29,
-        resizeMode: 'contain',
-    },
-    active: {
-        position: 'absolute',
-        // top: 6,
-        // left: 6,
-        resizeMode: 'contain'
-    }
-})
-
-const trailingStyle = StyleSheet.create({
-
-})

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListTile from './list-tile.component';
+import ListTile from './index';
 
 const box = require('./images/box.png');
 const boxChecked = require('./images/box-checked.png');
