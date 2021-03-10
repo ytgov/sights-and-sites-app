@@ -6,15 +6,21 @@ import {YUKON_COLORS} from '../theme/config';
 
 const BottomTabItem = ({icon, label, bigIcon}) => {
     let iconComponent = <Image source={icon} />
+    let wrapperStyles = styles.wrapper
 
     if (bigIcon) {
         iconComponent = <View style={styles.bigIconWrapper}>
             <Image source={icon} style={styles.bigIcon} />
         </View>
+
+        wrapperStyles = {
+            ...wrapperStyles,
+            width: 150
+        }
     }
 
     return (
-        <View style={styles.wrapper}>
+        <View style={wrapperStyles}>
             {iconComponent}
             <Text style={styles.text}>{label}</Text>
         </View>
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         marginTop: 4,
-        fontSize: 14,
+        fontSize: 12,
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD
     }
 })

@@ -20,3 +20,13 @@ export const defaultTabBarOptions =  {
     lazy: true,
     tabBarPosition: 'bottom',
 }
+
+export const defaultTopTabBarOptions = {
+    activeTintColor: 'white',
+    activeBackgroundColor: YUKON_COLORS.primary_600,
+    inactiveTintColor: 'white',
+    inactiveBackgroundColor: YUKON_COLORS.primary_200,
+    style: {
+        backgroundColor: 'blue',
+    },
+}
