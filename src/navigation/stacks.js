@@ -7,8 +7,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import routes from './routes';
 
-import SideMenu from '../shared/components/side-menu/side-menu.component';
-import SideMenuIcon, { SideMenuIconType } from '../shared/components/side-menu/menu-icon.component';
+import SideMenu from '../components/sideMenu';
+import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuIcon';
 
 import LoadingScreen from '../stacks/loading/screens/loading/loading.screen';
 import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
@@ -98,7 +98,10 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={searchIcon}
-                label={'Search'} />
+                label={'Search'} />,
+            tabBarOnPress: ({navigation}) => {
+                // TODO: dispatch opening search box.
+            }
         }
     },
     [routes.STACK_MAIN]: {
@@ -115,7 +118,10 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={helpfulInfoIcon}
-                label={'Helpful Info'} />
+                label={'Helpful Info'} />,
+            tabBarOnPress: ({navigation}) => {
+                navigation.openDrawer()
+            }
         }
     }
 }, {
@@ -127,9 +133,6 @@ const RootDrawerNavigation = createDrawerNavigator(
     {
         [routes.STACK_BOTTOM_TAB]: {
             screen: BottomTabNavigator,
-            navigationOptions: {
-                title: 'Home',
-            }
         },
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
