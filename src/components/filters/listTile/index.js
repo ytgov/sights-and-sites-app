@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, StyleSheet, TouchableWithoutFeedback} from 'react-native';
-import {Body1} from '../../../../theme/typings';
+import {Body1} from '../../../theme/typings';
 
 const ListTile = (props) => {
     const {
