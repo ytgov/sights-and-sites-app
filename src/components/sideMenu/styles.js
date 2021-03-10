@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {YUKON_COLORS} from '../../../theme/config';
-import {YUKON_FONTS} from '../../../theme/typings';
+import {YUKON_COLORS} from '../../theme/config';
+import {YUKON_FONTS} from '../../theme/typings';
 
 const styles = StyleSheet.create({
     header: {
@@ -40,7 +40,14 @@ const styles = StyleSheet.create({
     },
     menuLabel: {
         fontSize: 16,
-        fontFamily: YUKON_FONTS.MONTSERRAT_BOLD
+        fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
+        marginRight: 32
+    },
+    menuItem: {
+        lineHeight: 30,
+        paddingVertical: 8,
+        paddingLeft: 16,
+        paddingRight: 32
     }
 })
 

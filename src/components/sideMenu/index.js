@@ -4,22 +4,22 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-import i18n, {languages, getToggledLanguage} from '../../../locale/locale';
+import i18n, {languages, getToggledLanguage} from '../../locale/locale';
 
-import routes from '../../../navigation/routes';
-import {YUKON_COLORS} from '../../../theme/config';
-import styles from './side-menu.styles';
+import routes from '../../navigation/routes';
+import {YUKON_COLORS} from '../../theme/config';
+import styles from './styles';
 
 import YukonLogo from './images/yukon.png'
-import {setLocale} from '../../../store/actions/locale';
-import {setSelectLocaleAction} from '../../../store/actions/core';
+import {setLocale} from '../../store/actions/locale';
+import {setSelectLocaleAction} from '../../store/actions/core';
 import {connect} from 'react-redux';
 
 const SideMenu = (props) => {
     const {navigation, items, locale} = props
 
     // Remove Home item.
-    const filteredItems = items.filter(i => i.key !== routes.STACK_MODAL)
+    const filteredItems = items.filter(i => i.key !== routes.STACK_BOTTOM_TAB)
 
     const currentLanguage = languages[locale];
 
@@ -71,7 +71,7 @@ const SideMenu = (props) => {
                     items={filteredItems}
                     activeTintColor={YUKON_COLORS.primary_400}
                     labelStyle={styles.menuLabel}
-                    itemStyle={{lineHeight: 30, padding: 8 }}
+                    itemStyle={styles.menuItem}
                     iconContainerStyle={{ marginRight: 8, opacity: 1 }}  />
 
                 <TouchableWithoutFeedback onPress={_toggleLanguage}>
