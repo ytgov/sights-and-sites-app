@@ -813,14 +813,14 @@
     <string name="mapbox_mapActionDescription">Showing a Map created with Mapbox. Scroll by dragging two fingers. Zoom by pinching two fingers.</string>
     <string name="mapbox_myLocationViewContentDescription">Location View. This shows your location on the map.</string>
     <string name="mapbox_offline_error_region_definition_invalid">Provided OfflineRegionDefinition doesn\'t fit the world bounds: %s</string>
-    <string name="mapbox_style_dark" translatable="false">mapbox://styles/mapbox/dark-v10</string>
-    <string name="mapbox_style_light" translatable="false">mapbox://styles/mapbox/light-v10</string>
-    <string name="mapbox_style_mapbox_streets" translatable="false">mapbox://styles/mapbox/streets-v11</string>
-    <string name="mapbox_style_outdoors" translatable="false">mapbox://styles/mapbox/outdoors-v11</string>
-    <string name="mapbox_style_satellite" translatable="false">mapbox://styles/mapbox/satellite-v9</string>
-    <string name="mapbox_style_satellite_streets" translatable="false">mapbox://styles/mapbox/satellite-streets-v11</string>
-    <string name="mapbox_style_traffic_day" translatable="false">mapbox://styles/mapbox/traffic-day-v2</string>
-    <string name="mapbox_style_traffic_night" translatable="false">mapbox://styles/mapbox/traffic-night-v2</string>
+    <string name="mapbox_style_dark" translatable="false">mapbox://indexStyles/mapbox/dark-v10</string>
+    <string name="mapbox_style_light" translatable="false">mapbox://indexStyles/mapbox/light-v10</string>
+    <string name="mapbox_style_mapbox_streets" translatable="false">mapbox://indexStyles/mapbox/streets-v11</string>
+    <string name="mapbox_style_outdoors" translatable="false">mapbox://indexStyles/mapbox/outdoors-v11</string>
+    <string name="mapbox_style_satellite" translatable="false">mapbox://indexStyles/mapbox/satellite-v9</string>
+    <string name="mapbox_style_satellite_streets" translatable="false">mapbox://indexStyles/mapbox/satellite-streets-v11</string>
+    <string name="mapbox_style_traffic_day" translatable="false">mapbox://indexStyles/mapbox/traffic-day-v2</string>
+    <string name="mapbox_style_traffic_night" translatable="false">mapbox://indexStyles/mapbox/traffic-night-v2</string>
     <string name="mapbox_telemetryImproveMap">Improve This Map</string>
     <string name="mapbox_telemetryLink" translatable="false">https://www.mapbox.com/telemetry/</string>
     <string name="mapbox_telemetrySettings">Telemetry Settings</string>
@@ -1370,7 +1370,7 @@
     <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.ActionBar.Surface</item>
     <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
 
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="android:contextPopupMenuStyle" ns2:targetApi="n">
       @style/Widget.MaterialComponents.PopupMenu.ContextMenu
     </item>
@@ -1407,11 +1407,11 @@
     <item name="android:datePickerDialogTheme" ns2:ignore="NewApi">@style/ThemeOverlay.MaterialComponents.Dialog</item>
     <item name="android:timePickerDialogTheme" ns2:ignore="NewApi">@style/ThemeOverlay.MaterialComponents.Dialog</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceLargePopupMenu">?attr/textAppearanceSubtitle1</item>
     <item name="textAppearanceSmallPopupMenu">?attr/textAppearanceSubtitle1</item>
 
-    <!-- Picker styles and themes. -->
+    <!-- Picker indexStyles and themes. -->
     <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
     <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
     <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
@@ -1434,7 +1434,7 @@
     <item name="scrimBackground">@color/mtrl_scrim_color</item>
     <item name="popupMenuBackground">@drawable/mtrl_popupmenu_background_dark</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
     <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
@@ -1449,7 +1449,7 @@
     <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
     <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 
-    <!-- Shape styles -->
+    <!-- Shape indexStyles -->
     <item name="shapeAppearanceSmallComponent">
       @style/ShapeAppearance.MaterialComponents.SmallComponent
     </item>
@@ -1484,7 +1484,7 @@
     <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.ActionBar.Surface</item>
     <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
 
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="android:contextPopupMenuStyle" ns2:targetApi="n">
       @style/Widget.MaterialComponents.PopupMenu.ContextMenu
     </item>
@@ -1518,7 +1518,7 @@
     <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
     <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceLargePopupMenu">?attr/textAppearanceSubtitle1</item>
     <item name="textAppearanceSmallPopupMenu">?attr/textAppearanceSubtitle1</item>
   </style>
@@ -1540,7 +1540,7 @@
     <item name="scrimBackground">@color/mtrl_scrim_color</item>
     <item name="popupMenuBackground">@drawable/mtrl_popupmenu_background_dark</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
     <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
@@ -1555,7 +1555,7 @@
     <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
     <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 
-    <!-- Shape styles -->
+    <!-- Shape indexStyles -->
     <item name="shapeAppearanceSmallComponent">
       @style/ShapeAppearance.MaterialComponents.SmallComponent
     </item>
@@ -1589,7 +1589,7 @@
     <item name="actionBarStyle">@style/Widget.MaterialComponents.Light.ActionBar.Solid</item>
     <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
 
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="android:contextPopupMenuStyle" ns2:targetApi="n">
       @style/Widget.MaterialComponents.PopupMenu.ContextMenu
     </item>
@@ -1626,11 +1626,11 @@
     <item name="android:datePickerDialogTheme" ns2:ignore="NewApi">@style/ThemeOverlay.MaterialComponents.Dialog</item>
     <item name="android:timePickerDialogTheme" ns2:ignore="NewApi">@style/ThemeOverlay.MaterialComponents.Dialog</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceLargePopupMenu">?attr/textAppearanceSubtitle1</item>
     <item name="textAppearanceSmallPopupMenu">?attr/textAppearanceSubtitle1</item>
 
-    <!-- Picker styles and themes. -->
+    <!-- Picker indexStyles and themes. -->
     <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
     <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
     <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
@@ -1653,7 +1653,7 @@
     <item name="scrimBackground">@color/mtrl_scrim_color</item>
     <item name="popupMenuBackground">@drawable/mtrl_popupmenu_background</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
     <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
@@ -1668,7 +1668,7 @@
     <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
     <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 
-    <!-- Shape styles -->
+    <!-- Shape indexStyles -->
     <item name="shapeAppearanceSmallComponent">
       @style/ShapeAppearance.MaterialComponents.SmallComponent
     </item>
@@ -1701,7 +1701,7 @@
     <item name="scrimBackground">@color/mtrl_scrim_color</item>
     <item name="popupMenuBackground">@drawable/mtrl_popupmenu_background</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
     <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
@@ -1716,7 +1716,7 @@
     <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
     <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 
-    <!-- Shape styles -->
+    <!-- Shape indexStyles -->
     <item name="shapeAppearanceSmallComponent">
       @style/ShapeAppearance.MaterialComponents.SmallComponent
     </item>
@@ -1751,7 +1751,7 @@
     <item name="actionBarStyle">@style/Widget.MaterialComponents.Light.ActionBar.Solid</item>
     <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
 
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="android:contextPopupMenuStyle" ns2:targetApi="n">
       @style/Widget.MaterialComponents.PopupMenu.ContextMenu
     </item>
@@ -1785,7 +1785,7 @@
     <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
     <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceLargePopupMenu">?attr/textAppearanceSubtitle1</item>
     <item name="textAppearanceSmallPopupMenu">?attr/textAppearanceSubtitle1</item>
   </style>
@@ -1807,7 +1807,7 @@
     <item name="scrimBackground">@color/mtrl_scrim_color</item>
     <item name="popupMenuBackground">@drawable/mtrl_popupmenu_background</item>
 
-    <!-- Type styles -->
+    <!-- Type indexStyles -->
     <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
     <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
     <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
@@ -1822,7 +1822,7 @@
     <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
     <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
 
-    <!-- Shape styles -->
+    <!-- Shape indexStyles -->
     <item name="shapeAppearanceSmallComponent">
       @style/ShapeAppearance.MaterialComponents.SmallComponent
     </item>
@@ -1838,15 +1838,15 @@
     <item name="elevationOverlayColor">?attr/colorOnSurface</item>
   </style>
     <style name="Base.V14.ThemeOverlay.MaterialComponents.Dialog" parent="ThemeOverlay.AppCompat.Dialog">
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush</item>
   </style>
     <style name="Base.V14.ThemeOverlay.MaterialComponents.Dialog.Alert" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush</item>
   </style>
     <style name="Base.V14.ThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-    <!-- Widget styles -->
+    <!-- Widget indexStyles -->
     <item name="alertDialogStyle">@style/MaterialAlertDialog.MaterialComponents</item>
     <item name="android:checkedTextViewStyle" ns2:ignore="NewApi">@style/Widget.MaterialComponents.CheckedTextView</item>
     <item name="android:dialogCornerRadius" ns2:ignore="newApi">@null</item>
@@ -1930,7 +1930,7 @@
         <item name="listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
 
-        <!-- Spinner styles -->
+        <!-- Spinner indexStyles -->
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
         <item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>
         <item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
@@ -1939,7 +1939,7 @@
         <item name="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
         <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
 
-        <!-- Popup Menu styles -->
+        <!-- Popup Menu indexStyles -->
         <item name="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
@@ -1958,7 +1958,7 @@
         <!-- ShareActionProvider attributes -->
         <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
 
-        <!-- Toolbar styles -->
+        <!-- Toolbar indexStyles -->
         <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
 
@@ -1991,7 +1991,7 @@
         <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
-        <!-- Button styles -->
+        <!-- Button indexStyles -->
         <item name="buttonStyle">@style/Widget.AppCompat.Button</item>
         <item name="buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
         <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Widget.Button</item>
@@ -2128,7 +2128,7 @@
         <item name="listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
 
-        <!-- Spinner styles -->
+        <!-- Spinner indexStyles -->
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
         <item name="android:spinnerItemStyle">@style/Widget.AppCompat.TextView.SpinnerItem</item>
         <item name="android:dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
@@ -2137,7 +2137,7 @@
         <item name="spinnerDropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
         <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
 
-        <!-- Popup Menu styles -->
+        <!-- Popup Menu indexStyles -->
         <item name="popupMenuStyle">@style/Widget.AppCompat.Light.PopupMenu</item>
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
@@ -2156,7 +2156,7 @@
         <!-- ShareActionProvider attributes -->
         <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
 
-        <!-- Toolbar styles -->
+        <!-- Toolbar indexStyles -->
         <item name="toolbarStyle">@style/Widget.AppCompat.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
 
@@ -2189,7 +2189,7 @@
         <item name="ratingBarStyleSmall">@style/Widget.AppCompat.RatingBar.Small</item>
         <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
-        <!-- Button styles -->
+        <!-- Button indexStyles -->
         <item name="buttonStyle">@style/Widget.AppCompat.Button</item>
         <item name="buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
         <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Widget.Button</item>
@@ -2867,7 +2867,7 @@
         <item name="android:textColorLinkInverse">?attr/colorAccent</item>
         <item name="android:textColorAlertDialogListItem">@color/abc_primary_text_material_dark</item>
 
-        <!-- Text styles -->
+        <!-- Text indexStyles -->
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
         <item name="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
@@ -2937,7 +2937,7 @@
         <item name="android:textColorLinkInverse">?attr/colorAccent</item>
         <item name="android:textColorAlertDialogListItem">@color/abc_primary_text_material_light</item>
 
-        <!-- Text styles -->
+        <!-- Text indexStyles -->
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
         <item name="android:textAppearanceInverse">@style/TextAppearance.AppCompat.Inverse</item>
         <item name="android:textAppearanceLarge">@style/TextAppearance.AppCompat.Large</item>
@@ -2979,12 +2979,12 @@
     <style name="Platform.MaterialComponents.Light.Dialog" parent="Theme.AppCompat.Light.Dialog"/>
     <style name="Platform.ThemeOverlay.AppCompat" parent=""/>
     <style name="Platform.ThemeOverlay.AppCompat.Dark">
-        <!-- Action Bar styles -->
+        <!-- Action Bar indexStyles -->
         <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
         <item name="actionDropDownStyle">@style/Widget.AppCompat.Spinner.DropDown.ActionBar</item>
         <item name="selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
 
-        <!-- SearchView styles -->
+        <!-- SearchView indexStyles -->
         <item name="android:autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
@@ -4930,7 +4930,7 @@
     <declare-styleable name="AppCompatTheme">
 
         <!-- ============= -->
-        <!-- Window styles -->
+        <!-- Window indexStyles -->
         <!-- ============= -->
         <eat-comment/>
 
@@ -4983,7 +4983,7 @@
         <attr name="android:windowAnimationStyle"/>
 
         <!-- =================== -->
-        <!-- Action bar styles   -->
+        <!-- Action bar indexStyles   -->
         <!-- =================== -->
         <eat-comment/>
         <!-- Default style for tabs within an action bar -->
@@ -5032,7 +5032,7 @@
 
 
         <!-- =================== -->
-        <!-- Action mode styles  -->
+        <!-- Action mode indexStyles  -->
         <!-- =================== -->
         <eat-comment/>
         <attr format="reference" name="actionModeStyle"/>
@@ -5063,7 +5063,7 @@
 
 
         <!-- =================== -->
-        <!-- Text styles -->
+        <!-- Text indexStyles -->
         <!-- =================== -->
         <eat-comment/>
         <!-- Text color, typeface, size, and style for the text inside of a popup menu. -->
@@ -5075,7 +5075,7 @@
 
 
         <!-- =================== -->
-        <!-- Dialog styles -->
+        <!-- Dialog indexStyles -->
         <!-- =================== -->
         <eat-comment/>
 
@@ -5089,7 +5089,7 @@
         <attr format="dimension" name="dialogCornerRadius"/>
 
         <!-- =================== -->
-        <!-- Other widget styles -->
+        <!-- Other widget indexStyles -->
         <!-- =================== -->
         <eat-comment/>
 
@@ -5143,7 +5143,7 @@
         <attr format="reference" name="imageButtonStyle"/>
 
         <!-- ============================ -->
-        <!-- SearchView styles and assets -->
+        <!-- SearchView indexStyles and assets -->
         <!-- ============================ -->
         <eat-comment/>
         <!-- Text color, typeface, size, and style for system search result title. Defaults to primary inverse text color. -->
@@ -5156,7 +5156,7 @@
         <attr format="reference" name="searchViewStyle"/>
 
         <!-- =========== -->
-        <!-- List styles -->
+        <!-- List indexStyles -->
         <!-- =========== -->
         <eat-comment/>
 
@@ -5189,7 +5189,7 @@
         <attr format="reference" name="textAppearanceListItemSmall"/>
 
         <!-- ============ -->
-        <!-- Panel styles -->
+        <!-- Panel indexStyles -->
         <!-- ============ -->
         <eat-comment/>
 
@@ -5241,7 +5241,7 @@
         <attr format="color" name="colorBackgroundFloating"/>
 
         <!-- ============ -->
-        <!-- Alert Dialog styles -->
+        <!-- Alert Dialog indexStyles -->
         <!-- ============ -->
         <eat-comment/>
         <attr format="reference" name="alertDialogStyle"/>
@@ -5263,7 +5263,7 @@
         <attr format="reference" name="buttonBarNeutralButtonStyle"/>
 
         <!-- ===================== -->
-        <!-- Default widget styles -->
+        <!-- Default widget indexStyles -->
         <!-- ===================== -->
         <eat-comment/>
 
@@ -5298,7 +5298,7 @@
         <attr format="reference" name="listMenuViewStyle"/>
 
         <!-- ===================== -->
-        <!-- Tooltip styles -->
+        <!-- Tooltip indexStyles -->
         <!-- ===================== -->
         <eat-comment/>
 
