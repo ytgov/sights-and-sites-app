@@ -4,14 +4,9 @@ import {FilterHeader} from '../../theme/layout';
 import Title from '../../components/filters/title';
 import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
 
-const bgDefault = require('./images/bg-type-history-culture.jpg');
+import filterTypes from './data/filterTypes';
 
-const filters = [
-    { label: 'Camping', icon: require('./images/camping.png'), background: require('./images/bg-type-camping.jpg') },
-    { label: 'Recreation', icon: require('./images/recreation.png'), background: require('./images/bg-type-recreation.jpg') },
-    { label: 'Wildlife & landscape', icon: require('./images/wildlife.png'), background: require('./images/bg-type-wildlife.jpg') },
-    { label: 'History & culture', icon: require('./images/history-culture.png'), background: require('./images/bg-type-history-culture.jpg') },
-]
+const bgDefault = require('./images/type/bg-type-history-culture.jpg');
 
 const FilterByTypeScreen = () => {
     const [background, setBackground] = useState(bgDefault);
@@ -22,7 +17,7 @@ const FilterByTypeScreen = () => {
                 <Title title={`Filter by site type`} hasArrow={true} />
             </FilterHeader>
 
-            {filters.map((item, i) => (
+            {filterTypes.map((item, i) => (
                 <ListTileCheckbox
                     key={i}
                     label={item.label}
