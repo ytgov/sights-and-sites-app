@@ -17,7 +17,7 @@ import IntroStack from '../stacks/intro/intro.stack';
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
 import FirstNationsScreen from '../screens/helpfulInfo/firstNations';
 import WildernessTravelTipsScreen from '../screens/helpfulInfo/wildernessTravelTips';
-import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';
+import AppInformationScreen from '../screens/helpfulInfo/appInformation';
 
 import i18n from '../locale/locale';
 import {defaultTabBarOptions} from './defaultNavigationOptions';
@@ -186,7 +186,8 @@ const RootStackNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
     [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen,
     [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen,
-    [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: WildernessTravelTipsScreen
+    [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: WildernessTravelTipsScreen,
+    [routes.SCREEN_APP_INFORMATION]: AppInformationScreen
 }, {
     headerMode: 'none',
 })
