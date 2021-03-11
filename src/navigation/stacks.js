@@ -16,7 +16,7 @@ import IntroStack from '../stacks/intro/intro.stack';
 
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
 import FirstNationsScreen from '../screens/helpfulInfo/firstNations';
-import TravelTripsScreen from '../stacks/more/screens/travel-trips/travel-trips.screen';
+import WildernessTravelTipsScreen from '../screens/helpfulInfo/wildernessTravelTips';
 import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';
 
 import i18n from '../locale/locale';
@@ -149,7 +149,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             }
         },
         [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
-            screen: TravelTripsScreen,
+            screen: WildernessTravelTipsScreen,
             navigationOptions: {
                 title: 'Wilderness Travel Tips',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
@@ -185,7 +185,8 @@ const RootDrawerNavigation = createDrawerNavigator(
 const RootStackNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
     [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen,
-    [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen
+    [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen,
+    [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: WildernessTravelTipsScreen
 }, {
     headerMode: 'none',
 })
