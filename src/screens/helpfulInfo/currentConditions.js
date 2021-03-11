@@ -1,14 +1,9 @@
 import React from 'react';
-import {View, Text, Image, Dimensions, SafeAreaView} from 'react-native';
-
 import {Body1, H2, H3} from '../../theme/typings';
 
 import ScreenParallaxWrapper from '../../components/screenParallaxWrapper';
-import CurrentConditionStyles from '../../stacks/more/screens/current-conditions/current-conditions.styles';
-
 const bgCurrentConditions = require('./images/bg-current-conditions.png');
 const iconCurrentConditions = require('./images/icon-current-conditions.png');
-
 
 const CurrentConditionsScreen = () => {
     return (

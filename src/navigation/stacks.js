@@ -15,7 +15,7 @@ import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
 import IntroStack from '../stacks/intro/intro.stack';
 
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
-import TraditionalTerritoriesScreen from '../stacks/more/screens/traditional-territories/traditional-territories.screen';
+import FirstNationsScreen from '../screens/helpfulInfo/firstNations';
 import TravelTripsScreen from '../stacks/more/screens/travel-trips/travel-trips.screen';
 import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';
 
@@ -142,7 +142,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             }
         },
         [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
-            screen: TraditionalTerritoriesScreen,
+            screen: FirstNationsScreen,
             navigationOptions: {
                 title: 'First Nations in Yukon',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
@@ -184,7 +184,8 @@ const RootDrawerNavigation = createDrawerNavigator(
 
 const RootStackNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
-    [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen
+    [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen,
+    [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen
 }, {
     headerMode: 'none',
 })
