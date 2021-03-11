@@ -35,7 +35,7 @@ class MainScreen extends React.Component {
                             onPress={() => {
                                 toggleListingViewDispatch('LIST')
                             }}>
-                            <Body1 style={MainScreenStyles.switchBtnText}>{i18n.t('listingTypes.list')}</Body1>
+                            <Body1 style={MainScreenStyles.switchBtnText}>{i18n.t('listingTypes.listing')}</Body1>
                         </TouchableOpacity>
                     </View>
                     <View style={[MainScreenStyles.switchBtnBox, MainScreenStyles.switchBtnBoxRight]}>
@@ -72,7 +72,7 @@ class MainScreen extends React.Component {
     }
 }
 
-// Need this props to pass to FooterTabs and SitesTypeFilter components
+// Need this props to pass to FooterTabs and SitesTypeFilter filters
 MainScreen.propTypes = {
     locale: PropTypes.string.isRequired,
     nearMeFilter: PropTypes.bool.isRequired,

@@ -72,7 +72,7 @@ class IntroStepFourScreen extends React.Component {
 //            error(i18n.t('notifications.permissionsRequest'));
 //        } else {
         setOnboardingFinishedDispatch();
-        navigation.navigate(routes.STACK_DRAWER);
+        navigation.navigate(routes.STACK_BOTTOM_TAB);
 //        }
     }
 

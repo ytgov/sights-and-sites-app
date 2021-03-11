@@ -152,6 +152,44 @@ export default {
                     a4: 'Pour toute question, veuillez contacter la Section des lieux d’intérêt historique, ministère du Tourisme et de la Culture, gouvernement du Yukon.\n',
                 },
             }
-        }
+        },
+
+        // FILTERS
+        filters: {
+            siteType: 'Site type',
+            region: 'Region',
+            highway: 'Highway',
+            nearMe: 'Near me',
+            myFavorites: 'My favorites'
+        },
+        filterRegions: {
+            campbell: 'Campbell',
+            klondike: 'Klondike',
+            kluane: 'Kluane',
+            northYukon: 'Nord et Arctique',
+            silverTrail: 'Silver Trail',
+            southernLake: 'Lac du Sud',
+            watsonLake: 'Watson Lake',
+            whitehorse: 'Whitehorse',
+        },
+        filterTypes: {
+            camping: 'Camping',
+            recreation: 'Vous êtes prêt?',
+            wildlifeLandscape: 'Nature et paysages',
+            historyCulture: 'Histoire et culture',
+        },
+        filterHighways: {
+            alaska: 'Route de l’Alaska',
+            klondike: 'Route du Klondike',
+            haines: 'Route de Haines',
+            robertCampbell: 'Route Campbell',
+            dempster: 'Route Dempster',
+            canol: 'Route Canol',
+            atlin: 'Route d’Atlin',
+            tagish: 'Route de Tagish',
+            topOfTheWorld: 'Route Top of the World',
+            nahanniRange: 'Route Nahanni Range',
+            silverTrail: 'Route Silver Trail'
+        },
     },
 }
