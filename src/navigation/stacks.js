@@ -182,12 +182,19 @@ const RootDrawerNavigation = createDrawerNavigator(
     }
 );
 
+const RootStackNavigator = createStackNavigator({
+    [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
+    [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen
+}, {
+    headerMode: 'none',
+})
+
 const RootNavigation = createSwitchNavigator(
     {
         [routes.SCREEN_LOADING]: LoadingScreen,
         [routes.SCREEN_WELCOME]: WelcomeScreen,
         [routes.STACK_APP_INSTRUCTION]: IntroStack,
-        [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
+        [routes.STACK_BOTTOM_TAB]: RootStackNavigator,
     },
     {
         initialRouteName: routes.SCREEN_LOADING,
