@@ -14,7 +14,7 @@ import LoadingScreen from '../screens/loading';
 import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
 import IntroStack from '../stacks/intro/intro.stack';
 
-import CurrentConditionsScreen from '../stacks/more/screens/current-conditions/current-conditions.screen';
+import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
 import TraditionalTerritoriesScreen from '../stacks/more/screens/traditional-territories/traditional-territories.screen';
 import TravelTripsScreen from '../stacks/more/screens/travel-trips/travel-trips.screen';
 import AppInformationScreen from '../stacks/more/screens/app-information/app-information.screen';

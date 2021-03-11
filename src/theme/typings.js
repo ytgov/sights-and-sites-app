@@ -37,6 +37,15 @@ const H3 = styled.Text`
 }} 
 `;
 
+const H4 = styled.Text`
+  font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
+  font-size: ${TYPINGS.h4};
+  line-height: ${TYPINGS.h4 + lineHeightOffset};
+  color: ${props => {
+    return props.black ? COLORS.primary : COLORS.white
+}} 
+`;
+
 const Subtitle1 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
   font-size: ${TYPINGS.subtitle1};
@@ -88,4 +97,4 @@ const Caption = styled.Text`
 }} 
 `;
 
-export {H1, H2, H3, Subtitle1, Subtitle2, Body1, Body2, Caption}
+export {H1, H2, H3, H4, Subtitle1, Subtitle2, Body1, Body2, Caption}
