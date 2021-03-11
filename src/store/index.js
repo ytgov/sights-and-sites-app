@@ -24,7 +24,7 @@ export default function configureStore(initialState = INITIAL_STATE) {
     let middleware = [thunk, epicMiddleware];
     if (__DEV__) {
         const logger = createLogger({collapsed: true});
-        // middleware = [...middleware, logger];
+        middleware = [...middleware, logger];
         middleware = [...middleware];
     } else {
         middleware = [...middleware];

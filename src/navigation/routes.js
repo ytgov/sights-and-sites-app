@@ -1,4 +1,6 @@
 const routes = {
+    STACK_BOTTOM_TAB: 'StackBottomTab',
+
     STACK_MAIN: 'StackMain',
     STACK_MODAL: 'StackModal',
     STACK_DRAWER: 'StackDrawer',
@@ -12,6 +14,7 @@ const routes = {
     SCREEN_MAP: 'Map',
     SCREEN_SITE_DETAILS: 'SiteDetails',
     SCREEN_SEARCH: 'Search',
+    SCREEN_HELPFUL_INFO: 'HelpfulInfo',
 
     SCREEN_CURRENT_CONDITIONS: 'CurrentConditions',
     SCREEN_TRADITIONAL_TERRITORIES: 'TraditionalTerritories',

@@ -36,11 +36,11 @@ class LoadingScreen extends React.Component {
                 await addListingDispatch(res.data.data);
                 filterListingDispatch();
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                    navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS);
+                    navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_1);
                     return false;
                 }
                 await i18n.changeLanguage(locale);
-                navigation.navigate(routes.STACK_MAIN);
+                navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
             .catch(err => {
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
@@ -48,7 +48,7 @@ class LoadingScreen extends React.Component {
                     return false;
                 }
                 i18n.changeLanguage(locale);
-                navigation.navigate(routes.STACK_DRAWER);
+                navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
     }
 

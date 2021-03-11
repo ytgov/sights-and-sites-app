@@ -13,7 +13,7 @@ import routes from '../../../../navigation/routes';
 // TODO Refactor and move to separate service
 const en = {
     title: 'My sites',
-    subtitle: 'Save your favourite sites or create a wish list for future trips',
+    subtitle: 'Save your favourite sites or create a wish listing for future trips',
 };
 const fr = {
     title: 'Mes lieux préférés',
