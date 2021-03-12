@@ -1,9 +1,18 @@
 import {RESET_REGION} from '../types';
 
-import filterRegions from '../../screens/filters/data/filterRegions';
+import {getRegionFromString, RegionNames} from '../../shared/mapping/mapRegions';
 
 const initialState = {
-    regions: filterRegions
+    regions: [
+        getRegionFromString(RegionNames.CAMPBELL),
+        getRegionFromString(RegionNames.KLONDIKE),
+        getRegionFromString(RegionNames.KLUANE),
+        getRegionFromString(RegionNames.NORTH_YUKON),
+        getRegionFromString(RegionNames.SILVER_TRAIL),
+        getRegionFromString(RegionNames.SOUTHERN_LAKE),
+        getRegionFromString(RegionNames.WATSON_LAKE),
+        getRegionFromString(RegionNames.WHITE_HORSE),
+    ]
 };
 
 export default function regionsReducer(state = initialState, action) {
