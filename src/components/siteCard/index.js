@@ -30,7 +30,7 @@ const SiteCard = (props) => {
             <View style={styles.contentWrapper}>
                 <View style={styles.siteTypes}>
                     {siteTypes.map((type, i) =>
-                        <Image source={type.icon} style={{ marginRight: 12}} />)}
+                        <Image key={i} source={type.icon} style={{ marginRight: 12}} />)}
                 </View>
 
                 <H3 black style={{ marginTop: -8 }}>{site_name}</H3>

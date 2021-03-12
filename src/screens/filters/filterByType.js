@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import ScreenWrapper from '../../components/screenWrapper';
 import {FilterHeader} from '../../theme/layout';
 import Title from '../../components/filters/title';
 import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
+import {connect} from 'react-redux';
 
-import filterTypes from './data/filterTypes';
+const bgDefault = require('../../shared/mapping/images/siteType/bg-type-history-culture.jpg');
 
-const bgDefault = require('./images/type/bg-type-history-culture.jpg');
-
-const FilterByTypeScreen = () => {
+const FilterByTypeScreen = (props) => {
     const [background, setBackground] = useState(bgDefault);
+    const {siteTypes} = props
 
     return (
         <ScreenWrapper backgroundImage={background}>
@@ -17,10 +18,10 @@ const FilterByTypeScreen = () => {
                 <Title title={`Filter by site type`} hasArrow={true} />
             </FilterHeader>
 
-            {filterTypes.map((item, i) => (
+            {siteTypes.map((item, i) => (
                 <ListTileCheckbox
                     key={i}
-                    label={item.label}
+                    label={item.name}
                     trailingIcon={item.icon}
                     onClick={() => setBackground(item.background)} />
             ))}
@@ -28,4 +29,27 @@ const FilterByTypeScreen = () => {
     );
 };
 
-export default FilterByTypeScreen;
+FilterByTypeScreen.propTypes = {
+    siteTypes: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            icon: PropTypes.node.isRequired,
+            background: PropTypes.node.isRequired
+        })
+    )
+}
+
+const mapStateToProps = (state) => {
+    return {
+        siteTypes: state.siteTypesStore.siteTypes,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterByTypeScreen);
+
