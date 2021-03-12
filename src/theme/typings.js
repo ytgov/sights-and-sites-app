@@ -46,6 +46,11 @@ const H4 = styled.Text`
 }} 
 `;
 
+const Body = styled.Text`
+  font-family: ${YUKON_FONTS.MONTSERRAT_REGULAR}
+  font-size: ${TYPINGS.body}
+`
+
 const Subtitle1 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
   font-size: ${TYPINGS.subtitle1};
@@ -97,4 +102,4 @@ const Caption = styled.Text`
 }} 
 `;
 
-export {H1, H2, H3, H4, Subtitle1, Subtitle2, Body1, Body2, Caption}
+export {H1, H2, H3, H4, Subtitle1, Subtitle2, Body, Body1, Body2, Caption}
