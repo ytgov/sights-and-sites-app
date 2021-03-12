@@ -1,8 +1,9 @@
 import {StyleSheet} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: 110,
+        height: DeviceInfo.hasNotch() ? 110 : 80,
         flexDirection: 'row'
     }
 })
