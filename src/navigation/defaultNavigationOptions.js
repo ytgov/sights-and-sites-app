@@ -1,3 +1,4 @@
+import DeviceInfo from 'react-native-device-info';
 import {YUKON_COLORS} from '../theme/config';
 
 export const defaultTabBarOptions =  {
@@ -12,7 +13,7 @@ export const defaultTabBarOptions =  {
     // Tab item container.
     // @TODO: use library to detect the notch and calculate proper height
     style: {
-        height: 60 + 34,
+        height: DeviceInfo.hasNotch() ? 60 + 34 : 80,
     },
 
     showLabel: false,
