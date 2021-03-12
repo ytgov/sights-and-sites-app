@@ -6,14 +6,15 @@ const {lineHeightOffset} = TYPINGS;
 
 export const YUKON_FONTS = {
     MONTSERRAT_REGULAR: 'montserrat-regular',
+    MONTSERRAT_MEDIUM: 'montserrat-medium',
     MONTSERRAT_SEMI_BOLD: 'montserrat-semibold',
     MONTSERRAT_BOLD: 'montserrat-bold'
 }
 
 const H1 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
-  font-size: ${TYPINGS.h1};
-  line-height: ${TYPINGS.h1 + lineHeightOffset};
+  font-size: 34;
+  line-height: 38;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white
 }} 
@@ -21,8 +22,8 @@ const H1 = styled.Text`
 
 const H2 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
-  font-size: ${TYPINGS.h2};
-  line-height: ${TYPINGS.h2 + lineHeightOffset};
+  font-size: 24;
+  line-height: 28;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white
 }} 
@@ -30,8 +31,8 @@ const H2 = styled.Text`
 
 const H3 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
-  font-size: ${TYPINGS.h3};
-  line-height: ${TYPINGS.h3 + lineHeightOffset};
+  font-size: 22;
+  line-height: 27;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white
 }} 
@@ -39,8 +40,8 @@ const H3 = styled.Text`
 
 const H4 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
-  font-size: ${TYPINGS.h4};
-  line-height: ${TYPINGS.h4 + lineHeightOffset};
+  font-size: 16;
+  line-height: 20;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white
 }} 
@@ -48,7 +49,13 @@ const H4 = styled.Text`
 
 const Body = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_REGULAR}
-  font-size: ${TYPINGS.body}
+  font-size: 16;
+  line-height: 24;
+`
+
+const Small = styled.Text`
+  font-family: ${YUKON_FONTS.MONTSERRAT_MEDIUM}
+  font-size: 12
 `
 
 const Subtitle1 = styled.Text`
@@ -102,4 +109,4 @@ const Caption = styled.Text`
 }} 
 `;
 
-export {H1, H2, H3, H4, Subtitle1, Subtitle2, Body, Body1, Body2, Caption}
+export {H1, H2, H3, H4, Body, Small, Subtitle1, Subtitle2, Body1, Body2, Caption}
