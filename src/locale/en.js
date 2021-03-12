@@ -31,14 +31,6 @@ export default {
             'list': 'LIST'
         },
 
-        'siteTypes': {
-            'filterTitle': 'Choose a site type',
-            'camping': 'Camping',
-            'wildlife': `Wildlife &${'\n'}landscape`,
-            'recreation': 'Recreation',
-            'history': `History &${'\n'}culture`,
-        },
-
         'common': {
             'loadMoreDefault': 'Load more',
             'noItemsDefault': 'No items'
@@ -181,7 +173,7 @@ export default {
             watsonLake: 'Watson Lake',
             whitehorse: 'Whitehorse',
         },
-        filterTypes: {
+        siteTypes: {
             camping: 'Camping',
             recreation: 'Recreation',
             wildlifeLandscape: 'Wildlife & landscape',

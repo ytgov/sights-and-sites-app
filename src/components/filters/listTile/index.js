@@ -30,7 +30,7 @@ const Index = (props) => {
     }
 
     let trailing = null;
-    console.log('here', typeof trailingIcon)
+
     if (trailingIcon) {
 
         // if trailingIcon is a referenced image (represented as number)
