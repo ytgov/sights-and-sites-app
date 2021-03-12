@@ -1,11 +1,13 @@
 const TYPINGS = {
     h1: 34,
     h2: 24,
-    h3: 21,
+    h3: 22,
     h4: 16,
+    body: 16,
+    small: 12,
+
     subtitle1: 17,
     subtitle2: 15,
-    body: 16,
     body1: 16,
     body2: 12,
     caption: 12,
