@@ -6,8 +6,8 @@ import {Image} from 'react-native';
 export const SiteCardType = {
     CAMPING: 'Camping',
     RECREATION: 'Recreation',
-    WILDLIFE_LANDSCAPE: 'Wildlife and Landscapes',
-    HISTORY_CULTURE: 'History and Culture'
+    WILDLIFE_LANDSCAPE: 'Wildlife and landscapes',
+    HISTORY_CULTURE: 'History and culture'
 }
 
 const getSiteTypeIcon = (type) => {
@@ -58,7 +58,7 @@ export const getSiteTypeFromString = (site_type) => {
         case SiteCardType.WILDLIFE_LANDSCAPE:
             return SiteType(site_type);
         default:
-            throw new Error('Invalid site_type value');
+            throw new Error(`Invalid site_type value: ${site_type}`);
     }
 }
 
