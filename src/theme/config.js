@@ -5,6 +5,7 @@ const TYPINGS = {
     h4: 16,
     subtitle1: 17,
     subtitle2: 15,
+    body: 16,
     body1: 16,
     body2: 12,
     caption: 12,
