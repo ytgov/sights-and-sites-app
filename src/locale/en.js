@@ -171,7 +171,7 @@ export default {
             nearMe: 'Near me',
             myFavorites: 'My favorites'
         },
-        filterRegions: {
+        regions: {
             campbell: 'Campbell',
             klondike: 'Klondike',
             kluane: 'Kluane',

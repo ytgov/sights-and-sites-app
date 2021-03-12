@@ -19,8 +19,8 @@ const ListingScreen = (props) => {
         <ScrollView>
             <FlatList
                 data={data}
-                renderItem={({item, i}) => <SiteCard data={item} key={item.site_id} />}
-                keyExtractor={(item) => item.site_id}
+                renderItem={({item, i}) => <SiteCard data={item} key={i} />}
+                keyExtractor={(item) => item.site_id.toString()}
             />
         </ScrollView>
     );
