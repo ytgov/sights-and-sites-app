@@ -1,64 +1,44 @@
 import React from 'react';
 import i18n from '../../locale/locale';
-import PropTypes from 'prop-types';
-import {Image} from 'react-native';
 
-export const SiteCardType = {
+export const SiteTypes = {
     CAMPING: 'Camping',
     RECREATION: 'Recreation',
     WILDLIFE_LANDSCAPE: 'Wildlife and landscapes',
     HISTORY_CULTURE: 'History and culture'
 }
 
-const getSiteTypeIcon = (type) => {
-    switch (type) {
-        case SiteCardType.CAMPING:
-            return require('./images/camping.png');
-        case SiteCardType.RECREATION:
-            return require('./images/recreation.png');
-        case SiteCardType.WILDLIFE_LANDSCAPE:
-            return require('./images/wildlife.png');
-        case SiteCardType.HISTORY_CULTURE:
-            return require('./images/history-culture.png');
-        default:
-            return require('./images/camping.png');
-    }
-}
-
-const getSiteTypeLabel = (type) => {
-    switch (type) {
-        case SiteCardType.CAMPING:
-            return i18n.t('siteType.camping');
-        case SiteCardType.RECREATION:
-            return i18n.t('siteType.recreation');
-        case SiteCardType.WILDLIFE_LANDSCAPE:
-            return i18n.t('siteType.wildlifeLandscape');
-        case SiteCardType.HISTORY_CULTURE:
-            return i18n.t('siteType.historyCulture');
-        default:
-            return '';
-    }
-}
-
-const SiteType = (siteType) => {
-    return {
-        label: getSiteTypeLabel(siteType),
-        icon: getSiteTypeIcon(siteType)
-    }
-}
-
 /**
  * Map site_type string from server to SiteType object
  */
 export const getSiteTypeFromString = (site_type) => {
-    switch (site_type) {
-        case SiteCardType.CAMPING:
-        case SiteCardType.RECREATION:
-        case SiteCardType.HISTORY_CULTURE:
-        case SiteCardType.WILDLIFE_LANDSCAPE:
-            return SiteType(site_type);
-        default:
-            throw new Error(`Invalid site_type value: ${site_type}`);
+    const siteType = {
+        name: '',
+        icon: null,
+        background: null
     }
+    switch (site_type) {
+        case SiteTypes.CAMPING:
+            siteType.name = i18n.t('siteTypes.camping')
+            siteType.icon = require('./images/siteType/camping.png');
+            siteType.background = require('./images/siteType/bg-type-camping.jpg');
+            break;
+        case SiteTypes.RECREATION:
+            siteType.name = i18n.t('siteTypes.recreation')
+            siteType.icon = require('./images/siteType/recreation.png');
+            siteType.background = require('./images/siteType/bg-type-recreation.jpg');
+            break;
+        case SiteTypes.HISTORY_CULTURE:
+            siteType.name = i18n.t('siteTypes.historyCulture')
+            siteType.icon = require('./images/siteType/history-culture.png');
+            siteType.background = require('./images/siteType/bg-type-history-culture.jpg');
+            break;
+        case SiteTypes.WILDLIFE_LANDSCAPE:
+            siteType.name = i18n.t('siteTypes.wildlifeLandscape')
+            siteType.icon = require('./images/siteType/wildlife.png');
+            siteType.background = require('./images/siteType/bg-type-wildlife.jpg');
+            break;
+    }
+    return siteType;
 }
 
