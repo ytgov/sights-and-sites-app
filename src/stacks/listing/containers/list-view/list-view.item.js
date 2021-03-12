@@ -9,7 +9,7 @@ import {APP_CONFIG} from '../../../../config';
 
 const fallback = require('../../../../../assets/common/fallback.png');
 
-// const fallback = 
+// const fallback =
 class ListViewItem extends React.PureComponent {
     state = {}
 
