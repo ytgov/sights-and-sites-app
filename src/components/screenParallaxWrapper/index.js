@@ -15,14 +15,15 @@ const shadow = require('./images/shadow.png');
 const ScreenParallaxWrapper = (props) => {
 
     const { backgroundImage, leadIcon, title, children } = props
+    const headerHeight = windowHeight - 100
 
     return (
         <ParallaxScrollView
             backgroundColor="blue"
             contentBackgroundColor="white"
-            parallaxHeaderHeight={windowHeight}
+            parallaxHeaderHeight={headerHeight}
             renderBackground={() => (
-                <Image style={{ width: windowWidth, height: windowHeight, paddingBottom: 100}} source={backgroundImage} />
+                <Image style={{ width: windowWidth, height: headerHeight, paddingBottom: 100}} source={backgroundImage} />
             )}
             renderForeground={() => (
 
