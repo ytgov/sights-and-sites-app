@@ -165,7 +165,7 @@ export default {
             footer: {
                 search: 'Search',
                 explore: 'Explore Road Trips',
-                helpfulInfo: 'Helpful Info22'
+                helpfulInfo: 'Helpful Info'
             }
         },
 
