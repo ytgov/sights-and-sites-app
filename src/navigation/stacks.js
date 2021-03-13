@@ -12,7 +12,7 @@ import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuI
 
 import LoadingScreen from '../screens/loading';
 import WelcomeScreen from '../screens/welcome';
-import IntroStack from '../stacks/intro/intro.stack';
+import IntroductionScreen from '../screens/introduction';
 
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
 import FirstNationsScreen from '../screens/helpfulInfo/firstNations';
@@ -163,7 +163,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             }
         },
         [routes.STACK_APP_INSTRUCTION]: {
-            screen: IntroStack,
+            screen: IntroductionScreen,
             navigationOptions: {
                 title: 'App Instructions',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
@@ -196,7 +196,7 @@ const RootNavigation = createSwitchNavigator(
     {
         [routes.SCREEN_LOADING]: LoadingScreen,
         [routes.SCREEN_WELCOME]: WelcomeScreen,
-        [routes.STACK_APP_INSTRUCTION]: IntroStack,
+        [routes.SCREEN_INTRODUCTION]: IntroductionScreen,
         [routes.STACK_BOTTOM_TAB]: RootStackNavigator,
     },
     {
