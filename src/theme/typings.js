@@ -13,10 +13,10 @@ export const YUKON_FONTS = {
 
 const H1 = styled.Text`
   font-family: ${YUKON_FONTS.MONTSERRAT_BOLD};
-  font-size: 34;
-  line-height: 38;
+  font-size: 36;
+  line-height: 42;
   color: ${props => {
-    return props.black ? COLORS.primary : COLORS.white
+    return props.black ? 'black' : 'white'
 }} 
 `;
 
@@ -25,7 +25,7 @@ const H2 = styled.Text`
   font-size: 24;
   line-height: 28;
   color: ${props => {
-    return props.black ? COLORS.primary : COLORS.white
+    return props.black ? 'black' : 'white'
 }} 
 `;
 
@@ -34,7 +34,7 @@ const H3 = styled.Text`
   font-size: 22;
   line-height: 27;
   color: ${props => {
-    return props.black ? COLORS.primary : COLORS.white
+    return props.black ? 'black' : 'white'
 }} 
 `;
 
@@ -43,14 +43,25 @@ const H4 = styled.Text`
   font-size: 16;
   line-height: 20;
   color: ${props => {
-    return props.black ? COLORS.primary : COLORS.white
+    return props.black ? 'black' : 'white'
 }} 
 `;
 
 const Body = styled.Text`
-  font-family: ${YUKON_FONTS.MONTSERRAT_REGULAR}
+  font-family: ${props => {
+     if (props.fontBold) {
+         return YUKON_FONTS.MONTSERRAT_BOLD;
+     } else if (props.fontMedium) {
+        return YUKON_FONTS.MONTSERRAT_MEDIUM;
+     } else {
+        return YUKON_FONTS.MONTSERRAT_REGULAR;
+     }
+  }};
   font-size: 16;
   line-height: 24;
+  color: ${props => {
+    return props.black ? 'black' : 'white'
+}} 
 `
 
 const Small = styled.Text`
