@@ -9,6 +9,7 @@ const routes = {
 
     SCREEN_LOADING: 'Loading',
     SCREEN_WELCOME: 'Welcome',
+    SCREEN_INTRODUCTION: 'Introduction',
 
     SCREEN_LISTING: 'Listing',
     SCREEN_MAP: 'Map',
