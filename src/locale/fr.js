@@ -154,6 +154,20 @@ export default {
             }
         },
 
+        // NAVIGATION
+        navigation: {
+            header: {
+                filters: 'Filtres',
+                list: 'Liste',
+                map: 'Carte'
+            },
+            footer: {
+                search: 'Recherche',
+                explore: 'Explorez Road Trips',
+                helpfulInfo: 'Informations utiles'
+            }
+        },
+
         // FILTERS
         filters: {
             siteType: 'Site type',
