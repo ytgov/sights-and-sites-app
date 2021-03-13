@@ -11,7 +11,7 @@ import SideMenu from '../components/sideMenu';
 import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuIcon';
 
 import LoadingScreen from '../screens/loading';
-import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
+import WelcomeScreen from '../screens/welcome';
 import IntroStack from '../stacks/intro/intro.stack';
 
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
@@ -98,7 +98,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={searchIcon}
-                label={'Search'} />,
+                label={i18n.t('navigation.footer.search')} />,
             tabBarOnPress: ({navigation}) => {
                 // TODO: dispatch opening search box.
             }
@@ -109,7 +109,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={exploreRoadTrips}
-                label={'Explore Road Trips'}
+                label={i18n.t('navigation.footer.explore')}
                 bigIcon={true} />
         }
     },
@@ -118,7 +118,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={helpfulInfoIcon}
-                label={'Helpful Info'} />,
+                label={i18n.t('navigation.footer.helpfulInfo')} />,
             tabBarOnPress: ({navigation}) => {
                 navigation.openDrawer()
             }
