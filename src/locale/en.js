@@ -155,6 +155,20 @@ export default {
             }
         },
 
+        // NAVIGATION
+        navigation: {
+            header: {
+                filters: 'Filters',
+                list: 'List',
+                map: 'Map'
+            },
+            footer: {
+                search: 'Search',
+                explore: 'Explore Road Trips',
+                helpfulInfo: 'Helpful Info22'
+            }
+        },
+
         // FILTERS
         filters: {
             siteType: 'Site type',
