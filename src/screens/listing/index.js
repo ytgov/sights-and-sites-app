@@ -1,14 +1,27 @@
-import React from 'react';
-import {ScrollView, FlatList, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import React, {useEffect} from 'react';
+import {ScrollView, FlatList, TouchableOpacity} from 'react-native';
+
+import {showHeader} from '../../store/actions/core';
 
 import routes from '../../navigation/routes';
 import HeaderNav, {HeaderNavType} from '../../components/headerNav';
 import SiteCard from '../../components/siteCard';
-import {filterListing} from '../../store/actions/listing';
 import {connect} from 'react-redux';
 
 const ListingScreen = (props) => {
-    const {navigation, listingRaw} = props
+    const {navigation, dispatchShowHeader, listingRaw} = props
+
+    useEffect(() => {
+        const navFocusListener = navigation.addListener('didFocus', () => {
+            dispatchShowHeader();
+            console.log('Show header')
+        })
+
+        return () => {
+            navFocusListener.remove();
+        }
+    }, [])
+
     const data = listingRaw.slice(0, 10)
 
     return (
@@ -28,7 +41,10 @@ const ListingScreen = (props) => {
 
 ListingScreen['navigationOptions'] = screenProps => ({
     header: (props) => <HeaderNav {...props}
-                                  activeItem={HeaderNavType.LIST} />
+                                  activeItem={HeaderNavType.LIST} />,
+    headerStyle: {
+        backgroundColor: 'yellow'
+    }
 })
 
 const mapStateToProps = (state) => {
@@ -39,9 +55,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        filterListingDispatch: () => dispatch(filterListing())
-
-
+        dispatchShowHeader: () => dispatch(showHeader())
     };
 };
 

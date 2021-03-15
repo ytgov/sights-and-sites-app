@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import _ from 'lodash';
 import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
+import {connect} from 'react-redux';
+
+import {hideHeader} from '../../store/actions/core';
 
 import ScreenParallaxWrapper from '../../components/screenParallaxWrapper';
 import {H3, Body} from '../../theme/typings';
@@ -20,7 +23,18 @@ const BOOKING_URL = 'https://yukon.ca/en/road-trip-app';
 const SiteDetailsScreen = (props) => {
     const {t} = useTranslation();
 
-    const {navigation} = props
+    const {navigation, dispatchHideHeader} = props
+    useEffect(() => {
+        const navFocusListener = navigation.addListener('didFocus', () => {
+            dispatchHideHeader();
+            console.log('Hide header');
+        })
+
+        return () => {
+            navFocusListener.remove();
+        }
+    }, [])
+
     const item = navigation.getParam('item');
 
     const {
@@ -170,7 +184,17 @@ SiteDetailsScreen.propTypes = {
 
 SiteDetailsScreen['navigationOptions'] = {
     headerMode: 'none',
-    header: null
+    headerShown: false
 }
 
-export default SiteDetailsScreen;
+const mapStateToProps = (state) => {
+    return {};
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchHideHeader: () => dispatch(hideHeader())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SiteDetailsScreen);
