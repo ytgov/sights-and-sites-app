@@ -11,8 +11,8 @@ import SideMenu from '../components/sideMenu';
 import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuIcon';
 
 import LoadingScreen from '../screens/loading';
-import WelcomeScreen from '../stacks/welcome/screens/welcome/welcome.screen';
-import IntroStack from '../stacks/intro/intro.stack';
+import WelcomeScreen from '../screens/welcome';
+import IntroductionScreen from '../screens/introduction';
 
 import CurrentConditionsScreen from '../screens/helpfulInfo/currentConditions';
 import FirstNationsScreen from '../screens/helpfulInfo/firstNations';
@@ -98,7 +98,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={searchIcon}
-                label={'Search'} />,
+                label={i18n.t('navigation.footer.search')} />,
             tabBarOnPress: ({navigation}) => {
                 // TODO: dispatch opening search box.
             }
@@ -109,7 +109,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={exploreRoadTrips}
-                label={'Explore Road Trips'}
+                label={i18n.t('navigation.footer.explore')}
                 bigIcon={true} />
         }
     },
@@ -118,7 +118,7 @@ const BottomTabNavigator = createBottomTabNavigator({
         navigationOptions: {
             tabBarIcon: <BottomTabItem
                 icon={helpfulInfoIcon}
-                label={'Helpful Info'} />,
+                label={i18n.t('navigation.footer.helpfulInfo')} />,
             tabBarOnPress: ({navigation}) => {
                 navigation.openDrawer()
             }
@@ -163,7 +163,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             }
         },
         [routes.STACK_APP_INSTRUCTION]: {
-            screen: IntroStack,
+            screen: IntroductionScreen,
             navigationOptions: {
                 title: 'App Instructions',
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
@@ -196,7 +196,7 @@ const RootNavigation = createSwitchNavigator(
     {
         [routes.SCREEN_LOADING]: LoadingScreen,
         [routes.SCREEN_WELCOME]: WelcomeScreen,
-        [routes.STACK_APP_INSTRUCTION]: IntroStack,
+        [routes.SCREEN_INTRODUCTION]: IntroductionScreen,
         [routes.STACK_BOTTOM_TAB]: RootStackNavigator,
     },
     {

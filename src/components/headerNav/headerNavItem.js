@@ -4,8 +4,11 @@ import {View, Text, Image, TouchableHighlight} from 'react-native';
 
 import styles from './headerNavItem.styles';
 import {YUKON_COLORS} from '../../theme/config';
+import {setLocale} from '../../store/actions/locale';
+import {setSelectLocaleAction} from '../../store/actions/core';
+import {connect} from 'react-redux';
 
-const HeaderNavItem = ({icon, label, isActive, onPress,}) => {
+const HeaderNavItem = ({icon, label, isActive, onPress, locale}) => {
     const bgColor = isActive ? YUKON_COLORS.primary_600 : YUKON_COLORS.primary_200
     return (
         <TouchableHighlight
@@ -30,6 +33,12 @@ HeaderNavItem.defaultProps = {
     isActive: false
 }
 
-export default HeaderNavItem;
+const mapStateToProps = (state) => {
+    return {
+        locale: state.localeStore.locale
+    };
+};
+
+export default connect(mapStateToProps)(HeaderNavItem);
 
 
