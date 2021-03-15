@@ -14,7 +14,7 @@ const shadow = require('./images/shadow.png');
 
 const ScreenParallaxWrapper = (props) => {
 
-    const { backgroundImage, leadIcon, title, children } = props
+    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle } = props
     const headerHeight = windowHeight - 100
 
     return (
@@ -45,14 +45,16 @@ const ScreenParallaxWrapper = (props) => {
                         justifyContent: 'center',
                         marginHorizontal: 40,
                     }}>
-                        {leadIcon && <Image source={leadIcon} />}
+                        {leadIcon &&
+                            <Image source={leadIcon}
+                                    style={leadIconStyle}
+                                    resizeMode={'contain'} />}
                         <H1 style={{ textAlign: 'center', marginTop: 16}}>{title}</H1>
                     </View>
                 </View>
-
             )}>
             <View>
-                <ImageBackground source={auroraOrange}
+                <ImageBackground source={swoosh}
                                  resizeMode={'cover'}
                                  style={{
                                      position: 'absolute',
@@ -60,7 +62,7 @@ const ScreenParallaxWrapper = (props) => {
                                      width: windowWidth,
                                      borderWidth: 0,
                                      height: 100 }}  />
-                <View style={styles.bodyWrapper}>
+                <View style={{ marginTop: 16, marginBottom: 16 }}>
                     {children}
                 </View>
             </View>
@@ -71,13 +73,14 @@ const ScreenParallaxWrapper = (props) => {
 ScreenParallaxWrapper.propTypes = {
     backgroundImage: PropTypes.node.isRequired,
     leadIcon: PropTypes.node,
-    title: PropTypes.string.isRequired
+    leadIconStyle: PropTypes.object,
+    title: PropTypes.string.isRequired,
+    swoosh: PropTypes.node
+}
+
+ScreenParallaxWrapper.defaultProps = {
+    swoosh: auroraOrange
 }
 
 export default ScreenParallaxWrapper;
 
-const styles = StyleSheet.create({
-    bodyWrapper: {
-        padding: 18
-    }
-})
