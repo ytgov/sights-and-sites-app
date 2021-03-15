@@ -3,7 +3,9 @@ import {
     SET_NETWORK_STATUS,
     SET_ONBOARDING_FINISHED,
     SET_SELECT_LOCALE_ACTION,
-    UPDATE_LOCATION
+    UPDATE_LOCATION,
+    SHOW_HEADER,
+    HIDE_HEADER
 } from '../types';
 
 const initialState = {
@@ -11,7 +13,8 @@ const initialState = {
     hasUserPassedOnboarding: false,
     canGrabLocation: true,
     location: null,
-    networkAvailable: true
+    networkAvailable: true,
+    headerVisible: true
 }
 
 export default function coreReducer(state = initialState, action) {
@@ -56,6 +59,13 @@ export default function coreReducer(state = initialState, action) {
                 networkAvailable: action.payload
             }
         }
+
+        case SHOW_HEADER:
+        case HIDE_HEADER:
+            return {
+                ...state,
+                headerVisible: action.payload
+            }
         default:
             return state;
     }

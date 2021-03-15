@@ -23,6 +23,7 @@ import i18n from '../locale/locale';
 import {defaultTabBarOptions} from './defaultNavigationOptions';
 
 import ListingScreen from '../screens/listing';
+import SiteDetailsScreen from '../screens/siteDetails';
 import MapScreen from '../screens/map';
 
 import HelpfulInfoScreen from '../screens/helpfulInfo';
@@ -82,13 +83,16 @@ const MainStackNavigator = createStackNavigator({
     [routes.SCREEN_LISTING]: {
         screen: ListingScreen,
     },
+    [routes.SCREEN_SITE_DETAILS]: {
+        screen: SiteDetailsScreen,
+    },
     [routes.SCREEN_MAP]: {
         screen: MapScreen
     }
 }, {
     initialRouteName: routes.SCREEN_LISTING,
     defaultNavigationOptions: {
-        headerMode: 'none'
+        headerMode: 'none',
     }
 });
 

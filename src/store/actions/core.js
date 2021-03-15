@@ -3,7 +3,9 @@ import {
     SET_NETWORK_STATUS,
     SET_ONBOARDING_FINISHED,
     SET_SELECT_LOCALE_ACTION,
-    UPDATE_LOCATION
+    UPDATE_LOCATION,
+    SHOW_HEADER,
+    HIDE_HEADER
 } from '../types';
 
 export function setSelectLocaleAction(value) {
@@ -36,5 +38,19 @@ export function setNetworkStatus(value) {
     return {
         type: SET_NETWORK_STATUS,
         payload: value
+    }
+}
+
+export function showHeader() {
+    return {
+        type: SHOW_HEADER,
+        payload: true
+    }
+}
+
+export function hideHeader() {
+    return {
+        type: HIDE_HEADER,
+        payload: false
     }
 }
