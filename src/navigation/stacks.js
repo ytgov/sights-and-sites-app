@@ -84,7 +84,7 @@ const MainStackNavigator = createStackNavigator({
         screen: ListingScreen,
     },
     [routes.SCREEN_SITE_DETAILS]: {
-        screen: SiteDetailsScreen
+        screen: SiteDetailsScreen,
     },
     [routes.SCREEN_MAP]: {
         screen: MapScreen
@@ -92,7 +92,7 @@ const MainStackNavigator = createStackNavigator({
 }, {
     initialRouteName: routes.SCREEN_LISTING,
     defaultNavigationOptions: {
-        headerMode: 'none'
+        headerMode: 'none',
     }
 });
 
