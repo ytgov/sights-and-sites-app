@@ -67,9 +67,9 @@ export default {
             noSitesFound: 'No sites found',
             noFavouritesFound: 'No favourites or "my sites" have been chosen yet'
         },
-        'siteDetails': {
-            nearBySites: 'Nearby site'
-        },
+        // 'siteDetails': {
+        //     nearBySites: 'Nearby site'
+        // },
         // SEARCH STACK
         'search': {
             'placeholder': 'Search',
@@ -205,6 +205,48 @@ export default {
             topOfTheWorld: 'Top of the World Highway',
             nahanniRange: 'Nahanni Range Road',
             silverTrail: 'Silver Trail'
+        },
+
+        // SITE DETAILS
+        siteDetails: {
+            siteTypes: {
+                title: 'Site type'
+            },
+            sectionInfo: {
+                title: 'Information',
+                warning: 'Warning:'
+            },
+            sectionDescription: {
+                title: 'Description'
+            },
+            sectionDirections: {
+                title: 'Directions',
+                highway: 'Highway',
+                highwayKm: 'Highway kilometre',
+                secondaryRoad: 'Secondary road',
+                secondaryRoadKm: 'Secondary road kilometre',
+                siteDirections: 'Site directions'
+            },
+            sectionHelpfulLinks: {
+                title: 'Helpful links',
+                getCampingPermit: 'Get a camping permit',
+                rulesSafety: 'Rules and safety',
+                guideToCamping: 'Guide to camping in Yukon',
+                map: 'Map (campgrounds & recreation sites)'
+            },
+            sectionBooking: {
+                title: 'Are you interested in booking this beautiful site?',
+                text: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
+                linkLabel: 'Yukon.ca/en/road-trip-app',
+                extra: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest! \n' +
+                    'For questions and support regarding \n' +
+                    'this app, please feel free to email heritage.planning@gov.yk.ca or phone 867-667-5386, or toll free in Yukon 1-800-661-0408, extension 5386.'
+            },
+            sectionSupport: {
+                title: 'Support the App!',
+                text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
+                shareButton: 'Share this site on social media'
+            }
         }
     },
 }
