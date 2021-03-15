@@ -10,22 +10,29 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const auroraOrange = require('./images/aurora-orange.png');
+const shadow = require('./images/shadow.png');
 
 const ScreenParallaxWrapper = (props) => {
 
     const { backgroundImage, leadIcon, title, children } = props
+    const headerHeight = windowHeight - 100
 
     return (
         <ParallaxScrollView
             backgroundColor="blue"
             contentBackgroundColor="white"
-            parallaxHeaderHeight={windowHeight}
+            parallaxHeaderHeight={headerHeight}
             renderBackground={() => (
-                <Image style={{ width: windowWidth, height: windowHeight, paddingBottom: 100}} source={backgroundImage} />
+                <Image style={{ width: windowWidth, height: headerHeight, paddingBottom: 100}} source={backgroundImage} />
             )}
             renderForeground={() => (
 
                 <View style={{flex: 1, justifyContent: 'space-between'}}>
+                    <Image source={shadow} style={{
+                        position: 'absolute',
+                        bottom: 0, left: 0, width: windowWidth,
+                        resizeMode: 'cover',
+                    }}/>
                     <SafeAreaView>
                         <View style={{ margin: 18 }}>
                             <BackButton />

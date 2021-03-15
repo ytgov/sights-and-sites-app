@@ -10,7 +10,6 @@ const bgRegion = require('./images/region/bg-region.jpg');
 
 const FilterByRegionScreen = (props) => {
     const {regions} = props
-
     return (
         <ScreenWrapper backgroundImage={bgRegion}>
             <FilterHeader>
@@ -21,7 +20,7 @@ const FilterByRegionScreen = (props) => {
                 <ListTileCheckbox
                     key={i}
                     label={item.name}
-                    trailingIcon={item.image}
+                    trailingIcon={item.map}
                     trailingIconStyle={{height: 42, resizeMode: 'contain'}}
                     onClick={() => console.log('clicked')} />
             ))}

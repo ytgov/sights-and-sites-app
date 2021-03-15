@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, StyleSheet} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 import {YUKON_FONTS} from '../theme/typings';
 import {YUKON_COLORS} from '../theme/config';
 
@@ -12,11 +13,6 @@ const BottomTabItem = ({icon, label, bigIcon}) => {
         iconComponent = <View style={styles.bigIconWrapper}>
             <Image source={icon} style={styles.bigIcon} />
         </View>
-
-        wrapperStyles = {
-            ...wrapperStyles,
-            width: 150
-        }
     }
 
     return (
@@ -44,7 +40,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-end',
         marginBottom: 16,
-        height: 32,
+        height: DeviceInfo.hasNotch() ? 32 : 44,
     },
     bigIconWrapper: {
         position: 'absolute',

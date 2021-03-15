@@ -36,8 +36,9 @@ const LoadingScreen = (props) => {
             .then(async res => {
                 await addListingDispatch(res.data.data);
                 filterListingDispatch();
+                console.info('Here', hasUserPassedOnboarding, hasUserSelectedLocale)
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                    navigation.navigate(routes.SCREEN_APP_INSTRUCTIONS_1);
+                    navigation.navigate(routes.SCREEN_WELCOME);
                     return false;
                 }
                 await i18n.changeLanguage(locale);
@@ -51,8 +52,6 @@ const LoadingScreen = (props) => {
                 i18n.changeLanguage(locale);
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
-
-        console.log('Load', props)
     }, [])
 
     return (
