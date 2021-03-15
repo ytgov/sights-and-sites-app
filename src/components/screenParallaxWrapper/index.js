@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import {Dimensions, Image, SafeAreaView, StyleSheet, View, Text, ImageBackground} from 'react-native';
+import {Dimensions, Image, SafeAreaView, View, ImageBackground} from 'react-native';
 import {H1} from '../../theme/typings';
 
+import {YUKON_COLORS} from '../../theme/config';
 import BackButton from './backButton';
 
 const windowWidth = Dimensions.get('window').width;
@@ -19,7 +20,7 @@ const ScreenParallaxWrapper = (props) => {
 
     return (
         <ParallaxScrollView
-            backgroundColor="blue"
+            backgroundColor={YUKON_COLORS.primary_200}
             contentBackgroundColor="white"
             parallaxHeaderHeight={headerHeight}
             renderBackground={() => (
