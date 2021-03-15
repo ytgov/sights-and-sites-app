@@ -31,14 +31,6 @@ export default {
             'list': 'LIST'
         },
 
-        'siteTypes': {
-            'filterTitle': 'Choose a site type',
-            'camping': 'Camping',
-            'wildlife': `Wildlife &${'\n'}landscape`,
-            'recreation': 'Recreation',
-            'history': `History &${'\n'}culture`,
-        },
-
         'common': {
             'loadMoreDefault': 'Load more',
             'noItemsDefault': 'No items'
@@ -163,6 +155,20 @@ export default {
             }
         },
 
+        // NAVIGATION
+        navigation: {
+            header: {
+                filters: 'Filters',
+                list: 'List',
+                map: 'Map'
+            },
+            footer: {
+                search: 'Search',
+                explore: 'Explore Road Trips',
+                helpfulInfo: 'Helpful Info'
+            }
+        },
+
         // FILTERS
         filters: {
             siteType: 'Site type',
@@ -171,7 +177,7 @@ export default {
             nearMe: 'Near me',
             myFavorites: 'My favorites'
         },
-        filterRegions: {
+        regions: {
             campbell: 'Campbell',
             klondike: 'Klondike',
             kluane: 'Kluane',
@@ -181,13 +187,13 @@ export default {
             watsonLake: 'Watson Lake',
             whitehorse: 'Whitehorse',
         },
-        filterTypes: {
+        siteTypes: {
             camping: 'Camping',
             recreation: 'Recreation',
             wildlifeLandscape: 'Wildlife & landscape',
             historyCulture: 'History & culture',
         },
-        filterHighways: {
+        highways: {
             alaska: 'Alaska Highway',
             klondike: 'Klondike Highway',
             haines: 'Haines Road',

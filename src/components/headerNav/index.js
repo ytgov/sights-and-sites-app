@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {withNavigation} from 'react-navigation';
 import routes from '../../navigation/routes';
@@ -19,20 +20,21 @@ export const HeaderNavType = {
 }
 
 const HeaderNav = ({scene, activeItem, navigation}) => {
+    const {t} = useTranslation();
     const { options } = scene.descriptor;
 
     return (
         <View style={[options.headerStyle, indexStyles.wrapper]}>
             <HeaderNavItem icon={filtersIcon}
-                           label={'Filters'}
+                           label={t('navigation.header.filters')}
                            isActive={activeItem === HeaderNavType.FILTERS}
                            onPress={() => navigation.navigate(routes.STACK_FILTERS)} />
             <HeaderNavItem icon={listIcon}
-                           label={'List'}
+                           label={t('navigation.header.list')}
                            isActive={activeItem === HeaderNavType.LIST}
                            onPress={() => navigation.navigate(routes.SCREEN_LISTING)} />
             <HeaderNavItem icon={mapIcon}
-                           label={'Map'}
+                           label={t('navigation.header.map')}
                            isActive={activeItem === HeaderNavType.MAP}
                            onPress={() => navigation.navigate(routes.SCREEN_MAP)} />
         </View>

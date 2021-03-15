@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     label: {
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
         fontSize: 12,
-        marginTop: 8,
+        marginTop: 6,
         color: 'white'
     }
 })

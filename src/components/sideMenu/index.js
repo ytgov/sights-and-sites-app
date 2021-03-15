@@ -4,7 +4,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-import i18n, {languages, getToggledLanguage} from '../../locale/locale';
+import {useTranslation} from 'react-i18next';
+import {languages, getToggledLanguage} from '../../locale/locale';
 
 import routes from '../../navigation/routes';
 import {YUKON_COLORS} from '../../theme/config';
@@ -16,6 +17,8 @@ import {setSelectLocaleAction} from '../../store/actions/core';
 import {connect} from 'react-redux';
 
 const SideMenu = (props) => {
+    const {i18n} = useTranslation();
+
     const {navigation, items, locale} = props
 
     // Remove Home item.

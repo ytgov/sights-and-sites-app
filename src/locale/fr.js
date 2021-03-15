@@ -154,6 +154,20 @@ export default {
             }
         },
 
+        // NAVIGATION
+        navigation: {
+            header: {
+                filters: 'Filtres',
+                list: 'Liste',
+                map: 'Carte'
+            },
+            footer: {
+                search: 'Recherche',
+                explore: 'Explorez Road Trips',
+                helpfulInfo: 'Informations utiles'
+            }
+        },
+
         // FILTERS
         filters: {
             siteType: 'Site type',
@@ -178,18 +192,18 @@ export default {
             wildlifeLandscape: 'Nature et paysages',
             historyCulture: 'Histoire et culture',
         },
-        filterHighways: {
-            alaska: 'Route de l’Alaska',
-            klondike: 'Route du Klondike',
-            haines: 'Route de Haines',
-            robertCampbell: 'Route Campbell',
-            dempster: 'Route Dempster',
-            canol: 'Route Canol',
-            atlin: 'Route d’Atlin',
-            tagish: 'Route de Tagish',
-            topOfTheWorld: 'Route Top of the World',
-            nahanniRange: 'Route Nahanni Range',
-            silverTrail: 'Route Silver Trail'
-        },
+        highways: {
+            alaska: 'Alaska Highway',
+            klondike: 'Klondike Highway',
+            haines: 'Haines Road',
+            robertCampbell: 'Robert Campbell Highway',
+            dempster: 'Dempster Highway',
+            canol: 'Canol Road',
+            atlin: 'Atlin Road',
+            tagish: 'Tagish Road',
+            topOfTheWorld: 'Top of the World Highway',
+            nahanniRange: 'Nahanni Range Road',
+            silverTrail: 'Silver Trail'
+        }
     },
 }
