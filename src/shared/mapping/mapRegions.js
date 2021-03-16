@@ -1,4 +1,5 @@
-import i18n from '../../locale/locale';
+import i18n from '../../locale/locale'
+import Region from '../../models/Region'
 
 /**
  * Index names from server
@@ -22,52 +23,65 @@ export const RegionNames = {
  * @returns {{swoosh: null, name: string, map: null}}
  */
 export const getRegionFromString = (region_name) => {
-    const region = {
-        name: '',
-        map: null,
-        swoosh: null
-    }
     switch (region_name) {
         case RegionNames.CAMPBELL:
-            region.name = i18n.t('regions.campbell');
-            region.map = require('./images/region/map-campbell.png');
-            region.swoosh = require('./images/region/swoosh-campbell.png');
-            break;
+            return new Region(
+                'campbell',
+                i18n.t('regions.campbell'),
+                require('./images/region/map-campbell.png'),
+                require('./images/region/swoosh-campbell.png'),
+            )
         case RegionNames.KLONDIKE:
-            region.name = i18n.t('regions.klondike');
-            region.map = require('./images/region/map-klondike.png');
-            region.swoosh = require('./images/region/swoosh-klondike.png');
-            break;
+            return new Region(
+                'klondike',
+                i18n.t('regions.klondike'),
+                require('./images/region/map-klondike.png'),
+                require('./images/region/swoosh-klondike.png'),
+            )
         case RegionNames.KLUANE:
-            region.name = i18n.t('regions.kluane');
-            region.map = require('./images/region/map-kluane.png');
-            region.swoosh = require('./images/region/swoosh-kluane.png');
-            break;
+            return new Region(
+                'kluane',
+                i18n.t('regions.kluane'),
+                require('./images/region/map-kluane.png'),
+                require('./images/region/swoosh-kluane.png'),
+            )
         case RegionNames.NORTH_YUKON:
-            region.name = i18n.t('regions.northYukon');
-            region.map = require('./images/region/map-north-yukon.png');
-            region.swoosh = require('./images/region/swoosh-north-yukon.png');
-            break;
+            return new Region(
+                'northYukon',
+                i18n.t('regions.northYukon'),
+                require('./images/region/map-north-yukon.png'),
+                require('./images/region/swoosh-north-yukon.png'),
+            )
         case RegionNames.SILVER_TRAIL:
-            region.name = i18n.t('regions.silverTrail');
-            region.map = require('./images/region/map-silver-trail.png');
-            region.swoosh = require('./images/region/swoosh-silver-trail.png');
-            break;
+            return new Region(
+                'silverTrail',
+                i18n.t('regions.silverTrail'),
+                require('./images/region/map-silver-trail.png'),
+                require('./images/region/swoosh-silver-trail.png'),
+            )
         case RegionNames.SOUTHERN_LAKE:
-            region.name = i18n.t('regions.southernLake');
-            region.map = require('./images/region/map-southern-lakes.png');
-            region.swoosh = require('./images/region/swoosh-southern-lakes.png');
-            break;
+            return new Region(
+                'southernLake',
+                i18n.t('regions.southernLake'),
+                require('./images/region/map-southern-lakes.png'),
+                require('./images/region/swoosh-southern-lakes.png'),
+            )
         case RegionNames.WATSON_LAKE:
-            region.name = i18n.t('regions.watsonLake');
-            region.map = require('./images/region/map-watson-lake.png');
-            region.swoosh = require('./images/region/swoosh-watson-lakes.png');
-            break;
+            return new Region(
+                'watsonLake',
+                i18n.t('regions.watsonLake'),
+                require('./images/region/map-watson-lake.png'),
+                require('./images/region/swoosh-watson-lakes.png'),
+            )
         case RegionNames.WHITE_HORSE:
-            region.name = i18n.t('regions.whitehorse');
-            region.map = require('./images/region/map-white-horse.png');
-            region.swoosh = require('./images/region/swoosh-whitehorse.png');
-            break;
+            return new Region(
+                'whitehorse',
+                i18n.t('regions.whitehorse'),
+                require('./images/region/map-white-horse.png'),
+                require('./images/region/swoosh-whitehorse.png'),
+            )
+        default:
+            return new Region()
     }
-    return region;
+
 }
