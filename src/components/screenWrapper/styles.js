@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     },
     inner: {
         padding: 16,
+        flex: 1,
     }
 })
 

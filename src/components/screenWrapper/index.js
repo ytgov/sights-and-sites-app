@@ -10,7 +10,7 @@ const ScreenWrapper = ({children, backgroundImage, backgroundColor}) => {
             <View style={styles.wrapper}>
                 <ImageBackground source={backgroundImage} style={styles.background}>
                     <View style={styles.overlay} />
-                    <ScrollView>
+                    <ScrollView contentContainerStyle={{flexGrow: 1}}>
                         <View style={styles.inner}>
                             {children}
                         </View>

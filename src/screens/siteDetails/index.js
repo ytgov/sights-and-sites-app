@@ -144,7 +144,8 @@ const SiteDetailsScreen = (props) => {
                              key={i}
                              type={WebLinkType.LINK}
                              icon={WebLinkIcon.EXT_LINK}
-                             url={item.url} />)}
+                             url={item.url} />
+                )}
             </Section>
 
             <Section title={t('siteDetails.sectionBooking.title')}
