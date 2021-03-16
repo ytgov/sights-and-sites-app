@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import {View, Animated} from 'react-native';
 import {useTranslation} from 'react-i18next';
@@ -58,7 +58,6 @@ const HeaderNav = ({scene, activeItem, navigation, headerVisible}) => {
             ...options.headerStyle,
             ...indexStyles.wrapper,
             ...transformValue,
-            backgroundColor: 'green'
         }}>
             <HeaderNavItem icon={filtersIcon}
                            label={t('navigation.header.filters')}
