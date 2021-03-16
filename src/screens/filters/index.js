@@ -1,16 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import ScreenWrapper from '../../components/screenWrapper';
-import routes from '../../navigation/routes';
 import LabelArrow from '../../components/filters/labelArrow';
 import {FilterHeader} from '../../theme/layout';
 import Title from '../../components/filters/title';
 import ListTile from '../../components/filters/listTile';
 
 import filters from './data/filters';
+import {checkActiveFilter} from '../../shared/utils/filters';
 
 const bgIndex = require('./images/index/bg-index.jpg');
 
-const FilterIndexScreen = ({navigation}) => {
+const FilterIndexScreen = (props) => {
+    const {filterStore, navigation} = props
 
     const cooked_filters = filters.map(item => {
         return {
@@ -29,6 +32,7 @@ const FilterIndexScreen = ({navigation}) => {
                 <ListTile
                     key={i}
                     label={item.label}
+                    checked={checkActiveFilter(filterStore, item.id)}
                     leadingIcon={item.leadingIcon}
                     leadingIconActive={item.leadingIconActive}
                     onClick={() => navigation.navigate(item.destination)} />
@@ -37,4 +41,16 @@ const FilterIndexScreen = ({navigation}) => {
     );
 };
 
-export default FilterIndexScreen;
+const mapStateToProps = (state) => {
+    return {
+        filterStore: state.filtersStore
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        //dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterIndexScreen);

@@ -3,6 +3,7 @@ import routes from '../../../navigation/routes';
 
 const filters = [
     {
+        id: 'siteTypes',
         label: i18n.t('filters.siteType'),
         withArrow: true,
         destination: routes.SCREEN_FILTER_SITE_TYPE,
@@ -10,6 +11,7 @@ const filters = [
         leadingIconActive: require('../images/index/by-site-type-active.png')
     },
     {
+        id: 'regions',
         label: i18n.t('filters.region'),
         withArrow: true,
         destination: routes.SCREEN_FILTER_REGION,
@@ -17,6 +19,7 @@ const filters = [
         leadingIconActive: require('../images/index/by-region-active.png')
     },
     {
+        id: 'highways',
         label: i18n.t('filters.highway'),
         withArrow: true,
         destination: routes.SCREEN_FILTER_HIGHWAY,
@@ -24,12 +27,14 @@ const filters = [
         leadingIconActive: require('../images/index/by-region-active.png')
     },
     {
+        id: 'nearMe',
         label: i18n.t('filters.nearMe'),
         destination: routes.SCREEN_FILTER_NEAR_ME,
         leadingIcon: require('../images/index/near-me.png'),
         leadingIconActive: require('../images/index/near-me-active.png')
     },
     {
+        id: 'myFavorites',
         label: i18n.t('filters.myFavorites'),
         destination: routes.SCREEN_FILTER_MY_FAVORITES,
         leadingIcon: require('../images/index/my-favorites.png'),
