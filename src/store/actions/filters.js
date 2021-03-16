@@ -1,11 +1,19 @@
 import {
-    SET_SITE_TYPE_FILTER
+    SET_SITE_TYPE_FILTER,
+    SET_REGION_FILTER
 } from '../types';
 
 export const setSiteTypesFilter = (siteTypes) => {
     return {
         type: SET_SITE_TYPE_FILTER,
         payload: siteTypes
+    }
+}
+
+export const setRegionsFilter = (regions) => {
+    return {
+        type: SET_REGION_FILTER,
+        payload: regions
     }
 }
 
