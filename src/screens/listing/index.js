@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import {ScrollView, FlatList, TouchableOpacity, View} from 'react-native';
 
 import {showHeader} from '../../store/actions/core';
 
@@ -24,7 +24,7 @@ const ListingScreen = (props) => {
     const data = listingRaw.slice(0, 10)
 
     return (
-        <ScrollView>
+        <ScrollView scrollEventThrottle={16}>
             <FlatList
                 data={data}
                 renderItem={({item, i}) =>
@@ -41,9 +41,6 @@ const ListingScreen = (props) => {
 ListingScreen['navigationOptions'] = screenProps => ({
     header: (props) => <HeaderNav {...props}
                                   activeItem={HeaderNavType.LIST} />,
-    headerStyle: {
-        backgroundColor: 'yellow'
-    }
 })
 
 const mapStateToProps = (state) => {
