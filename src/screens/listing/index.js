@@ -14,7 +14,6 @@ const ListingScreen = (props) => {
     useEffect(() => {
         const navFocusListener = navigation.addListener('didFocus', () => {
             dispatchShowHeader();
-            console.log('Show header')
         })
 
         return () => {
