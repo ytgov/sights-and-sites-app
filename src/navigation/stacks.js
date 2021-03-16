@@ -76,8 +76,10 @@ const MainStackNavigator = createStackNavigator({
     [routes.STACK_FILTERS]: {
         screen: FilterStackNavigator,
         navigationOptions: {
-            header: (props) => <HeaderNav {...props}
-                                          activeItem={HeaderNavType.FILTERS} />
+            header: (props) => {
+                return <HeaderNav {...props}
+                                  activeItem={HeaderNavType.FILTERS} />
+            }
         }
     },
     [routes.SCREEN_LISTING]: {
