@@ -14,7 +14,7 @@ const Badge = (props) => {
 };
 
 Badge.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.number.isRequired,
 }
 
 export default Badge;
