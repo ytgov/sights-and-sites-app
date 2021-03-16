@@ -27,7 +27,6 @@ const SiteDetailsScreen = (props) => {
     useEffect(() => {
         const navFocusListener = navigation.addListener('didFocus', () => {
             dispatchHideHeader();
-            console.log('Hide header');
         })
 
         return () => {
