@@ -10,10 +10,15 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingBottom: 12
     },
+    labelWrapper: {
+        flexDirection: 'row',
+        marginTop: 6,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     label: {
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
         fontSize: 12,
-        marginTop: 6,
         color: 'white'
     }
 })

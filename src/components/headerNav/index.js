@@ -1,10 +1,11 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import {View, Animated} from 'react-native';
+import {Animated} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import {withNavigation} from 'react-navigation';
 import routes from '../../navigation/routes';
+import {countFilter} from '../../shared/utils/filters';
 
 import indexStyles from './index.styles';
 import HeaderNavItem from './headerNavItem';
@@ -20,7 +21,9 @@ export const HeaderNavType = {
     MAP: 'map'
 }
 
-const HeaderNav = ({scene, activeItem, navigation, headerVisible}) => {
+const HeaderNav = (props) => {
+    const {scene, activeItem, navigation, headerVisible, filtersStore} = props
+
     const {t} = useTranslation();
     const slideAnim = useRef(new Animated.Value(1)).current
 
@@ -61,6 +64,7 @@ const HeaderNav = ({scene, activeItem, navigation, headerVisible}) => {
         }}>
             <HeaderNavItem icon={filtersIcon}
                            label={t('navigation.header.filters')}
+                           badge={countFilter(filtersStore)}
                            isActive={activeItem === HeaderNavType.FILTERS}
                            onPress={() => navigation.navigate(routes.STACK_FILTERS)} />
             <HeaderNavItem icon={listIcon}
@@ -85,7 +89,8 @@ HeaderNav.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        headerVisible: state.coreStore.headerVisible
+        headerVisible: state.coreStore.headerVisible,
+        filtersStore: state.filtersStore
     };
 };
 
