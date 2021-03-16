@@ -1,12 +1,12 @@
 import {RESET_SITE_TYPE} from '../types';
-import {getSiteTypeFromString, SiteTypes} from '../../shared/mapping/mapSiteTypes';
+import {getSiteTypeFromString, SiteTypesRaw} from '../../shared/mapping/mapSiteTypes';
 
 const initialState = {
     siteTypes: [
-        getSiteTypeFromString(SiteTypes.CAMPING),
-        getSiteTypeFromString(SiteTypes.RECREATION),
-        getSiteTypeFromString(SiteTypes.WILDLIFE_LANDSCAPE),
-        getSiteTypeFromString(SiteTypes.HISTORY_CULTURE),
+        getSiteTypeFromString(SiteTypesRaw.CAMPING),
+        getSiteTypeFromString(SiteTypesRaw.RECREATION),
+        getSiteTypeFromString(SiteTypesRaw.WILDLIFE_LANDSCAPE),
+        getSiteTypeFromString(SiteTypesRaw.HISTORY_CULTURE),
     ]
 };
 
