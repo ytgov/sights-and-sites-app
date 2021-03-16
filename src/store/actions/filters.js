@@ -1,6 +1,7 @@
 import {
     SET_SITE_TYPE_FILTER,
-    SET_REGION_FILTER
+    SET_REGION_FILTER,
+    SET_HIGHWAY_FILTER
 } from '../types';
 
 export const setSiteTypesFilter = (siteTypes) => {
@@ -14,6 +15,13 @@ export const setRegionsFilter = (regions) => {
     return {
         type: SET_REGION_FILTER,
         payload: regions
+    }
+}
+
+export const setHighwaysFilter = (highways) => {
+    return {
+        type: SET_HIGHWAY_FILTER,
+        payload: highways
     }
 }
 

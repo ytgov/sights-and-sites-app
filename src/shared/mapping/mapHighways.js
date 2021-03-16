@@ -1,4 +1,5 @@
 import i18n from '../../locale/locale';
+import Highway from '../../models/Highway';
 
 /**
  * Index names from server
@@ -31,50 +32,72 @@ export const getHighwayFromString = (highway_name) => {
     }
     switch (highway_name) {
         case HighwayNames.ALASKA:
-            highway.name = i18n.t('highways.alaska');
-            highway.roadNumber = 1;
-            break;
+            return new Highway(
+                'alaska',
+                i18n.t('highways.alaska'),
+                1,
+            )
         case HighwayNames.KLONDIKE:
-            highway.name = i18n.t('highways.klondike');
-            highway.roadNumber = 2;
-            break;
+            return new Highway(
+                'klondike',
+                i18n.t('highways.klondike'),
+                2,
+            )
         case HighwayNames.HAINES:
-            highway.name = i18n.t('highways.haines');
-            highway.roadNumber = 3;
-            break;
+            return new Highway(
+                'haines',
+                i18n.t('highways.haines'),
+                3,
+            )
         case HighwayNames.ROBERT_CAMPBELL:
-            highway.name = i18n.t('highways.robertCampbell');
-            highway.roadNumber = 4;
-            break;
+            return new Highway(
+                'robertCampbell',
+                i18n.t('highways.robertCampbell'),
+                4,
+            )
         case HighwayNames.DEMPSTER:
-            highway.name = i18n.t('highways.dempster');
-            highway.roadNumber = 5;
-            break;
+            return new Highway(
+                'dempster',
+                i18n.t('highways.dempster'),
+                5,
+            )
         case HighwayNames.CANOL:
-            highway.name = i18n.t('highways.canol');
-            highway.roadNumber = 6;
-            break;
+            return new Highway(
+                'canol',
+                i18n.t('highways.canol'),
+                6,
+            )
         case HighwayNames.ATLIN:
-            highway.name = i18n.t('highways.atlin');
-            highway.roadNumber = 7;
-            break;
+            return new Highway(
+                'atlin',
+                i18n.t('highways.atlin'),
+                7,
+            )
         case HighwayNames.TAGISH:
-            highway.name = i18n.t('highways.tagish');
-            highway.roadNumber = 8;
-            break;
+            return new Highway(
+                'tagish',
+                i18n.t('highways.tagish'),
+                8,
+            )
         case HighwayNames.TOP_OF_THE_WORLD:
-            highway.name = i18n.t('highways.topOfTheWorld');
-            highway.roadNumber = 9;
-            break;
+            return new Highway(
+                'topOfTheWorld',
+                i18n.t('highways.topOfTheWorld'),
+                9,
+            )
         case HighwayNames.NAHANNI_RANGE:
-            highway.name = i18n.t('highways.nahanniRange');
-            highway.roadNumber = 10;
-            break;
+            return new Highway(
+                'nahanniRange',
+                i18n.t('highways.nahanniRange'),
+                10,
+            )
         case HighwayNames.SILVER_TRAIL:
-            highway.name = i18n.t('highways.silverTrail');
-            highway.roadNumber = 11;
-            break;
+            return new Highway(
+                'silverTrail',
+                i18n.t('highways.silverTrail'),
+                11,
+            )
+        default:
+            return new Highway('', '', '');
     }
-
-    return highway;
 }
