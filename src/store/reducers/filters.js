@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import {
-    SET_SITE_TYPE_FILTER
+    SET_SITE_TYPE_FILTER,
+    SET_REGION_FILTER,
 
     // RESET_FILTERS,
     // SET_HIGHWAY_FILTERS,
@@ -34,6 +35,11 @@ export default function filtersReducer(state = initialState, action) {
             return {
                 ...state,
                 siteTypes: action.payload
+            }
+        case SET_REGION_FILTER:
+            return {
+                ...state,
+                regions: action.payload
             }
         // case SET_HIGHWAY_FILTERS: {
         //     return {
