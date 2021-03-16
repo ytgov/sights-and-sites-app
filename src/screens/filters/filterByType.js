@@ -1,76 +1,75 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Animated, StyleSheet} from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+import {connect} from 'react-redux';
 
-import ScreenWrapper from '../../components/screenWrapper';
+import ScreenFilterWrapper from '../../components/screenFilterWrapper';
 import {FilterHeader} from '../../theme/layout';
 import Title from '../../components/filters/title';
 import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
-import {connect} from 'react-redux';
-import {filterAddSiteType} from '../../store/actions/filters';
-import Button, {ButtonStyle} from './button';
+import {setSiteTypesFilter} from '../../store/actions/filters';
+import routes from '../../navigation/routes';
 
-const bgDefault = require('../../shared/mapping/images/siteType/bg-type-history-culture.jpg');
+const bgDefault = require('./images/type/bg-type-default.jpg');
 
 const FilterByTypeScreen = (props) => {
-    const {siteTypesData, filteredSiteTypesData, dispatchAddSiteType} = props
+    const {
+        siteTypesData,
+        filteredSiteTypesData,
+        dispatchSetSiteTypesFilter,
+        navigation
+    } = props
 
     const [background, setBackground] = useState(bgDefault);
     const [siteTypes] = useState(siteTypesData)
-    const slideAnim = useRef(new Animated.Value(0)).current
-
-    const transformValue = {
-        transform: [
-            {
-                translateY: slideAnim.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [110, 0]
-                })
-            }
-        ]
-    }
+    const [showButton, setShowButton] = useState(false)
+    const [selectedSiteTypes, setSelectedSiteTypes] = useState(filteredSiteTypesData)
 
     const onListTileChange = (item) => {
         setBackground(item.background)
-        dispatchAddSiteType(item.id)
-        Animated.spring(
-            slideAnim,
-            {
-                toValue: 1,
-                duration: 300
-            }
-        ).start()
+        setShowButton(true)
+
+        if (selectedSiteTypes.includes(item.id)) {
+            // remove from filter.
+            const removed = selectedSiteTypes.filter((s) => s !== item.id)
+            setSelectedSiteTypes(removed)
+        } else {
+            // add to filter.
+            selectedSiteTypes.push(item.id)
+            setSelectedSiteTypes(selectedSiteTypes)
+        }
+    }
+
+    const onReset = () => {
+        setSelectedSiteTypes([])
+        setBackground(bgDefault)
+    }
+
+    const onSubmit = () => {
+        dispatchSetSiteTypesFilter(selectedSiteTypes)
+        navigation.navigate(routes.STACK_BOTTOM_TAB)
     }
 
     return (
-        <ScreenWrapper backgroundImage={background}>
+        <ScreenFilterWrapper backgroundImage={background}
+                             showButtons={showButton}
+                             onResetFilter={() => onReset()}
+                             onApplyFilter={onSubmit}>
             <FilterHeader>
                 <Title title={`Filter by site type`} hasArrow={true} />
             </FilterHeader>
+            {siteTypes.map((item, i) => {
+                const checked = selectedSiteTypes.includes(item.id)
+                return (
+                    <ListTileCheckbox
+                        key={i}
+                        label={item.name}
+                        checked={checked}
+                        trailingIcon={item.icon}
+                        onClick={() => onListTileChange(item)} />
+                )
+            })}
 
-            {siteTypes.map((item, i) => (
-                <ListTileCheckbox
-                    key={i}
-                    label={item.name}
-                    checked={filteredSiteTypesData.includes(item.id)}
-                    trailingIcon={item.icon}
-                    onClick={() => onListTileChange(item)} />
-            ))}
-
-            <Animated.View style={{
-                ...styles.buttons,
-                ...transformValue
-            }}>
-                <Button label={'Reset filters'}
-                        buttonStyle={ButtonStyle.WHITE}
-                        onPress={() => {}} />
-                <Button label={'Apply filters'}
-                        buttonStyle={ButtonStyle.TEAL}
-                        containerStyle={{ flex: 1, flexGrow: 1}}
-                        onPress={() => {}} />
-            </Animated.View>
-        </ScreenWrapper>
+        </ScreenFilterWrapper>
     );
 };
 
@@ -93,19 +92,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatchAddSiteType: (value) => dispatch(filterAddSiteType(value))
+        dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
     };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterByTypeScreen);
-
-const styles = StyleSheet.create({
-    buttons: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        flexDirection: 'row',
-        height: DeviceInfo.hasNotch() ? 60 + 34 : 80,
-    }
-})
