@@ -82,16 +82,7 @@ export default {
         'more': {
             'title': 'Plus',
         },
-        'currentConditions': {
-            'title': 'Conditions actuelles'
-        },
-        'traditionalTerritories': {
-            'title': 'Premiéres nations du yukon'
-        },
-        'travelTrips': {
-            'title': 'Se déplacer dans la nature'
-        },
-        'appInformation': {
+        appInformation: {
             'title': "Renseignements sur l'application",
             'intro': `Cette appli est votre guide sur les terrains de camping, la vie sauvage ainsi que les lieux d’intérêt culturel et historique qui sont accessibles par le réseau routier du Yukon. Explorez les sites par route ou par région ou bien recherchez un site à proximité. Découvrez l’histoire naturelle et culturelle qui vous entoure.`,
             locationServices: {
@@ -204,6 +195,53 @@ export default {
             topOfTheWorld: 'Top of the World Highway',
             nahanniRange: 'Nahanni Range Road',
             silverTrail: 'Silver Trail'
-        }
+        },
+        /* Current Conditions Page content */
+        currentConditions: {
+            title: 'Conditions actuelles',
+            campground: {
+                title: 'Fermetures et avertissements relatifs aux terrains de camping',
+                description: `Pour obtenir de plus amples renseignements sur les terrains de camping du Yukon, dont les cartes, les dates de fermeture et les avertissements destinés au public, consultez le site <a href="https://yukon.ca/fr/find-campground-or-recreation-site">yukon.ca</a>.`,
+            },
+            highway: {
+                title: 'État des routes au Yukon',
+                description: `Avant de prendre la route, consultez toujours les rapports actualisés sur les conditions routières, les avertissements et les fermetures de routes. Pour ce faire, consultez le site <a href="http://511yukon.ca/fr/index.html">511yukon.ca</a>`
+            },
+            fireReport: {
+                title: 'Rapports sur les incendies',
+                description: `Vous trouverez ici les dernières informations sur les rapports d’enquête sur les incendies ainsi que les avis concernant la sécurité publique : <a href="https://yukon.ca/fr/situations-durgence-et-securite/informations-en-situation-durgence/rapports-denquete-sur-les">yukon.ca</a>`,
+            },
+        },
+        /* First Nation Page content */
+        firstNation: {
+            title: 'Premiéres nations du yukon',
+            sharing: {
+                title: 'Sharing deep traditional and spiritual connections with the Yukon land',
+                description: `Le Yukon est un territoire où vivent un grand nombre de premiéres nations ayant divers héritages politiques, culturels et linguistiques. Ces groupes ont en commun un profond attachement sentimental et spirituel pour leur territoire ancestral. Durant votre exploration du Yukon, veuillez respecter le caractère sacré du territoire à l’origine du mode de vie des Autochtones. Vous trouverez de plus amples renseignements sur <a href="https://yukon.ca/fr/about-yukon-first-nations">Yukon.ca</a>, <a href="https://mappingtheway.ca/">Mapping the Way</a> et le site Web officiel de chaque Premiére nation.`,
+            },
+        },
+        /* Wilderness Travel Tips Page content */
+        travelTips: {
+            title: 'Se déplacer dans la nature',
+            section: {
+                title: 'Conseils pour observer la faune sans danger à proximité de la route:',
+                stop: '<strong>ARRÊTEZ-VOUS</strong> seulement quand vous pouvez le faire en toute sécurité, c’est-à-dire après avoir vérifié la circulation et vous être assuré que votre véhicule est bien visible.',
+                look: '<strong>REGARDEZ</strong> sans sortir de votre véhicule. Utilisez des jumelles ou un objectif à focale variable pour voir de plus près.',
+                leave: '<strong>REPARTEZ</strong> dans un délai d’une minute pour garantir la sécurité des animaux. Les animaux qui s’habituent aux êtres humains risquent de se faire tuer.',
+            },
+            data: {
+                title1: 'Préservation du patrimoine historique',
+                content_italicized1: 'La Loi sur le patrimoine historique',
+                content1: ' garantit la préservation du patrimoine historique du Yukon.  Ne ' +
+                'déplacez jamais un artéfact d’un lieu archéologique ou historique. Pour signaler une découverte, ' +
+                'contactez Archéologie Yukon par téléphone au 867-667-5983 ou au 1-800-661-0408, poste 5983 (sans ' +
+                'frais au Yukon). Les artéfacts appartiennent aux Yukonnais et le gouvernement du Yukon en est le ' +
+                'dépositaire.',
+                title2: 'Règles de sécurité à suivre dans la nature',
+                content2: `Avant de partir à la découverte d’un sentier, renseignez-vous sur le secteur et faites-vous un plan. Au Yukon, de nombreux sentiers ont une longueur de plusieurs centaines de kilomètres.`,
+                url2: 'https://yukon.ca/fr/plein-air-faune-et-flore/securite-en-milieu-sauvage/se-deplacer-en-toute-securite-dans-la-nature',
+                url_text2: 'Consultez le site pour obtenir d’autres conseils sur le tourisme d’aventure.'
+            }
+        },
     },
 }

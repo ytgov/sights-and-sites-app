@@ -143,14 +143,14 @@ const RootDrawerNavigation = createDrawerNavigator(
         [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
             screen: FirstNationsScreen,
             navigationOptions: {
-                title: 'First Nations in Yukon',
+                title: i18n.t('firstNation.title'),
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
             }
         },
         [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
             screen: WildernessTravelTipsScreen,
             navigationOptions: {
-                title: 'Wilderness Travel Tips',
+                title: i18n.t('travelTips.title'),
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
             }
         },
