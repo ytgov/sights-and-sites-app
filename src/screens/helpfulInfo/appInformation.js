@@ -1,10 +1,11 @@
 import React from 'react';
-import AccordionCustom from '../../components/accordion/accordion.component';
 import { useTranslation } from 'react-i18next';
-import ScreenParallaxWrapper from '../../components/screenParallaxWrapper';
-import HTMLElement from '../../components/htmlElement';
-import i18n from '../../locale/locale';
-import Section from '../siteDetails/section';
+
+import AccordionCustom from '~components/accordion/accordion.component';
+import ScreenParallaxWrapper from '~components/screenParallaxWrapper';
+import HTMLElement from '~components/htmlElement';
+import i18n from '~app/locale/locale';
+import Section from '~screens/siteDetails/section';
 const bgAppInformation = require('./images/bg-app-information.png');
 const iconAppInformation = require('./images/icon-app-information.png');
 
