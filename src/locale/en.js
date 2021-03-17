@@ -80,16 +80,7 @@ export default {
         'more': {
             'title': 'More',
         },
-        'currentConditions': {
-            'title': 'Current Conditions'
-        },
-        'traditionalTerritories': {
-            'title': 'First Nations in Yukon'
-        },
-        'travelTrips': {
-            'title': 'Wilderness Travel Tips'
-        },
-        'appInformation': {
+        appInformation: {
             title: 'App Information',
             onboarding: 'Introduction',
             intro: `The Yukon Road Trip app is your guide to Government of Yukon’s road accessible campgrounds, wildlife viewing, cultural and historical points of interest. Connect with the natural and cultural history that surrounds you.`,
@@ -247,6 +238,56 @@ export default {
                 text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
                 shareButton: 'Share this site on social media'
             }
-        }
+        },
+
+        /* Current Conditions Page content */
+        currentConditions: {
+            title: 'Current Conditions',
+            campground: {
+                title: 'Campground closures and warning',
+                description: `Information on Government of Yukon’s campgrounds, including campground maps, closures and public warnings, visit <a href="https://yukon.ca/en/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site">yukon.ca</a>.`,
+            },
+            highway: {
+                title: 'Highway conditions',
+                description: `Yukon’s highway reports on current road conditions, warnings and closures, visit <a href="http://511yukon.ca/en/index.html">511yukon.ca</a>`
+            },
+            fireReport: {
+                title: 'Fire reports',
+                description: `Current information on Yukon’s fire investigation reports and public safety notices, visit <a href="https://yukon.ca/en/emergencies-and-safety/emergency-updates/fire-investigation-reports-and-safety-notices">yukon.ca</a>`,
+            },
+        },
+        /* First Nation Page content */
+        firstNation: {
+            title: 'First Nations in Yukon',
+            sharing: {
+                title: 'Sharing deep traditional and spiritual connections with the Yukon land',
+                description: `Yukon is home to many First Nations with various political, cultural and linguistic backgrounds. These groups share deep traditional and spiritual connections to their ancestral lands. As you explore Yukon, please demonstrate respect for the sacred land that sustains Indigenous ways of life. More information is available at <a href="https://yukon.ca/en/about-yukon-first-nations">Yukon.ca</a>, <a href="https://mappingtheway.ca/">Mapping the Way</a> and at each Yukon First Nations official website.`,
+            }
+        },
+        /* Wilderness Travel Tips Page content */
+        travelTips: {
+            title: 'Wilderness Travel Tips',
+            section: {
+                title: 'Tips for safe roadside wildlife viewing:',
+                stop: '<p><strong>STOP</strong> only when it is safe to do so, checking for traffic and clear sightlines.</p>',
+                look: '<p><strong>LOOK</strong> from the safety of your car. Use binoculars or a zoom lens for a closer look.</p>',
+                leave: '<p><strong>LEAVE</strong> within one minute to keep wildlife safe. Animals that become too habituated to humans are at risk of being killed.</p>',
+            },
+            data:{
+                title1: 'Protecting historic resources',
+                content_italicized1: '',
+                content1: 'Yukon’s historic resources are protected under the Historic Resources Act. Do no remove an artifact from an archaeological or historic site. Artifacts belong to all Yukoners and are held in the public trust. To report a find, contact',
+                contacts1: {
+                    name1: 'Yukon Archaeology',
+                    contact1: '867-667-5983',
+                    name2: 'Government of Yukon Toll-Free line',
+                    contact2: '1-800-661-0408',
+                },
+
+                title2: 'More wilderness safety tips',
+                content2: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers. `,
+                url2: 'https://yukon.ca/en/outdoor-recreation-and-wildlife/wilderness-safety/travel-safely-yukon-wilderness'
+            }
+        },
     },
 }
