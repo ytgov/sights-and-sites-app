@@ -30,12 +30,10 @@ const FilterByTypeScreen = (props) => {
 
         if (selectedSiteTypes.includes(item.id)) {
             // remove from filter.
-            const removed = selectedSiteTypes.filter((s) => s !== item.id)
-            setSelectedSiteTypes(removed)
+            setSelectedSiteTypes(selectedSiteTypes.filter((s) => s !== item.id))
         } else {
             // add to filter.
-            selectedSiteTypes.push(item.id)
-            setSelectedSiteTypes(selectedSiteTypes)
+            setSelectedSiteTypes([...selectedSiteTypes, item.id])
         }
     }
 

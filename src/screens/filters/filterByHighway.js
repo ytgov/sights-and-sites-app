@@ -31,12 +31,10 @@ const FilterByHighwayScreen = (props) => {
 
         if (selectedHighways.includes(item.id)) {
             // remove from filter.
-            const removed = selectedHighways.filter((r) => r !== item.id)
-            setSelectedHighways(removed)
+            setSelectedHighways(selectedHighways.filter((r) => r !== item.id))
         } else {
             // add to filter.
-            selectedHighways.push(item.id)
-            setSelectedHighways(selectedHighways)
+            setSelectedHighways([...selectedHighways, item.id])
         }
     }
 
