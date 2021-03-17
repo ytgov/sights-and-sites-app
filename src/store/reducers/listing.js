@@ -1,5 +1,6 @@
 import {ADD_LISTING, FILTER_LISTING, INCREMENT_LISTING_PAGE, TOGGLE_LISTING_VIEW, UPDATED_GM_LISTING} from '../types';
 import {APP_CONFIG} from '../../config';
+import _ from 'lodash';
 import i18n from '../../locale/locale';
 import {getPreciseDistance} from 'geolib';
 import orderByDistance from 'geolib/es/orderByDistance';
@@ -17,67 +18,97 @@ const initialState = {
     listingFiltered: []
 };
 
-function filterListing(filters, location, listingRaw) {
-    // const {highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter} = filters;
-    // console.info('======+> filterListing', nearMeFilter, location);
-    // let result = listingRaw;
-    //
-    // if (!highwaysFilter.length && !mySitesFilter && !nearMeFilter && !regionsFilter.length && !sitesTypeFilter.length) {
-    //     return listingRaw;
-    // }
-    // if (highwaysFilter.length) {
-    //     result = listingRaw.filter(item => highwaysFilter.includes(item.highway_name))
-    // }
-    // if (regionsFilter.length) {
-    //     result = listingRaw.filter(item => regionsFilter.includes(item.region))
-    // }
-    // if (mySitesFilter) {
-    //     result = listingRaw.filter(item => mySites.includes(item.site_id))
-    // }
-    // if (nearMeFilter && location) {
-    //     result = listingRaw
-    //         .filter(item => {
-    //             if (item && item.map && item.map.distance) { // filter by the roadway distance
-    //                 return (item.map.distance / 1000) < 200;
-    //             } else { // in case roadway fails filter by straight line
-    //                 let distance = getPreciseDistance(
-    //                     {latitude: location.latitude, longitude: location.longitude},
-    //                     {latitude: item.latitude, longitude: item.longitude},
-    //                     1
-    //                 );
-    //                 if ((distance / 1000) < 200) {
-    //                     return true
-    //                 }
-    //             }
-    //
-    //             return false;
-    //         })
-    // }
-    //
-    // // Site Type
-    // if (sitesTypeFilter.length) {
-    //     result = result.filter(item => {
-    //         let res = [];
-    //         // sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1
-    //         console.info('sitesTypeFilter ==>', sitesTypeFilter)
-    //         sitesTypeFilter.map(site_type => {
-    //             let keywords = String(i18n.t(site_type)).split(' ');
-    //             if (item.site_types) {
-    //                 item.site_types.map(type => {
-    //                     if (type.includes(keywords[0])) {
-    //                         res.push(keywords[0]);
-    //                     }
-    //                 })
-    //             }
-    //
-    //
-    //         });
-    //
-    //         return (!!res.length && res.length <= sitesTypeFilter.length);
-    //     })
-    //     // result = result.filter(item => sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1)
-    // }
-    // return result;
+// function filterListing(filters, location, listingRaw) {
+//     const {highwaysFilter, mySitesFilter, mySites, nearMeFilter, regionsFilter, sitesTypeFilter} = filters;
+//     console.info('======+> filterListing', nearMeFilter, location);
+//     let result = listingRaw;
+//
+//     if (!highwaysFilter.length && !mySitesFilter && !nearMeFilter && !regionsFilter.length && !sitesTypeFilter.length) {
+//         return listingRaw;
+//     }
+//     if (highwaysFilter.length) {
+//         result = listingRaw.filter(item => highwaysFilter.includes(item.highway_name))
+//     }
+//     if (regionsFilter.length) {
+//         result = listingRaw.filter(item => regionsFilter.includes(item.region))
+//     }
+//     if (mySitesFilter) {
+//         result = listingRaw.filter(item => mySites.includes(item.site_id))
+//     }
+//     if (nearMeFilter && location) {
+//         result = listingRaw
+//             .filter(item => {
+//                 if (item && item.map && item.map.distance) { // filter by the roadway distance
+//                     return (item.map.distance / 1000) < 200;
+//                 } else { // in case roadway fails filter by straight line
+//                     let distance = getPreciseDistance(
+//                         {latitude: location.latitude, longitude: location.longitude},
+//                         {latitude: item.latitude, longitude: item.longitude},
+//                         1
+//                     );
+//                     if ((distance / 1000) < 200) {
+//                         return true
+//                     }
+//                 }
+//
+//                 return false;
+//             })
+//     }
+//
+//     // Site Type
+//     if (sitesTypeFilter.length) {
+//         result = result.filter(item => {
+//             let res = [];
+//             // sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1
+//             console.info('sitesTypeFilter ==>', sitesTypeFilter)
+//             sitesTypeFilter.map(site_type => {
+//                 let keywords = String(i18n.t(site_type)).split(' ');
+//                 if (item.site_types) {
+//                     item.site_types.map(type => {
+//                         if (type.includes(keywords[0])) {
+//                             res.push(keywords[0]);
+//                         }
+//                     })
+//                 }
+//
+//
+//             });
+//
+//             return (!!res.length && res.length <= sitesTypeFilter.length);
+//         })
+//         // result = result.filter(item => sitesTypeFilter.filter(element => item.site_types.includes(i18n.t(element))).length >= 1)
+//     }
+//     return result;
+// }
+
+const filterListing = (filters, location, listingRaw) => {
+    const {regions, highways, siteTypes} = filters
+    return listingRaw.filter((item) => {
+        if (regions.length > 0) {
+            // item doesn't match region filter, reject.
+            if (!regions.includes(item.region.id)) {
+                return false;
+            }
+        }
+
+        if (highways.length > 0) {
+            // item doesn't match highways filter, reject.
+            if (!highways.includes(item.highway.id)) {
+                return false;
+            }
+        }
+
+        if (siteTypes.length > 0) {
+            const itemSiteTypes = item.site_types.map((s) => s.id)
+            const intersection = _.intersection(siteTypes, itemSiteTypes);
+            if (intersection.length === 0) {
+                return false;
+            }
+        }
+
+        // If item passes conditions => item matches!
+        return true;
+    })
 }
 
 export default function listingReducer(state = initialState, action) {
@@ -88,16 +119,15 @@ export default function listingReducer(state = initialState, action) {
         //         selectedListingView: action.payload
         //     }
         // }
-        // case FILTER_LISTING: {
-        //     const listingFiltered = filterListing(action.payload.filters, action.payload.location, [...state.listingRaw]);
-        //     return {
-        //         ...state,
-        //         listingFiltered,
-        //         listingItemsCount: listingFiltered.length,
-        //         listingPagesLimit: Math.ceil(listingFiltered.length / itemsToShow),
-        //         currentListingPage: 1
-        //     }
-        // }
+        case FILTER_LISTING: {
+            //const listingFiltered = filterListing(action.payload.filters, action.payload.location, [...state.listingRaw]);
+            const {filters, location} = action.payload
+            const listingFiltered = filterListing(filters, location, [...state.listingRaw]);
+            return {
+                ...state,
+                listingFiltered,
+            }
+        }
         // case INCREMENT_LISTING_PAGE: {
         //     return {
         //         ...state,
