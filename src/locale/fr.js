@@ -82,9 +82,6 @@ export default {
         'more': {
             'title': 'Plus',
         },
-        'currentConditions': {
-            'title': 'Conditions actuelles'
-        },
         'traditionalTerritories': {
             'title': 'Premiéres nations du yukon'
         },
@@ -204,6 +201,22 @@ export default {
             topOfTheWorld: 'Top of the World Highway',
             nahanniRange: 'Nahanni Range Road',
             silverTrail: 'Silver Trail'
-        }
+        },
+        /* Current Conditions Page content */
+        currentConditions: {
+            title: 'Conditions actuelles',
+            campground: {
+                title: 'Fermetures et avertissements relatifs aux terrains de camping',
+                description: `Pour obtenir de plus amples renseignements sur les terrains de camping du Yukon, dont les cartes, les dates de fermeture et les avertissements destinés au public, consultez le site <a href="https://yukon.ca/fr/find-campground-or-recreation-site">yukon.ca</a>.`,
+            },
+            highway: {
+                title: 'État des routes au Yukon',
+                description: `Avant de prendre la route, consultez toujours les rapports actualisés sur les conditions routières, les avertissements et les fermetures de routes. Pour ce faire, consultez le site <a href="http://511yukon.ca/fr/index.html">511yukon.ca</a>`
+            },
+            fireReport: {
+                title: 'Rapports sur les incendies',
+                description: `Vous trouverez ici les dernières informations sur les rapports d’enquête sur les incendies ainsi que les avis concernant la sécurité publique : <a href="https://yukon.ca/fr/situations-durgence-et-securite/informations-en-situation-durgence/rapports-denquete-sur-les">yukon.ca</a>`,
+            },
+        },
     },
 }
