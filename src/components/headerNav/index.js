@@ -38,7 +38,7 @@ const HeaderNav = (props) => {
     }
 
     if (headerVisible) {
-        animateComponent(1, 100)
+        animateComponent(1, 200)
     } else {
         animateComponent(0, 200)
     }
