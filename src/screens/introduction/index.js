@@ -1,9 +1,14 @@
-import React from 'react';
-import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import React, {useState} from 'react';
+import {Dimensions, TouchableOpacity} from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { MaterialIcons } from '@expo/vector-icons';
+import * as Permissions from 'expo-permissions';
+
 import ScreenIntroWrapper from '../../components/screenIntroWrapper';
 import {Body} from '../../theme/typings';
 import routes from '../../navigation/routes';
+import {setOnboardingFinished} from '../../store/actions/core';
+import {connect} from 'react-redux';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -37,7 +42,24 @@ const slides = [
     },
 ]
 
-const IntroductionScreen = ({navigation}) => {
+const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
+    const [entries] = useState(slides)
+    const [activeSlide, setActiveSlide] = useState(0)
+
+    const getLocationPermissions = async () => {
+        const {status} = await Permissions.askAsync(
+            Permissions.LOCATION
+        );
+
+//      20200911 drogers: Apple will not accept the app unless it can be run without location
+//      permissions enabled.
+       if (status !== 'granted') {
+           //error(i18n.t('notifications.permissionsRequest'));
+       } else {
+           dispatchSetOnboardingFinished()
+            navigation.navigate(routes.STACK_BOTTOM_TAB);
+       }
+    }
 
     const _renderItem = ({item, index}, parallaxProps) => {
         return (
@@ -48,22 +70,72 @@ const IntroductionScreen = ({navigation}) => {
                                 leadIcon={item.leadIcon}
                                 key={index}>
                 {index === 3 &&
-                    <TouchableOpacity onPress={() => navigation.navigate(routes.STACK_BOTTOM_TAB)}>
+                    <TouchableOpacity style={{ flexDirection: 'row'}}
+                        onPress={() => getLocationPermissions()}>
                         <Body fontBold>{'Let’s get started'}</Body>
+                        <MaterialIcons name="chevron-right" size={24} color="white" />
                     </TouchableOpacity>}
 
             </ScreenIntroWrapper>
         )
     }
+
+    const pagination = <Pagination
+        dotsLength={entries.length}
+        activeDotIndex={activeSlide}
+        tappableDots={true}
+        containerStyle={{
+            position: 'absolute',
+            bottom: 80,
+            left: 0,
+            right: 0,
+        }}
+        dotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            marginHorizontal: 0,
+            backgroundColor: 'white',
+            borderWidth: 1,
+            borderColor: 'white'
+        }}
+        inactiveDotStyle={{
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            marginHorizontal: 0,
+            backgroundColor: 'transparent',
+            borderWidth: 1,
+            borderColor: 'white'
+        }}
+        dotContainerStyle={{
+            marginHorizontal: 6
+        }}
+        inactiveDotOpacity={1}
+        inactiveDotScale={1}
+    />
+
+
     return (
-        <Carousel
-            data={slides}
-            renderItem={_renderItem}
-            sliderWidth={windowWidth}
-            itemWidth={windowWidth}
-            hasParallaxImages={true}
-        />
+        <>
+            <Carousel
+                data={entries}
+                renderItem={_renderItem}
+                sliderWidth={windowWidth}
+                itemWidth={windowWidth}
+                hasParallaxImages={true}
+                onSnapToItem={(index) => setActiveSlide(index)}
+            />
+            {pagination}
+        </>
+
     );
 };
 
-export default IntroductionScreen;
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchSetOnboardingFinished: value => dispatch(setOnboardingFinished(value)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(IntroductionScreen);

@@ -10,16 +10,24 @@ import LanguageButton from './languageButton';
 import {setLocale} from '../../store/actions/locale';
 import {connect} from 'react-redux';
 import routes from '../../navigation/routes';
+import {setSelectLocaleAction} from '../../store/actions/core';
 
 const bgWelcome = require('./images/bg-welcome.png');
 const logo = require('./images/logo.png');
 const logoApp = require('./images/logo-app.png');
 
-const WelcomeScreen = ({navigation, setLocaleDispatch}) => {
+const WelcomeScreen = (props) => {
+    const {
+        navigation,
+        dispatchSetLocale,
+        dispatchSetSelectLocaleAction
+    } = props
+
     const {i18n} = useTranslation();
 
     const setLanguage = (langCode) => {
-        setLocaleDispatch(langCode);
+        dispatchSetLocale(langCode);
+        dispatchSetSelectLocaleAction(langCode);
         i18n.changeLanguage(langCode);
         navigation.navigate(routes.SCREEN_INTRODUCTION)
     }
@@ -68,7 +76,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLocaleDispatch: value => dispatch(setLocale(value)),
+        dispatchSetLocale: value => dispatch(setLocale(value)),
+        dispatchSetSelectLocaleAction: value => dispatch(setSelectLocaleAction(value))
     };
 };
 
