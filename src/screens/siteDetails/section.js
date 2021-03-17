@@ -29,10 +29,14 @@ const Section = (props) => {
     return (
         <>
             <View style={wrapperStyles}>
-                <H3 style={{
-                    marginBottom: 16,
-                    color: whiteTitle ? 'white' : YUKON_COLORS.neutral
-                }}>{title}</H3>
+                {
+                    title
+                        ? <H3 style={{
+                            marginBottom: 16,
+                            color: whiteTitle ? 'white' : YUKON_COLORS.neutral
+                        }}>{title}</H3>
+                        : null
+                }
                 {children}
             </View>
 
@@ -51,6 +55,7 @@ Section.propTypes = {
 }
 
 Section.defaultProps = {
+    title: "",
     whiteTitle: false,
     backgroundColor: 'white',
     swoosh: null,

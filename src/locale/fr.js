@@ -91,7 +91,7 @@ export default {
         'travelTrips': {
             'title': 'Se déplacer dans la nature'
         },
-        'appInformation': {
+        appInformation: {
             'title': "Renseignements sur l'application",
             'intro': `Cette appli est votre guide sur les terrains de camping, la vie sauvage ainsi que les lieux d’intérêt culturel et historique qui sont accessibles par le réseau routier du Yukon. Explorez les sites par route ou par région ou bien recherchez un site à proximité. Découvrez l’histoire naturelle et culturelle qui vous entoure.`,
             locationServices: {

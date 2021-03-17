@@ -89,7 +89,7 @@ export default {
         'travelTrips': {
             'title': 'Wilderness Travel Tips'
         },
-        'appInformation': {
+        appInformation: {
             title: 'App Information',
             onboarding: 'Introduction',
             intro: `The Yukon Road Trip app is your guide to Government of Yukon’s road accessible campgrounds, wildlife viewing, cultural and historical points of interest. Connect with the natural and cultural history that surrounds you.`,
