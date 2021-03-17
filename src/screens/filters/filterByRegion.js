@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
 
 import ScreenFilterWrapper from '../../components/screenFilterWrapper';
 
@@ -26,15 +27,12 @@ const FilterByRegionScreen = (props) => {
 
     const onListTileChange = (item) => {
         setShowButton(true)
-
         if (selectedRegions.includes(item.id)) {
             // remove from filter.
-            const removed = selectedRegions.filter((r) => r !== item.id)
-            setSelectedRegions(removed)
+            setSelectedRegions(selectedRegions.filter((r) => r !== item.id))
         } else {
             // add to filter.
-            selectedRegions.push(item.id)
-            setSelectedRegions(selectedRegions)
+            setSelectedRegions([...selectedRegions, item.id])
         }
     }
 
@@ -60,7 +58,7 @@ const FilterByRegionScreen = (props) => {
                 const checked = selectedRegions.includes(item.id)
                 return (
                     <ListTileCheckbox
-                        key={i}
+                        key={`region-${item.name}`}
                         label={item.name}
                         checked={checked}
                         trailingIcon={item.map}
