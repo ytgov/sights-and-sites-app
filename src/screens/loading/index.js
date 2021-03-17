@@ -36,10 +36,10 @@ const LoadingScreen = (props) => {
             .then(async res => {
                 await addListingDispatch(res.data.data);
                 filterListingDispatch();
-                // if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                //     navigation.navigate(routes.SCREEN_WELCOME);
-                //     return false;
-                // }
+                if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
+                    navigation.navigate(routes.SCREEN_WELCOME);
+                    return false;
+                }
                 await i18n.changeLanguage(locale);
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
