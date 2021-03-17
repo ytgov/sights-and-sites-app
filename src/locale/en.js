@@ -80,9 +80,6 @@ export default {
         'more': {
             'title': 'More',
         },
-        'currentConditions': {
-            'title': 'Current Conditions'
-        },
         'traditionalTerritories': {
             'title': 'First Nations in Yukon'
         },
@@ -247,6 +244,23 @@ export default {
                 text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
                 shareButton: 'Share this site on social media'
             }
-        }
+        },
+
+        /* Current Conditions Page content */
+        currentConditions: {
+            title: 'Current Conditions',
+            campground: {
+                title: 'Campground closures and warning',
+                description: `Information on Government of Yukon’s campgrounds, including campground maps, closures and public warnings, visit <a href="https://yukon.ca/en/outdoor-recreation-and-wildlife/camping/find-campground-or-recreation-site">yukon.ca</a>.`,
+            },
+            highway: {
+                title: 'Highway conditions',
+                description: `Yukon’s highway reports on current road conditions, warnings and closures, visit <a href="http://511yukon.ca/en/index.html">511yukon.ca</a>`
+            },
+            fireReport: {
+                title: 'Fire reports',
+                description: `Current information on Yukon’s fire investigation reports and public safety notices, visit <a href="https://yukon.ca/en/emergencies-and-safety/emergency-updates/fire-investigation-reports-and-safety-notices">yukon.ca</a>`,
+            },
+        },
     },
 }
