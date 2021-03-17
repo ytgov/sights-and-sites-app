@@ -3,7 +3,7 @@ import {Accordion} from 'native-base';
 import {Image, View, Text} from 'react-native';
 
 import AccordionType from '~app/types/accordion.type';
-import {Body1, H3} from '~theme/theme';
+import {Body, H3} from '~theme/theme';
 import {Body2} from '~theme/typings';
 import WebLink, { WebLinkType, WebLinkIcon } from '~components/webLink';
 
@@ -12,6 +12,7 @@ const accordionOpenedIcon = require('./images/accordion-opened-icon.png');
 
 const AccordionCustom = props => {
     const {data} = props;
+
     return (
         <Accordion
             animation
@@ -46,25 +47,17 @@ const AccordionCustom = props => {
                 borderBottomWidth: 1
             }}>
 
-                <Body1 regular black>
+                <Body black>
                     {item.content_italicized ? (<Text style={{fontFamily: 'montserrat-italic'}}>{item.content_italicized}</Text>) : null}
 
                     {item.content ? item.content + '\n' : null}
-                </Body1>
+                </Body>
                 {item.url ?
                     <WebLink label={item.url_text ? item.url_text : 'More safe travel tips?'} url={item.url} type={WebLinkType.LINK} icon={WebLinkIcon.EXT_LINK} />
-                    // <View style={COMMON.linkBox}>
-                    //     <TouchableOpacity onPress={() => {
-                    //         Linking.openURL(item.url)
-                    //     }}>
-                    //         <View style={COMMON.link}><Body1
-                    //             black>{item.url_text ? item.url_text : 'More safe travel tips?'}</Body1></View>
-                    //     </TouchableOpacity>
-                    // </View>
                     : null
                 }
                 {item.contacts ?
-                    item.contacts.map((m, i) => <Body1 key={i} bold black>{m.name}: {m.contact}</Body1>)
+                    item.contacts.map((m, i) => <Body key={i} fontBold black>{m.name}: {m.contact}</Body>)
                     : null
                 }
 
@@ -73,8 +66,8 @@ const AccordionCustom = props => {
                         item.QA.map((m, i) => {
                             return (
                                 <View key={i}>
-                                    <Body1 bold black> {m.q + '\n'}</Body1>
-                                    <Body1 regular black>{m.a + '\n'}</Body1>
+                                    <Body fontBold black> {m.q + '\n'}</Body>
+                                    <Body black>{m.a + '\n'}</Body>
                                     {
                                         m.list ? m.list.map((item, index) => {
                                             return (

@@ -43,13 +43,7 @@ const WildernessTravelTipsScreen = () => {
 
             <Section title={t('travelTips.section.title')}>
                 <HTMLElement html={t(`travelTips.section.stop`)} />
-            </Section>
-
-            <Section>
                 <HTMLElement html={t(`travelTips.section.look`)} />
-            </Section>
-
-            <Section>
                 <HTMLElement html={t(`travelTips.section.leave`)} />
             </Section>
 
