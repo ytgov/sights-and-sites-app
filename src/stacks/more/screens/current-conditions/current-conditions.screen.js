@@ -9,6 +9,10 @@ import Feedback from '../../components/feedback/feedback.component';
 const currentConditionsIcon = require('../../../../../assets/stacks/more/current-conditions-icon.png');
 import i18n from '../../../../locale/locale';
 
+/*
+* @Deprecated
+* @see ~screens/helpfulInfo/currentConditions.js
+* */
 class CurrentConditionsScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
