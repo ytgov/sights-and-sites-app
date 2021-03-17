@@ -10,6 +10,7 @@ module.exports = {
       '~theme': `${__dirname}/src/theme`,
       '~navigation': `${__dirname}/src/navigation`,
       '~assets': `${__dirname}/assets`,
+      '~swoosh': `${__dirname}/assets/images/swoosh`,
       '~store': `${__dirname}/src/store`,
     },
   },

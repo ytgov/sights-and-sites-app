@@ -8,6 +8,7 @@ import i18n from '~app/locale/locale';
 import Section from '~screens/siteDetails/section';
 const bgAppInformation = require('./images/bg-app-information.png');
 const iconAppInformation = require('./images/icon-app-information.png');
+const swoosh = require('~swoosh/swoosh-kluane.png');
 
 const accordionData = [
     {
@@ -100,6 +101,7 @@ const AppInformationScreen = () => {
     return (
         <ScreenParallaxWrapper backgroundImage={bgAppInformation}
                                leadIcon={iconAppInformation}
+                               swoosh={swoosh}
                                title={'App information'}>
             <Section title={t('appInformation.title')}>
                 <HTMLElement html={t('appInformation.intro')} />

@@ -8,7 +8,10 @@ import AccordionCustom from '../../components/accordion/accordion.component';
 import i18n from '../../../../locale/locale';
 
 const travelTripsIcon = require('../../../../../assets/stacks/more/travel-trips-icon.png');
-
+/*
+* @Deprecated
+* @see ~screens/helpfulInfo/wildernessTravelTips.js
+* */
 class TravelTripsScreen extends React.Component {
     state = {}
 
