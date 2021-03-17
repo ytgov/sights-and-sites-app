@@ -3,6 +3,7 @@ import {View, Image, StyleSheet, SafeAreaView, Dimensions} from 'react-native';
 import PropTypes from 'prop-types';
 import {ParallaxImage} from 'react-native-snap-carousel';
 import {H1, Body} from '../../theme/typings';
+import {YUKON_COLORS} from '../../theme/config';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -12,7 +13,7 @@ const ScreenIntroWrapper = ({children, backgroundImage, title, text, leadIcon, p
             <ParallaxImage source={backgroundImage}
                           containerStyle={styles.imageContainer}
                           style={styles.image}
-                          parallaxFactor={0.7}
+                          parallaxFactor={0.9}
                            {...parallaxProps} />
             <SafeAreaView style={{ position: 'absolute', top: 0, bottom: 0}}>
                 <View style={{ paddingHorizontal: 50, paddingTop: windowHeight * 0.2, flex: 1, alignItems: 'center', }}>
@@ -64,7 +65,6 @@ const styles = StyleSheet.create({
         right: 0,
         resizeMode: 'contain',
         padding: 10,
-        backgroundColor: 'red'
-
+        backgroundColor: YUKON_COLORS.primary_200
     },
 })
