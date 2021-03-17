@@ -44,7 +44,7 @@ const FilterByTypeScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetSiteTypesFilter(selectedSiteTypes)
-        navigation.navigate(routes.STACK_BOTTOM_TAB)
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     return (
