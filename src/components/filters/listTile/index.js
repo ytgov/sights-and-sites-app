@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, TouchableWithoutFeedback} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {Body1} from '../../../theme/typings';
 
 import {styles, leadingStyle} from './styles'
@@ -43,18 +43,18 @@ const ListTile = (props) => {
     }
 
     return (
-        <TouchableWithoutFeedback onPress={onClick}>
+        <TouchableOpacity activeOpacity={0.8}
+                          onPress={onClick}>
             <View style={styles.wrapper}>
                 {leading}
                 <View style={styles.labelWrapper}>
                     {typeof label === 'string'
                         ? <Body1>{label}</Body1>
                         : label}
-
                 </View>
                 {trailing}
             </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
     );
 };
 
