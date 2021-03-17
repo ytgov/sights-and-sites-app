@@ -23,6 +23,7 @@ const ScreenParallaxWrapper = (props) => {
             backgroundColor={YUKON_COLORS.primary_200}
             contentBackgroundColor="white"
             parallaxHeaderHeight={headerHeight}
+            outputScaleValue={1.2} // max zoom level
             renderBackground={() => (
                 <Image style={{ width: windowWidth, height: headerHeight, paddingBottom: 100}} source={backgroundImage} />
             )}
