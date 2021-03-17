@@ -150,7 +150,7 @@ const RootDrawerNavigation = createDrawerNavigator(
         [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
             screen: WildernessTravelTipsScreen,
             navigationOptions: {
-                title: 'Wilderness Travel Tips',
+                title: i18n.t('travelTips.title'),
                 drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
             }
         },
