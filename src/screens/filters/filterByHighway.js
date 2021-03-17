@@ -44,7 +44,7 @@ const FilterByHighwayScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetHighwaysFilter(selectedHighways)
-        navigation.navigate(routes.STACK_BOTTOM_TAB)
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     return (
