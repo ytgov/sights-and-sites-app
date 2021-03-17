@@ -1,14 +1,13 @@
 import React from 'react';
 import {Accordion} from 'native-base';
 import {Image, Linking, TouchableOpacity, View, Text} from 'react-native';
-import AccordionType from '../../types/accordion.type';
-import {Body1, H3} from '../../theme/theme';
-import COMMON from '../../theme/common';
+import AccordionType from '~app/types/accordion.type';
+import {Body1, H3} from '~theme/theme';
+import COMMON from '~theme/common';
+import {Body2} from '~theme/typings';
 
-import {Body2} from '../../theme/typings';
-
-const accordionClosedIcon = require('../../../../../assets/stacks/more/accordion-closed-icon.png');
-const accordionOpenedIcon = require('../../../../../assets/stacks/more/accordion-opened-icon.png');
+const accordionClosedIcon = require('./images/accordion-closed-icon.png');
+const accordionOpenedIcon = require('./images/accordion-opened-icon.png');
 
 const AccordionCustom = props => {
     const {data} = props;
