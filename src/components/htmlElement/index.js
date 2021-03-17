@@ -5,30 +5,24 @@ import {
     useWindowDimensions,
 } from 'react-native';
 import HTML from 'react-native-render-html';
-import { YUKON_COLORS} from '../../theme/config';
-import { YUKON_FONTS} from '../../theme/typings';
+import { YUKON_COLORS} from '~theme/config';
+import { YUKON_FONTS} from '~theme/typings';
 
 const HTMLElement = (props) => {
     const {html, style} = props;
 
     const styling = style || styles.baseFont;
 
-    let renderableHtml = html;
-    if (html.includes`\n\t`) {
-        renderableHtml = renderableHtml.replace(/\n\t\n\t/g, `<br/><br/>`)
-    }
-
     const contentWidth = useWindowDimensions().width;
 
     return (
         <HTML
             baseFontStyle={styling}
-            html={renderableHtml}
+            html={html}
             contentWidth={contentWidth}
             tagsStyles={styles}
             allowWhitespaceNodes={true}
         />
-
     )
 };
 
@@ -36,6 +30,7 @@ const styles = StyleSheet.create({
     baseFont: {
         fontSize: 16,
         fontFamily: YUKON_FONTS.MONTSERRAT_REGULAR,
+        lineHeight: 26,
     },
     a: {
         color: YUKON_COLORS.neutral,
@@ -43,6 +38,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 5,
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
         textDecorationColor: YUKON_COLORS.primary,
+    },
+    p: {
+      marginBottom: 12,
     },
     strong: {
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD
