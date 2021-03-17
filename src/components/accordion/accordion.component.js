@@ -1,10 +1,11 @@
 import React from 'react';
 import {Accordion} from 'native-base';
-import {Image, Linking, TouchableOpacity, View, Text} from 'react-native';
+import {Image, View, Text} from 'react-native';
+
 import AccordionType from '~app/types/accordion.type';
 import {Body1, H3} from '~theme/theme';
-import COMMON from '~theme/common';
 import {Body2} from '~theme/typings';
+import WebLink, { WebLinkType, WebLinkIcon } from '~components/webLink';
 
 const accordionClosedIcon = require('./images/accordion-closed-icon.png');
 const accordionOpenedIcon = require('./images/accordion-opened-icon.png');
@@ -51,14 +52,15 @@ const AccordionCustom = props => {
                     {item.content ? item.content + '\n' : null}
                 </Body1>
                 {item.url ?
-                    <View style={COMMON.linkBox}>
-                        <TouchableOpacity onPress={() => {
-                            Linking.openURL(item.url)
-                        }}>
-                            <View style={COMMON.link}><Body1
-                                black>{item.url_text ? item.url_text : 'More safe travel tips?'}</Body1></View>
-                        </TouchableOpacity>
-                    </View>
+                    <WebLink label={item.url_text ? item.url_text : 'More safe travel tips?'} url={item.url} type={WebLinkType.LINK} icon={WebLinkIcon.EXT_LINK} />
+                    // <View style={COMMON.linkBox}>
+                    //     <TouchableOpacity onPress={() => {
+                    //         Linking.openURL(item.url)
+                    //     }}>
+                    //         <View style={COMMON.link}><Body1
+                    //             black>{item.url_text ? item.url_text : 'More safe travel tips?'}</Body1></View>
+                    //     </TouchableOpacity>
+                    // </View>
                     : null
                 }
                 {item.contacts ?
@@ -96,14 +98,8 @@ const AccordionCustom = props => {
                                         }) : null
                                     }
                                     {
-                                        m.links ? m.links.map((link, index) => (
-                                            <View key={`link-${index}`} style={COMMON.linkBox}>
-                                                <TouchableOpacity onPress={() => {
-                                                    Linking.openURL(link.url)
-                                                }}>
-                                                    <View style={COMMON.link}><Body2 black>{link.title}</Body2></View>
-                                                </TouchableOpacity>
-                                            </View>
+                                        m.links ? m.links.map((link) => (
+                                            <WebLink label={link.title} url={link.url} type={WebLinkType.LINK} />
                                         )) : null
                                     }
                                 </View>
