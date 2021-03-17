@@ -1,42 +1,129 @@
-import React from 'react';
-import {Dimensions, Image, ScrollView, Text, View} from 'react-native';
-import ScreenWrapper from '../../components/screenWrapper';
+import React, {useState, useRef} from 'react';
+import {Dimensions, Image, View, TouchableOpacity} from 'react-native';
+import MapboxGL from '@react-native-mapbox-gl/maps';
+import Modal from 'react-native-modal';
+
+import {APP_CONFIG} from '../../config';
+
+import SiteCard from '../../components/siteCard';
 import HeaderNav, {HeaderNavType} from '../../components/headerNav';
+import {showHeader} from '../../store/actions/core';
+import {connect} from 'react-redux';
+import routes from '../../navigation/routes';
+import {NavigationEvents} from 'react-navigation';
 
-const windowWidth = Dimensions.get('window').width;
+import styles from './styles';
 
-const MapScreen = () => {
-    const ratio = 750 / 350;
+// Set access token
+MapboxGL.setAccessToken(APP_CONFIG.map_box);
 
-    const getTest = (k) => {
-        const width = windowWidth * k
-        const height = parseInt((width * ratio).toFixed(0))
-        const url = `https://picsum.photos/${width}/${height}`
+const CENTER = {
+    latitude: 64.285062, // 63.389423,
+    longitude: -136.197735, // -136.714739,
+}
+
+const pinIcon = require('./images/pin.png');
+const closeButton = require('./images/btn-close.png');
+
+const iconStyle = {
+    iconImage: pinIcon,
+    iconAllowOverlap: true,
+    iconSize: 0.8,
+};
+
+const MapScreen = (props) => {
+    const {
+        listingFiltered,
+        navigation,
+        dispatchShowHeader
+    } = props
+
+    const mapRef = useRef()
+    const [center, setCenter] = useState(CENTER)
+    const [zoom, setZoom] = useState(4)
+    const [pinnedItem, setPinnedItem] = useState(null)
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const onSourceLayerPress = (e) => {
+        const selectedItem = e.nativeEvent.payload.properties
+        setPinnedItem(selectedItem)
+        setCenter({
+            longitude: selectedItem.longitude,
+            latitude: selectedItem.latitude
+        })
+        setZoom(5)
+        setModalVisible(true)
+    }
+
+    const renderShapedSources = () => {
+        let featureCollection = MapboxGL.geoUtils.makeFeatureCollection();
+        listingFiltered.map(marker => {
+            featureCollection = MapboxGL.geoUtils.addToFeatureCollection(
+                featureCollection,
+                {
+                    type: 'Feature',
+                    id: marker.site_id,
+                    properties: marker,
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [marker.longitude, marker.latitude],
+                    },
+                },
+            );
+        });
         return (
-            <View style={{ marginBottom: 50 }}>
-                <View style={{
-                    top: 16, left: 16, height: 50,
-                    position: 'absolute',
-                    zIndex: 10,
-                    backgroundColor: 'black',
-                    padding: 8
-                }}>
-                    <Text style={{ color: 'white'}}>{width} x {height}</Text>
-                    <Text style={{ color: 'white'}}>{url}</Text>
-                </View>
-                <Image source={{uri: url}}
-                       style={{
-                           width: width,
-                           height: height, resizeMode: 'contain' }} />
-            </View>
+            <MapboxGL.ShapeSource
+                id="symbolLocationSource"
+                hitbox={{width: 27, height: 64}}
+                onPress={onSourceLayerPress}
+                shape={featureCollection}
+            >
+                <MapboxGL.SymbolLayer
+                    id="symbolLocationSymbols"
+                    minZoomLevel={1}
+                    style={iconStyle}
+                />
+            </MapboxGL.ShapeSource>
         )
     }
 
     return (
-        <ScrollView>
-            {getTest(1)}
-            {getTest(2)}
-        </ScrollView>
+        <View style={{flex: 1}}>
+            <NavigationEvents onWillFocus={() => dispatchShowHeader()} />
+            <MapboxGL.MapView
+                zoomLevel={11}
+                ref={mapRef}
+                onPress={() => {}}
+                centerCoordinate={[center.longitude, center.latitude]}
+                style={styles.mapWrapper}
+            >
+                <MapboxGL.UserLocation />
+                <MapboxGL.Camera
+                    centerCoordinate={[center.longitude, center.latitude]}
+                    zoomLevel={zoom}
+
+                />
+                {renderShapedSources()}
+            </MapboxGL.MapView>
+
+            <Modal isVisible={isModalVisible}>
+                <View>
+                    <TouchableOpacity onPress={() => setModalVisible(false)}
+                                      style={styles.closeButton}>
+                        <Image source={closeButton} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => {
+                        setModalVisible(false)
+                        navigation.navigate(routes.SCREEN_SITE_DETAILS, {item: pinnedItem})
+                    }}>
+                        <SiteCard data={pinnedItem}
+                                  imageStyle={{ height: 230 }} />
+                    </TouchableOpacity>
+
+                </View>
+            </Modal>
+        </View>
     );
 };
 
@@ -45,4 +132,16 @@ MapScreen['navigationOptions'] = screenProps => ({
                                   activeItem={HeaderNavType.MAP} />
 });
 
-export default MapScreen;
+const mapStateToProps = (state) => {
+    return {
+        listingFiltered: state.listingStore.listingFiltered,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchShowHeader: () => dispatch(showHeader())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MapScreen);
