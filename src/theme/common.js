@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {YUKON_COLORS} from './config';
 
 const COMMON = StyleSheet.create({
     headerLeft: {
@@ -22,6 +23,14 @@ const COMMON = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         marginHorizontal: 16
+    },
+    linkBox: {
+        paddingBottom: 10
+    },
+    link: {
+        alignSelf: 'flex-start',
+        borderBottomWidth: 1,
+        borderBottomColor: YUKON_COLORS.primary
     }
 });
 
