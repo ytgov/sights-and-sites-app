@@ -13,18 +13,31 @@ const badge = require('./images/badge-highway.png');
 
 const SiteCard = (props) => {
     const preview = {uri: APP_CONFIG.cache.imagePreview};
-    const {site_name, image_url, site_types, highway_km, highway_name, region} = props.data
+    const {
+        imageStyle,
+        data
+    } = props
+
+    const {
+        site_name,
+        image_url,
+        site_types,
+        highway_km,
+        highway_name,
+        region
+    } = data
+
     const highway = getHighwayFromString(highway_name);
 
     return (
-        <View>
+        <View style={styles.wrapper}>
             <ImageCache
                 {...{preview, uri: image_url}}
-                tint={APP_CONFIG.cache.tint}
-                transitionDuration={APP_CONFIG.cache.transitionDuration}
+                tint={'light'}
+                transitionDuration={300}
                 resizeMode='cover'
                 // fallback={fallback}
-                style={styles.image}/>
+                style={{...styles.image, ...imageStyle}}/>
 
             <View style={styles.contentWrapper}>
                 <View style={styles.siteTypes}>
@@ -66,7 +79,12 @@ SiteCard.propTypes = {
             map: PropTypes.node.isRequired,
             swoosh: PropTypes.node.isRequired
         }).isRequired
-    }).isRequired
+    }).isRequired,
+    imageStyle: PropTypes.object
+}
+
+SiteCard.defaultProps = {
+    imageStyle: {}
 }
 
 export default SiteCard;
