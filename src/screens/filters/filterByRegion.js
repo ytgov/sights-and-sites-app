@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import _ from 'lodash';
 
 import ScreenFilterWrapper from '../../components/screenFilterWrapper';
-
 import {setRegionsFilter} from '../../store/actions/filters';
-
 import {FilterHeader} from '../../theme/layout';
 import Title from '../../components/filters/title';
 import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
 import routes from '../../navigation/routes';
+import {filterListing} from '../../store/actions/listing';
 
 const bgRegion = require('./images/region/bg-region.jpg');
 
@@ -18,6 +16,7 @@ const FilterByRegionScreen = (props) => {
         regionsData,
         filteredRegionsData,
         dispatchSetRegionsFilter,
+        dispatchFilterListing,
         navigation
     } = props
 
@@ -42,6 +41,7 @@ const FilterByRegionScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetRegionsFilter(selectedRegions)
+        dispatchFilterListing()
         navigation.navigate(routes.SCREEN_LISTING)
     }
 
@@ -80,6 +80,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetRegionsFilter: value => dispatch(setRegionsFilter(value)),
+        dispatchFilterListing: () => dispatch(filterListing())
     };
 };
 

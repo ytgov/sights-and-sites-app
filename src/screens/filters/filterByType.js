@@ -8,6 +8,7 @@ import Title from '../../components/filters/title';
 import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
 import {setSiteTypesFilter} from '../../store/actions/filters';
 import routes from '../../navigation/routes';
+import {filterListing} from '../../store/actions/listing';
 
 const bgDefault = require('./images/type/bg-type-default.jpg');
 
@@ -16,6 +17,7 @@ const FilterByTypeScreen = (props) => {
         siteTypesData,
         filteredSiteTypesData,
         dispatchSetSiteTypesFilter,
+        dispatchFilterListing,
         navigation
     } = props
 
@@ -44,6 +46,7 @@ const FilterByTypeScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetSiteTypesFilter(selectedSiteTypes)
+        dispatchFilterListing()
         navigation.navigate(routes.SCREEN_LISTING)
     }
 
@@ -91,6 +94,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
+        dispatchFilterListing: () => dispatch(filterListing())
     };
 };
 
