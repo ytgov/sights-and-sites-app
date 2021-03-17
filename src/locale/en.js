@@ -269,9 +269,9 @@ export default {
             title: 'Wilderness Travel Tips',
             section: {
                 title: 'Tips for safe roadside wildlife viewing:',
-                stop: '<strong>STOP</strong> only when it is safe to do so, checking for traffic and clear sightlines.',
-                look: '<strong>LOOK</strong> from the safety of your car. Use binoculars or a zoom lens for a closer look.',
-                leave: '<strong>LEAVE</strong> within one minute to keep wildlife safe. Animals that become too habituated to humans are at risk of being killed.',
+                stop: '<p><strong>STOP</strong> only when it is safe to do so, checking for traffic and clear sightlines.</p>',
+                look: '<p><strong>LOOK</strong> from the safety of your car. Use binoculars or a zoom lens for a closer look.</p>',
+                leave: '<p><strong>LEAVE</strong> within one minute to keep wildlife safe. Animals that become too habituated to humans are at risk of being killed.</p>',
             },
             data:{
                 title1: 'Protecting historic resources',

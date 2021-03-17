@@ -6,6 +6,7 @@ import ScreenParallaxWrapper    from '~components/screenParallaxWrapper';
 
 const bgFirstNations = require('./images/bg-first-nations.png');
 const iconFirstNations = require('./images/icon-first-nations.png');
+const swoosh = require('~swoosh/swoosh-campbell.png');
 
 const FirstNationsScreen = () => {
     const { t } = useTranslation();
@@ -16,6 +17,7 @@ const FirstNationsScreen = () => {
     return (
         <ScreenParallaxWrapper backgroundImage={bgFirstNations}
                                leadIcon={iconFirstNations}
+                               swoosh={swoosh}
                                title={t('firstNation.title')}>
             {
                 blocks && blocks.length && blocks.map(block => {
