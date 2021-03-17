@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         left: 0,
         bottom: 0,
         right: 0,
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         padding: 10,
         backgroundColor: YUKON_COLORS.primary_200
     },
