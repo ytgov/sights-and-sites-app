@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import _ from 'lodash';
 import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
+import {NavigationEvents} from 'react-navigation';
 
 import {hideHeader} from '../../store/actions/core';
 
@@ -22,17 +23,7 @@ const BOOKING_URL = 'https://yukon.ca/en/road-trip-app';
 
 const SiteDetailsScreen = (props) => {
     const {t} = useTranslation();
-
     const {navigation, dispatchHideHeader} = props
-    useEffect(() => {
-        const navFocusListener = navigation.addListener('didFocus', () => {
-            dispatchHideHeader();
-        })
-
-        return () => {
-            navFocusListener.remove();
-        }
-    }, [])
 
     const item = navigation.getParam('item');
 
@@ -98,6 +89,8 @@ const SiteDetailsScreen = (props) => {
                                leadIconStyle={{ height: 42 }}
                                swoosh={swoosh}
                                >
+            <NavigationEvents onDidFocus={payload => dispatchHideHeader()} />
+
             <Section title={t('siteDetails.siteTypes.title')}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap'}}>
                     {site_types.map((item, i) =>
