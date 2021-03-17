@@ -80,9 +80,6 @@ export default {
         'more': {
             'title': 'More',
         },
-        'traditionalTerritories': {
-            'title': 'First Nations in Yukon'
-        },
         'travelTrips': {
             'title': 'Wilderness Travel Tips'
         },
@@ -261,6 +258,14 @@ export default {
                 title: 'Fire reports',
                 description: `Current information on Yukon’s fire investigation reports and public safety notices, visit <a href="https://yukon.ca/en/emergencies-and-safety/emergency-updates/fire-investigation-reports-and-safety-notices">yukon.ca</a>`,
             },
+        },
+        /* First Nation Page content */
+        firstNation: {
+            title: 'First Nations in Yukon',
+            sharing: {
+                title: 'Sharing deep traditional and spiritual connections with the Yukon land',
+                description: `Yukon is home to many First Nations with various political, cultural and linguistic backgrounds. These groups share deep traditional and spiritual connections to their ancestral lands. As you explore Yukon, please demonstrate respect for the sacred land that sustains Indigenous ways of life. More information is available at <a href="https://yukon.ca/en/about-yukon-first-nations">Yukon.ca</a>, <a href="https://mappingtheway.ca/">Mapping the Way</a> and at each Yukon First Nations official website.`,
+            }
         },
     },
 }

@@ -82,9 +82,6 @@ export default {
         'more': {
             'title': 'Plus',
         },
-        'traditionalTerritories': {
-            'title': 'Premiéres nations du yukon'
-        },
         'travelTrips': {
             'title': 'Se déplacer dans la nature'
         },
@@ -216,6 +213,14 @@ export default {
             fireReport: {
                 title: 'Rapports sur les incendies',
                 description: `Vous trouverez ici les dernières informations sur les rapports d’enquête sur les incendies ainsi que les avis concernant la sécurité publique : <a href="https://yukon.ca/fr/situations-durgence-et-securite/informations-en-situation-durgence/rapports-denquete-sur-les">yukon.ca</a>`,
+            },
+        },
+        /* First Nation Page content */
+        firstNation: {
+            title: 'Premiéres nations du yukon',
+            sharing: {
+                title: 'Sharing deep traditional and spiritual connections with the Yukon land',
+                description: `Le Yukon est un territoire où vivent un grand nombre de premiéres nations ayant divers héritages politiques, culturels et linguistiques. Ces groupes ont en commun un profond attachement sentimental et spirituel pour leur territoire ancestral. Durant votre exploration du Yukon, veuillez respecter le caractère sacré du territoire à l’origine du mode de vie des Autochtones. Vous trouverez de plus amples renseignements sur <a href="https://yukon.ca/fr/about-yukon-first-nations">Yukon.ca</a>, <a href="https://mappingtheway.ca/">Mapping the Way</a> et le site Web officiel de chaque Premiére nation.`,
             },
         },
     },
