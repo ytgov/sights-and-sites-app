@@ -67,21 +67,14 @@ const FilterStackNavigator = createStackNavigator({
     }
 }, {
     defaultNavigationOptions: {
-        headerShown: false
+        headerShown: true,
+        header: props => <HeaderNav {...props}
+                   activeItem={HeaderNavType.FILTERS} />
     }
 });
 
 
 const MainStackNavigator = createStackNavigator({
-    [routes.STACK_FILTERS]: {
-        screen: FilterStackNavigator,
-        navigationOptions: {
-            header: (props) => {
-                return <HeaderNav {...props}
-                                  activeItem={HeaderNavType.FILTERS} />
-            }
-        }
-    },
     [routes.SCREEN_LISTING]: {
         screen: ListingScreen,
     },
@@ -188,8 +181,16 @@ const RootDrawerNavigation = createDrawerNavigator(
     }
 );
 
-const RootStackNavigator = createStackNavigator({
+const ModalNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
+    [routes.STACK_FILTERS]: FilterStackNavigator
+}, {
+    mode: 'modal',
+    headerMode: 'none',
+})
+
+const RootStackNavigator = createStackNavigator({
+    stackModal: ModalNavigator,
     [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen,
     [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen,
     [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: WildernessTravelTipsScreen,

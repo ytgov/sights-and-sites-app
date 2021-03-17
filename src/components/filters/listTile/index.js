@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, TouchableWithoutFeedback} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {Body1} from '../../../theme/typings';
 
 import {styles, leadingStyle} from './styles'
 
-const Index = (props) => {
+const ListTile = (props) => {
     const {
         label,
         onClick,
@@ -17,15 +17,13 @@ const Index = (props) => {
         trailingIconStyle
     } = props
 
-    const [isChecked, setIsCheck] = useState(checked);
-
     const leadingIconActiveWithFallback = leadingIconActive ? leadingIconActive : leadingIcon;
     const trailingIconActiveWithFallback = trailingIconActive ? trailingIconActive : trailingIcon;
 
     let leading = null;
     if (leadingIcon) {
         leading = <View style={leadingStyle.wrapper}>
-            <Image source={isChecked ? leadingIconActiveWithFallback : leadingIcon} />
+            <Image source={checked ? leadingIconActiveWithFallback : leadingIcon} />
         </View>
     }
 
@@ -36,7 +34,7 @@ const Index = (props) => {
         // if trailingIcon is a referenced image (represented as number)
         if (typeof trailingIcon === 'number') {
             trailing = <Image style={trailingIconStyle}
-                              source={isChecked ? trailingIconActiveWithFallback : trailingIcon} />
+                              source={checked ? trailingIconActiveWithFallback : trailingIcon} />
         }
         // else trailingIcon is a component
         else {
@@ -44,29 +42,23 @@ const Index = (props) => {
         }
     }
 
-    // Handle onPress event.
-    const _onPress = () => {
-        setIsCheck(!isChecked)
-        onClick()
-    }
-
     return (
-        <TouchableWithoutFeedback onPress={_onPress}>
+        <TouchableOpacity activeOpacity={0.8}
+                          onPress={onClick}>
             <View style={styles.wrapper}>
                 {leading}
                 <View style={styles.labelWrapper}>
                     {typeof label === 'string'
                         ? <Body1>{label}</Body1>
                         : label}
-
                 </View>
                 {trailing}
             </View>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
     );
 };
 
-Index.propTypes = {
+ListTile.propTypes = {
     checked: PropTypes.bool,
     label: PropTypes.oneOfType([
         PropTypes.string,
@@ -83,7 +75,7 @@ Index.propTypes = {
     onClick: PropTypes.func.isRequired,
 }
 
-Index.defaultProps = {
+ListTile.defaultProps = {
     checked: false,
     icon: null,
     leadingIcon: null,
@@ -92,5 +84,5 @@ Index.defaultProps = {
     trailingIconActive: null,
 }
 
-export default Index;
+export default ListTile;
 
