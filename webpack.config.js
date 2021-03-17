@@ -2,7 +2,7 @@
 /* Got it from https://youtrack.jetbrains.com/issue/WEB-23221 */
 
 const path = require('path');
-import metroConfig from './metro.config';
+const metroConfig =  require('./metro.config');
 
 module.exports = {
     resolve: {
