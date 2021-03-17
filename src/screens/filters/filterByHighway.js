@@ -10,6 +10,7 @@ import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox
 
 import styles from './filterByHighway.styles'
 import routes from '../../navigation/routes';
+import {filterListing} from '../../store/actions/listing';
 
 const bgHighway = require('./images/highway/bg-highway.jpg');
 const bgBadgeHighway = require('./images/highway/badge-highway.png');
@@ -19,6 +20,7 @@ const FilterByHighwayScreen = (props) => {
         highwaysData,
         filteredHighwaysData,
         dispatchSetHighwaysFilter,
+        dispatchFilterListing,
         navigation
     } = props
 
@@ -44,6 +46,7 @@ const FilterByHighwayScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetHighwaysFilter(selectedHighways)
+        dispatchFilterListing()
         navigation.navigate(routes.SCREEN_LISTING)
     }
 
@@ -86,6 +89,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetHighwaysFilter: value => dispatch(setHighwaysFilter(value)),
+        dispatchFilterListing: () => dispatch(filterListing())
     };
 };
 

@@ -10,9 +10,7 @@ import SiteCard from '../../components/siteCard';
 import {connect} from 'react-redux';
 
 const ListingScreen = (props) => {
-    const {navigation, dispatchShowHeader, listingRaw} = props
-
-    const data = listingRaw.slice(0, 10)
+    const {navigation, dispatchShowHeader, listingFiltered} = props
 
     return (
         <ScrollView scrollEventThrottle={16}>
@@ -20,7 +18,7 @@ const ListingScreen = (props) => {
                 onWillFocus={payload => dispatchShowHeader()} />
 
             <FlatList
-                data={data}
+                data={listingFiltered}
                 renderItem={({item, i}) =>
                     <TouchableOpacity activeOpacity={0.8}
                                       onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
@@ -39,7 +37,7 @@ ListingScreen['navigationOptions'] = screenProps => ({
 
 const mapStateToProps = (state) => {
     return {
-        listingRaw: state.listingStore.listingRaw,
+        listingFiltered: state.listingStore.listingFiltered,
     };
 };
 
