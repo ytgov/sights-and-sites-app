@@ -42,7 +42,7 @@ const FilterByRegionScreen = (props) => {
 
     const onSubmit = () => {
         dispatchSetRegionsFilter(selectedRegions)
-        navigation.navigate(routes.STACK_BOTTOM_TAB)
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     return (
