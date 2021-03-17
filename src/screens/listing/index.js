@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
-import {ScrollView, FlatList, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {ScrollView, FlatList, TouchableOpacity} from 'react-native';
 
 import {showHeader} from '../../store/actions/core';
+import {NavigationEvents} from 'react-navigation';
 
 import routes from '../../navigation/routes';
 import HeaderNav, {HeaderNavType} from '../../components/headerNav';
@@ -11,20 +12,13 @@ import {connect} from 'react-redux';
 const ListingScreen = (props) => {
     const {navigation, dispatchShowHeader, listingRaw} = props
 
-    useEffect(() => {
-        const navFocusListener = navigation.addListener('didFocus', () => {
-            dispatchShowHeader();
-        })
-
-        return () => {
-            navFocusListener.remove();
-        }
-    }, [])
-
     const data = listingRaw.slice(0, 10)
 
     return (
         <ScrollView scrollEventThrottle={16}>
+            <NavigationEvents
+                onWillFocus={payload => dispatchShowHeader()} />
+
             <FlatList
                 data={data}
                 renderItem={({item, i}) =>
