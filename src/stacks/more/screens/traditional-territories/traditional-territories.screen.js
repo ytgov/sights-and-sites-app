@@ -12,6 +12,10 @@ import CurrentConditionsScreen from '../current-conditions/current-conditions.sc
 
 const traditionalTerritoriesIcon = require('../../../../../assets/stacks/more/traditional-territories-icon.png');
 
+/*
+* @Deprecated
+* @see ~screens/helpfulInfo/firstNations.js
+* */
 class TraditionalTerritoriesScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {

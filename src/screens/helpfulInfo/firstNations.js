@@ -1,25 +1,31 @@
-import React from 'react';
-import {Body1, H2, H3} from '../../theme/typings';
+import React                    from 'react';
+import {useTranslation}         from 'react-i18next';
+import Section                  from '~screens/siteDetails/section';
+import HTMLElement              from '~components/htmlElement';
+import ScreenParallaxWrapper    from '~components/screenParallaxWrapper';
 
-import ScreenParallaxWrapper from '../../components/screenParallaxWrapper';
 const bgFirstNations = require('./images/bg-first-nations.png');
 const iconFirstNations = require('./images/icon-first-nations.png');
 
 const FirstNationsScreen = () => {
+    const { t } = useTranslation();
+    const blocks = [
+        'sharing',
+    ];
+
     return (
         <ScreenParallaxWrapper backgroundImage={bgFirstNations}
                                leadIcon={iconFirstNations}
-                               title={'First Nations in Yukon'}>
-            <>
-                <H2 black style={{ marginBottom: 32 }}>Sharing deep traditional and spiritual connections with the Yukon land</H2>
-                <Body1 regular black>
-                    Yukon is home to many First Nations with various political, cultural and linguistic
-                    backgrounds. These groups share deep traditional and spiritual connections to their
-                    ancestral lands. As you explore Yukom, please demonsdtrate respect for the sacred
-                    land that sustains indigenous ways of life. More information is available at Yukon.ca,
-                    Mapping the Way and at each Yuukon First Nations official website.
-                </Body1>
-            </>
+                               title={t('firstNation.title')}>
+            {
+                blocks && blocks.length && blocks.map(block => {
+                    return (
+                        <Section title={t(`firstNation.${block}.title`)}>
+                            <HTMLElement html={t(`firstNation.${block}.description`)} />
+                        </Section>
+                    );
+                })
+            }
 
         </ScreenParallaxWrapper>
     );
