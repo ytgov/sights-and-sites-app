@@ -94,34 +94,40 @@ const MainStackNavigator = createStackNavigator({
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
         screen: SearchScreen,
-        navigationOptions: {
-            tabBarIcon: <BottomTabItem
-                icon={searchIcon}
-                label={i18n.t('navigation.footer.search')} />,
-            tabBarOnPress: ({navigation}) => {
-                // TODO: dispatch opening search box.
+        navigationOptions: () => (
+            {
+                tabBarIcon: <BottomTabItem
+                    icon={searchIcon}
+                    label={i18n.t('navigation.footer.search')} />,
+                    tabBarOnPress: ({navigation}) => {
+                        // TODO: dispatch opening search box.
+                    }
             }
-        }
+        ),
     },
     [routes.STACK_MAIN]: {
         screen: MainStackNavigator,
-        navigationOptions: {
-            tabBarIcon: <BottomTabItem
-                icon={exploreRoadTrips}
-                label={i18n.t('navigation.footer.explore')}
-                bigIcon={true} />
-        }
+        navigationOptions: () => (
+            {
+                tabBarIcon: <BottomTabItem
+                    icon={exploreRoadTrips}
+                    label={i18n.t('navigation.footer.explore')}
+                    bigIcon={true} />
+                }
+            ),
     },
     [routes.SCREEN_HELPFUL_INFO]: {
         screen: HelpfulInfoScreen,
-        navigationOptions: {
-            tabBarIcon: <BottomTabItem
-                icon={helpfulInfoIcon}
-                label={i18n.t('navigation.footer.helpfulInfo')} />,
-            tabBarOnPress: ({navigation}) => {
-                navigation.openDrawer()
+        navigationOptions: () => (
+            {
+                tabBarIcon: <BottomTabItem
+                    icon={helpfulInfoIcon}
+                    label={i18n.t('navigation.footer.helpfulInfo')} />,
+                    tabBarOnPress: ({navigation}) => {
+                        navigation.openDrawer()
+                    }
             }
-        }
+        ),
     }
 }, {
     initialRouteName: routes.STACK_MAIN,
@@ -135,38 +141,48 @@ const RootDrawerNavigation = createDrawerNavigator(
         },
         [routes.SCREEN_CURRENT_CONDITIONS]: {
             screen: CurrentConditionsScreen,
-            navigationOptions: {
-                title: i18n.t('currentConditions.title'),
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
-            }
+            navigationOptions: () => (
+                {
+                    title: i18n.t('currentConditions.title'),
+                    drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
+                }
+            )
         },
         [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
             screen: FirstNationsScreen,
-            navigationOptions: {
-                title: i18n.t('firstNation.title'),
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
-            }
+            navigationOptions: () => (
+                {
+                    title: i18n.t('firstNation.title'),
+                    drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
+                }
+            )
         },
         [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
             screen: WildernessTravelTipsScreen,
-            navigationOptions: {
-                title: i18n.t('travelTips.title'),
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
-            }
+            navigationOptions: () => (
+                {
+                    title: i18n.t('travelTips.title'),
+                    drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
+                }
+            )
         },
         [routes.SCREEN_APP_INFORMATION]: {
             screen: AppInformationScreen,
-            navigationOptions: {
-                title: i18n.t('appInformation.title'),
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />
-            }
+            navigationOptions: () => (
+                {
+                    title: i18n.t('appInformation.title'),
+                    drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />
+                }
+            )
         },
         [routes.STACK_APP_INSTRUCTION]: {
             screen: IntroductionScreen,
-            navigationOptions: {
-                title: 'App Instructions',
-                drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
-            }
+            navigationOptions: () => (
+                {
+                    title: 'App Instructions',
+                    drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
+                }
+            )
         }
     }, {
         initialRouteName: routes.STACK_BOTTOM_TAB,
