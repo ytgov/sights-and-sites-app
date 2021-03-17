@@ -1,12 +1,12 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import {YUKON_FONTS} from '../../theme/typings';
 
-const windowWidth = Dimensions.get('window').width;
-
 const styles = StyleSheet.create({
+    wrapper: {
+        backgroundColor: 'white',
+    },
     image: {
-        width: windowWidth,
-        height: 270
+        height: 270,
     },
     contentWrapper: {
         paddingHorizontal: 16,

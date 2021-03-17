@@ -24,7 +24,7 @@ const filters = [
         withArrow: true,
         destination: routes.SCREEN_FILTER_HIGHWAY,
         leadingIcon: require('../images/index/by-highway.png'),
-        leadingIconActive: require('../images/index/by-region-active.png')
+        leadingIconActive: require('../images/index/by-highway-active.png')
     },
     {
         id: 'nearMe',
