@@ -289,5 +289,15 @@ export default {
                 url2: 'https://yukon.ca/en/outdoor-recreation-and-wildlife/wilderness-safety/travel-safely-yukon-wilderness'
             }
         },
+
+        /* No result */
+        noResult: {
+            title: 'No results were found',
+            content: `<ul>
+                    <li>Your search criteria may be too specific. Try a more generic search to narrow down the results</li>
+                    <li>Ensure there are no spelling or grammatical mistakes</li>
+                    <li>For questions and support, email <a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or phone <a href="tel:867-667-5386">867-667-5386</a>, or toll free in Yukon <a href="tel:1-800-661-0408">1-800-661-0408</a>, extension 5386.</li>
+                </ul>`
+        }
     },
 }
