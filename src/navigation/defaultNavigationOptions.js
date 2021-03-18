@@ -14,6 +14,7 @@ export const defaultTabBarOptions =  {
     // @TODO: use library to detect the notch and calculate proper height
     style: {
         height: DeviceInfo.hasNotch() ? 60 + 34 : 80,
+        borderTopWidth: 0,
     },
 
     showLabel: false,
