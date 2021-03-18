@@ -27,7 +27,7 @@ const WelcomeScreen = (props) => {
 
     const setLanguage = (langCode) => {
         dispatchSetLocale(langCode);
-        dispatchSetSelectLocaleAction(langCode);
+        dispatchSetSelectLocaleAction(true);
         i18n.changeLanguage(langCode);
         navigation.navigate(routes.SCREEN_INTRODUCTION)
     }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Dimensions, TouchableOpacity} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -45,20 +45,21 @@ const slides = [
 const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
     const [entries] = useState(slides)
     const [activeSlide, setActiveSlide] = useState(0)
+    const carouselRef = useRef()
 
     const getLocationPermissions = async () => {
         const {status} = await Permissions.askAsync(
             Permissions.LOCATION
         );
 
-//      20200911 drogers: Apple will not accept the app unless it can be run without location
-//      permissions enabled.
-       if (status !== 'granted') {
+        // 20200911 drogers: Apple will not accept the app unless it can be run without location
+        //permissions enabled.
+        if (status !== 'granted') {
            //error(i18n.t('notifications.permissionsRequest'));
-       } else {
+        } else {
            dispatchSetOnboardingFinished()
             navigation.navigate(routes.STACK_BOTTOM_TAB);
-       }
+        }
     }
 
     const _renderItem = ({item, index}, parallaxProps) => {
@@ -81,6 +82,7 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
     }
 
     const pagination = <Pagination
+        carouselRef={carouselRef}
         dotsLength={entries.length}
         activeDotIndex={activeSlide}
         tappableDots={true}
@@ -119,9 +121,11 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
     return (
         <>
             <Carousel
+                ref={carouselRef}
                 data={entries}
                 renderItem={_renderItem}
                 sliderWidth={windowWidth}
+                slideStyle={{ width: windowWidth }}
                 itemWidth={windowWidth}
                 hasParallaxImages={true}
                 onSnapToItem={(index) => setActiveSlide(index)}
