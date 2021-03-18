@@ -21,7 +21,7 @@ const HTMLElement = (props) => {
             html={html}
             contentWidth={contentWidth}
             tagsStyles={styles}
-            allowWhitespaceNodes={true}
+            // allowWhitespaceNodes={true}
         />
     )
 };
@@ -38,6 +38,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 5,
         fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
         textDecorationColor: YUKON_COLORS.primary,
+    },
+    ul: {
+        paddingLeft: 0,
     },
     p: {
       marginBottom: 12,
