@@ -75,6 +75,6 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         flexDirection: 'row',
-        height: DeviceInfo.hasNotch() ? 60 + 34 : 80,
+        height: DeviceInfo.hasNotch() ? 60 + 34 : 64,
     }
 })
