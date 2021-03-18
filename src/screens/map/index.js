@@ -28,7 +28,7 @@ const closeButton = require('./images/btn-close.png');
 const iconStyle = {
     iconImage: pinIcon,
     iconAllowOverlap: true,
-    iconSize: 0.8,
+    iconSize: 0.5,
 };
 
 const MapScreen = (props) => {
@@ -74,7 +74,7 @@ const MapScreen = (props) => {
         return (
             <MapboxGL.ShapeSource
                 id="symbolLocationSource"
-                hitbox={{width: 27, height: 64}}
+                hitbox={{width: 14, height: 33}}
                 onPress={onSourceLayerPress}
                 shape={featureCollection}
             >
@@ -101,7 +101,6 @@ const MapScreen = (props) => {
                 <MapboxGL.Camera
                     centerCoordinate={[center.longitude, center.latitude]}
                     zoomLevel={zoom}
-
                 />
                 {renderShapedSources()}
             </MapboxGL.MapView>

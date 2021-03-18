@@ -1,32 +1,59 @@
-import React from 'react';
-import {ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 
-import {showHeader} from '../../store/actions/core';
 import {NavigationEvents} from 'react-navigation';
-
-import routes from '../../navigation/routes';
-import HeaderNav, {HeaderNavType} from '../../components/headerNav';
-import SiteCard from '../../components/siteCard';
 import {connect} from 'react-redux';
+
+import {showHeader} from '~store/actions/core';
+import routes from '~navigation/routes';
+import HeaderNav, {HeaderNavType} from '~components/headerNav';
+import SiteCard from '~components/siteCard';
+import NoResult from '~components/noResult';
+
+const windowHeight = Dimensions.get('window').height
+
+const ITEMS_PER_PAGE = 10
 
 const ListingScreen = (props) => {
     const {navigation, dispatchShowHeader, listingFiltered} = props
+    const [items, setItems] = useState(listingFiltered.slice(0, ITEMS_PER_PAGE))
+    const [page, setPage] = useState(1)
+    const maxPages = Math.ceil(listingFiltered.length / ITEMS_PER_PAGE)
+
+    const loadMore = () => {
+        const newPage = page + 1
+        setPage(newPage)
+        if (newPage < maxPages) {
+            const newBatch = listingFiltered.slice(0, (page + 1) * ITEMS_PER_PAGE)
+            setItems(newBatch)
+        } else if (newPage === maxPages) {
+            setItems(listingFiltered)
+        }
+    }
 
     return (
-        <ScrollView scrollEventThrottle={16}>
+        <>
             <NavigationEvents
                 onWillFocus={payload => dispatchShowHeader()} />
 
             <FlatList
-                data={listingFiltered}
+                style={{height: windowHeight}}
+                data={items}
+                initialNumToRender={3}
+                scrollEventThrottle={16}
                 renderItem={({item, i}) =>
                     <TouchableOpacity activeOpacity={0.8}
                                       onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
-                        <SiteCard data={item} key={i} />
+                        <SiteCard data={item} />
                     </TouchableOpacity>}
                 keyExtractor={(item) => item.site_id.toString()}
+                ListEmptyComponent={<NoResult />}
+                // On End Reached (Takes a function)
+                onEndReached={loadMore}
+                // Load more when reaching the last item
+                onEndReachedThreshold={0.5}
             />
-        </ScrollView>
+        </>
     );
 };
 
