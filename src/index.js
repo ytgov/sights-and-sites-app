@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import RootNavigation from './navigation/stacks';
 import {APP_CONFIG} from './config';
 import {info} from './shared/services/notify';
+import {useTranslation} from 'react-i18next';
 
-class AppRoot extends React.Component {
-    state = {}
+const AppRoot = (props)=> {
+    const { i18n } = useTranslation();
 
-    componentDidMount() {
+    useEffect(() => {
         const {version} = APP_CONFIG;
         if (__DEV__) {
             info(`App Version: ${version}`);
         }
-    }
+    }, []);
 
-    render() {
-        return (
-            <RootNavigation/>
-        );
-    }
-}
+    return (
+        <RootNavigation screenProps={{ i18n }}/>
+    );
+
+};
 
 export default AppRoot;
