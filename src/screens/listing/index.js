@@ -1,16 +1,20 @@
 import React from 'react';
-import {ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import {ScrollView, FlatList, TouchableOpacity, Text} from 'react-native';
 
-import {showHeader} from '../../store/actions/core';
+
 import {NavigationEvents} from 'react-navigation';
-
-import routes from '../../navigation/routes';
-import HeaderNav, {HeaderNavType} from '../../components/headerNav';
-import SiteCard from '../../components/siteCard';
 import {connect} from 'react-redux';
+
+import {showHeader} from '~store/actions/core';
+import routes from '~navigation/routes';
+import HeaderNav, {HeaderNavType} from '~components/headerNav';
+import SiteCard from '~components/siteCard';
+import NoResult from '~components/noResult';
 
 const ListingScreen = (props) => {
     const {navigation, dispatchShowHeader, listingFiltered} = props
+
+    const data = listingFiltered.slice(0, 10)
 
     return (
         <ScrollView scrollEventThrottle={16}>
@@ -18,13 +22,14 @@ const ListingScreen = (props) => {
                 onWillFocus={payload => dispatchShowHeader()} />
 
             <FlatList
-                data={listingFiltered}
+                data={data}
                 renderItem={({item, i}) =>
                     <TouchableOpacity activeOpacity={0.8}
                                       onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
-                        <SiteCard data={item} key={i} />
+                        <SiteCard data={item} />
                     </TouchableOpacity>}
                 keyExtractor={(item) => item.site_id.toString()}
+                ListEmptyComponent={<NoResult />}
             />
         </ScrollView>
     );

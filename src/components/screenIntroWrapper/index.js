@@ -15,7 +15,7 @@ const ScreenIntroWrapper = ({children, backgroundImage, title, text, leadIcon, p
                           containerStyle={styles.imageContainer}
                            dimensions={{ height: windowHeight, width: windowWidth }}
                           style={styles.image}
-                          parallaxFactor={0.2}
+                          parallaxFactor={0.3}
                            {...parallaxProps}
             />
             <SafeAreaView style={{ position: 'absolute', top: 0, bottom: 0}}>
