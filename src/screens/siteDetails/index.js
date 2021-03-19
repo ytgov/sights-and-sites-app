@@ -122,7 +122,7 @@ const SiteDetailsScreen = (props) => {
                                leadIconStyle={{ height: 42 }}
                                swoosh={swoosh}
                                bookmarkButton={true}
-                               bookmarkActive={!!isFavoriteSite}
+                               bookmarkActive={isFavoriteSite ? true : false}
                                bookmarkOnClick={onBookmarkClick}
                                >
             <NavigationEvents onDidFocus={payload => dispatchHideHeader()} />
