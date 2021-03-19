@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import {Dimensions, Image, SafeAreaView, View, ImageBackground} from 'react-native';
-import {H1} from '../../theme/typings';
-
-import {YUKON_COLORS} from '../../theme/config';
+import {H1} from '~theme/typings';
+import {YUKON_COLORS} from '~theme/config';
 import BackButton from './backButton';
+import BookmarkButton from './bookmarkButton';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -15,7 +15,7 @@ const shadow = require('./images/shadow.png');
 
 const ScreenParallaxWrapper = (props) => {
 
-    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle } = props
+    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle, bookmarkButton, bookmarkActive, bookmarkOnClick } = props
     const headerHeight = windowHeight - 100
 
     return (
@@ -36,8 +36,13 @@ const ScreenParallaxWrapper = (props) => {
                         resizeMode: 'cover',
                     }}/>
                     <SafeAreaView>
-                        <View style={{ margin: 18 }}>
+                        <View style={{ margin: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                             <BackButton />
+                            {
+                                bookmarkButton
+                                ? <BookmarkButton onClick={bookmarkOnClick} active={bookmarkActive} />
+                                : null
+                            }
                         </View>
                     </SafeAreaView>
 
@@ -77,11 +82,17 @@ ScreenParallaxWrapper.propTypes = {
     leadIcon: PropTypes.node,
     leadIconStyle: PropTypes.object,
     title: PropTypes.string.isRequired,
-    swoosh: PropTypes.node
+    swoosh: PropTypes.node,
+    bookmarkButton: PropTypes.bool,
+    bookmarkActive: PropTypes.bool,
+    bookmarkOnClick: PropTypes.func,
 }
 
 ScreenParallaxWrapper.defaultProps = {
-    swoosh: auroraOrange
+    swoosh: auroraOrange,
+    bookmarkButton: true,
+    bookmarkActive: false,
+    bookmarkOnClick: () => {},
 }
 
 export default ScreenParallaxWrapper;

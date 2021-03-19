@@ -4,6 +4,7 @@ export default {
         'actionNext': 'SUITE',
         'actionApply': 'Appliquer',
         'actionClearAll': 'Tout effacer',
+        addedToFavorites: 'Site added to your favorites!',
 
         'notifications': {
             'permissionsRequest': 'Vous devez accorder des autorisations d\'emplacement pour bénéficier d\'une expérience complète.',
