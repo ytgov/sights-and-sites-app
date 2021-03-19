@@ -39,3 +39,6 @@ export const RESET_REGION = 'RESET_REGION';
 
 // SITE TYPE
 export const RESET_SITE_TYPE = 'RESET_SITE_TYPE';
+
+// BOOKMARKS
+export const SET_FAVORITES = 'SET_FAVORITES';

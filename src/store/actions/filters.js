@@ -1,7 +1,8 @@
 import {
     SET_SITE_TYPE_FILTER,
     SET_REGION_FILTER,
-    SET_HIGHWAY_FILTER
+    SET_HIGHWAY_FILTER,
+    SET_FAVORITES,
 } from '../types';
 
 export const setSiteTypesFilter = (siteTypes) => {
@@ -22,6 +23,13 @@ export const setHighwaysFilter = (highways) => {
     return {
         type: SET_HIGHWAY_FILTER,
         payload: highways
+    }
+}
+
+export const setFavorites = (favorites) => {
+    return {
+        type: SET_FAVORITES,
+        payload: favorites
     }
 }
 
