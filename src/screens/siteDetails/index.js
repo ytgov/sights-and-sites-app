@@ -1,19 +1,21 @@
-import React from 'react';
-import _ from 'lodash';
-import {View} from 'react-native';
+import React, { useState } from 'react';
+import {isNull as _isNull} from 'lodash';
+import {useWindowDimensions, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
 import {NavigationEvents} from 'react-navigation';
 
-import {hideHeader} from '../../store/actions/core';
+import {hideHeader } from '~store/actions/core';
+import {setFavorites} from '~store/actions/filters';
 
-import ScreenParallaxWrapper from '../../components/screenParallaxWrapper';
-import {H3, Body} from '../../theme/typings';
+import ScreenParallaxWrapper from '~components/screenParallaxWrapper';
+import {Body} from '~theme/typings';
 import SiteType from './siteType';
 import Section from './section';
-import WebLink, {WebLinkIcon, WebLinkType} from '../../components/webLink';
+import WebLink, {WebLinkIcon, WebLinkType} from '~components/webLink';
 
-import {shareOnSocialMedia} from '../../shared/services/share';
+import {shareOnSocialMedia} from '~app/shared/services/share';
+import {toastWithIcon} from '~app/shared/services/notify';
 
 const bgPlaceholder = require('./images/bg-placeholder.png');
 const swooshYellow = require('./images/swoosh-yellow.png');
@@ -23,11 +25,20 @@ const BOOKING_URL = 'https://yukon.ca/en/road-trip-app';
 
 const SiteDetailsScreen = (props) => {
     const {t} = useTranslation();
-    const {navigation, dispatchHideHeader} = props
+    const windowWidth = useWindowDimensions().width;
+    const {
+        navigation,
+        dispatchHideHeader,
+        filtersStore,
+        dispatchSetFavorites,
+    } = props;
+
+    const [myFavorites, setMyFavorites] = useState((filtersStore && filtersStore.myFavorites) || []);
 
     const item = navigation.getParam('item');
 
     const {
+        site_id,
         site_name,
         site_description,
         site_directions,
@@ -38,7 +49,29 @@ const SiteDetailsScreen = (props) => {
         highway_km,
         secondary_road_km,
         secondary_road_name
-    } = item
+    } = item;
+
+
+    const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
+
+    const onBookmarkClick = () => {
+        let newMyFavorites;
+
+        if (!isFavoriteSite) {
+            toastWithIcon(t('addedToFavorites'), 'heart', {
+                containerStyle: {
+                    width: windowWidth,
+                }
+            });
+            newMyFavorites = [...myFavorites, item];
+
+        } else {
+            newMyFavorites = myFavorites.filter(site => site_id !== site.site_id);
+        }
+
+        setMyFavorites(newMyFavorites);
+        dispatchSetFavorites(newMyFavorites);
+    };
 
     const directions = [
         {
@@ -88,6 +121,9 @@ const SiteDetailsScreen = (props) => {
                                leadIcon={map}
                                leadIconStyle={{ height: 42 }}
                                swoosh={swoosh}
+                               bookmarkButton={true}
+                               bookmarkActive={isFavoriteSite ? true : false}
+                               bookmarkOnClick={onBookmarkClick}
                                >
             <NavigationEvents onDidFocus={payload => dispatchHideHeader()} />
 
@@ -101,7 +137,7 @@ const SiteDetailsScreen = (props) => {
                 </View>
             </Section>
 
-            {_.isNull(warning) &&
+            {_isNull(warning) &&
                 <Section title={t('siteDetails.sectionInfo.title')}
                          backgroundColor={'#fdf6e9'}
                          swoosh={swooshYellow}>
@@ -181,12 +217,15 @@ SiteDetailsScreen['navigationOptions'] = {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        filtersStore: state.filtersStore,
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        dispatchHideHeader: () => dispatch(hideHeader())
+        dispatchHideHeader: () => dispatch(hideHeader()),
+        dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
     };
 };
 
