@@ -4,6 +4,7 @@ export default {
         'actionNext': 'NEXT',
         'actionApply': 'Apply',
         'actionClearAll': 'Clear all',
+        addedToFavorites: 'Site added to your favorites!',
 
         'notifications': {
             'permissionsRequest': 'You should grant location permissions to get the full experience',
