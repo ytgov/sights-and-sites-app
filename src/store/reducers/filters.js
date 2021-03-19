@@ -1,8 +1,8 @@
-import _ from 'lodash';
 import {
     SET_SITE_TYPE_FILTER,
     SET_REGION_FILTER,
     SET_HIGHWAY_FILTER,
+    SET_FAVORITES,
 
     // RESET_FILTERS,
     // SET_HIGHWAY_FILTERS,
@@ -13,14 +13,13 @@ import {
     // SET_SITES_TYPE_FILTER_VISIBILITY,
     // TOGGLE_MY_SITES_STATE
 } from '../types';
-import siteTypes from './siteTypes';
 
 const initialState = {
     siteTypes: [],
     regions: [],
     highways: [],
     nearMe: false,
-    myFavorites: false
+    myFavorites: [],
     // highwaysFilter: [],
     // regionsFilter: [],
     // sitesTypeFilter: [],
@@ -46,6 +45,11 @@ export default function filtersReducer(state = initialState, action) {
             return {
                 ...state,
                 highways: action.payload
+            }
+        case SET_FAVORITES:
+            return {
+                ...state,
+                myFavorites: action.payload
             }
         // case SET_HIGHWAY_FILTERS: {
         //     return {
