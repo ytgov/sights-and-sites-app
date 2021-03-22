@@ -56,15 +56,24 @@ const SiteDetailsScreen = (props) => {
         highway_name,
         highway_km,
         secondary_road_km,
-        secondary_road_name
+        secondary_road_name,
+        nearby_sites,
     } = item;
 
     /* Near Sites Mock/Functionality */
     const { listingRaw = [] } = listingStore;
     const randomNearSites = Math.round(Math.random() * 9) + 1;
-    const mockNearSites = getMockNearSites(randomNearSites);
-    const plainNearSitesIds = mockNearSites && mockNearSites.length && mockNearSites.map((item) => item.site_id);
-    const nearBySites = listingRaw.filter(item => plainNearSitesIds.includes(item.site_id));
+    const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
+    const plainNearSitesIds = Object.keys(mockNearSites)
+        .map(key => mockNearSites[key])
+        .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
+    const nearBySites = plainNearSitesIds.map(item => {
+        const site = listingRaw.find(site => site.site_id === Number(item.nid)) || {};
+        return {
+            ...item,
+            ...site,
+        }
+    });
     /* Animation */
     const currentProgressBarWidth = useRef(new Animated.Value(0)).current;
     const renderPagination = (index, total) => {
