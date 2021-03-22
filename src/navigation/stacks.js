@@ -59,6 +59,9 @@ const FilterStackNavigator = createStackNavigator({
     [routes.SCREEN_FILTER_HIGHWAY]: {
         screen: FilterByHighwayScreen
     },
+    [routes.SCREEN_SITE_DETAILS]: {
+        screen: SiteDetailsScreen,
+    },
     [routes.SCREEN_FILTER_MY_FAVORITES]: {
         screen: FilterByMyFavoritesScreen
     },
