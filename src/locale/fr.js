@@ -4,7 +4,6 @@ export default {
         'actionNext': 'SUITE',
         'actionApply': 'Appliquer',
         'actionClearAll': 'Tout effacer',
-        addedToFavorites: 'Site added to your favorites!',
 
         'notifications': {
             'permissionsRequest': 'Vous devez accorder des autorisations d\'emplacement pour bénéficier d\'une expérience complète.',
@@ -144,6 +143,11 @@ export default {
                     a4: 'Pour toute question, veuillez contacter la Section des lieux d’intérêt historique, ministère du Tourisme et de la Culture, gouvernement du Yukon.\n',
                 },
             }
+        },
+
+        favorites: {
+            addedToFavorites: 'Site added to your favorites!',
+            noFavorites: 'No favorites added yet.',
         },
 
         // NAVIGATION
