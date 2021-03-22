@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {isNull as _isNull} from 'lodash';
-import {useWindowDimensions, View} from 'react-native';
+import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
 import {NavigationEvents} from 'react-navigation';
@@ -9,13 +9,20 @@ import {hideHeader } from '~store/actions/core';
 import {setFavorites} from '~store/actions/filters';
 
 import ScreenParallaxWrapper from '~components/screenParallaxWrapper';
-import {Body} from '~theme/typings';
+import {Body, H3} from '~theme/typings';
 import SiteType from './siteType';
 import Section from './section';
 import WebLink, {WebLinkIcon, WebLinkType} from '~components/webLink';
 
 import {shareOnSocialMedia} from '~app/shared/services/share';
 import {toastWithIcon} from '~app/shared/services/notify';
+
+import getMockNearSites from './near-sites';
+import Swiper from 'react-native-swiper'
+import SiteCard from '~components/siteCard';
+import {YUKON_COLORS} from '~theme/config';
+import routes from '~navigation/routes';
+import styles from './styles';
 
 const bgPlaceholder = require('./images/bg-placeholder.png');
 const swooshYellow = require('./images/swoosh-yellow.png');
@@ -30,6 +37,7 @@ const SiteDetailsScreen = (props) => {
         navigation,
         dispatchHideHeader,
         filtersStore,
+        listingStore,
         dispatchSetFavorites,
     } = props;
 
@@ -51,6 +59,36 @@ const SiteDetailsScreen = (props) => {
         secondary_road_name
     } = item;
 
+    /* Near Sites Mock/Functionality */
+    const { listingRaw = [] } = listingStore;
+    const randomNearSites = Math.round(Math.random() * 9) + 1;
+    const mockNearSites = getMockNearSites(randomNearSites);
+    const plainNearSitesIds = mockNearSites && mockNearSites.length && mockNearSites.map((item) => item.site_id);
+    const nearBySites = listingRaw.filter(item => plainNearSitesIds.includes(item.site_id));
+    /* Animation */
+    const currentProgressBarWidth = useRef(new Animated.Value(0)).current;
+    const renderPagination = (index, total) => {
+        const realIndex = index + 1;
+        const fullWidth = windowWidth - 32; /* Full screen width less container margins (16 * 2)*/
+        const width = (realIndex * fullWidth) / total;
+
+        Animated.timing(currentProgressBarWidth, {
+            toValue: width,
+            duration: 200,
+        }).start();
+
+        const animatedStyles = {
+            width: currentProgressBarWidth,
+        }
+
+        return (
+            <View style={styles.progressBarContainer}>
+                <Animated.View style={[styles.progressBar, animatedStyles]} />
+            </View>
+        );
+    };
+
+    /* Near Sites Mock/Functionality */
 
     const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
 
@@ -203,6 +241,26 @@ const SiteDetailsScreen = (props) => {
                 />
             </Section>
 
+            <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
+
+            <Swiper
+                showsButtons={false}
+                height={460}
+                showsPagination={true}
+                renderPagination={renderPagination}
+                >
+                {
+                    nearBySites && nearBySites.length && nearBySites.map(item =>  {
+                        return (
+                            <TouchableOpacity activeOpacity={0.8}
+                                              key={item.site_id}
+                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {item})}>
+                                <SiteCard data={item} />
+                            </TouchableOpacity>
+                        )
+                    })
+                }
+            </Swiper>
         </ScreenParallaxWrapper>
     );
 };
@@ -219,6 +277,7 @@ SiteDetailsScreen['navigationOptions'] = {
 const mapStateToProps = (state) => {
     return {
         filtersStore: state.filtersStore,
+        listingStore: state.listingStore,
     };
 };
 
