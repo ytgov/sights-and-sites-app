@@ -58,7 +58,7 @@ const SiteDetailsScreen = (props) => {
         let newMyFavorites;
 
         if (!isFavoriteSite) {
-            toastWithIcon(t('addedToFavorites'), 'heart', {
+            toastWithIcon(t('favorites.addedToFavorites'), 'heart', {
                 containerStyle: {
                     width: windowWidth,
                 }

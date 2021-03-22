@@ -34,6 +34,11 @@ const TOAST_WITH_ICON_DEFAULT_CONFIG = {
     }
 };
 
+const ICON_POSITION = {
+    LEFT: 'left',
+    RIGHT: 'right',
+}
+
 function success(message) {
     Toast.show(message, {
         ...config,
@@ -60,19 +65,15 @@ function customToast(message, overwriteConfig = {}) {
     return CustomToast.show(message, customConfig);
 }
 
-function toastWithIcon(text, icon, config = {}) {
+function toastWithIcon(text, icon, config = {}, iconPosition = ICON_POSITION.RIGHT) {
+    const isLeftIcon = iconPosition === ICON_POSITION.LEFT;
+    const iconElement = icon && <Feather name={icon} size={20} color="white" style={{paddingTop:3, paddingRight: 5}} />;
+
     const children = (
         <>
-            {
-                text
-                ? <Text style={{color: '#FFF', fontFamily: YUKON_FONTS.MONTSERRAT_BOLD}}>{text}</Text>
-                : null
-            }
-            {
-                icon
-                ? <Feather name={icon} size={20} color="white" style={{paddingTop:3, paddingRight: 5}} />
-                : null
-            }
+            { isLeftIcon && iconElement }
+            { text && <Text style={{color: '#FFF', fontFamily: YUKON_FONTS.MONTSERRAT_BOLD}}>{text}</Text> }
+            { !isLeftIcon && iconElement }
 
         </>
     );
@@ -86,5 +87,6 @@ export {
     info,
     error,
     customToast,
-    toastWithIcon
+    toastWithIcon,
+    ICON_POSITION,
 }

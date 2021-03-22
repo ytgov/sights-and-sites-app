@@ -4,7 +4,6 @@ export default {
         'actionNext': 'NEXT',
         'actionApply': 'Apply',
         'actionClearAll': 'Clear all',
-        addedToFavorites: 'Site added to your favorites!',
 
         'notifications': {
             'permissionsRequest': 'You should grant location permissions to get the full experience',
@@ -145,6 +144,11 @@ export default {
                     }
                 },
             }
+        },
+
+        favorites: {
+            addedToFavorites: 'Site added to your favorites!',
+            noFavorites: 'No favorites added yet.',
         },
 
         // NAVIGATION
