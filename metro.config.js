@@ -11,6 +11,7 @@ module.exports = {
       '~screens'    : `${srcDir}/screens`,
       '~theme'      : `${srcDir}/theme`,
       '~navigation' : `${srcDir}/navigation`,
+      '~shared'     : `${srcDir}/shared`,
       '~store'      : `${srcDir}/store`,
       '~assets'     : `${__dirname}/assets`,
       '~swoosh'     : `${__dirname}/assets/images/swoosh`,
