@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, Text} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -38,6 +38,7 @@ import FilterByHighwayScreen from '../screens/filters/filterByHighway';
 import FilterByMyFavoritesScreen from '../screens/filters/filterMyFavorites';
 import FilterByNearMeScreen from '../screens/filters/filterNearMe';
 import HeaderNav, {HeaderNavType} from '../components/headerNav';
+import BottomTabItemSearch from '~navigation/bottomTabItemSearch';
 
 const searchIcon = require('./images/search.png');
 const helpfulInfoIcon = require('./images/helpful-info.png');
@@ -97,16 +98,16 @@ const MainStackNavigator = createStackNavigator({
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
         screen: SearchScreen,
-        navigationOptions: () => (
-            {
-                tabBarIcon: <BottomTabItem
-                    icon={searchIcon}
-                    label={i18n.t('navigation.footer.search')} />,
-                    tabBarOnPress: ({navigation}) => {
-                        // TODO: dispatch opening search box.
-                    }
+        navigationOptions: {
+            tabBarIcon: <BottomTabItemSearch
+                icon={searchIcon}
+                label={i18n.t('navigation.footer.search')}
+            />,
+            tabBarOnPress: (e) => {
+                // cancel default action of going to search screen.
+                e.preventDefault();
             }
-        ),
+        },
     },
     [routes.STACK_MAIN]: {
         screen: MainStackNavigator,
