@@ -304,6 +304,11 @@ export default {
                     <li>Ensure there are no spelling or grammatical mistakes</li>
                     <li>For questions and support, email <a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or phone <a href="tel:867-667-5386">867-667-5386</a>, or toll free in Yukon <a href="tel:1-800-661-0408">1-800-661-0408</a>, extension 5386.</li>
                 </ul>`
+        },
+
+        /* Search */
+        searchBox: {
+            placeholder: 'Search by keyword…',
         }
     },
 }
