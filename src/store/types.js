@@ -7,6 +7,8 @@ export const SET_NETWORK_STATUS = 'SET_NETWORK_STATUS';
 export const SHOW_HEADER = 'SHOW_HEADER';
 export const HIDE_HEADER = 'HIDE_HEADER';
 
+export const TOGGLE_SEARCH = 'TOGGLE_SEARCH';
+
 // LANGUAGE
 export const SET_LOCALE = 'SET_LOCALE';
 
