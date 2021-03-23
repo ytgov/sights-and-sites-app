@@ -5,7 +5,8 @@ import {
     SET_SELECT_LOCALE_ACTION,
     UPDATE_LOCATION,
     SHOW_HEADER,
-    HIDE_HEADER
+    HIDE_HEADER,
+    TOGGLE_SEARCH
 } from '../types';
 
 export function setSelectLocaleAction(value) {
@@ -52,5 +53,11 @@ export function hideHeader() {
     return {
         type: HIDE_HEADER,
         payload: false
+    }
+}
+
+export function toggleSearch() {
+    return {
+        type: TOGGLE_SEARCH
     }
 }
