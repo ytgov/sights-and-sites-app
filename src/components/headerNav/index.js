@@ -2,14 +2,15 @@ import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import {Animated} from 'react-native';
 import {useTranslation} from 'react-i18next';
-
 import {withNavigation} from 'react-navigation';
-import routes from '../../navigation/routes';
-import {countFilter} from '../../shared/utils/filters';
+import {connect} from 'react-redux';
+
+import routes from '~navigation/routes';
+import {countFilter} from '~shared/utils/filters';
 
 import indexStyles from './index.styles';
 import HeaderNavItem from './headerNavItem';
-import {connect} from 'react-redux';
+import SearchBox from '~components/searchBox';
 
 const filtersIcon = require('./images/filters.png');
 const listIcon = require('./images/list.png');
@@ -22,7 +23,14 @@ export const HeaderNavType = {
 }
 
 const HeaderNav = (props) => {
-    const {scene, activeItem, navigation, headerVisible, filtersStore} = props
+    const {
+        scene,
+        activeItem,
+        navigation,
+        headerVisible,
+        searchVisible,
+        filtersStore
+    } = props
 
     const {t} = useTranslation();
     const slideAnim = useRef(new Animated.Value(1)).current
@@ -57,25 +65,30 @@ const HeaderNav = (props) => {
     const { options } = scene.descriptor;
 
     return (
-        <Animated.View style={{
-            ...options.headerStyle,
-            ...indexStyles.wrapper,
-            ...transformValue,
-        }}>
-            <HeaderNavItem icon={filtersIcon}
-                           label={t('navigation.header.filters')}
-                           badge={countFilter(filtersStore)}
-                           isActive={activeItem === HeaderNavType.FILTERS}
-                           onPress={() => navigation.navigate(routes.STACK_FILTERS)} />
-            <HeaderNavItem icon={listIcon}
-                           label={t('navigation.header.list')}
-                           isActive={activeItem === HeaderNavType.LIST}
-                           onPress={() => navigation.navigate(routes.SCREEN_LISTING)} />
-            <HeaderNavItem icon={mapIcon}
-                           label={t('navigation.header.map')}
-                           isActive={activeItem === HeaderNavType.MAP}
-                           onPress={() => navigation.navigate(routes.SCREEN_MAP)} />
-        </Animated.View>
+        <>
+            {!searchVisible && <Animated.View style={{
+                ...options.headerStyle,
+                ...indexStyles.wrapper,
+                ...transformValue,
+            }}>
+                <HeaderNavItem icon={filtersIcon}
+                               label={t('navigation.header.filters')}
+                               badge={countFilter(filtersStore)}
+                               isActive={activeItem === HeaderNavType.FILTERS}
+                               onPress={() => navigation.navigate(routes.STACK_FILTERS)} />
+                <HeaderNavItem icon={listIcon}
+                               label={t('navigation.header.list')}
+                               isActive={activeItem === HeaderNavType.LIST}
+                               onPress={() => navigation.navigate(routes.SCREEN_LISTING)} />
+                <HeaderNavItem icon={mapIcon}
+                               label={t('navigation.header.map')}
+                               isActive={activeItem === HeaderNavType.MAP}
+                               onPress={() => navigation.navigate(routes.SCREEN_MAP)} />
+            </Animated.View>}
+
+            {searchVisible && <SearchBox />}
+        </>
+
     );
 };
 
@@ -90,6 +103,7 @@ HeaderNav.propTypes = {
 const mapStateToProps = (state) => {
     return {
         headerVisible: state.coreStore.headerVisible,
+        searchVisible: state.coreStore.searchVisible,
         filtersStore: state.filtersStore
     };
 };
