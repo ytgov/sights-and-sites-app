@@ -43,7 +43,7 @@ const FilterByMyFavoritesScreen = ({filtersStore, navigation, dispatchShowHeader
                 scrollEventThrottle={16}
                 renderItem={({item}) =>
                     <TouchableOpacity activeOpacity={0.8}
-                                      onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item, fromFavorites: true})}>
+                                      onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
                         <SiteCard data={item} />
                     </TouchableOpacity>}
                 keyExtractor={(item) => item.site_id.toString()}
