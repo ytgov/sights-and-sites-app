@@ -39,6 +39,7 @@ import FilterByMyFavoritesScreen from '../screens/filters/filterMyFavorites';
 import FilterByNearMeScreen from '../screens/filters/filterNearMe';
 import HeaderNav, {HeaderNavType} from '../components/headerNav';
 import BottomTabItemSearch from '~navigation/bottomTabItemSearch';
+import SearchResultsScreen from '~screens/searchResults';
 
 const searchIcon = require('./images/search.png');
 const helpfulInfoIcon = require('./images/helpful-info.png');
@@ -103,10 +104,7 @@ const BottomTabNavigator = createBottomTabNavigator({
                 icon={searchIcon}
                 label={i18n.t('navigation.footer.search')}
             />,
-            tabBarOnPress: (e) => {
-                // cancel default action of going to search screen.
-                e.preventDefault();
-            }
+            tabBarOnPress: null
         },
     },
     [routes.STACK_MAIN]: {
@@ -201,9 +199,20 @@ const RootDrawerNavigation = createDrawerNavigator(
     }
 );
 
+const searchStack = createStackNavigator({
+    [routes.SCREEN_SEARCH_RESULTS]: SearchResultsScreen
+},{
+    defaultNavigationOptions: {
+        headerShown: true,
+            header: props => <HeaderNav {...props}
+                                        activeItem={HeaderNavType.FILTERS} />
+    }
+})
+
 const ModalNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
-    [routes.STACK_FILTERS]: FilterStackNavigator
+    [routes.STACK_FILTERS]: FilterStackNavigator,
+    [routes.STACK_SEARCH]: searchStack
 }, {
     mode: 'modal',
     headerMode: 'none',
