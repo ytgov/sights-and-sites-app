@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
 import {NavigationEvents} from 'react-navigation';
 
-import {hideHeader } from '~store/actions/core';
+import {hideHeader, hideSearch} from '~store/actions/core';
 import {setFavorites} from '~store/actions/filters';
 
 import ScreenParallaxWrapper from '~components/screenParallaxWrapper';
@@ -39,6 +39,7 @@ const SiteDetailsScreen = (props) => {
         filtersStore,
         listingStore,
         dispatchSetFavorites,
+        dispatchHideSearch
     } = props;
 
     const [myFavorites, setMyFavorites] = useState((filtersStore && filtersStore.myFavorites) || []);
@@ -172,7 +173,10 @@ const SiteDetailsScreen = (props) => {
                                bookmarkActive={isFavoriteSite ? true : false}
                                bookmarkOnClick={onBookmarkClick}
                                >
-            <NavigationEvents onDidFocus={payload => dispatchHideHeader()} />
+            <NavigationEvents onDidFocus={() => {
+                dispatchHideHeader();
+                dispatchHideSearch();
+            }} />
 
             <Section title={t('siteDetails.siteTypes.title')}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap'}}>
@@ -294,6 +298,7 @@ const mapDispatchToProps = dispatch => {
     return {
         dispatchHideHeader: () => dispatch(hideHeader()),
         dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
+        dispatchHideSearch: () => dispatch(hideSearch())
     };
 };
 

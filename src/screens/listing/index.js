@@ -4,7 +4,7 @@ import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
 
-import {showHeader} from '~store/actions/core';
+import {hideSearch, showHeader} from '~store/actions/core';
 import routes from '~navigation/routes';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
 import SiteCard from '~components/siteCard';
@@ -15,7 +15,13 @@ const windowHeight = Dimensions.get('window').height
 const ITEMS_PER_PAGE = 10
 
 const ListingScreen = (props) => {
-    const {navigation, dispatchShowHeader, listingFiltered} = props
+    const {
+        navigation,
+        dispatchShowHeader,
+        dispatchHideSearch,
+        listingFiltered
+    } = props
+
     const [items, setItems] = useState(listingFiltered.slice(0, ITEMS_PER_PAGE))
     const [page, setPage] = useState(1)
     const maxPages = Math.ceil(listingFiltered.length / ITEMS_PER_PAGE)
@@ -34,7 +40,10 @@ const ListingScreen = (props) => {
     return (
         <>
             <NavigationEvents
-                onWillFocus={payload => dispatchShowHeader()} />
+                onWillFocus={() => {
+                    dispatchHideSearch();
+                    dispatchShowHeader();
+                }} />
 
             <FlatList
                 style={{height: windowHeight}}
@@ -70,7 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        dispatchShowHeader: () => dispatch(showHeader())
+        dispatchShowHeader: () => dispatch(showHeader()),
+        dispatchHideSearch: () => dispatch(hideSearch())
     };
 };
 
