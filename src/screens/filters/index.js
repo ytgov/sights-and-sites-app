@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import DeviceInfo from 'react-native-device-info';
 
 import ScreenWrapper from '~components/screenWrapper';
 import LabelArrow from '~components/filters/labelArrow';
@@ -34,7 +35,7 @@ const FilterIndexScreen = (props) => {
         if (destination === routes.SCREEN_FILTER_MY_FAVORITES) {
            if (!hasFavorites) {
                toastWithIcon(t('favorites.noFavorites'), 'alert-circle', {
-                   position: 110,
+                   position: DeviceInfo.hasNotch() ? 110 : 80, /* StatusBar height + App menu height  */
                    containerStyle: {
                        paddingTop: 6,
                        paddingBottom: 6,
