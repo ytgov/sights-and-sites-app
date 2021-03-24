@@ -1,15 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import DeviceInfo from 'react-native-device-info';
 import { MaterialIcons } from '@expo/vector-icons';
+import {withNavigation} from 'react-navigation';
 
 import {YUKON_COLORS} from '~theme/config';
 import {YUKON_FONTS} from '~theme/typings';
+import routes from '~navigation/routes';
 
-const SearchBox = () => {
+const SearchBox = (props) => {
+    const {navigation} = props;
     const [t] = useTranslation();
-    const [keyword, setKeyword] = useState(keyword);
+    const [keyword, setKeyword] = useState('');
+
+
+    useEffect(() => {
+        if (navigation.getParam('keyword')) {
+            setKeyword(navigation.getParam('keyword'));
+        }
+    }, [])
+
+    const doSearch = () => {
+        if (keyword.trim() === '') return;
+
+        // Redirect to search result screen if current screen is not Search result yet.
+        if (navigation.state.routeName !== routes.SCREEN_SEARCH_RESULTS) {
+            navigation.navigate(routes.STACK_SEARCH, {keyword})
+        } else {
+            navigation.setParams({keyword})
+        }
+    }
 
     return (
         <View style={styles.wrapper}>
@@ -19,6 +40,8 @@ const SearchBox = () => {
                            placeholderTextColor={'white'}
                            placeholder={t('searchBox.placeholder')}
                            onChangeText={(text) => setKeyword(text)}
+                           value={keyword}
+                           onSubmitEditing={doSearch}
                            returnKeyType={'search'} />
 
                 <MaterialIcons.Button
@@ -27,13 +50,13 @@ const SearchBox = () => {
                             color="white"
                             iconStyle={{marginRight: 0}}
                             backgroundColor={YUKON_COLORS.primary_600}
-                            onPress={() => console.log('Do search')} />
+                            onPress={doSearch} />
             </View>
         </View>
     );
 };
 
-export default SearchBox;
+export default withNavigation(SearchBox);
 
 const styles = StyleSheet.create({
     wrapper: {
