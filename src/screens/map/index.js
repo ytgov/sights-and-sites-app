@@ -7,7 +7,7 @@ import {APP_CONFIG} from '../../config';
 
 import SiteCard from '../../components/siteCard';
 import HeaderNav, {HeaderNavType} from '../../components/headerNav';
-import {showHeader} from '../../store/actions/core';
+import {hideSearch, showHeader} from '../../store/actions/core';
 import {connect} from 'react-redux';
 import routes from '../../navigation/routes';
 import {NavigationEvents} from 'react-navigation';
@@ -35,7 +35,8 @@ const MapScreen = (props) => {
     const {
         listingFiltered,
         navigation,
-        dispatchShowHeader
+        dispatchShowHeader,
+        dispatchHideSearch
     } = props
 
     const mapRef = useRef()
@@ -89,7 +90,10 @@ const MapScreen = (props) => {
 
     return (
         <View style={{flex: 1}}>
-            <NavigationEvents onWillFocus={() => dispatchShowHeader()} />
+            <NavigationEvents onWillFocus={() => {
+                dispatchShowHeader();
+                dispatchHideSearch();
+            }} />
             <MapboxGL.MapView
                 zoomLevel={11}
                 ref={mapRef}
@@ -139,7 +143,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        dispatchShowHeader: () => dispatch(showHeader())
+        dispatchShowHeader: () => dispatch(showHeader()),
+        dispatchHideSearch: () => dispatch(hideSearch())
     };
 };
 
