@@ -7,6 +7,8 @@ import {
     SHOW_HEADER,
     HIDE_HEADER,
     TOGGLE_SEARCH,
+    SHOW_SEARCH,
+    HIDE_SEARCH
 } from '../types';
 
 const initialState = {
@@ -73,6 +75,12 @@ export default function coreReducer(state = initialState, action) {
             return {
                 ...state,
                 searchVisible: !state.searchVisible
+            }
+        case SHOW_SEARCH:
+        case HIDE_SEARCH:
+            return {
+                ...state,
+                searchVisible: action.payload
             }
         default:
             return state;

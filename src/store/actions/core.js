@@ -6,7 +6,9 @@ import {
     UPDATE_LOCATION,
     SHOW_HEADER,
     HIDE_HEADER,
-    TOGGLE_SEARCH
+    TOGGLE_SEARCH,
+    SHOW_SEARCH,
+    HIDE_SEARCH,
 } from '../types';
 
 export function setSelectLocaleAction(value) {
@@ -59,5 +61,19 @@ export function hideHeader() {
 export function toggleSearch() {
     return {
         type: TOGGLE_SEARCH
+    }
+}
+
+export function showSearch() {
+    return {
+        type: SHOW_SEARCH,
+        payload: true
+    }
+}
+
+export function hideSearch() {
+    return {
+        type: HIDE_SEARCH,
+        payload: false
     }
 }
