@@ -5,7 +5,10 @@ import {
     SET_SELECT_LOCALE_ACTION,
     UPDATE_LOCATION,
     SHOW_HEADER,
-    HIDE_HEADER
+    HIDE_HEADER,
+    TOGGLE_SEARCH,
+    SHOW_SEARCH,
+    HIDE_SEARCH
 } from '../types';
 
 const initialState = {
@@ -14,7 +17,8 @@ const initialState = {
     canGrabLocation: true,
     location: null,
     networkAvailable: true,
-    headerVisible: true
+    headerVisible: true,
+    searchVisible: false
 }
 
 export default function coreReducer(state = initialState, action) {
@@ -65,6 +69,18 @@ export default function coreReducer(state = initialState, action) {
             return {
                 ...state,
                 headerVisible: action.payload
+            }
+
+        case TOGGLE_SEARCH:
+            return {
+                ...state,
+                searchVisible: !state.searchVisible
+            }
+        case SHOW_SEARCH:
+        case HIDE_SEARCH:
+            return {
+                ...state,
+                searchVisible: action.payload
             }
         default:
             return state;

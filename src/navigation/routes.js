@@ -6,6 +6,7 @@ const routes = {
     STACK_DRAWER: 'StackDrawer',
     STACK_APP_INSTRUCTION: 'StackIntro',
     STACK_FILTERS: 'StackFilters',
+    STACK_SEARCH: 'StackSearch',
 
     SCREEN_LOADING: 'Loading',
     SCREEN_WELCOME: 'Welcome',
@@ -32,7 +33,9 @@ const routes = {
     SCREEN_FILTER_REGION: 'FilterByRegion',
     SCREEN_FILTER_HIGHWAY: 'FilterByHighway',
     SCREEN_FILTER_NEAR_ME: 'FilterNearMe',
-    SCREEN_FILTER_MY_FAVORITES: 'FilterMyFavorites'
+    SCREEN_FILTER_MY_FAVORITES: 'FilterMyFavorites',
+
+    SCREEN_SEARCH_RESULTS: 'SearchResults'
 }
 
 export default routes;

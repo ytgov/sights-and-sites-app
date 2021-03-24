@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, Text} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -38,6 +38,8 @@ import FilterByHighwayScreen from '../screens/filters/filterByHighway';
 import FilterByMyFavoritesScreen from '../screens/filters/filterMyFavorites';
 import FilterByNearMeScreen from '../screens/filters/filterNearMe';
 import HeaderNav, {HeaderNavType} from '../components/headerNav';
+import BottomTabItemSearch from '~navigation/bottomTabItemSearch';
+import SearchResultsScreen from '~screens/searchResults';
 
 const searchIcon = require('./images/search.png');
 const helpfulInfoIcon = require('./images/helpful-info.png');
@@ -97,16 +99,13 @@ const MainStackNavigator = createStackNavigator({
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
         screen: SearchScreen,
-        navigationOptions: () => (
-            {
-                tabBarIcon: <BottomTabItem
-                    icon={searchIcon}
-                    label={i18n.t('navigation.footer.search')} />,
-                    tabBarOnPress: ({navigation}) => {
-                        // TODO: dispatch opening search box.
-                    }
-            }
-        ),
+        navigationOptions: {
+            tabBarIcon: <BottomTabItemSearch
+                icon={searchIcon}
+                label={i18n.t('navigation.footer.search')}
+            />,
+            tabBarOnPress: null
+        },
     },
     [routes.STACK_MAIN]: {
         screen: MainStackNavigator,
@@ -200,9 +199,20 @@ const RootDrawerNavigation = createDrawerNavigator(
     }
 );
 
+const searchStack = createStackNavigator({
+    [routes.SCREEN_SEARCH_RESULTS]: SearchResultsScreen
+},{
+    defaultNavigationOptions: {
+        headerShown: true,
+            header: props => <HeaderNav {...props}
+                                        activeItem={HeaderNavType.FILTERS} />
+    }
+})
+
 const ModalNavigator = createStackNavigator({
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
-    [routes.STACK_FILTERS]: FilterStackNavigator
+    [routes.STACK_FILTERS]: FilterStackNavigator,
+    [routes.STACK_SEARCH]: searchStack
 }, {
     mode: 'modal',
     headerMode: 'none',
