@@ -8,6 +8,8 @@ export const SHOW_HEADER = 'SHOW_HEADER';
 export const HIDE_HEADER = 'HIDE_HEADER';
 
 export const TOGGLE_SEARCH = 'TOGGLE_SEARCH';
+export const SHOW_SEARCH = 'SHOW_SEARCH';
+export const HIDE_SEARCH = 'HIDE_SEARCH';
 
 // LANGUAGE
 export const SET_LOCALE = 'SET_LOCALE';
