@@ -27,13 +27,6 @@ const filters = [
         leadingIconActive: require('../images/index/by-highway-active.png')
     },
     {
-        id: 'nearMe',
-        label: i18n.t('filters.nearMe'),
-        destination: routes.SCREEN_FILTER_NEAR_ME,
-        leadingIcon: require('../images/index/near-me.png'),
-        leadingIconActive: require('../images/index/near-me-active.png')
-    },
-    {
         id: 'myFavorites',
         label: i18n.t('filters.myFavorites'),
         destination: routes.SCREEN_FILTER_MY_FAVORITES,
