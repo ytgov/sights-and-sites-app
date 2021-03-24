@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, StyleSheet} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import {YUKON_FONTS} from '../theme/typings';
-import {YUKON_COLORS} from '../theme/config';
+import {YUKON_FONTS} from '~theme/typings';
+import {YUKON_COLORS} from '~theme/config';
 
 const BottomTabItem = ({icon, label, bigIcon}) => {
     let iconComponent = <Image source={icon} />
