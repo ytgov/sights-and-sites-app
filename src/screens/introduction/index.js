@@ -58,8 +58,8 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
            //error(i18n.t('notifications.permissionsRequest'));
         } else {
            dispatchSetOnboardingFinished()
-            navigation.navigate(routes.STACK_BOTTOM_TAB);
         }
+        navigation.navigate(routes.STACK_BOTTOM_TAB);
     }
 
     const _renderItem = ({item, index}, parallaxProps) => {
