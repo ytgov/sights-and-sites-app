@@ -64,9 +64,9 @@ export default class App extends React.Component {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <NetworkGate>
-              <LocationGate>
+              {/*<LocationGate>*/}
                 <AppRoot />
-              </LocationGate>
+              {/*</LocationGate>*/}
             </NetworkGate>
           </PersistGate>
         </Provider>
