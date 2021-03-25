@@ -138,15 +138,19 @@ const MapScreen = (props) => {
 
             <Modal isVisible={isModalVisible}>
                 <View>
-                    <TouchableOpacity onPress={() => setModalVisible(false)}
-                                      style={styles.closeButton}>
+                    <TouchableOpacity
+                        activeOpacity={0.8}
+                        onPress={() => setModalVisible(false)}
+                        style={styles.closeButton}>
                         <Image source={closeButton} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {
-                        setModalVisible(false)
-                        navigation.navigate(routes.SCREEN_SITE_DETAILS, {item: pinnedItem})
-                    }}>
+                    <TouchableOpacity
+                        activeOpacity={0.8}
+                        onPress={() => {
+                            setModalVisible(false)
+                            navigation.navigate(routes.SCREEN_SITE_DETAILS, {item: pinnedItem})
+                        }}>
                         {pinnedItem && <SiteCard data={pinnedItem}
                                                  imageStyle={{ height: 230 }} />}
                     </TouchableOpacity>
