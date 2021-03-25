@@ -15,6 +15,7 @@ const SiteCard = (props) => {
     const preview = {uri: APP_CONFIG.cache.imagePreview};
     const {
         imageStyle,
+        withDistance,
         data
     } = props
 
@@ -54,7 +55,7 @@ const SiteCard = (props) => {
                     <View style={{ marginLeft: 12}}>
                         <Body black>{`${highway.name}, km ${highway_km}`}</Body>
                         <Body black>{region.name}</Body>
-                        <Small style={{ marginTop: 8 }}>{'400.89 km away'}</Small>
+                        {/*<Small style={{ marginTop: 8 }}>{'400.89 km away'}</Small>*/}
                     </View>
                 </View>
             </View>
@@ -80,11 +81,13 @@ SiteCard.propTypes = {
             swoosh: PropTypes.node.isRequired
         }).isRequired
     }).isRequired,
-    imageStyle: PropTypes.object
+    imageStyle: PropTypes.object,
+    withDistance: PropTypes.bool
 }
 
 SiteCard.defaultProps = {
-    imageStyle: {}
+    imageStyle: {},
+    withDistance: false
 }
 
 export default SiteCard;
