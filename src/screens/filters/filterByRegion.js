@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
-import ScreenFilterWrapper from '../../components/screenFilterWrapper';
-import {setRegionsFilter} from '../../store/actions/filters';
-import {FilterHeader} from '../../theme/layout';
-import Title from '../../components/filters/title';
-import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
-import routes from '../../navigation/routes';
-import {filterListing} from '../../store/actions/listing';
+import ScreenFilterWrapper from '~components/screenFilterWrapper';
+import {setRegionsFilter} from '~store/actions/filters';
+import {FilterHeader} from '~theme/layout';
+import Title from '~components/filters/title';
+import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
+import routes from '~navigation/routes';
+import {filterListing} from '~store/actions/listing';
 
 const bgRegion = require('./images/region/bg-region.jpg');
 
@@ -20,6 +21,7 @@ const FilterByRegionScreen = (props) => {
         navigation
     } = props
 
+    const [t] = useTranslation();
     const [showButton, setShowButton] = useState(false)
     const [regions] = useState(regionsData)
     const [selectedRegions, setSelectedRegions] = useState(filteredRegionsData)
@@ -51,7 +53,7 @@ const FilterByRegionScreen = (props) => {
                              onResetFilter={() => onReset()}
                              onApplyFilter={onSubmit}>
             <FilterHeader>
-                <Title title={`Filter by region`} hasArrow={true} />
+                <Title title={t('filters.regionTitle')} hasArrow={true} />
             </FilterHeader>
 
             {regions.map((item, i) => {
