@@ -53,7 +53,7 @@ const FilterIndexScreen = (props) => {
     return (
         <ScreenWrapper backgroundImage={bgIndex}>
             <FilterHeader>
-                <Title title={`Filter by`} />
+                <Title title={t('filters.by')} />
             </FilterHeader>
 
             {cooked_filters.map((item, i) =>

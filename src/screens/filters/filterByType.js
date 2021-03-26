@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
-import ScreenFilterWrapper from '../../components/screenFilterWrapper';
-import {FilterHeader} from '../../theme/layout';
-import Title from '../../components/filters/title';
-import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
-import {setSiteTypesFilter} from '../../store/actions/filters';
-import routes from '../../navigation/routes';
-import {filterListing} from '../../store/actions/listing';
+import ScreenFilterWrapper from '~components/screenFilterWrapper';
+import {FilterHeader} from '~theme/layout';
+import Title from '~components/filters/title';
+import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
+import {setSiteTypesFilter} from '~store/actions/filters';
+import routes from '~navigation/routes';
+import {filterListing} from '~store/actions/listing';
 
 const bgDefault = require('./images/type/bg-type-default.jpg');
 
@@ -21,6 +22,7 @@ const FilterByTypeScreen = (props) => {
         navigation
     } = props
 
+    const [t] = useTranslation();
     const [background, setBackground] = useState(bgDefault);
     const [siteTypes] = useState(siteTypesData)
     const [showButton, setShowButton] = useState(false)
@@ -56,7 +58,7 @@ const FilterByTypeScreen = (props) => {
                              onResetFilter={() => onReset()}
                              onApplyFilter={onSubmit}>
             <FilterHeader>
-                <Title title={`Filter by site type`} hasArrow={true} />
+                <Title title={t('filters.siteTypeTitle')} hasArrow={true} />
             </FilterHeader>
             {siteTypes.map((item, i) => {
                 const checked = selectedSiteTypes.includes(item.id)
