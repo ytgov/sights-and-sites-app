@@ -99,7 +99,7 @@ export default {
                 questions: {
                     q1: 'Can I use the app offline?',
                     a1: `The app functions entirely offline. The maps are downloaded to your device when you give the app permission to do so.`,
-                    q2: 'When is the information in the app updated? ',
+                    q2: 'When is the information in the app updated?',
                     a2: 'The app is updated periodically with new data when it becomes available. This includes:\n\n' +
                         '\u2022 New sites\n' +
                         '\u2022 Existing site services\n' +
@@ -151,6 +151,26 @@ export default {
             noFavorites: 'No favorites added yet.',
         },
 
+        intro: {
+            one: {
+                title: 'Where to?',
+                text: 'Explore by highway, by region or near you'
+            },
+            two: {
+                title: 'Choose a site',
+                text: 'Explore over 280 Yukon sites, even when you’re offline'
+            },
+            three: {
+                title: 'My sites',
+                text: 'Save your favourite sites or create a wish list for future trips'
+            },
+            four: {
+                title: 'Permissions',
+                text_1: 'Your device may ask you to grant permissions for the app.',
+                text_2: 'Enable Location Services to show sites near you, and how to navigate to these sites. You can change your preferences on your device.'
+            }
+        },
+
         // NAVIGATION
         navigation: {
             header: {
@@ -167,9 +187,13 @@ export default {
 
         // FILTERS
         filters: {
+            by: 'Filter by',
             siteType: 'Site type',
+            siteTypeTitle: 'Filter by site type',
             region: 'Region',
+            regionTitle: 'Filter by region',
             highway: 'Highway',
+            highwayTitle: 'Filter by highway',
             nearMe: 'Near me',
             myFavorites: 'My favorites'
         },
@@ -291,7 +315,7 @@ export default {
                 },
 
                 title2: 'More wilderness safety tips',
-                content2: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers. `,
+                content2: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers.`,
                 url2: 'https://yukon.ca/en/outdoor-recreation-and-wildlife/wilderness-safety/travel-safely-yukon-wilderness'
             }
         },

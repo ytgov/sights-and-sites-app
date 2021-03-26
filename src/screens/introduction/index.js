@@ -4,10 +4,10 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
 
-import ScreenIntroWrapper from '../../components/screenIntroWrapper';
-import {Body} from '../../theme/typings';
-import routes from '../../navigation/routes';
-import {setOnboardingFinished} from '../../store/actions/core';
+import ScreenIntroWrapper from '~components/screenIntroWrapper';
+import {Body} from '~theme/typings';
+import routes from '~navigation/routes';
+import {setOnboardingFinished} from '~store/actions/core';
 import {connect} from 'react-redux';
 
 const windowWidth = Dimensions.get('window').width;

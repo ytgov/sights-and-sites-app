@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import {addListing, filterListing} from '../../store/actions/listing';
+import {addListing, filterListing} from '~store/actions/listing';
 
-import {APP_CONFIG} from '../../config';
+import {APP_CONFIG} from '~app/config';
 import i18n from '../../locale/locale';
-import routes from '../../navigation/routes';
+import routes from '~navigation/routes';
 import styles from './styles';
 
 const logoYukonRoadTrips = require('./images/yukon-roadtrip-app.png');
@@ -51,6 +51,9 @@ const LoadingScreen = (props) => {
                 i18n.changeLanguage(locale);
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
+
+        // Fall back if can't fetch data.
+        navigation.navigate(routes.STACK_BOTTOM_TAB);
     }, [])
 
     return (
