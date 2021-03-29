@@ -15,8 +15,8 @@ const shadow = require('./images/shadow.png');
 
 const ScreenParallaxWrapper = (props) => {
 
-    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle, bookmarkButton, bookmarkActive, bookmarkOnClick } = props
-    const headerHeight = windowHeight - 100
+    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle, bookmarkButton, bookmarkActive, bookmarkOnClick, search } = props
+    const headerHeight = windowHeight - 100;
 
     return (
         <ParallaxScrollView
@@ -24,11 +24,16 @@ const ScreenParallaxWrapper = (props) => {
             contentBackgroundColor="white"
             parallaxHeaderHeight={headerHeight}
             outputScaleValue={1.2} // max zoom level
+            renderFixedHeader={() => {
+                return (search && <View style={{width: windowWidth}}>
+                    {search}
+                </View>)
+            }}
+            stickyHeaderHeight={search ? 120 : 0}
             renderBackground={() => (
                 <Image style={{ width: windowWidth, height: headerHeight, paddingBottom: 100}} source={backgroundImage} />
             )}
             renderForeground={() => (
-
                 <View style={{flex: 1, justifyContent: 'space-between'}}>
                     <Image source={shadow} style={{
                         position: 'absolute',
@@ -86,6 +91,10 @@ ScreenParallaxWrapper.propTypes = {
     bookmarkButton: PropTypes.bool,
     bookmarkActive: PropTypes.bool,
     bookmarkOnClick: PropTypes.func,
+    search: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.bool,
+    ]),
 }
 
 ScreenParallaxWrapper.defaultProps = {
@@ -93,6 +102,7 @@ ScreenParallaxWrapper.defaultProps = {
     bookmarkButton: true,
     bookmarkActive: false,
     bookmarkOnClick: () => {},
+    search: null,
 }
 
 export default ScreenParallaxWrapper;
