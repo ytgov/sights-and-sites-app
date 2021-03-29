@@ -4,7 +4,7 @@ import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
 
-import {hideSearch, showHeader} from '~store/actions/core';
+import {hideSearch, setCurrentScreenName, showHeader} from '~store/actions/core';
 import routes from '~navigation/routes';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
 import SiteCard from '~components/siteCard';
@@ -19,6 +19,7 @@ const ListingScreen = (props) => {
         navigation,
         dispatchShowHeader,
         dispatchHideSearch,
+        dispatchSetCurrentScreenName,
         listingFiltered
     } = props
 
@@ -43,6 +44,7 @@ const ListingScreen = (props) => {
                 onWillFocus={() => {
                     dispatchHideSearch();
                     dispatchShowHeader();
+                    dispatchSetCurrentScreenName(null);
                 }} />
 
             <FlatList
@@ -50,7 +52,7 @@ const ListingScreen = (props) => {
                 data={items}
                 initialNumToRender={3}
                 scrollEventThrottle={16}
-                renderItem={({item, i}) =>
+                renderItem={({item}) =>
                     <TouchableOpacity activeOpacity={0.8}
                                       onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
                         <SiteCard data={item} />
@@ -66,7 +68,7 @@ const ListingScreen = (props) => {
     );
 };
 
-ListingScreen['navigationOptions'] = screenProps => ({
+ListingScreen['navigationOptions'] = () => ({
     header: (props) => <HeaderNav {...props}
                                   activeItem={HeaderNavType.LIST} />,
 })
@@ -80,7 +82,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         dispatchShowHeader: () => dispatch(showHeader()),
-        dispatchHideSearch: () => dispatch(hideSearch())
+        dispatchHideSearch: () => dispatch(hideSearch()),
+        dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
     };
 };
 
