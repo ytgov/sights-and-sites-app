@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
 import {NavigationEvents} from 'react-navigation';
 
-import {hideHeader, hideSearch} from '~store/actions/core';
+import {hideHeader, hideSearch, setCurrentScreenName} from '~store/actions/core';
 import {setFavorites} from '~store/actions/filters';
 
 import ScreenParallaxWrapper from '~components/screenParallaxWrapper';
@@ -23,6 +23,7 @@ import SiteCard from '~components/siteCard';
 import {YUKON_COLORS} from '~theme/config';
 import routes from '~navigation/routes';
 import styles from './styles';
+import SearchBox from '~components/searchBox';
 
 const bgPlaceholder = require('./images/bg-placeholder.png');
 const swooshYellow = require('./images/swoosh-yellow.png');
@@ -39,7 +40,9 @@ const SiteDetailsScreen = (props) => {
         filtersStore,
         listingStore,
         dispatchSetFavorites,
-        dispatchHideSearch
+        dispatchHideSearch,
+        dispatchSetCurrentScreenName,
+        isSearchVisible,
     } = props;
 
     const [myFavorites, setMyFavorites] = useState((filtersStore && filtersStore.myFavorites) || []);
@@ -163,6 +166,8 @@ const SiteDetailsScreen = (props) => {
         }
     ]
 
+    const search = isSearchVisible && <SearchBox /> || null;
+
     return (
         <ScreenParallaxWrapper backgroundImage={bgPlaceholder}
                                title={site_name}
@@ -172,15 +177,19 @@ const SiteDetailsScreen = (props) => {
                                bookmarkButton={true}
                                bookmarkActive={isFavoriteSite ? true : false}
                                bookmarkOnClick={onBookmarkClick}
+                               search={search}
                                >
             <NavigationEvents onDidFocus={() => {
                 dispatchHideHeader();
                 dispatchHideSearch();
-            }} />
+                dispatchSetCurrentScreenName(routes.SCREEN_SITE_DETAILS);
+            }} onWillBlur={() => {
+                dispatchSetCurrentScreenName(null);
+            }}/>
 
             <Section title={t('siteDetails.siteTypes.title')}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap'}}>
-                    {site_types.map((item, i) =>
+                    {site_types && site_types.length && site_types.map((item, i) =>
                         <SiteType key={i}
                                   name={item.name}
                                   icon={item.icon}
@@ -264,6 +273,10 @@ const SiteDetailsScreen = (props) => {
                 >
                 {
                     nearBySites && nearBySites.length && nearBySites.map(item =>  {
+                        const {site_name} = item;
+
+                        if (!site_name) return null;
+
                         return (
                             <TouchableOpacity activeOpacity={0.8}
                                               key={item.site_id}
@@ -291,6 +304,7 @@ const mapStateToProps = (state) => {
     return {
         filtersStore: state.filtersStore,
         listingStore: state.listingStore,
+        isSearchVisible: state.coreStore.searchVisible,
     };
 };
 
@@ -298,7 +312,8 @@ const mapDispatchToProps = dispatch => {
     return {
         dispatchHideHeader: () => dispatch(hideHeader()),
         dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
-        dispatchHideSearch: () => dispatch(hideSearch())
+        dispatchHideSearch: () => dispatch(hideSearch()),
+        dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
     };
 };
 
