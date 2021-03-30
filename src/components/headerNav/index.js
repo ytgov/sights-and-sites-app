@@ -29,11 +29,15 @@ const HeaderNav = (props) => {
         navigation,
         headerVisible,
         searchVisible,
-        filtersStore
-    } = props
+        filtersStore,
+        currentScreenName,
+    } = props;
+
 
     const {t} = useTranslation();
     const slideAnim = useRef(new Animated.Value(1)).current
+    /* Hide Search on Site Details screen */
+    const isSiteDetailsScreen = currentScreenName === routes.SCREEN_SITE_DETAILS;
 
     const animateComponent = (toValue, duration) => {
         Animated.timing(
@@ -85,8 +89,7 @@ const HeaderNav = (props) => {
                                isActive={activeItem === HeaderNavType.MAP}
                                onPress={() => navigation.navigate(routes.SCREEN_MAP)} />
             </Animated.View>}
-
-            {searchVisible && <SearchBox />}
+            {!isSiteDetailsScreen && searchVisible && <SearchBox />}
         </>
 
     );
@@ -104,7 +107,8 @@ const mapStateToProps = (state) => {
     return {
         headerVisible: state.coreStore.headerVisible,
         searchVisible: state.coreStore.searchVisible,
-        filtersStore: state.filtersStore
+        filtersStore: state.filtersStore,
+        currentScreenName: state.coreStore.currentScreenName,
     };
 };
 
