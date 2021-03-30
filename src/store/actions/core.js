@@ -9,7 +9,7 @@ import {
     TOGGLE_SEARCH,
     SHOW_SEARCH,
     HIDE_SEARCH,
-    SET_CURRENT_SCREE_NAME,
+    SET_CURRENT_SCREEN_NAME,
 } from '../types';
 
 export function setSelectLocaleAction(value) {
@@ -80,7 +80,7 @@ export function hideSearch() {
 }
 export function setCurrentScreenName(screenName) {
     return {
-        type: SET_CURRENT_SCREE_NAME,
+        type: SET_CURRENT_SCREEN_NAME,
         payload: screenName,
     }
 }

@@ -9,7 +9,7 @@ import {
     TOGGLE_SEARCH,
     SHOW_SEARCH,
     HIDE_SEARCH,
-    SET_CURRENT_SCREE_NAME,
+    SET_CURRENT_SCREEN_NAME,
 } from '../types';
 
 const initialState = {
@@ -83,7 +83,7 @@ export default function coreReducer(state = initialState, action) {
                 ...state,
                 searchVisible: action.payload
             }
-        case SET_CURRENT_SCREE_NAME:
+        case SET_CURRENT_SCREEN_NAME:
             return {
                 ...state,
                 currentScreenName: action.payload
