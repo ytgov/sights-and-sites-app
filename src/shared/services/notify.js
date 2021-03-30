@@ -1,5 +1,6 @@
 import React from 'react';
 import Toast from 'react-native-root-toast';
+import DeviceInfo from 'react-native-device-info';
 import {Text} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import {merge as _merge} from 'lodash';
@@ -18,12 +19,12 @@ const config = {
 };
 
 const TOAST_WITH_ICON_DEFAULT_CONFIG = {
-    position: Toast.positions.TOP,
+    position: 1,
     shadow: false,
     containerStyle: {
-        // top: 12, //@TODO:  iPhone with notch
+        top: -1,
         paddingLeft: 18,
-        paddingTop: 20,
+        paddingTop: DeviceInfo.hasNotch() ? 64 : 40,
         paddingBottom: 18,
         paddingRight: 18,
         borderRadius: 0,
