@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import DeviceInfo from 'react-native-device-info';
+import {useTranslation} from 'react-i18next';
 
 import ScreenWrapper from '~components/screenWrapper';
 import LabelArrow from '~components/filters/labelArrow';
@@ -12,7 +13,6 @@ import filters from './data/filters';
 import {checkActiveFilter} from '~app/shared/utils/filters';
 import routes from '~navigation/routes';
 import {toastWithIcon, ICON_POSITION} from '~app/shared/services/notify';
-import {useTranslation} from 'react-i18next';
 import {Dimensions} from 'react-native';
 
 const bgIndex = require('./images/index/bg-index.jpg');
@@ -22,7 +22,7 @@ const FilterIndexScreen = (props) => {
     const { t } = useTranslation();
     const {filterStore, navigation} = props
     const { myFavorites = [] } = filterStore || {};
-    const hasFavorites = myFavorites.length ? true : false;
+    const hasFavorites = !!myFavorites.length;
 
     const cooked_filters = filters.map(item => {
         return {
@@ -76,9 +76,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        //dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
-    };
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterIndexScreen);
