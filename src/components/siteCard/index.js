@@ -49,7 +49,7 @@ const SiteCard = (props) => {
                 setDistance(cachedDistances[site_id].distance)
             }
         }
-    }, [site_id, distance])
+    }, [site_id, cachedDistances])
 
     return (
         <View style={styles.wrapper}>
