@@ -1,15 +1,15 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {Image, View, TouchableOpacity} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import Modal from 'react-native-modal';
-import * as Location from 'expo-location';
+import {isNull as _isNull} from 'lodash';
 import {NavigationEvents} from 'react-navigation';
 
 import {APP_CONFIG} from '~app/config';
 
 import SiteCard from '~components/siteCard';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
-import {hideSearch, showHeader} from '~store/actions/core';
+import {getUserLocation, hideSearch, showHeader} from '~store/actions/core';
 import {connect} from 'react-redux';
 import routes from '~navigation/routes';
 
@@ -40,7 +40,9 @@ const MapScreen = (props) => {
         listingFiltered,
         navigation,
         dispatchShowHeader,
-        dispatchHideSearch
+        dispatchHideSearch,
+        dispatchGetUserLocation,
+        userLocation
     } = props
 
     const mapRef = useRef()
@@ -51,16 +53,8 @@ const MapScreen = (props) => {
     const [showUserLocation, setShowUserLocation] = useState(false);
 
     const onUserLocationPressed = () => {
-        const nextShowUserLocation = !showUserLocation
-        setShowUserLocation(nextShowUserLocation)
 
-        // Center the map to user location
-        if (nextShowUserLocation) {
-            Location.getCurrentPositionAsync()
-                .then(({coords: {latitude, longitude}}) => {
-                    setCenter({latitude, longitude})
-                });
-        }
+        setShowUserLocation(!showUserLocation);
     }
 
     const onSourceLayerPress = (e) => {
@@ -94,6 +88,16 @@ const MapScreen = (props) => {
             features: features
         }
     }
+
+    useEffect(() => {
+        // Check for user location, if not already have it.
+        if (_isNull(userLocation)) {
+            dispatchGetUserLocation();
+        } else {
+            setShowUserLocation(true)
+        }
+
+    }, [userLocation])
 
     return (
         <View style={{flex: 1}}>
@@ -152,6 +156,7 @@ const MapScreen = (props) => {
                             navigation.navigate(routes.SCREEN_SITE_DETAILS, {item: pinnedItem})
                         }}>
                         {pinnedItem && <SiteCard data={pinnedItem}
+                                                 withDistance={true}
                                                  imageStyle={{ height: 230 }} />}
                     </TouchableOpacity>
 
@@ -169,13 +174,15 @@ MapScreen['navigationOptions'] = screenProps => ({
 const mapStateToProps = (state) => {
     return {
         listingFiltered: state.listingStore.listingFiltered,
+        userLocation: state.coreStore.userLocation,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         dispatchShowHeader: () => dispatch(showHeader()),
-        dispatchHideSearch: () => dispatch(hideSearch())
+        dispatchHideSearch: () => dispatch(hideSearch()),
+        dispatchGetUserLocation: () => dispatch(getUserLocation())
     };
 };
 
