@@ -3,6 +3,7 @@ import {
     SET_REGION_FILTER,
     SET_HIGHWAY_FILTER,
     SET_FAVORITES,
+    RESET_FILTERS,
 } from '../types';
 
 export const setSiteTypesFilter = (siteTypes) => {
@@ -30,6 +31,14 @@ export const setFavorites = (favorites) => {
     return {
         type: SET_FAVORITES,
         payload: favorites
+    }
+}
+
+export const resetFilters = () => {
+    return dispatch => {
+        dispatch(setSiteTypesFilter([]))
+        dispatch(setRegionsFilter([]))
+        dispatch(setHighwaysFilter([]))
     }
 }
 

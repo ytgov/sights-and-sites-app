@@ -7,7 +7,7 @@ import ScreenFilterWrapper from '~components/screenFilterWrapper';
 import {FilterHeader} from '~theme/layout';
 import Title from '~components/filters/title';
 import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
-import {setSiteTypesFilter} from '~store/actions/filters';
+import {resetFilters, setSiteTypesFilter} from '~store/actions/filters';
 import routes from '~navigation/routes';
 import {filterListing} from '~store/actions/listing';
 
@@ -19,6 +19,7 @@ const FilterByTypeScreen = (props) => {
         filteredSiteTypesData,
         dispatchSetSiteTypesFilter,
         dispatchFilterListing,
+        dispatchResetFilters,
         navigation
     } = props
 
@@ -43,7 +44,8 @@ const FilterByTypeScreen = (props) => {
 
     const onReset = () => {
         setSelectedSiteTypes([])
-        setBackground(bgDefault)
+        dispatchResetFilters()
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     const onSubmit = () => {
@@ -96,7 +98,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
-        dispatchFilterListing: () => dispatch(filterListing())
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchResetFilters: () => dispatch(resetFilters())
     };
 };
 
