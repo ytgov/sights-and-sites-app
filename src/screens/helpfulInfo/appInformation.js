@@ -102,6 +102,7 @@ const AppInformationScreen = () => {
         <ScreenParallaxWrapper backgroundImage={bgAppInformation}
                                leadIcon={iconAppInformation}
                                swoosh={swoosh}
+                               bookmarkButton={false}
                                title={'App information'}>
             <Section title={t('appInformation.title')}>
                 <HTMLElement html={t('appInformation.intro')} />
