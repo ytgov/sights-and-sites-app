@@ -7,7 +7,13 @@ import {connect} from 'react-redux';
 
 const BottomTabItemSearch = (props) => {
     const {dispatchToggleSearch} = props
-    return <TouchableOpacity onPress={() => dispatchToggleSearch()}>
+    return <TouchableOpacity
+            style={{
+                paddingTop: 22,
+                width: '100%',
+                height: '100%'
+            }}
+            onPress={() => dispatchToggleSearch()}>
         <BottomTabItem {...props} />
     </TouchableOpacity>
 
