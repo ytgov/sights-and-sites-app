@@ -1,38 +1,28 @@
-import {INCREMENT_SEARCH_PAGE, RESET_SEARCH_QUERY, SEARCH_IN_PROGRESS, SEARCH_SITES} from '../types';
+import {
+    SET_SEARCH_KEYWORD,
+    SET_SEARCH_RESULTS
+} from '../types';
 
-export function setSearchInProgress(value) {
-    return {
-        type: SEARCH_IN_PROGRESS,
-        payload: value
+import {filter as _filter} from 'lodash';
+
+export const setSearchKeyword = (keyword) => ({
+    type: SET_SEARCH_KEYWORD,
+    payload: keyword
+})
+
+export const setSearchResults = (results) => ({
+    type: SET_SEARCH_RESULTS,
+    payload: results
+})
+
+export const doSearch = (keyword, listing) => {
+    return dispatch => {
+        dispatch(setSearchKeyword(keyword))
+        const matched = _filter(listing, (i) => {
+            return i.site_name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+        });
+
+        dispatch(setSearchResults(matched))
+
     }
-}
-
-export function resetSearchQuery(value) {
-    return {
-        type: RESET_SEARCH_QUERY,
-        payload: value
-    }
-}
-
-export function incrementSearchPage() {
-    return {
-        type: INCREMENT_SEARCH_PAGE
-    }
-}
-
-
-export const searchSites = value => (dispatch, getState) => {
-    const state = getState();
-    const {query, queryFormatted} = value;
-    const {listingRaw} = state.listingStore;
-    const {locale} = state.localeStore;
-    dispatch({
-        type: SEARCH_SITES,
-        payload: {
-            listing: listingRaw,
-            locale,
-            query,
-            queryFormatted
-        }
-    })
 }
