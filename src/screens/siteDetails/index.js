@@ -54,6 +54,7 @@ const SiteDetailsScreen = (props) => {
         site_name,
         site_description,
         site_directions,
+        image_url,
         warning,
         region: { swoosh, map },
         site_types,
@@ -169,7 +170,7 @@ const SiteDetailsScreen = (props) => {
     const search = isSearchVisible && <SearchBox /> || null;
 
     return (
-        <ScreenParallaxWrapper backgroundImage={bgPlaceholder}
+        <ScreenParallaxWrapper backgroundImage={image_url}
                                title={site_name}
                                leadIcon={map}
                                leadIconStyle={{ height: 42 }}

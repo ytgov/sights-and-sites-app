@@ -20,9 +20,10 @@ const FirstNationsScreen = () => {
                                swoosh={swoosh}
                                title={t('firstNation.title')}>
             {
-                blocks && blocks.length && blocks.map(block => {
+                blocks && blocks.length && blocks.map((block, i) => {
                     return (
-                        <Section title={t(`firstNation.${block}.title`)}>
+                        <Section key={i}
+                                 title={t(`firstNation.${block}.title`)}>
                             <HTMLElement html={t(`firstNation.${block}.description`)} />
                         </Section>
                     );
