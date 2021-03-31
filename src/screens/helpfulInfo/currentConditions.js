@@ -19,6 +19,7 @@ const CurrentConditionsScreen = () => {
     return (
         <ScreenParallaxWrapper backgroundImage={bgCurrentConditions}
                                leadIcon={iconCurrentConditions}
+                               bookmarkButton={false}
                                title={t('currentConditions.title')}>
             {
                 blocks && blocks.length && blocks.map((block, i) => {

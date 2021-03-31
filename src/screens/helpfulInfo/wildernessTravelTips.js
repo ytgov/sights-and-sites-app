@@ -39,6 +39,7 @@ const WildernessTravelTipsScreen = () => {
         <ScreenParallaxWrapper backgroundImage={bgWilderness}
                                swoosh={swoosh}
                                leadIcon={iconWilderness}
+                               bookmarkButton={false}
                                title={t('travelTips.title')}>
 
             <Section title={t('travelTips.section.title')}>

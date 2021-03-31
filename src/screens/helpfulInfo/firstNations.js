@@ -18,6 +18,7 @@ const FirstNationsScreen = () => {
         <ScreenParallaxWrapper backgroundImage={bgFirstNations}
                                leadIcon={iconFirstNations}
                                swoosh={swoosh}
+                               bookmarkButton={false}
                                title={t('firstNation.title')}>
             {
                 blocks && blocks.length && blocks.map((block, i) => {
