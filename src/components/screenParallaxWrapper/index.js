@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import {Dimensions, Image, SafeAreaView, View, ImageBackground} from 'react-native';
+import {Dimensions, SafeAreaView, Image, View, ImageBackground} from 'react-native';
+import {Image as ImageCache} from 'react-native-expo-image-cache';
+
 import {H1} from '~theme/typings';
 import {YUKON_COLORS} from '~theme/config';
 import BackButton from './backButton';
@@ -15,8 +17,22 @@ const overlay = require('./images/overlay.png');
 
 const ScreenParallaxWrapper = (props) => {
 
-    const { backgroundImage, leadIcon, title, children, swoosh, leadIconStyle, bookmarkButton, bookmarkActive, bookmarkOnClick, search } = props
+    const {
+        backgroundImage,
+        leadIcon,
+        title,
+        children,
+        swoosh,
+        leadIconStyle,
+        bookmarkButton,
+        bookmarkActive,
+        bookmarkOnClick,
+        search
+    } = props
+
     const headerHeight = windowHeight - 100;
+
+    console.log(typeof backgroundImage)
 
     return (
         <ParallaxScrollView
@@ -30,9 +46,25 @@ const ScreenParallaxWrapper = (props) => {
                 </View>)
             }}
             stickyHeaderHeight={search ? 120 : 0}
-            renderBackground={() => (
-                <Image style={{ width: windowWidth, height: headerHeight, paddingBottom: 100}} source={backgroundImage} />
-            )}
+            renderBackground={() => {
+                return typeof backgroundImage === 'string'
+                    ? <ImageCache
+                        tint={'light'}
+                        transitionDuration={300}
+                        resizeMode='cover'
+                        // fallback={fallback}
+                        uri={backgroundImage}
+                        style={{
+                            width: windowWidth,
+                            height: headerHeight,
+                            paddingBottom: 100
+                        }} />
+                    : <Image style={{
+                        width: windowWidth,
+                        height: headerHeight,
+                        paddingBottom: 100
+                    }} source={backgroundImage} />
+            }}
             renderForeground={() => (
                 <View style={{flex: 1, justifyContent: 'space-between'}}>
                     <Image source={overlay} style={{
@@ -83,7 +115,10 @@ const ScreenParallaxWrapper = (props) => {
 };
 
 ScreenParallaxWrapper.propTypes = {
-    backgroundImage: PropTypes.node.isRequired,
+    backgroundImage: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string
+    ]).isRequired,
     leadIcon: PropTypes.node,
     leadIconStyle: PropTypes.object,
     title: PropTypes.string.isRequired,
