@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import {isNull as _isNull} from 'lodash';
+import {isEmpty as _isEmpty} from 'lodash';
 import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
@@ -198,7 +198,7 @@ const SiteDetailsScreen = (props) => {
                 </View>
             </Section>
 
-            {_isNull(warning) &&
+            {!_isEmpty(warning) &&
                 <Section title={t('siteDetails.sectionInfo.title')}
                          backgroundColor={'#fdf6e9'}
                          swoosh={swooshYellow}>
