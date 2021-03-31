@@ -38,7 +38,9 @@ const WebLink = ({label, url, type, icon, containerStyle, onPress}) => {
     }
 
     return (
-        <TouchableOpacity onPress={() => onPress(url)}>
+        <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => onPress(url)}>
             <View style={wrapper}>
                 <View style={innerWrapper}>
                     <Body fontBold
