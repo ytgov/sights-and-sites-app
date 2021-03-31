@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 
 import ScreenFilterWrapper from '~components/screenFilterWrapper';
-import {setRegionsFilter} from '~store/actions/filters';
+import {resetFilters, setRegionsFilter} from '~store/actions/filters';
 import {FilterHeader} from '~theme/layout';
 import Title from '~components/filters/title';
 import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
@@ -18,6 +18,7 @@ const FilterByRegionScreen = (props) => {
         filteredRegionsData,
         dispatchSetRegionsFilter,
         dispatchFilterListing,
+        dispatchResetFilters,
         navigation
     } = props
 
@@ -39,6 +40,8 @@ const FilterByRegionScreen = (props) => {
 
     const onReset = () => {
         setSelectedRegions([])
+        dispatchResetFilters()
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     const onSubmit = () => {
@@ -82,7 +85,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetRegionsFilter: value => dispatch(setRegionsFilter(value)),
-        dispatchFilterListing: () => dispatch(filterListing())
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchResetFilters: () => dispatch(resetFilters())
     };
 };
 
