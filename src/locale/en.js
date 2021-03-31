@@ -259,9 +259,10 @@ export default {
                 title: 'Are you interested in booking this beautiful site?',
                 text: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
                 linkLabel: 'Yukon.ca/en/road-trip-app',
-                extra: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest! \n' +
-                    'For questions and support regarding \n' +
-                    'this app, please feel free to email heritage.planning@gov.yk.ca or phone 867-667-5386, or toll free in Yukon 1-800-661-0408, extension 5386.'
+                extra: '<p style="color: white">For questions and support regarding this app, please feel free to email ' +
+                    '<a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or ' +
+                    'phone <a href="tel:867-667-5386">867-667-5386</a>, or toll free in Yukon <a href="tel:1-800-661-0408">1-800-661-0408</a>, ' +
+                    'extension 5386.</p>'
             },
             sectionSupport: {
                 title: 'Support the App!',

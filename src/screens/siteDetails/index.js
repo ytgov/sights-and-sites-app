@@ -13,6 +13,7 @@ import {Body, H3} from '~theme/typings';
 import SiteType from './siteType';
 import Section from './section';
 import WebLink, {WebLinkIcon, WebLinkType} from '~components/webLink';
+import HTMLElement from '~components/htmlElement';
 
 import {shareOnSocialMedia} from '~app/shared/services/share';
 import {toastWithIcon} from '~app/shared/services/notify';
@@ -254,8 +255,7 @@ const SiteDetailsScreen = (props) => {
                          icon={WebLinkIcon.EXT_LINK}
                          url={BOOKING_URL}
                          containerStyle={{marginVertical: 20}} />
-
-                <Body>{t('siteDetails.sectionBooking.extra')}</Body>
+                <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />
             </Section>
 
             <Section title={t('siteDetails.sectionSupport.title')}>
