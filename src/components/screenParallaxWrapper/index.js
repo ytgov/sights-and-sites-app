@@ -30,9 +30,7 @@ const ScreenParallaxWrapper = (props) => {
         search
     } = props
 
-    const headerHeight = windowHeight - 100;
-
-    console.log(typeof backgroundImage)
+    const headerHeight = windowHeight;
 
     return (
         <ParallaxScrollView
