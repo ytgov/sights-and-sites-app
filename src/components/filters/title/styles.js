@@ -5,8 +5,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
+    arrowWrapper: {
+        height: 32,
+        width: 32,
+        alignContent: 'center',
+        justifyContent: 'center',
+    },
     arrow: {
-        marginRight: 16
+        marginRight: 16,
     }
 })
 
