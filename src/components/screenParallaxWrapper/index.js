@@ -11,7 +11,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const auroraOrange = require('./images/aurora-orange.png');
-const shadow = require('./images/shadow.png');
+const overlay = require('./images/overlay.png');
 
 const ScreenParallaxWrapper = (props) => {
 
@@ -35,7 +35,7 @@ const ScreenParallaxWrapper = (props) => {
             )}
             renderForeground={() => (
                 <View style={{flex: 1, justifyContent: 'space-between'}}>
-                    <Image source={shadow} style={{
+                    <Image source={overlay} style={{
                         position: 'absolute',
                         bottom: 0, left: 0, width: windowWidth,
                         resizeMode: 'cover',
