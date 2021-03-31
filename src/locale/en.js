@@ -245,6 +245,7 @@ export default {
                 highwayKm: 'Highway kilometre',
                 secondaryRoad: 'Secondary road',
                 secondaryRoadKm: 'Secondary road kilometre',
+                GPS: 'GPS coordinates',
                 siteDirections: 'Site directions'
             },
             sectionHelpfulLinks: {
