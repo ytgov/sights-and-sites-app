@@ -3,7 +3,7 @@ import {Text, ImageBackground} from 'react-native';
 import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 
-import {setHighwaysFilter} from '~store/actions/filters';
+import {resetFilters, setHighwaysFilter} from '~store/actions/filters';
 import ScreenFilterWrapper from '~components/screenFilterWrapper';
 import {FilterHeader} from '~theme/layout';
 import Title from '~components/filters/title';
@@ -22,6 +22,7 @@ const FilterByHighwayScreen = (props) => {
         filteredHighwaysData,
         dispatchSetHighwaysFilter,
         dispatchFilterListing,
+        dispatchResetFilters,
         navigation
     } = props
 
@@ -44,6 +45,8 @@ const FilterByHighwayScreen = (props) => {
 
     const onReset = () => {
         setSelectedHighways([])
+        dispatchResetFilters()
+        navigation.navigate(routes.SCREEN_LISTING)
     }
 
     const onSubmit = () => {
@@ -91,7 +94,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetHighwaysFilter: value => dispatch(setHighwaysFilter(value)),
-        dispatchFilterListing: () => dispatch(filterListing())
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchResetFilters: () => dispatch(resetFilters())
     };
 };
 
