@@ -60,6 +60,8 @@ const SiteDetailsScreen = (props) => {
         site_types,
         highway_name,
         highway_km,
+        latitude,
+        longitude,
         secondary_road_km,
         secondary_road_name,
         nearby_sites,
@@ -141,6 +143,10 @@ const SiteDetailsScreen = (props) => {
         {
             label: t('siteDetails.sectionDirections.secondaryRoadKm'),
             content: `${secondary_road_km} km`
+        },
+        {
+            label: t('siteDetails.sectionDirections.GPS'),
+            content: `${latitude}°N ${longitude}°W`
         },
         {
             label: t('siteDetails.sectionDirections.siteDirections'),
