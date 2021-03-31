@@ -146,7 +146,8 @@ export const setSiteDistance = (site_id, distance) => ({
     }
 })
 
-const CACHE_LIFE_SPAN = 60 * 60 * 1000;
+// The number of milliseconds to wait before resending Mapbox request.
+const MAPBOX_CACHE = 5 * 60 * 1000;
 
 export const getUserToSiteDistance = (userLocation, site, cachedDistances) => {
     const {latitude, longitude, site_id} = site
@@ -157,7 +158,7 @@ export const getUserToSiteDistance = (userLocation, site, cachedDistances) => {
 
             // check if cache expired
             const cached = cachedDistances[site_id]
-            if (Date.now() - cached.updated > CACHE_LIFE_SPAN) {
+            if (Date.now() - cached.updated > MAPBOX_CACHE) {
                 // cache expired, recalculate
                 shouldCalculate = true
 
