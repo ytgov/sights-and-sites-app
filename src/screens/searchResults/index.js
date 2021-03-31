@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {FlatList, Text, View, TouchableOpacity} from 'react-native';
-import {filter as _filter} from 'lodash';
+
 
 import ScreenWrapper from '~components/screenWrapper';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
@@ -8,32 +8,31 @@ import {showHeader} from '~store/actions/core';
 import {connect} from 'react-redux';
 import SiteCard from '~components/siteCard';
 import SearchResult from '~screens/searchResults/searchResult';
+import {NavigationContext} from 'react-navigation';
 import NoResult from '~components/noResult';
 import {Small} from '~theme/typings';
 import {YUKON_COLORS} from '~theme/config';
 import routes from '~navigation/routes';
+import {doSearch, setSearchKeyword, setSearchResults} from '~store/actions/search';
 
 const SearchResultsScreen = (props) => {
     const {
         navigation,
-        listingFiltered
+        currentQuery,
+        dispatchDoSearch,
+        listingRaw,
+        searchResults
     } = props
     const [keyword, setKeyword] = useState('');
-    const [results, setResults] = useState([]);
 
     useEffect(() => {
-        if (navigation.getParam('keyword')) {
-            setKeyword(navigation.getParam('keyword'));
-            const matched = _filter(listingFiltered, (i) => {
-                return i.site_name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
-            });
-            setResults(matched);
-        }
-    }, [keyword]);
+        setKeyword(currentQuery)
+        dispatchDoSearch(currentQuery, listingRaw)
+    }, []);
 
     return (
         <ScreenWrapper>
-            {results.length > 0 &&
+            {searchResults.length > 0 &&
                 <View style={{
                     backgroundColor: YUKON_COLORS.primary,
                     position: 'absolute',
@@ -42,9 +41,9 @@ const SearchResultsScreen = (props) => {
                     paddingHorizontal: 20,
                     borderBottomLeftRadius: 8
                 }}>
-                    <Small>{`${results.length} results`}</Small>
+                    <Small>{`${searchResults.length} results`}</Small>
                 </View>}
-            <FlatList data={results}
+            <FlatList data={searchResults}
                       style={{marginVertical: 20}}
                       renderItem={({item}) =>
                           <TouchableOpacity
@@ -68,13 +67,16 @@ SearchResultsScreen['navigationOptions'] = screenProps => ({
 
 const mapStateToProps = (state) => {
     return {
-        listingFiltered: state.listingStore.listingFiltered,
+        listingRaw: state.listingStore.listingRaw,
+        currentQuery: state.searchStore.query,
+        searchResults: state.searchStore.results
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        //dispatchShowHeader: () => dispatch(showHeader())
+        dispatchSetKeyword: (keyword) => dispatch(setSearchKeyword(keyword)),
+        dispatchDoSearch: (results, listing) => dispatch(doSearch(results, listing))
     };
 };
 
