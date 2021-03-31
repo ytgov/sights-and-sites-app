@@ -1,6 +1,6 @@
 import MapboxClient from '@mapbox/mapbox-sdk';
 import MapboxDirectionClient from '@mapbox/mapbox-sdk/services/directions';
-import {APP_CONFIG} from '../../config';
+import {APP_CONFIG} from '~app/config';
 
 const accessToken = APP_CONFIG.map_box;
 const mapboxClient = new MapboxClient({accessToken});
@@ -23,11 +23,12 @@ export const getDrivingDistance = async (source, destination) => {
         }).send();
         if (response !== null) {
             let route = response.body.routes[0];
+            const distance = (parseFloat(route.distance) / 1000).toFixed(1)
             result =  {
                 status: 200,
                 fetched: true,
                 source: source,
-                distance: route.distance,
+                distance: distance,
                 duration: route.duration,
                 coordinates: route.geometry.coordinates
             }
