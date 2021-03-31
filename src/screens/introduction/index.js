@@ -47,21 +47,6 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
     const [activeSlide, setActiveSlide] = useState(0)
     const carouselRef = useRef()
 
-    const getLocationPermissions = async () => {
-        const {status} = await Permissions.askAsync(
-            Permissions.LOCATION
-        );
-
-        // 20200911 drogers: Apple will not accept the app unless it can be run without location
-        //permissions enabled.
-        if (status !== 'granted') {
-           //error(i18n.t('notifications.permissionsRequest'));
-        } else {
-           dispatchSetOnboardingFinished()
-        }
-        navigation.navigate(routes.STACK_BOTTOM_TAB);
-    }
-
     const _renderItem = ({item, index}, parallaxProps) => {
         return (
             <ScreenIntroWrapper backgroundImage={item.backgroundImage}
@@ -72,7 +57,10 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
                                 key={index}>
                 {index === 3 &&
                     <TouchableOpacity style={{ flexDirection: 'row'}}
-                        onPress={() => getLocationPermissions()}>
+                        onPress={() => {
+                            dispatchSetOnboardingFinished();
+                            navigation.navigate(routes.STACK_BOTTOM_TAB);
+                        }}>
                         <Body fontBold>{'Let’s get started'}</Body>
                         <MaterialIcons name="chevron-right" size={24} color="white" />
                     </TouchableOpacity>}
