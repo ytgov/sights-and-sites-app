@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, ImageBackground} from 'react-native';
 import {Image as ImageCache} from 'react-native-expo-image-cache';
-import {APP_CONFIG} from '../../config';
-import {H3, Body, Small} from '../../theme/typings';
+import {APP_CONFIG} from '~app/config';
+import {H3, Body, Small} from '~theme/typings';
 
 import styles from './styles';
-import {getSiteTypeFromString} from '../../shared/mapping/mapSiteTypes';
-import {getHighwayFromString} from '../../shared/mapping/mapHighways';
+import {getHighwayFromString} from '~shared/mapping/mapHighways';
+import {
+    getUserLocation,
+    getUserToSiteDistance,
+    setSiteDistance,
+} from '~store/actions/core';
+import {connect} from 'react-redux';
 
 const badge = require('./images/badge-highway.png');
 
@@ -16,19 +21,35 @@ const SiteCard = (props) => {
     const {
         imageStyle,
         withDistance,
+        userLocation,
+        cachedDistances,
+        dispatchGetUserToSiteDistance,
         data
     } = props
 
     const {
+        site_id,
         site_name,
         image_url,
         site_types,
         highway_km,
         highway_name,
-        region
+        region,
     } = data
 
     const highway = getHighwayFromString(highway_name);
+
+    const [distance, setDistance] = useState(0);
+
+    useEffect(() => {
+        if (withDistance) {
+            dispatchGetUserToSiteDistance(userLocation, data, cachedDistances);
+
+            if (cachedDistances.hasOwnProperty(site_id)) {
+                setDistance(cachedDistances[site_id].distance)
+            }
+        }
+    }, [site_id, distance])
 
     return (
         <View style={styles.wrapper}>
@@ -55,7 +76,9 @@ const SiteCard = (props) => {
                     <View style={{ marginLeft: 12}}>
                         <Body black>{`${highway.name}, km ${highway_km}`}</Body>
                         <Body black>{region.name}</Body>
-                        {/*<Small style={{ marginTop: 8 }}>{'400.89 km away'}</Small>*/}
+                        {distance !== 0 &&
+                            <Small style={{ marginTop: 8 }}>{`${distance} km away`}</Small>}
+
                     </View>
                 </View>
             </View>
@@ -90,4 +113,20 @@ SiteCard.defaultProps = {
     withDistance: false
 }
 
-export default SiteCard;
+const mapStateToProps = (state) => {
+    return {
+        cachedDistances: state.coreStore.distances,
+        userLocation: state.coreStore.userLocation,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchGetUserLocation: () => dispatch(getUserLocation()),
+        dispatchGetUserToSiteDistance: (userLocation, site, cachedDistances) => dispatch(getUserToSiteDistance(userLocation, site, cachedDistances)),
+        dispatchSiteDistance: (site_id, distance) => dispatch(setSiteDistance(site_id, distance))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SiteCard);
+
