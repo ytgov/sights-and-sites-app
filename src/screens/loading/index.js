@@ -51,9 +51,6 @@ const LoadingScreen = (props) => {
                 i18n.changeLanguage(locale);
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
-
-        // Fall back if can't fetch data.
-        navigation.navigate(routes.STACK_BOTTOM_TAB);
     }, [])
 
     return (
