@@ -1,6 +1,4 @@
-import {RESET_REGION} from '../types';
-
-import {getRegionFromString, RegionNames} from '../../shared/mapping/mapRegions';
+import {getRegionFromString, RegionNames} from '~shared/mapping/mapRegions';
 
 const initialState = {
     regions: [
@@ -17,12 +15,6 @@ const initialState = {
 
 export default function regionsReducer(state = initialState, action) {
     switch (action.type) {
-        case RESET_REGION: {
-            return {
-                ...state,
-                regions: initialState.regions
-            }
-        }
         default:
             return state;
     }

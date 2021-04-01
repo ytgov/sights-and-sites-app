@@ -3,6 +3,7 @@ import {Dimensions, TouchableOpacity} from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
+import {useTranslation} from 'react-i18next';
 
 import ScreenIntroWrapper from '~components/screenIntroWrapper';
 import {Body} from '~theme/typings';
@@ -12,37 +13,44 @@ import {connect} from 'react-redux';
 
 const windowWidth = Dimensions.get('window').width;
 
-const slides = [
-    {
-        leadIcon: require('./images/icon-1.png'),
-        title: 'Where to?',
-        text: ['Explore by highway, by region or near you'],
-        backgroundImage: require('./images/bg-intro-1.jpg'),
-    },
-    {
-        leadIcon: require('./images/icon-2.png'),
-        title: 'Choose a site',
-        text: ['Explore over 280 Yukon sites, even when you’re offline'],
-        backgroundImage: require('./images/bg-intro-2.jpg')
-    },
-    {
-        leadIcon: require('./images/icon-3.png'),
-        title: 'My sites',
-        text: ['Save your favourite sites or create a wish list for future trips'],
-        backgroundImage: require('./images/bg-intro-3.jpg')
-    },
-    {
-        leadIcon: require('./images/icon-4.png'),
-        title: 'Permissions',
-        text: [
-            'Your device may ask you to grant permissions for the app.',
-            'Enable Location Services to show sites near you, and how to navigate to these sites. You can change your preferences on your device.'
-        ],
-        backgroundImage: require('./images/bg-intro-4.jpg')
-    },
-]
-
 const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
+    const {t} = useTranslation()
+    const slides = [
+        {
+            leadIcon: require('./images/icon-1.png'),
+            title: t('intro.one.title'),
+            text: [
+                t('intro.one.text')
+            ],
+            backgroundImage: require('./images/bg-intro-1.jpg'),
+        },
+        {
+            leadIcon: require('./images/icon-2.png'),
+            title: t('intro.two.title'),
+            text: [
+                t('intro.two.text')
+            ],
+            backgroundImage: require('./images/bg-intro-2.jpg')
+        },
+        {
+            leadIcon: require('./images/icon-3.png'),
+            title: t('intro.three.title'),
+            text: [
+                t('intro.three.text')
+            ],
+            backgroundImage: require('./images/bg-intro-3.jpg')
+        },
+        {
+            leadIcon: require('./images/icon-4.png'),
+            title: t('intro.four.title'),
+            text: [
+                t('intro.four.text_1'),
+                t('intro.four.text_2'),
+            ],
+            backgroundImage: require('./images/bg-intro-4.jpg')
+        },
+    ]
+
     const [entries] = useState(slides)
     const [activeSlide, setActiveSlide] = useState(0)
     const carouselRef = useRef()
@@ -61,7 +69,7 @@ const IntroductionScreen = ({navigation, dispatchSetOnboardingFinished}) => {
                             dispatchSetOnboardingFinished();
                             navigation.navigate(routes.STACK_BOTTOM_TAB);
                         }}>
-                        <Body fontBold>{'Let’s get started'}</Body>
+                        <Body fontBold>{t('intro.start')}</Body>
                         <MaterialIcons name="chevron-right" size={24} color="white" />
                     </TouchableOpacity>}
 
