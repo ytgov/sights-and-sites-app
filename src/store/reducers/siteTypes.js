@@ -1,5 +1,4 @@
-import {RESET_SITE_TYPE} from '../types';
-import {getSiteTypeFromString, SiteTypesRaw} from '../../shared/mapping/mapSiteTypes';
+import {getSiteTypeFromString, SiteTypesRaw} from '~shared/mapping/mapSiteTypes';
 
 const initialState = {
     siteTypes: [
@@ -12,12 +11,6 @@ const initialState = {
 
 export default function siteTypesReducer(state = initialState, action) {
     switch (action.type) {
-        case RESET_SITE_TYPE: {
-            return {
-                ...state,
-                siteTypes: initialState.siteTypes
-            }
-        }
         default:
             return state;
     }

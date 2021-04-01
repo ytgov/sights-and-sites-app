@@ -5,15 +5,15 @@ import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {useTranslation} from 'react-i18next';
-import {languages, getToggledLanguage} from '../../locale/locale';
+import {languages, getToggledLanguage} from '~locale/locale';
 
-import routes from '../../navigation/routes';
-import {YUKON_COLORS} from '../../theme/config';
+import routes from '~navigation/routes';
+import {YUKON_COLORS} from '~theme/config';
 import styles from './styles';
 
 import YukonLogo from './images/yukon.png'
-import {setLocale} from '../../store/actions/locale';
-import {setSelectLocaleAction} from '../../store/actions/core';
+import {setLocale} from '~store/actions/locale';
+import {setSelectLocaleAction} from '~store/actions/core';
 import {connect} from 'react-redux';
 
 const SideMenu = (props) => {

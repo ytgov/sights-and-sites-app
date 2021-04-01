@@ -1,85 +1,5 @@
 export default {
     'translation': {
-        // Actions
-        'actionNext': 'NEXT',
-        'actionApply': 'Apply',
-        'actionClearAll': 'Clear all',
-
-        'notifications': {
-            'permissionsRequest': 'You should grant location permissions to get the full experience',
-            'onFiltersUpdate': 'Filters were updated',
-            'onFiltersClear': 'Filters were cleared',
-            'onAddToMySites': 'Added! To see all your sites, tap the heart below',
-            'networkNotAvailable': 'Network is not available'
-        },
-
-        'footerTabs': {
-            'whereTo': 'Filter by',
-            'siteType': 'Site type',
-            'more': 'More'
-        },
-
-        'siteTabs': {
-            'directions': 'Directions',
-            'map_view': 'Map View',
-            'share': 'Share',
-            'mySites': 'My Sites'
-        },
-
-        'listingTypes': {
-            'map': 'MAP',
-            'list': 'LIST'
-        },
-
-        'common': {
-            'loadMoreDefault': 'Load more',
-            'noItemsDefault': 'No items'
-        },
-
-        'location': {
-            'distanceToSiteInKM': '{{distance}} km from here',
-            'distanceToSiteInM': '{{distance}} m from here',
-            'distanceReached': "You're at the spot",
-            'noLocationData': 'Can not access location data'
-        },
-
-        // WHERETO STACK
-        // Choose location
-        'chooseLocation': {
-            title: 'Choose a location',
-            nearMe: 'Near me',
-            byHighway: 'By highway',
-            byRegion: 'By region',
-            mySites: 'My sites'
-        },
-        // Choose highway
-        'chooseHighway': {
-            title: 'Choose a highway',
-        },
-        // Choose region
-        'chooseRegion': {
-            title: 'Choose a region'
-        },
-        'listingTitle': 'Listing',
-        // LISTING STACK
-        'listContainer': {
-            moreSites: 'More sites',
-            noSitesFound: 'No sites found',
-            noFavouritesFound: 'No favourites or "my sites" have been chosen yet'
-        },
-        // 'siteDetails': {
-        //     nearBySites: 'Nearby site'
-        // },
-        // SEARCH STACK
-        'search': {
-            'placeholder': 'Search',
-            'noRecentQueries': 'No recent queries',
-            'noMatchesFound': 'No matches found'
-        },
-        // MORE STACK
-        'more': {
-            'title': 'More',
-        },
         appInformation: {
             title: 'App Information',
             onboarding: 'Introduction',
@@ -145,6 +65,9 @@ export default {
                 },
             }
         },
+        appIntroduction: {
+            title: 'App Introductions'
+        },
 
         favorites: {
             addedToFavorites: 'Site added to your favorites!',
@@ -168,7 +91,8 @@ export default {
                 title: 'Permissions',
                 text_1: 'Your device may ask you to grant permissions for the app.',
                 text_2: 'Enable Location Services to show sites near you, and how to navigate to these sites. You can change your preferences on your device.'
-            }
+            },
+            start: 'Let’s get started'
         },
 
         // NAVIGATION
@@ -188,11 +112,11 @@ export default {
         // FILTERS
         filters: {
             by: 'Filter by',
-            siteType: 'Site type',
+            siteTypes: 'Site type',
             siteTypeTitle: 'Filter by site type',
-            region: 'Region',
+            regions: 'Region',
             regionTitle: 'Filter by region',
-            highway: 'Highway',
+            highways: 'Highway',
             highwayTitle: 'Filter by highway',
             nearMe: 'Near me',
             myFavorites: 'My favorites'
@@ -335,6 +259,10 @@ export default {
         /* Search */
         searchBox: {
             placeholder: 'Search by keyword…',
+        },
+
+        backButton: {
+            label: 'Back'
         }
     },
 }

@@ -181,7 +181,7 @@ const RootDrawerNavigation = createDrawerNavigator(
             screen: IntroductionScreen,
             navigationOptions: () => (
                 {
-                    title: 'App Instructions',
+                    title: i18n.t('appIntroduction.title'),
                     drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
                 }
             )
