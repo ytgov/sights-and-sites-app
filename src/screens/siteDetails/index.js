@@ -55,7 +55,7 @@ const SiteDetailsScreen = (props) => {
         site_name,
         site_description,
         site_directions,
-        image_url,
+        images: { roadtrip_portrait },
         warning,
         region: { swoosh, map },
         site_types,
@@ -71,17 +71,22 @@ const SiteDetailsScreen = (props) => {
     /* Near Sites Mock/Functionality */
     const { listingRaw = [] } = listingStore;
     const randomNearSites = Math.round(Math.random() * 9) + 1;
+
     const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
     const plainNearSitesIds = Object.keys(mockNearSites)
         .map(key => mockNearSites[key])
         .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
+
     const nearBySites = plainNearSitesIds.map(item => {
-        const site = listingRaw.find(site => site.site_id === Number(item.nid)) || {};
+        const site = listingRaw.find(site => {
+            return site.site_id === Number(item.site_id)
+        });
         return {
             ...item,
             ...site,
         }
     });
+
     /* Animation */
     const currentProgressBarWidth = useRef(new Animated.Value(0)).current;
     const renderPagination = (index, total) => {
@@ -177,13 +182,13 @@ const SiteDetailsScreen = (props) => {
     const search = isSearchVisible && <SearchBox /> || null;
 
     return (
-        <ScreenParallaxWrapper backgroundImage={image_url}
+        <ScreenParallaxWrapper backgroundImage={roadtrip_portrait}
                                title={site_name}
                                leadIcon={map}
                                leadIconStyle={{ height: 42 }}
                                swoosh={swoosh}
                                bookmarkButton={true}
-                               bookmarkActive={isFavoriteSite ? true : false}
+                               bookmarkActive={!!isFavoriteSite}
                                bookmarkOnClick={onBookmarkClick}
                                search={search}
                                >
