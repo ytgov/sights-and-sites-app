@@ -9,6 +9,7 @@ import NetworkGate from './src/shared/components/netwrok-gate/netwrok-gate.compo
 import LoadResourcesAsync from './src/load-resources-async';
 // import * as Sentry from 'sentry-expo';
 import * as SplashScreen from 'expo-splash-screen';
+import {YUKON_COLORS} from '~theme/config';
 
 // Sentry.init({
 //   dsn: 'https://98306b38a625451ab47ea15a41a77c1b@sentry.io/1795244',
@@ -54,11 +55,7 @@ export default class App extends React.Component {
 
   render() {
     if (!this.state.isLoadingComplete) {
-      return (
-          <View style={{flex: 1}}>
-            <Image source={require('./assets/splash.png')} />
-          </View>
-      );
+      return <View style={{flex: 1, backgroundColor: YUKON_COLORS.primary}} />
     }
     return (
         <Provider store={store}>
