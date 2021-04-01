@@ -119,7 +119,11 @@ export default {
             highways: 'Highway',
             highwayTitle: 'Filter by highway',
             nearMe: 'Near me',
-            myFavorites: 'My favorites'
+            myFavorites: 'My favorites',
+            notifications: {
+                reset: 'Filters reset!',
+                applied: 'Filters applied!'
+            }
         },
         regions: {
             campbell: 'Campbell',

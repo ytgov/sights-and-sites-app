@@ -41,13 +41,13 @@ const FilterByRegionScreen = (props) => {
     const onReset = () => {
         setSelectedRegions([])
         dispatchResetFilters()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.reset')})
     }
 
     const onSubmit = () => {
         dispatchSetRegionsFilter(selectedRegions)
         dispatchFilterListing()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.applied')})
     }
 
     return (
