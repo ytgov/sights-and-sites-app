@@ -3,14 +3,20 @@ import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
+import {isNull as _isNull, isUndefined as _isUndefined} from 'lodash';
 
 import {hideSearch, setCurrentScreenName, showHeader} from '~store/actions/core';
 import routes from '~navigation/routes';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
 import SiteCard from '~components/siteCard';
 import NoResult from '~components/noResult';
+import {ICON_POSITION, toastWithIcon} from '~app/shared/services/notify';
+import DeviceInfo from 'react-native-device-info';
+import {YUKON_COLORS} from '~theme/config';
 
 const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width
 
 const ITEMS_PER_PAGE = 10
 
@@ -23,8 +29,10 @@ const ListingScreen = (props) => {
         listingFiltered
     } = props
 
+    const {t} = useTranslation()
     const [items, setItems] = useState(listingFiltered.slice(0, ITEMS_PER_PAGE))
     const [page, setPage] = useState(1)
+    const [notification, setNotification] = useState(null)
     const maxPages = Math.ceil(listingFiltered.length / ITEMS_PER_PAGE)
 
     const loadMore = () => {
@@ -45,7 +53,23 @@ const ListingScreen = (props) => {
                     dispatchHideSearch();
                     dispatchShowHeader();
                     dispatchSetCurrentScreenName(null);
-                }} />
+
+                    // Toast
+                    if (!_isUndefined(navigation.getParam('notification'))) {
+                        const toast = toastWithIcon(navigation.getParam('notification'), 'check-circle', {
+                            position: DeviceInfo.hasNotch() ? 110 : 80, /* StatusBar height + App menu height  */
+                            containerStyle: {
+                                paddingTop: 6,
+                                paddingBottom: 6,
+                                width: windowWidth,
+                                backgroundColor: YUKON_COLORS.primary,
+                            }
+                        }, ICON_POSITION.LEFT);
+
+                        setNotification(toast)
+                    }
+                }}
+            />
 
             <FlatList
                 style={{height: windowHeight}}

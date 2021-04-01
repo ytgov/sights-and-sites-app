@@ -19,7 +19,6 @@ const config = {
 };
 
 const TOAST_WITH_ICON_DEFAULT_CONFIG = {
-    duration: 8000,
     position: 1,
     shadow: false,
     containerStyle: {
