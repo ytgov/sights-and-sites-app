@@ -30,7 +30,7 @@ const SiteCard = (props) => {
     const {
         site_id,
         site_name,
-        image_url,
+        images: { roadtrip_landscape },
         site_types,
         highway_km,
         highway_name,
@@ -54,7 +54,7 @@ const SiteCard = (props) => {
     return (
         <View style={styles.wrapper}>
             <ImageCache
-                {...{preview, uri: image_url}}
+                {...{preview, uri: roadtrip_landscape}}
                 tint={'light'}
                 transitionDuration={300}
                 resizeMode='cover'
@@ -89,7 +89,10 @@ const SiteCard = (props) => {
 SiteCard.propTypes = {
     data: PropTypes.shape({
         site_name: PropTypes.string.isRequired,
-        image_url: PropTypes.string.isRequired,
+        images: PropTypes.shape({
+            roadtrip_landscape: PropTypes.string.isRequired,
+            roadtrip_portrait: PropTypes.string.isRequired,
+        }),
         site_types: PropTypes.arrayOf(
             PropTypes.shape({
                 name: PropTypes.string.isRequired,
