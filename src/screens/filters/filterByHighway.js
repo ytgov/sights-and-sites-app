@@ -46,13 +46,13 @@ const FilterByHighwayScreen = (props) => {
     const onReset = () => {
         setSelectedHighways([])
         dispatchResetFilters()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.reset')})
     }
 
     const onSubmit = () => {
         dispatchSetHighwaysFilter(selectedHighways)
         dispatchFilterListing()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.applied')})
     }
 
     return (
