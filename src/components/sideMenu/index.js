@@ -31,7 +31,7 @@ const SideMenu = (props) => {
         const {locale, setLocaleDispatch, setSelectLocaleActionDispatch, navigation} = props;
         setLocaleDispatch(newLanguage.code);
         setSelectLocaleActionDispatch(true);
-        i18n.changeLanguage(locale);
+        i18n.changeLanguage(newLanguage.code);
         navigation.dispatch(DrawerActions.closeDrawer());
         navigation.navigate(routes.STACK_MODAL);
     }
