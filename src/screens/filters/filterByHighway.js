@@ -69,7 +69,7 @@ const FilterByHighwayScreen = (props) => {
                 return (
                     <ListTileCheckbox
                         key={i}
-                        label={item.name}
+                        label={t(`filterHighways.${item.id}`)}
                         checked={checked}
                         trailingIcon={
                             <ImageBackground source={bgBadgeHighway}

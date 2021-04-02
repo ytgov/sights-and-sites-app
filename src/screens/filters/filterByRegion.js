@@ -64,7 +64,7 @@ const FilterByRegionScreen = (props) => {
                 return (
                     <ListTileCheckbox
                         key={`region-${item.name}`}
-                        label={item.name}
+                        label={t(`filterRegions.${item.id}`)}
                         checked={checked}
                         trailingIcon={item.map}
                         trailingIconStyle={{height: 42, resizeMode: 'contain'}}

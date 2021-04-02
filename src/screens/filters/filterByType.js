@@ -67,7 +67,7 @@ const FilterByTypeScreen = (props) => {
                 return (
                     <ListTileCheckbox
                         key={i}
-                        label={item.name}
+                        label={t(`filterTypes.${item.id}`)}
                         checked={checked}
                         trailingIcon={item.icon}
                         onClick={() => onListTileChange(item)} />

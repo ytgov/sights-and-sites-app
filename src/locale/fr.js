@@ -129,7 +129,7 @@ export default {
             wildlifeLandscape: 'Faune et paysages',
             historyCulture: 'Histoire et culture',
         },
-        highways: {
+        filterHighways: {
             alaska: "Route de l'Alaska",
             klondike: 'Route du Klondike',
             haines: 'Route de Haines',

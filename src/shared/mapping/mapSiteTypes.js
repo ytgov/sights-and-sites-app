@@ -5,8 +5,8 @@ import SiteType from '../../models/SiteType';
 export const SiteTypeIds = {
     CAMPING: 'camping',
     RECREATION: 'recreation',
-    WILDLIFE_LANDSCAPE: 'wildlife_landscape',
-    HISTORY_CULTURE: 'history_culture'
+    WILDLIFE_LANDSCAPE: 'wildlifeLandscape',
+    HISTORY_CULTURE: 'historyCulture'
 }
 
 /**
