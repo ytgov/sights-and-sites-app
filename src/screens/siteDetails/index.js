@@ -277,18 +277,17 @@ const SiteDetailsScreen = (props) => {
 
             <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
 
-            <Swiper
-                showsButtons={false}
-                height={460}
-                showsPagination={true}
-                renderPagination={renderPagination}
+            {nearBySites && nearBySites.length > 0 &&
+                <Swiper
+                    showsButtons={false}
+                    height={460}
+                    showsPagination={true}
+                    renderPagination={renderPagination}
                 >
-                {
-                    nearBySites && nearBySites.length && nearBySites.map(item =>  {
+                    {nearBySites.map(item =>  {
                         const {site_name} = item;
 
                         if (!site_name) return null;
-
                         return (
                             <TouchableOpacity activeOpacity={0.8}
                                               key={item.site_id}
@@ -296,9 +295,10 @@ const SiteDetailsScreen = (props) => {
                                 <SiteCard data={item} />
                             </TouchableOpacity>
                         )
-                    })
-                }
-            </Swiper>
+                    })}
+                </Swiper>
+            }
+
         </ScreenParallaxWrapper>
     );
 };
