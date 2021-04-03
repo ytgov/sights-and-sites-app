@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 import BottomTabItem from '~navigation/bottomTabItem';
 import {toggleSearch} from '~store/actions/core';
@@ -20,7 +21,7 @@ const BottomTabItemSearch = (props) => {
 
     return <TouchableOpacity
             style={{
-                paddingTop: 22,
+                paddingTop: DeviceInfo.hasNotch() ? 22 : 9,
                 width: '100%',
                 height: '100%'
             }}
