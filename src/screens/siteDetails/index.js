@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import {isEmpty as _isEmpty} from 'lodash';
+import {isEmpty as _isEmpty, isArray as _isArray} from 'lodash';
 import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
@@ -84,6 +84,9 @@ const SiteDetailsScreen = (props) => {
         return {
             ...item,
             ...site,
+            ...{images: !_isArray(site.images)
+                    ? site.images
+                    : {roadtrip_portrait: '', roadtrip_landscape: ''}}
         }
     });
 
