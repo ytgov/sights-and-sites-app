@@ -99,13 +99,13 @@ const MainStackNavigator = createStackNavigator({
 const BottomTabNavigator = createBottomTabNavigator({
     [routes.SCREEN_SEARCH]: {
         screen: SearchScreen,
-        navigationOptions: {
+        navigationOptions: () => ({
             tabBarIcon: <BottomTabItemSearch
                 icon={searchIcon}
                 label={i18n.t('navigation.footer.search')}
             />,
-            tabBarOnPress: null
-        },
+                tabBarOnPress: null
+        }),
     },
     [routes.STACK_MAIN]: {
         screen: MainStackNavigator,
