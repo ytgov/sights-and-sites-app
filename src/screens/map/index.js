@@ -120,7 +120,7 @@ const MapScreen = (props) => {
 
                 <MapboxGL.ShapeSource
                     id="markerShapedSources"
-                    hitbox={{width: 14, height: 33}}
+                    hitbox={{width: 12, height: 28}}
                     onPress={onSourceLayerPress}
                     shape={getShapedSources()}>
                     <MapboxGL.SymbolLayer
