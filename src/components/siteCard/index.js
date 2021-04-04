@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, ImageBackground} from 'react-native';
 import {Image as ImageCache} from 'react-native-expo-image-cache';
+import {useTranslation} from 'react-i18next';
 import {APP_CONFIG} from '~app/config';
 import {H3, Body, Small} from '~theme/typings';
 
@@ -33,13 +34,12 @@ const SiteCard = (props) => {
         images: { roadtrip_landscape },
         site_types,
         highway_km,
-        highway_name,
+        highway,
         region,
     } = data
 
-    const highway = getHighwayFromString(highway_name);
-
     const [distance, setDistance] = useState(0);
+    const {t} = useTranslation()
 
     useEffect(() => {
         if (withDistance) {
@@ -74,8 +74,8 @@ const SiteCard = (props) => {
                     </ImageBackground>
 
                     <View style={{ marginLeft: 12}}>
-                        <Body black>{`${highway.name}, km ${highway_km}`}</Body>
-                        <Body black>{region.name}</Body>
+                        <Body black>{`${t(`filterHighways.${highway.id}`)}, km ${highway_km}`}</Body>
+                        <Body black>{`${t(`filterRegions.${region.id}`)}`}</Body>
                         {distance !== 0 &&
                             <Small style={{ marginTop: 8 }}>{`${distance} km away`}</Small>}
 
