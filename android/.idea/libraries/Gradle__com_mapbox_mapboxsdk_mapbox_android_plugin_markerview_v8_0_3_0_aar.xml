@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/466e1bb68e15153c3533948b2382c699/jetified-mapbox-android-plugin-markerview-v8-0.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/466e1bb68e15153c3533948b2382c699/jetified-mapbox-android-plugin-markerview-v8-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e32d862a65e91b8b7f1b2f0cea3bdfbb/jetified-mapbox-android-plugin-markerview-v8-0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e32d862a65e91b8b7f1b2f0cea3bdfbb/jetified-mapbox-android-plugin-markerview-v8-0.3.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e32d862a65e91b8b7f1b2f0cea3bdfbb/jetified-mapbox-android-plugin-markerview-v8-0.3.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
