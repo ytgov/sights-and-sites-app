@@ -6,7 +6,3 @@ export function setLocale(value) {
         payload: value
     }
 }
-
-export function mock() {
-
-}
