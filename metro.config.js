@@ -8,6 +8,7 @@ module.exports = {
     extraNodeModules: {
       '~app'        : srcDir,
       '~components' : `${srcDir}/components`,
+      '~locale'     : `${srcDir}/locale`,
       '~screens'    : `${srcDir}/screens`,
       '~theme'      : `${srcDir}/theme`,
       '~navigation' : `${srcDir}/navigation`,

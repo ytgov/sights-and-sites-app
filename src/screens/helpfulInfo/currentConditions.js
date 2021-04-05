@@ -19,11 +19,13 @@ const CurrentConditionsScreen = () => {
     return (
         <ScreenParallaxWrapper backgroundImage={bgCurrentConditions}
                                leadIcon={iconCurrentConditions}
+                               bookmarkButton={false}
                                title={t('currentConditions.title')}>
             {
-                blocks && blocks.length && blocks.map(block => {
+                blocks && blocks.length && blocks.map((block, i) => {
                     return (
-                        <Section title={t(`currentConditions.${block}.title`)}>
+                        <Section key={i}
+                                 title={t(`currentConditions.${block}.title`)}>
                             <HTMLElement html={t(`currentConditions.${block}.description`)} />
                         </Section>
                     );

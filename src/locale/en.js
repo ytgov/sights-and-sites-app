@@ -1,85 +1,5 @@
 export default {
     'translation': {
-        // Actions
-        'actionNext': 'NEXT',
-        'actionApply': 'Apply',
-        'actionClearAll': 'Clear all',
-
-        'notifications': {
-            'permissionsRequest': 'You should grant location permissions to get the full experience',
-            'onFiltersUpdate': 'Filters were updated',
-            'onFiltersClear': 'Filters were cleared',
-            'onAddToMySites': 'Added! To see all your sites, tap the heart below',
-            'networkNotAvailable': 'Network is not available'
-        },
-
-        'footerTabs': {
-            'whereTo': 'Filter by',
-            'siteType': 'Site type',
-            'more': 'More'
-        },
-
-        'siteTabs': {
-            'directions': 'Directions',
-            'map_view': 'Map View',
-            'share': 'Share',
-            'mySites': 'My Sites'
-        },
-
-        'listingTypes': {
-            'map': 'MAP',
-            'list': 'LIST'
-        },
-
-        'common': {
-            'loadMoreDefault': 'Load more',
-            'noItemsDefault': 'No items'
-        },
-
-        'location': {
-            'distanceToSiteInKM': '{{distance}} km from here',
-            'distanceToSiteInM': '{{distance}} m from here',
-            'distanceReached': "You're at the spot",
-            'noLocationData': 'Can not access location data'
-        },
-
-        // WHERETO STACK
-        // Choose location
-        'chooseLocation': {
-            title: 'Choose a location',
-            nearMe: 'Near me',
-            byHighway: 'By highway',
-            byRegion: 'By region',
-            mySites: 'My sites'
-        },
-        // Choose highway
-        'chooseHighway': {
-            title: 'Choose a highway',
-        },
-        // Choose region
-        'chooseRegion': {
-            title: 'Choose a region'
-        },
-        'listingTitle': 'Listing',
-        // LISTING STACK
-        'listContainer': {
-            moreSites: 'More sites',
-            noSitesFound: 'No sites found',
-            noFavouritesFound: 'No favourites or "my sites" have been chosen yet'
-        },
-        // 'siteDetails': {
-        //     nearBySites: 'Nearby site'
-        // },
-        // SEARCH STACK
-        'search': {
-            'placeholder': 'Search',
-            'noRecentQueries': 'No recent queries',
-            'noMatchesFound': 'No matches found'
-        },
-        // MORE STACK
-        'more': {
-            'title': 'More',
-        },
         appInformation: {
             title: 'App Information',
             onboarding: 'Introduction',
@@ -99,7 +19,7 @@ export default {
                 questions: {
                     q1: 'Can I use the app offline?',
                     a1: `The app functions entirely offline. The maps are downloaded to your device when you give the app permission to do so.`,
-                    q2: 'When is the information in the app updated? ',
+                    q2: 'When is the information in the app updated?',
                     a2: 'The app is updated periodically with new data when it becomes available. This includes:\n\n' +
                         '\u2022 New sites\n' +
                         '\u2022 Existing site services\n' +
@@ -145,10 +65,34 @@ export default {
                 },
             }
         },
+        appIntroduction: {
+            title: 'App Introductions'
+        },
 
         favorites: {
             addedToFavorites: 'Site added to your favorites!',
             noFavorites: 'No favorites added yet.',
+        },
+
+        intro: {
+            one: {
+                title: 'Where to?',
+                text: 'Explore by highway, by region or near you'
+            },
+            two: {
+                title: 'Choose a site',
+                text: 'Explore over 280 Yukon sites, even when you’re offline'
+            },
+            three: {
+                title: 'My sites',
+                text: 'Save your favourite sites or create a wish list for future trips'
+            },
+            four: {
+                title: 'Permissions',
+                text_1: 'Your device may ask you to grant permissions for the app.',
+                text_2: 'Enable Location Services to show sites near you, and how to navigate to these sites. You can change your preferences on your device.'
+            },
+            start: 'Let’s get started'
         },
 
         // NAVIGATION
@@ -167,13 +111,21 @@ export default {
 
         // FILTERS
         filters: {
-            siteType: 'Site type',
-            region: 'Region',
-            highway: 'Highway',
+            by: 'Filter by',
+            siteTypes: 'Site type',
+            siteTypeTitle: 'Filter by site type',
+            regions: 'Region',
+            regionTitle: 'Filter by region',
+            highways: 'Highway',
+            highwayTitle: 'Filter by highway',
             nearMe: 'Near me',
-            myFavorites: 'My favorites'
+            myFavorites: 'My favorites',
+            notifications: {
+                reset: 'Filters reset!',
+                applied: 'Filters applied!'
+            }
         },
-        regions: {
+        filterRegions: {
             campbell: 'Campbell',
             klondike: 'Klondike',
             kluane: 'Kluane',
@@ -183,13 +135,13 @@ export default {
             watsonLake: 'Watson Lake',
             whitehorse: 'Whitehorse',
         },
-        siteTypes: {
+        filterTypes: {
             camping: 'Camping',
             recreation: 'Recreation',
             wildlifeLandscape: 'Wildlife & landscape',
             historyCulture: 'History & culture',
         },
-        highways: {
+        filterHighways: {
             alaska: 'Alaska Highway',
             klondike: 'Klondike Highway',
             haines: 'Haines Road',
@@ -221,6 +173,7 @@ export default {
                 highwayKm: 'Highway kilometre',
                 secondaryRoad: 'Secondary road',
                 secondaryRoadKm: 'Secondary road kilometre',
+                GPS: 'GPS coordinates',
                 siteDirections: 'Site directions'
             },
             sectionHelpfulLinks: {
@@ -234,9 +187,10 @@ export default {
                 title: 'Are you interested in booking this beautiful site?',
                 text: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
                 linkLabel: 'Yukon.ca/en/road-trip-app',
-                extra: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest! \n' +
-                    'For questions and support regarding \n' +
-                    'this app, please feel free to email heritage.planning@gov.yk.ca or phone 867-667-5386, or toll free in Yukon 1-800-661-0408, extension 5386.'
+                extra: '<p style="color: white">For questions and support regarding this app, please feel free to email ' +
+                    '<a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or ' +
+                    'phone <a href="tel:867-667-5386">867-667-5386</a>, or toll free in Yukon <a href="tel:1-800-661-0408">1-800-661-0408</a>, ' +
+                    'extension 5386.</p>'
             },
             sectionSupport: {
                 title: 'Support the App!',
@@ -291,7 +245,7 @@ export default {
                 },
 
                 title2: 'More wilderness safety tips',
-                content2: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers. `,
+                content2: `Before exploring a trail be sure to learn about the area and make a plan. There are many trails that head off into Yukon’s wilderness for hundreds of kilometers.`,
                 url2: 'https://yukon.ca/en/outdoor-recreation-and-wildlife/wilderness-safety/travel-safely-yukon-wilderness'
             }
         },
@@ -309,6 +263,10 @@ export default {
         /* Search */
         searchBox: {
             placeholder: 'Search by keyword…',
+        },
+
+        backButton: {
+            label: 'Back'
         }
     },
 }

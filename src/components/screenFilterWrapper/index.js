@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import ScreenWrapper from '../screenWrapper';
 import PropTypes from 'prop-types';
 import {Animated, StyleSheet} from 'react-native';
@@ -8,38 +8,13 @@ import {withNavigation} from 'react-navigation';
 import Button, {ButtonStyle} from '../../screens/filters/button';
 
 const ScreenFilterWrapper = (props) => {
-    const {children, backgroundImage, onResetFilter, onApplyFilter, showButtons, navigation} = props
-
-    const slideAnim = useRef(new Animated.Value(0)).current
-
-    const transformValue = {
-        transform: [
-            {
-                translateY: slideAnim.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [110, 0]
-                })
-            }
-        ]
-    }
-
-    if (showButtons) {
-        // animate buttons.
-        Animated.spring(
-            slideAnim,
-            {
-                toValue: 1,
-                duration: 300
-            }
-        ).start()
-    }
+    const {children, backgroundImage, onResetFilter, onApplyFilter} = props
 
     return (
         <ScreenWrapper backgroundImage={backgroundImage}
                        footer={
                            <Animated.View style={{
                                ...styles.buttons,
-                               ...transformValue
                            }}>
                                <Button label={'Reset filters'}
                                        buttonStyle={ButtonStyle.WHITE}

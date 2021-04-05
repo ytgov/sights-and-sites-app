@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import {Text, ImageBackground} from 'react-native';
-import {setHighwaysFilter} from '../../store/actions/filters';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
-import ScreenFilterWrapper from '../../components/screenFilterWrapper';
-import {FilterHeader} from '../../theme/layout';
-import Title from '../../components/filters/title';
-import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
+import {resetFilters, setHighwaysFilter} from '~store/actions/filters';
+import ScreenFilterWrapper from '~components/screenFilterWrapper';
+import {FilterHeader} from '~theme/layout';
+import Title from '~components/filters/title';
+import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
 
 import styles from './filterByHighway.styles'
-import routes from '../../navigation/routes';
-import {filterListing} from '../../store/actions/listing';
+import routes from '~navigation/routes';
+import {filterListing} from '~store/actions/listing';
 
 const bgHighway = require('./images/highway/bg-highway.jpg');
 const bgBadgeHighway = require('./images/highway/badge-highway.png');
@@ -21,9 +22,11 @@ const FilterByHighwayScreen = (props) => {
         filteredHighwaysData,
         dispatchSetHighwaysFilter,
         dispatchFilterListing,
+        dispatchResetFilters,
         navigation
     } = props
 
+    const [t] = useTranslation();
     const [showButton, setShowButton] = useState(false)
     const [highways] = useState(highwaysData)
     const [selectedHighways, setSelectedHighways] = useState(filteredHighwaysData)
@@ -42,12 +45,14 @@ const FilterByHighwayScreen = (props) => {
 
     const onReset = () => {
         setSelectedHighways([])
+        dispatchResetFilters()
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.reset')})
     }
 
     const onSubmit = () => {
         dispatchSetHighwaysFilter(selectedHighways)
         dispatchFilterListing()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.applied')})
     }
 
     return (
@@ -56,7 +61,7 @@ const FilterByHighwayScreen = (props) => {
                              onResetFilter={() => onReset()}
                              onApplyFilter={onSubmit}>
             <FilterHeader>
-                <Title title={`Filter by highway`} hasArrow={true} />
+                <Title title={t('filters.highwayTitle')} hasArrow={true} />
             </FilterHeader>
 
             {highways.map((item, i) => {
@@ -64,7 +69,7 @@ const FilterByHighwayScreen = (props) => {
                 return (
                     <ListTileCheckbox
                         key={i}
-                        label={item.name}
+                        label={t(`filterHighways.${item.id}`)}
                         checked={checked}
                         trailingIcon={
                             <ImageBackground source={bgBadgeHighway}
@@ -89,7 +94,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetHighwaysFilter: value => dispatch(setHighwaysFilter(value)),
-        dispatchFilterListing: () => dispatch(filterListing())
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchResetFilters: () => dispatch(resetFilters())
     };
 };
 

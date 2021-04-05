@@ -1,20 +1,21 @@
 import React from 'react';
-import {View, Image, StyleSheet, Text, TouchableWithoutFeedback} from 'react-native';
+import {View, Image, Text, TouchableWithoutFeedback} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {useTranslation} from 'react-i18next';
-import {languages, getToggledLanguage} from '../../locale/locale';
+import {getToggledLanguage} from '~locale/locale';
 
-import routes from '../../navigation/routes';
-import {YUKON_COLORS} from '../../theme/config';
+import routes from '~navigation/routes';
+import {YUKON_COLORS} from '~theme/config';
 import styles from './styles';
 
 import YukonLogo from './images/yukon.png'
-import {setLocale} from '../../store/actions/locale';
-import {setSelectLocaleAction} from '../../store/actions/core';
+import {setLocale} from '~store/actions/locale';
+import {setSelectLocaleAction} from '~store/actions/core';
 import {connect} from 'react-redux';
+import {filterListing, setListing} from '~store/actions/listing';
 
 const SideMenu = (props) => {
     const {i18n} = useTranslation();
@@ -24,14 +25,28 @@ const SideMenu = (props) => {
     // Remove Home item.
     const filteredItems = items.filter(i => i.key !== routes.STACK_BOTTOM_TAB)
 
-    const currentLanguage = languages[locale];
+    const newLanguage = getToggledLanguage()
 
     const _toggleLanguage = () => {
-        const newLanguage = getToggledLanguage()
-        const {locale, setLocaleDispatch, setSelectLocaleActionDispatch, navigation} = props;
-        setLocaleDispatch(newLanguage.code);
-        setSelectLocaleActionDispatch(true);
-        i18n.changeLanguage(locale);
+        const newLanguageCode = newLanguage.code
+        const {
+            dispatchSetLocale,
+            dispatchSetSelectLocaleAction,
+            navigation,
+            dispatchSetListing,
+            dispatchFilterListing,
+            listingLocalized
+        } = props;
+
+        dispatchSetLocale(newLanguageCode);
+        dispatchSetSelectLocaleAction(true);
+        i18n.changeLanguage(newLanguageCode)
+            .catch(err => console.log(err));
+
+        const activeListing = listingLocalized[newLanguageCode]
+
+        dispatchSetListing(activeListing)
+        dispatchFilterListing()
         navigation.dispatch(DrawerActions.closeDrawer());
         navigation.navigate(routes.STACK_MODAL);
     }
@@ -80,9 +95,9 @@ const SideMenu = (props) => {
                 <TouchableWithoutFeedback onPress={_toggleLanguage}>
                     <View style={styles.languageWraper}>
                         <View style={styles.langcode}>
-                            <Text style={styles.langcodeText}>{currentLanguage.code}</Text>
+                            <Text style={styles.langcodeText}>{newLanguage.code}</Text>
                         </View>
-                        <Text style={styles.menuLabel}>{currentLanguage.name}</Text>
+                        <Text style={styles.menuLabel}>{newLanguage.name}</Text>
                     </View>
                 </TouchableWithoutFeedback>
             </View>
@@ -93,14 +108,17 @@ const SideMenu = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        locale: state.localeStore.locale
+        locale: state.localeStore.locale,
+        listingLocalized: state.listingStore.listingLocalized
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLocaleDispatch: value => dispatch(setLocale(value)),
-        setSelectLocaleActionDispatch: value => dispatch(setSelectLocaleAction(value))
+        dispatchSetLocale: value => dispatch(setLocale(value)),
+        dispatchSetSelectLocaleAction: value => dispatch(setSelectLocaleAction(value)),
+        dispatchSetListing: (value) => dispatch(setListing(value)),
+        dispatchFilterListing: (value) => dispatch(filterListing(value))
     };
 };
 

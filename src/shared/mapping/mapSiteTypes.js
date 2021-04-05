@@ -5,8 +5,8 @@ import SiteType from '../../models/SiteType';
 export const SiteTypeIds = {
     CAMPING: 'camping',
     RECREATION: 'recreation',
-    WILDLIFE_LANDSCAPE: 'wildlife_landscape',
-    HISTORY_CULTURE: 'history_culture'
+    WILDLIFE_LANDSCAPE: 'wildlifeLandscape',
+    HISTORY_CULTURE: 'historyCulture'
 }
 
 /**
@@ -27,28 +27,28 @@ export const getSiteTypeFromString = (site_type) => {
         case SiteTypesRaw.CAMPING:
             return new SiteType(
                 SiteTypeIds.CAMPING,
-                i18n.t('siteTypes.camping'),
+                i18n.t('filterTypes.camping'),
                 require('./images/siteType/camping.png'),
                 require('./images/siteType/bg-type-camping.jpg')
             );
         case SiteTypesRaw.RECREATION:
             return new SiteType(
                 SiteTypeIds.RECREATION,
-                i18n.t('siteTypes.recreation'),
+                i18n.t('filterTypes.recreation'),
                 require('./images/siteType/recreation.png'),
                 require('./images/siteType/bg-type-recreation.jpg')
             );
         case SiteTypesRaw.HISTORY_CULTURE:
             return new SiteType(
                 SiteTypeIds.HISTORY_CULTURE,
-                i18n.t('siteTypes.historyCulture'),
+                i18n.t('filterTypes.historyCulture'),
                 require('./images/siteType/history-culture.png'),
                 require('./images/siteType/bg-type-history-culture.jpg')
             );
         case SiteTypesRaw.WILDLIFE_LANDSCAPE:
             return new SiteType(
                 SiteTypeIds.WILDLIFE_LANDSCAPE,
-                i18n.t('siteTypes.wildlifeLandscape'),
+                i18n.t('filterTypes.wildlifeLandscape'),
                 require('./images/siteType/wildlife.png'),
                 require('./images/siteType/bg-type-wildlife.jpg')
             );
