@@ -1,6 +1,7 @@
 import {
     ADD_LISTING,
-    FILTER_LISTING
+    FILTER_LISTING,
+    ADD_LOCALIZED_LISTING
 } from '../types';
 
 export const filterListing = () => (dispatch, getState) => {
@@ -14,9 +15,12 @@ export const filterListing = () => (dispatch, getState) => {
     })
 }
 
-export function addListing(value) {
-    return {
-        type: ADD_LISTING,
-        payload: value
-    }
-}
+export const setListing = sites => ({
+    type: ADD_LISTING,
+    payload: sites
+})
+
+export const addLocalizedListing = (list, langCode) => ({
+  type: ADD_LOCALIZED_LISTING,
+  payload: {list, langCode}
+})
