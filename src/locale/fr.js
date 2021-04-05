@@ -101,6 +101,51 @@ export default {
             }
         },
 
+        // SITE DETAILS
+        siteDetails: {
+            siteTypes: {
+                title: 'Type de site'
+            },
+            sectionInfo: {
+                title: 'Information',
+                warning: 'Warning:'
+            },
+            sectionDescription: {
+                title: 'Description'
+            },
+            sectionDirections: {
+                title: 'Directions',
+                highway: 'Highway',
+                highwayKm: 'Highway kilometre',
+                secondaryRoad: 'Secondary road',
+                secondaryRoadKm: 'Secondary road kilometre',
+                GPS: 'GPS coordinates',
+                siteDirections: 'Site directions'
+            },
+            sectionHelpfulLinks: {
+                title: 'Helpful links',
+                getCampingPermit: 'Get a camping permit',
+                rulesSafety: 'Rules and safety',
+                guideToCamping: 'Guide to camping in Yukon',
+                map: 'Map (campgrounds & recreation sites)'
+            },
+            sectionBooking: {
+                title: 'Are you interested in booking this beautiful site?',
+                text: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
+                linkLabel: 'Yukon.ca/en/road-trip-app',
+                extra: '<p style="color: white">For questions and support regarding this app, please feel free to email ' +
+                    '<a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or ' +
+                    'phone <a href="tel:867-667-5386">867-667-5386</a>, or toll free in Yukon <a href="tel:1-800-661-0408">1-800-661-0408</a>, ' +
+                    'extension 5386.</p>'
+            },
+            sectionSupport: {
+                title: 'Support the App!',
+                text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
+                shareButton: 'Share this site on social media'
+            },
+            nearBySites: 'Nearby Sites',
+        },
+
         // FILTERS
         filters: {
             by: 'Filtrer par',
@@ -189,6 +234,21 @@ export default {
                 url2: 'https://yukon.ca/fr/plein-air-faune-et-flore/securite-en-milieu-sauvage/se-deplacer-en-toute-securite-dans-la-nature',
                 url_text2: 'Consultez le site pour obtenir d’autres conseils sur le tourisme d’aventure.'
             }
+        },
+
+        /* No result */
+        noResult: {
+            title: 'Aucun résultat',
+            content: `<ul>
+                    <li>Vos critères sont peut-être trop précis. Essayez une recherche plus générale.</li>
+                    <li>Vérifiez qu'il n'y a pas de faute dans les mots-clés.</li>
+                    <li>Des questions? Besoin d'aide? Écrivez à <a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> ou appelez au <a href="tel:1-800-661-0408">1-800-661-0408</a>, poste 5386 (sans frais au Yukon).</li>
+                </ul>`
+        },
+
+        /* Search */
+        searchBox: {
+            placeholder: 'Recherche par mot-clé',
         },
 
         backButton: {

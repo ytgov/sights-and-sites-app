@@ -125,7 +125,7 @@ export default {
                 applied: 'Filters applied!'
             }
         },
-        regions: {
+        filterRegions: {
             campbell: 'Campbell',
             klondike: 'Klondike',
             kluane: 'Kluane',
@@ -135,7 +135,7 @@ export default {
             watsonLake: 'Watson Lake',
             whitehorse: 'Whitehorse',
         },
-        siteTypes: {
+        filterTypes: {
             camping: 'Camping',
             recreation: 'Recreation',
             wildlifeLandscape: 'Wildlife & landscape',
