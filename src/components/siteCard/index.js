@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {View, Image, Text, ImageBackground} from 'react-native';
 import {Image as ImageCache} from 'react-native-expo-image-cache';
 import {useTranslation} from 'react-i18next';
+import {isUndefined as _isUndefined} from 'lodash'
 import {APP_CONFIG} from '~app/config';
 import {H3, Body, Small} from '~theme/typings';
 
@@ -48,6 +49,8 @@ const SiteCard = (props) => {
             if (cachedDistances.hasOwnProperty(site_id)) {
                 setDistance(cachedDistances[site_id].distance)
             }
+        } else if (!_isUndefined(data.distance)) {
+            setDistance(data.distance)
         }
     }, [site_id, cachedDistances])
 
