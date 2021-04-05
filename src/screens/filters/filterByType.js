@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
-import ScreenFilterWrapper from '../../components/screenFilterWrapper';
-import {FilterHeader} from '../../theme/layout';
-import Title from '../../components/filters/title';
-import ListTileCheckbox from '../../components/filters/listTile/listTileCheckbox';
-import {setSiteTypesFilter} from '../../store/actions/filters';
-import routes from '../../navigation/routes';
-import {filterListing} from '../../store/actions/listing';
+import ScreenFilterWrapper from '~components/screenFilterWrapper';
+import {FilterHeader} from '~theme/layout';
+import Title from '~components/filters/title';
+import ListTileCheckbox from '~components/filters/listTile/listTileCheckbox';
+import {resetFilters, setSiteTypesFilter} from '~store/actions/filters';
+import routes from '~navigation/routes';
+import {filterListing} from '~store/actions/listing';
 
 const bgDefault = require('./images/type/bg-type-default.jpg');
 
@@ -18,9 +19,11 @@ const FilterByTypeScreen = (props) => {
         filteredSiteTypesData,
         dispatchSetSiteTypesFilter,
         dispatchFilterListing,
+        dispatchResetFilters,
         navigation
     } = props
 
+    const [t] = useTranslation();
     const [background, setBackground] = useState(bgDefault);
     const [siteTypes] = useState(siteTypesData)
     const [showButton, setShowButton] = useState(false)
@@ -41,13 +44,14 @@ const FilterByTypeScreen = (props) => {
 
     const onReset = () => {
         setSelectedSiteTypes([])
-        setBackground(bgDefault)
+        dispatchResetFilters()
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.reset')})
     }
 
     const onSubmit = () => {
         dispatchSetSiteTypesFilter(selectedSiteTypes)
         dispatchFilterListing()
-        navigation.navigate(routes.SCREEN_LISTING)
+        navigation.navigate(routes.SCREEN_LISTING, {notification: t('filters.notifications.applied')})
     }
 
     return (
@@ -56,14 +60,14 @@ const FilterByTypeScreen = (props) => {
                              onResetFilter={() => onReset()}
                              onApplyFilter={onSubmit}>
             <FilterHeader>
-                <Title title={`Filter by site type`} hasArrow={true} />
+                <Title title={t('filters.siteTypeTitle')} hasArrow={true} />
             </FilterHeader>
             {siteTypes.map((item, i) => {
                 const checked = selectedSiteTypes.includes(item.id)
                 return (
                     <ListTileCheckbox
                         key={i}
-                        label={item.name}
+                        label={t(`filterTypes.${item.id}`)}
                         checked={checked}
                         trailingIcon={item.icon}
                         onClick={() => onListTileChange(item)} />
@@ -94,7 +98,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         dispatchSetSiteTypesFilter: (value) => dispatch(setSiteTypesFilter(value)),
-        dispatchFilterListing: () => dispatch(filterListing())
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchResetFilters: () => dispatch(resetFilters())
     };
 };
 

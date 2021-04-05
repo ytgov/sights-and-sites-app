@@ -1,7 +1,7 @@
 import React from 'react';
 import Toast from 'react-native-root-toast';
 import DeviceInfo from 'react-native-device-info';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import {merge as _merge} from 'lodash';
 
@@ -71,12 +71,22 @@ function toastWithIcon(text, icon, config = {}, iconPosition = ICON_POSITION.RIG
     const iconElement = icon && <Feather name={icon} size={20} color="white" style={{paddingTop:3, paddingRight: 5}} />;
 
     const children = (
-        <>
+        <View style={{
+            flex: 1,
+            flexDirection: 'row',
+            alignItems: 'center',
+            alignContent: 'center',
+            justifyContent: 'space-between',
+            paddingBottom: 4
+        }}>
             { isLeftIcon && iconElement }
-            { text && <Text style={{color: '#FFF', fontFamily: YUKON_FONTS.MONTSERRAT_BOLD}}>{text}</Text> }
+            { text && <Text style={{
+                color: '#FFF',
+                fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
+            }}>{text}</Text> }
             { !isLeftIcon && iconElement }
 
-        </>
+        </View>
     );
 
     return customToast(children, config);
