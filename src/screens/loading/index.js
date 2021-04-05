@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import {addListing, filterListing} from '~store/actions/listing';
+import {addLocalizedListing, filterListing, setListing} from '~store/actions/listing';
 
 import {APP_CONFIG} from '~app/config';
 import i18n from '../../locale/locale';
@@ -21,36 +21,71 @@ const LoadingScreen = (props) => {
             locale,
             hasUserSelectedLocale,
             hasUserPassedOnboarding,
-            filterListingDispatch,
-            addListingDispatch
+            listingLocalized,
+            dispatchFilterListing,
+            dispatchSetListing,
+            dispatchAddLocalizedListing
         } = props;
         // TODO: remove in production
         // addListingDispatch([]);
 
-        axios.get(APP_CONFIG.placesUrl, {
-            headers: {
-                'accept-language': i18n.language,
-                'api-key': APP_CONFIG.apiKey
-            }
-        })
-            .then(async res => {
-                await addListingDispatch(res.data.data);
-                filterListingDispatch();
+        const fetchData = async (langCode = 'en') => {
+            const response = await axios.get(APP_CONFIG.placesUrl, {
+                headers: {
+                    'accept-language': langCode,
+                    'api-key': APP_CONFIG.apiKey
+                }
+            })
+            return response.data.data
+        }
+
+        const fetchLocalizedData = async () => {
+            const enList = await fetchData('en')
+            const frList = await fetchData('fr')
+
+            await dispatchAddLocalizedListing(enList, 'en')
+            await dispatchAddLocalizedListing(frList, 'fr')
+        }
+
+        fetchLocalizedData()
+            .then(() => {
+                const activeListing = listingLocalized[locale]
+                dispatchSetListing(activeListing)
+                dispatchFilterListing()
                 if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
                     navigation.navigate(routes.SCREEN_WELCOME);
                     return false;
                 }
-                await i18n.changeLanguage(locale);
+                i18n.changeLanguage(locale)
+                    .catch(err => console.log(err));
+
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
-            .catch(err => {
-                if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-                    navigation.navigate(routes.SCREEN_WELCOME);
-                    return false;
-                }
-                i18n.changeLanguage(locale);
-                navigation.navigate(routes.STACK_BOTTOM_TAB);
-            })
+
+        // axios.get(APP_CONFIG.placesUrl, {
+        //     headers: {
+        //         'accept-language': i18n.language,
+        //         'api-key': APP_CONFIG.apiKey
+        //     }
+        // })
+        //     .then(async res => {
+        //         await addListingDispatch(res.data.data);
+        //         filterListingDispatch();
+        //         if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
+        //             navigation.navigate(routes.SCREEN_WELCOME);
+        //             return false;
+        //         }
+        //         await i18n.changeLanguage(locale);
+        //         navigation.navigate(routes.STACK_BOTTOM_TAB);
+        //     })
+        //     .catch(err => {
+        //         if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
+        //             navigation.navigate(routes.SCREEN_WELCOME);
+        //             return false;
+        //         }
+        //         i18n.changeLanguage(locale);
+        //         navigation.navigate(routes.STACK_BOTTOM_TAB);
+        //     })
     }, [])
 
     return (
@@ -64,21 +99,23 @@ LoadingScreen.propTypes = {
     hasUserSelectedLocale: PropTypes.bool.isRequired,
     hasUserPassedOnboarding: PropTypes.bool.isRequired,
     locale: PropTypes.string.isRequired,
-    filterListingDispatch: PropTypes.func.isRequired
+    dispatchFilterListing: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
     return {
         hasUserSelectedLocale: state.coreStore.hasUserSelectedLocale,
         hasUserPassedOnboarding: state.coreStore.hasUserPassedOnboarding,
-        locale: state.localeStore.locale
+        locale: state.localeStore.locale,
+        listingLocalized: state.listingStore.listingLocalized
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        filterListingDispatch: value => dispatch(filterListing(value)),
-        addListingDispatch: (value) => dispatch(addListing(value)),
+        dispatchFilterListing: () => dispatch(filterListing()),
+        dispatchSetListing: (langCode) => dispatch(setListing(langCode)),
+        dispatchAddLocalizedListing: (list, langCode) => dispatch(addLocalizedListing(list, langCode)),
     };
 };
 

@@ -1,13 +1,18 @@
 import {
     ADD_LISTING,
-    FILTER_LISTING
+    FILTER_LISTING,
+    ADD_LOCALIZED_LISTING
 } from '../types';
 import _ from 'lodash';
 import {mapSiteDetails} from '~shared/mapping/mapSiteDetails';
 
 const initialState = {
     listingRaw: [],
-    listingFiltered: []
+    listingFiltered: [],
+    listingLocalized: {
+        en: [],
+        fr: []
+    }
 };
 
 const filterListing = (filters, location, listingRaw) => {
@@ -55,6 +60,16 @@ export default function listingReducer(state = initialState, action) {
             return {
                 ...state,
                 listingRaw: sites.map(s => mapSiteDetails(s))
+            }
+        }
+        case ADD_LOCALIZED_LISTING: {
+            const {list, langCode} = action.payload
+            return {
+                ...state,
+                listingLocalized: {
+                    ...state.listingLocalized,
+                    ...{[langCode]: list}
+                }
             }
         }
 
