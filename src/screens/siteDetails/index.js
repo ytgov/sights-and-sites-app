@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import {isEmpty as _isEmpty, isArray as _isArray} from 'lodash';
+import React, { useState, useRef, useEffect } from 'react';
+import {isEmpty as _isEmpty, isArray as _isArray, isUndefined as _isUndefined} from 'lodash';
 import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
@@ -39,56 +39,16 @@ const SiteDetailsScreen = (props) => {
         navigation,
         dispatchHideHeader,
         filtersStore,
-        listingStore,
+        listingRaw,
         dispatchSetFavorites,
         dispatchHideSearch,
         dispatchSetCurrentScreenName,
         isSearchVisible,
+        locale
     } = props;
 
     const [myFavorites, setMyFavorites] = useState((filtersStore && filtersStore.myFavorites) || []);
-
-    const item = navigation.getParam('item');
-
-    const {
-        site_id,
-        site_name,
-        site_description,
-        site_directions,
-        images: { roadtrip_portrait },
-        warning,
-        region: { swoosh, map },
-        site_types,
-        highway_name,
-        highway_km,
-        latitude,
-        longitude,
-        secondary_road_km,
-        secondary_road_name,
-        nearby_sites,
-    } = item;
-
-    /* Near Sites Mock/Functionality */
-    const { listingRaw = [] } = listingStore;
-    const randomNearSites = Math.round(Math.random() * 9) + 1;
-
-    const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
-    const plainNearSitesIds = Object.keys(mockNearSites)
-        .map(key => mockNearSites[key])
-        .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
-
-    const nearBySites = plainNearSitesIds.map(item => {
-        const site = listingRaw.find(site => {
-            return site.site_id === Number(item.site_id)
-        });
-        return {
-            ...item,
-            ...site,
-            ...{images: !_isArray(site.images)
-                    ? site.images
-                    : {roadtrip_portrait: '', roadtrip_landscape: ''}}
-        }
-    });
+    const [item, setItem] = useState({})
 
     /* Animation */
     const currentProgressBarWidth = useRef(new Animated.Value(0)).current;
@@ -113,6 +73,55 @@ const SiteDetailsScreen = (props) => {
         );
     };
 
+    useEffect(() => {
+        const site_id = navigation.getParam('site_id')
+        const i = listingRaw.find(i => i.site_id === site_id)
+        if (!_isUndefined(i)) {
+            setItem(i)
+        }
+    }, [item, locale])
+
+    if (_isEmpty(item)) return null
+
+    const {
+        site_id,
+        site_name,
+        site_description,
+        site_directions,
+        images: { roadtrip_portrait },
+        warning,
+        region: { swoosh, map },
+        site_types,
+        highway_name,
+        highway_km,
+        latitude,
+        longitude,
+        secondary_road_km,
+        secondary_road_name,
+        nearby_sites,
+    } = item;
+
+    /* Near Sites Mock/Functionality */
+    const randomNearSites = Math.round(Math.random() * 9) + 1;
+
+    const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
+    const plainNearSitesIds = Object.keys(mockNearSites)
+        .map(key => mockNearSites[key])
+        .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
+
+    const nearBySites = plainNearSitesIds.map(item => {
+        const site = listingRaw.find(site => {
+            return site.site_id === Number(item.site_id)
+        });
+        return {
+            ...item,
+            ...site,
+            ...{images: !_isArray(site.images)
+                    ? site.images
+                    : {roadtrip_portrait: '', roadtrip_landscape: ''}}
+        }
+    });
+console.log(nearBySites)
     /* Near Sites Mock/Functionality */
 
     const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
@@ -205,11 +214,13 @@ const SiteDetailsScreen = (props) => {
 
             <Section title={t('siteDetails.siteTypes.title')}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap'}}>
-                    {site_types && site_types.length && site_types.map((item, i) =>
-                        <SiteType key={i}
-                                  name={item.name}
-                                  icon={item.icon}
-                                  style={{width: '50%', marginTop: 16}} />)}
+                    {site_types && site_types.length && site_types.map((item, i) => {
+                        return <SiteType key={i}
+                                         name={t(`filterTypes.${item.id}`)}
+                                         icon={item.icon}
+                                         style={{width: '50%', marginTop: 16}} />
+                        }
+                    )}
                 </View>
             </Section>
 
@@ -224,7 +235,7 @@ const SiteDetailsScreen = (props) => {
 
 
             <Section title={t('siteDetails.sectionDescription.title')}>
-                <Body black>{site_description}</Body>
+                <Body black>{site_description.replaceAll('&nbsp;', ' ')}</Body>
             </Section>
 
             <Section title={t('siteDetails.sectionDirections.title')}
@@ -294,7 +305,7 @@ const SiteDetailsScreen = (props) => {
                         return (
                             <TouchableOpacity activeOpacity={0.8}
                                               key={item.site_id}
-                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {item})}>
+                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
                                 <SiteCard data={item} />
                             </TouchableOpacity>
                         )
@@ -315,21 +326,18 @@ SiteDetailsScreen['navigationOptions'] = {
     headerShown: false
 }
 
-const mapStateToProps = (state) => {
-    return {
-        filtersStore: state.filtersStore,
-        listingStore: state.listingStore,
-        isSearchVisible: state.coreStore.searchVisible,
-    };
-};
+const mapStateToProps = (state) => ({
+    filtersStore: state.filtersStore,
+    locale: state.localeStore.locale,
+    listingRaw: state.listingStore.listingRaw,
+    isSearchVisible: state.coreStore.searchVisible,
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        dispatchHideHeader: () => dispatch(hideHeader()),
-        dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
-        dispatchHideSearch: () => dispatch(hideSearch()),
-        dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    dispatchHideHeader: () => dispatch(hideHeader()),
+    dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
+    dispatchHideSearch: () => dispatch(hideSearch()),
+    dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiteDetailsScreen);

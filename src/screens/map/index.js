@@ -153,7 +153,7 @@ const MapScreen = (props) => {
                         activeOpacity={0.8}
                         onPress={() => {
                             setModalVisible(false)
-                            navigation.navigate(routes.SCREEN_SITE_DETAILS, {item: pinnedItem})
+                            navigation.navigate(routes.SCREEN_SITE_DETAILS, {site_id: pinnedItem.site_id})
                         }}>
                         {pinnedItem && <SiteCard data={pinnedItem}
                                                  withDistance={true}
