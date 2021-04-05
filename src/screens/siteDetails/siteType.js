@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Image, Text, View, StyleSheet} from 'react-native';
-import {Body} from '../../theme/typings';
+import {Body} from '~theme/typings';
 
 const SiteType = (props) => {
     const {name, icon} = props
