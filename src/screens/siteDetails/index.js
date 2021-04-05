@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import {isNull as _isNull} from 'lodash';
+import React, { useState, useRef, useEffect } from 'react';
+import {isEmpty as _isEmpty, isArray as _isArray, isUndefined as _isUndefined} from 'lodash';
 import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
@@ -13,6 +13,7 @@ import {Body, H3} from '~theme/typings';
 import SiteType from './siteType';
 import Section from './section';
 import WebLink, {WebLinkIcon, WebLinkType} from '~components/webLink';
+import HTMLElement from '~components/htmlElement';
 
 import {shareOnSocialMedia} from '~app/shared/services/share';
 import {toastWithIcon} from '~app/shared/services/notify';
@@ -38,46 +39,17 @@ const SiteDetailsScreen = (props) => {
         navigation,
         dispatchHideHeader,
         filtersStore,
-        listingStore,
+        listingRaw,
         dispatchSetFavorites,
         dispatchHideSearch,
         dispatchSetCurrentScreenName,
         isSearchVisible,
+        locale
     } = props;
 
     const [myFavorites, setMyFavorites] = useState((filtersStore && filtersStore.myFavorites) || []);
+    const [item, setItem] = useState({})
 
-    const item = navigation.getParam('item');
-
-    const {
-        site_id,
-        site_name,
-        site_description,
-        site_directions,
-        warning,
-        region: { swoosh, map },
-        site_types,
-        highway_name,
-        highway_km,
-        secondary_road_km,
-        secondary_road_name,
-        nearby_sites,
-    } = item;
-
-    /* Near Sites Mock/Functionality */
-    const { listingRaw = [] } = listingStore;
-    const randomNearSites = Math.round(Math.random() * 9) + 1;
-    const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
-    const plainNearSitesIds = Object.keys(mockNearSites)
-        .map(key => mockNearSites[key])
-        .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
-    const nearBySites = plainNearSitesIds.map(item => {
-        const site = listingRaw.find(site => site.site_id === Number(item.nid)) || {};
-        return {
-            ...item,
-            ...site,
-        }
-    });
     /* Animation */
     const currentProgressBarWidth = useRef(new Animated.Value(0)).current;
     const renderPagination = (index, total) => {
@@ -101,6 +73,55 @@ const SiteDetailsScreen = (props) => {
         );
     };
 
+    useEffect(() => {
+        const site_id = navigation.getParam('site_id')
+        const i = listingRaw.find(i => i.site_id === site_id)
+        if (!_isUndefined(i)) {
+            setItem(i)
+        }
+    }, [item, locale])
+
+    if (_isEmpty(item)) return null
+
+    const {
+        site_id,
+        site_name,
+        site_description,
+        site_directions,
+        images: { roadtrip_portrait },
+        warning,
+        region: { swoosh, map },
+        site_types,
+        highway_name,
+        highway_km,
+        latitude,
+        longitude,
+        secondary_road_km,
+        secondary_road_name,
+        nearby_sites,
+    } = item;
+
+    /* Near Sites Mock/Functionality */
+    const randomNearSites = Math.round(Math.random() * 9) + 1;
+
+    const mockNearSites = nearby_sites || getMockNearSites(randomNearSites);
+    const plainNearSitesIds = Object.keys(mockNearSites)
+        .map(key => mockNearSites[key])
+        .sort((itemA, itemB) => Number(itemA.distance) > Number(itemB.distance) ? 1 : -1);
+
+    const nearBySites = plainNearSitesIds.map(item => {
+        const site = listingRaw.find(site => {
+            return site.site_id === Number(item.site_id)
+        });
+        return {
+            ...item,
+            ...site,
+            ...{images: !_isArray(site.images)
+                    ? site.images
+                    : {roadtrip_portrait: '', roadtrip_landscape: ''}}
+        }
+    });
+console.log(nearBySites)
     /* Near Sites Mock/Functionality */
 
     const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
@@ -142,6 +163,10 @@ const SiteDetailsScreen = (props) => {
             content: `${secondary_road_km} km`
         },
         {
+            label: t('siteDetails.sectionDirections.GPS'),
+            content: `${latitude}°N ${longitude}°W`
+        },
+        {
             label: t('siteDetails.sectionDirections.siteDirections'),
             content: site_directions || ''
         },
@@ -169,13 +194,13 @@ const SiteDetailsScreen = (props) => {
     const search = isSearchVisible && <SearchBox /> || null;
 
     return (
-        <ScreenParallaxWrapper backgroundImage={bgPlaceholder}
+        <ScreenParallaxWrapper backgroundImage={roadtrip_portrait}
                                title={site_name}
                                leadIcon={map}
                                leadIconStyle={{ height: 42 }}
                                swoosh={swoosh}
                                bookmarkButton={true}
-                               bookmarkActive={isFavoriteSite ? true : false}
+                               bookmarkActive={!!isFavoriteSite}
                                bookmarkOnClick={onBookmarkClick}
                                search={search}
                                >
@@ -189,15 +214,17 @@ const SiteDetailsScreen = (props) => {
 
             <Section title={t('siteDetails.siteTypes.title')}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap'}}>
-                    {site_types && site_types.length && site_types.map((item, i) =>
-                        <SiteType key={i}
-                                  name={item.name}
-                                  icon={item.icon}
-                                  style={{width: '50%', marginTop: 16}} />)}
+                    {site_types && site_types.length && site_types.map((item, i) => {
+                        return <SiteType key={i}
+                                         name={t(`filterTypes.${item.id}`)}
+                                         icon={item.icon}
+                                         style={{width: '50%', marginTop: 16}} />
+                        }
+                    )}
                 </View>
             </Section>
 
-            {_isNull(warning) &&
+            {!_isEmpty(warning) &&
                 <Section title={t('siteDetails.sectionInfo.title')}
                          backgroundColor={'#fdf6e9'}
                          swoosh={swooshYellow}>
@@ -208,7 +235,7 @@ const SiteDetailsScreen = (props) => {
 
 
             <Section title={t('siteDetails.sectionDescription.title')}>
-                <Body black>{site_description}</Body>
+                <Body black>{site_description.replaceAll('&nbsp;', ' ')}</Body>
             </Section>
 
             <Section title={t('siteDetails.sectionDirections.title')}
@@ -247,8 +274,7 @@ const SiteDetailsScreen = (props) => {
                          icon={WebLinkIcon.EXT_LINK}
                          url={BOOKING_URL}
                          containerStyle={{marginVertical: 20}} />
-
-                <Body>{t('siteDetails.sectionBooking.extra')}</Body>
+                <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />
             </Section>
 
             <Section title={t('siteDetails.sectionSupport.title')}>
@@ -265,28 +291,28 @@ const SiteDetailsScreen = (props) => {
 
             <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
 
-            <Swiper
-                showsButtons={false}
-                height={460}
-                showsPagination={true}
-                renderPagination={renderPagination}
+            {nearBySites && nearBySites.length > 0 &&
+                <Swiper
+                    showsButtons={false}
+                    height={460}
+                    showsPagination={true}
+                    renderPagination={renderPagination}
                 >
-                {
-                    nearBySites && nearBySites.length && nearBySites.map(item =>  {
+                    {nearBySites.map(item =>  {
                         const {site_name} = item;
 
                         if (!site_name) return null;
-
                         return (
                             <TouchableOpacity activeOpacity={0.8}
                                               key={item.site_id}
-                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {item})}>
+                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
                                 <SiteCard data={item} />
                             </TouchableOpacity>
                         )
-                    })
-                }
-            </Swiper>
+                    })}
+                </Swiper>
+            }
+
         </ScreenParallaxWrapper>
     );
 };
@@ -300,21 +326,18 @@ SiteDetailsScreen['navigationOptions'] = {
     headerShown: false
 }
 
-const mapStateToProps = (state) => {
-    return {
-        filtersStore: state.filtersStore,
-        listingStore: state.listingStore,
-        isSearchVisible: state.coreStore.searchVisible,
-    };
-};
+const mapStateToProps = (state) => ({
+    filtersStore: state.filtersStore,
+    locale: state.localeStore.locale,
+    listingRaw: state.listingStore.listingRaw,
+    isSearchVisible: state.coreStore.searchVisible,
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        dispatchHideHeader: () => dispatch(hideHeader()),
-        dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
-        dispatchHideSearch: () => dispatch(hideSearch()),
-        dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    dispatchHideHeader: () => dispatch(hideHeader()),
+    dispatchSetFavorites: (value) => dispatch(setFavorites(value)),
+    dispatchHideSearch: () => dispatch(hideSearch()),
+    dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SiteDetailsScreen);

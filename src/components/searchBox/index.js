@@ -1,34 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {View, TextInput} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import DeviceInfo from 'react-native-device-info';
 import { MaterialIcons } from '@expo/vector-icons';
 import {withNavigation} from 'react-navigation';
-
 import {YUKON_COLORS} from '~theme/config';
-import {YUKON_FONTS} from '~theme/typings';
 import routes from '~navigation/routes';
 
+import styles from './styles';
+import {connect} from 'react-redux';
+import {doSearch} from '~store/actions/search';
+
 const SearchBox = (props) => {
-    const {navigation} = props;
+    const {
+        navigation,
+        currentQuery,
+        dispatchDoSearch,
+        listingRaw
+    } = props;
     const [t] = useTranslation();
-    const [keyword, setKeyword] = useState('');
-
-
-    useEffect(() => {
-        if (navigation.getParam('keyword')) {
-            setKeyword(navigation.getParam('keyword'));
-        }
-    }, [])
+    const [keyword, setKeyword] = useState(currentQuery);
 
     const doSearch = () => {
-        if (keyword.trim() === '') return;
+        const sanitizedKeyword = keyword.trim()
+        if (sanitizedKeyword === '') return;
+
+        dispatchDoSearch(sanitizedKeyword, listingRaw)
+        setKeyword(sanitizedKeyword)
 
         // Redirect to search result screen if current screen is not Search result yet.
         if (navigation.state.routeName !== routes.SCREEN_SEARCH_RESULTS) {
-            navigation.navigate(routes.STACK_SEARCH, {keyword})
-        } else {
-            navigation.setParams({keyword})
+            navigation.navigate(routes.STACK_SEARCH)
         }
     }
 
@@ -56,28 +57,17 @@ const SearchBox = (props) => {
     );
 };
 
-export default withNavigation(SearchBox);
+const mapStateToProps = (state) => {
+    return {
+        currentQuery: state.searchStore.query,
+        listingRaw: state.listingStore.listingRaw
+    };
+};
 
-const styles = StyleSheet.create({
-    wrapper: {
-        backgroundColor: YUKON_COLORS.primary_600,
-        height: DeviceInfo.hasNotch() ? 110 : 80,
-        justifyContent: 'flex-end'
-    },
-    inner: {
-        height: 60,
-        marginRight: 8,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignContent: 'center',
-        alignItems: 'center'
-    },
-    input: {
-        flex: 1,
-        padding: 20,
-        color: 'white',
-        fontSize: 16,
-        lineHeight: 19,
-        fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
-    }
-})
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchDoSearch: (keyword, listing) => dispatch(doSearch(keyword, listing))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigation(SearchBox));

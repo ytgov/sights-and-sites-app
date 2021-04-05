@@ -1,5 +1,4 @@
-import {SET_HIGHWAY_SELECTION} from '../types';
-import {getHighwayFromString, HighwayNames} from '../../shared/mapping/mapHighways';
+import {getHighwayFromString, HighwayNames} from '~shared/mapping/mapHighways';
 
 const initialState = {
     highways: [
@@ -19,11 +18,6 @@ const initialState = {
 
 export default function highwaysReducer(state = initialState, action) {
     switch (action.type) {
-        case SET_HIGHWAY_SELECTION: {
-            return {
-                highways: initialState.highways
-            }
-        }
         default:
             return state;
     }

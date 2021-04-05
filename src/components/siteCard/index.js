@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, ImageBackground} from 'react-native';
 import {Image as ImageCache} from 'react-native-expo-image-cache';
-import {APP_CONFIG} from '../../config';
-import {H3, Body, Small} from '../../theme/typings';
+import {useTranslation} from 'react-i18next';
+import {isUndefined as _isUndefined} from 'lodash'
+import {APP_CONFIG} from '~app/config';
+import {H3, Body, Small} from '~theme/typings';
 
 import styles from './styles';
-import {getSiteTypeFromString} from '../../shared/mapping/mapSiteTypes';
-import {getHighwayFromString} from '../../shared/mapping/mapHighways';
+import {getHighwayFromString} from '~shared/mapping/mapHighways';
+import {
+    getUserLocation,
+    getUserToSiteDistance,
+    setSiteDistance,
+} from '~store/actions/core';
+import {connect} from 'react-redux';
 
 const badge = require('./images/badge-highway.png');
 
@@ -15,24 +22,42 @@ const SiteCard = (props) => {
     const preview = {uri: APP_CONFIG.cache.imagePreview};
     const {
         imageStyle,
+        withDistance,
+        userLocation,
+        cachedDistances,
+        dispatchGetUserToSiteDistance,
         data
     } = props
 
     const {
+        site_id,
         site_name,
-        image_url,
+        images: { roadtrip_landscape },
         site_types,
         highway_km,
-        highway_name,
-        region
+        highway,
+        region,
     } = data
 
-    const highway = getHighwayFromString(highway_name);
+    const [distance, setDistance] = useState(0);
+    const {t} = useTranslation()
+
+    useEffect(() => {
+        if (withDistance) {
+            dispatchGetUserToSiteDistance(userLocation, data, cachedDistances);
+
+            if (cachedDistances.hasOwnProperty(site_id)) {
+                setDistance(cachedDistances[site_id].distance)
+            }
+        } else if (!_isUndefined(data.distance)) {
+            setDistance(data.distance)
+        }
+    }, [site_id, cachedDistances])
 
     return (
         <View style={styles.wrapper}>
             <ImageCache
-                {...{preview, uri: image_url}}
+                {...{preview, uri: roadtrip_landscape}}
                 tint={'light'}
                 transitionDuration={300}
                 resizeMode='cover'
@@ -52,9 +77,11 @@ const SiteCard = (props) => {
                     </ImageBackground>
 
                     <View style={{ marginLeft: 12}}>
-                        <Body black>{`${highway.name}, km ${highway_km}`}</Body>
-                        <Body black>{region.name}</Body>
-                        <Small style={{ marginTop: 8 }}>{'400.89 km away'}</Small>
+                        <Body black>{`${t(`filterHighways.${highway.id}`)}, km ${highway_km}`}</Body>
+                        <Body black>{`${t(`filterRegions.${region.id}`)}`}</Body>
+                        {distance !== 0 &&
+                            <Small style={{ marginTop: 8 }}>{`${distance} km away`}</Small>}
+
                     </View>
                 </View>
             </View>
@@ -65,7 +92,10 @@ const SiteCard = (props) => {
 SiteCard.propTypes = {
     data: PropTypes.shape({
         site_name: PropTypes.string.isRequired,
-        image_url: PropTypes.string.isRequired,
+        images: PropTypes.shape({
+            roadtrip_landscape: PropTypes.string.isRequired,
+            roadtrip_portrait: PropTypes.string.isRequired,
+        }),
         site_types: PropTypes.arrayOf(
             PropTypes.shape({
                 name: PropTypes.string.isRequired,
@@ -80,11 +110,29 @@ SiteCard.propTypes = {
             swoosh: PropTypes.node.isRequired
         }).isRequired
     }).isRequired,
-    imageStyle: PropTypes.object
+    imageStyle: PropTypes.object,
+    withDistance: PropTypes.bool
 }
 
 SiteCard.defaultProps = {
-    imageStyle: {}
+    imageStyle: {},
+    withDistance: false
 }
 
-export default SiteCard;
+const mapStateToProps = (state) => {
+    return {
+        cachedDistances: state.coreStore.distances,
+        userLocation: state.coreStore.userLocation,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        dispatchGetUserLocation: () => dispatch(getUserLocation()),
+        dispatchGetUserToSiteDistance: (userLocation, site, cachedDistances) => dispatch(getUserToSiteDistance(userLocation, site, cachedDistances)),
+        dispatchSiteDistance: (site_id, distance) => dispatch(setSiteDistance(site_id, distance))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SiteCard);
+

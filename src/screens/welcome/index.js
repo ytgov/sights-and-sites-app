@@ -2,15 +2,15 @@ import React from 'react';
 import {SafeAreaView, View, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
-import {YUKON_COLORS} from '../../theme/config';
-import {H1, Body} from '../../theme/typings';
+import {YUKON_COLORS} from '~theme/config';
+import {H1, Body} from '~theme/typings';
 import styles from './styles';
 
 import LanguageButton from './languageButton';
-import {setLocale} from '../../store/actions/locale';
+import {setLocale} from '~store/actions/locale';
 import {connect} from 'react-redux';
-import routes from '../../navigation/routes';
-import {setSelectLocaleAction} from '../../store/actions/core';
+import routes from '~navigation/routes';
+import {setSelectLocaleAction} from '~store/actions/core';
 
 const bgWelcome = require('./images/bg-welcome.png');
 const logo = require('./images/logo.png');
