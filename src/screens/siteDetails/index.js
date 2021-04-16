@@ -292,25 +292,27 @@ console.log(nearBySites)
             <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
 
             {nearBySites && nearBySites.length > 0 &&
-                <Swiper
-                    showsButtons={false}
-                    height={460}
-                    showsPagination={true}
-                    renderPagination={renderPagination}
-                >
-                    {nearBySites.map(item =>  {
-                        const {site_name} = item;
+                <View>
+                    <Swiper
+                        showsButtons={false}
+                        height={460}
+                        showsPagination={true}
+                        renderPagination={renderPagination}
+                    >
+                        {nearBySites.map(item =>  {
+                            const {site_name} = item;
 
-                        if (!site_name) return null;
-                        return (
-                            <TouchableOpacity activeOpacity={0.8}
-                                              key={item.site_id}
-                                              onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
-                                <SiteCard data={item} />
-                            </TouchableOpacity>
-                        )
-                    })}
-                </Swiper>
+                            if (!site_name) return null;
+                            return (
+                                <TouchableOpacity activeOpacity={0.8}
+                                                  key={item.site_id}
+                                                  onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
+                                    <SiteCard data={item} />
+                                </TouchableOpacity>
+                            )
+                        })}
+                    </Swiper>
+                </View>
             }
 
         </ScreenParallaxWrapper>
