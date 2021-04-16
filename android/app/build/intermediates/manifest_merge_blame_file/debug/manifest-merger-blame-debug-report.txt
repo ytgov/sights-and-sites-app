@@ -6,240 +6,237 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-9        android:targetSdkVersion="28" />
+9        android:targetSdkVersion="29" />
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:3:3-75
-11-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:3:20-73
+11-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:8:5-78
+11-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:8:22-75
 12    <uses-permission android:name="android.permission.INTERNET" /> <!-- OPTIONAL PERMISSIONS, REMOVE WHATEVER YOU DO NOT NEED -->
-12-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:2:3-64
-12-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:2:20-62
-13    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
-13-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:5:3-72
-13-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:5:20-70
+12-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:7:5-67
+12-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:7:22-64
+13    <!-- <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" /> -->
 14    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-14-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:6:3-77
-14-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:6:20-75
-15    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-15-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:7:3-72
-15-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:7:20-70
-16    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-16-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:8:3-71
-16-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:8:20-69
-17    <uses-permission android:name="android.permission.VIBRATE" />
-17-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:9:3-63
-17-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:9:20-61
-18    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- These require runtime permissions on M -->
-18-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:10:3-77
-18-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:10:20-75
-19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-19-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:12:3-78
-19-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:12:20-76
-20    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-20-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:13:3-76
-20-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:13:20-74
-21    <uses-permission android:name="android.permission.CAMERA" />
-21-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:14:3-62
-21-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:14:20-60
-22    <uses-permission android:name="android.permission.READ_CONTACTS" />
-22-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:15:3-69
-22-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:15:20-67
-23    <uses-permission android:name="android.permission.READ_CALENDAR" />
-23-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:16:3-69
-23-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:16:20-67
-24    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-24-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:17:3-70
-24-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:17:20-68
-25    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-25-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:18:3-77
-25-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:18:20-75
-26    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-26-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:19:3-68
-26-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:19:20-66
-27    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-27-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:20:3-78
-27-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:20:20-76
-28    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-28-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:21:3-70
-28-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:21:20-68
-29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-29-->[:expo-updates] /Users/badi/code/expo-projects/yukon/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
-29-->[:expo-updates] /Users/badi/code/expo-projects/yukon/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
-30    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-30-->[:react-native-community_netinfo] /Users/badi/code/expo-projects/yukon/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
-30-->[:react-native-community_netinfo] /Users/badi/code/expo-projects/yukon/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
-31    <uses-permission android:name="android.permission.STORAGE" />
-31-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-66
-31-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:22-63
-32    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-32-->[:expo-location] /Users/badi/code/expo-projects/yukon/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-77
-32-->[:expo-location] /Users/badi/code/expo-projects/yukon/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-74
-33
-34    <uses-feature
-34-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:9:5-11:35
-35        android:glEsVersion="0x00020000"
-35-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:10:9-41
-36        android:required="true" />
-36-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:11:9-32
-37    <uses-feature
-37-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:12:5-14:36
-38        android:name="android.hardware.wifi"
-38-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:13:9-45
-39        android:required="false" /> <!-- Required for CrashReporterJobIntentService on API levels below 25 -->
-39-->[com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/bd6f961d7c985b76017d01e641d7ff85/jetified-mapbox-android-sdk-8.6.1/AndroidManifest.xml:14:9-33
-40    <uses-permission android:name="android.permission.WAKE_LOCK" />
-40-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:12:5-68
-40-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:12:22-65
-41    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-41-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
-41-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
-42    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-42-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
-42-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
+14-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:11:5-80
+14-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:11:22-77
+15    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- <uses-permission android:name="android.permission.USE_FINGERPRINT" /> -->
+15-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:12:5-75
+15-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:12:22-72
+16    <uses-permission android:name="android.permission.VIBRATE" />
+16-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:14:5-66
+16-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:14:22-63
+17    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- These require runtime permissions on M -->
+17-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:15:5-80
+17-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:15:22-77
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:17:5-81
+18-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:17:22-78
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:18:5-79
+19-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:18:22-76
+20    <uses-permission android:name="android.permission.CAMERA" />
+20-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:19:5-65
+20-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:19:22-62
+21    <uses-permission android:name="android.permission.READ_CONTACTS" />
+21-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:20:5-72
+21-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:20:22-69
+22    <uses-permission android:name="android.permission.READ_CALENDAR" />
+22-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:21:5-72
+22-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:21:22-69
+23    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+23-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:22:5-73
+23-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:22:22-70
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+24-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:23:5-80
+24-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:23:22-77
+25    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+25-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:24:5-71
+25-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:24:22-68
+26    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+26-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:25:5-81
+26-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:25:22-78
+27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+27-->[:expo-updates] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-79
+27-->[:expo-updates] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-updates/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-76
+28    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+28-->[:react-native-community_netinfo] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
+28-->[:react-native-community_netinfo] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
+29    <uses-permission android:name="android.permission.STORAGE" />
+29-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:5-66
+29-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:22-63
+30    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+30-->[:expo-location] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:5-77
+30-->[:expo-location] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:13:22-74
+31
+32    <uses-feature
+32-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:9:5-11:35
+33        android:glEsVersion="0x00020000"
+33-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:10:9-41
+34        android:required="true" />
+34-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:11:9-32
+35    <uses-feature
+35-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:12:5-14:36
+36        android:name="android.hardware.wifi"
+36-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:13:9-45
+37        android:required="false" /> <!-- Required for CrashReporterJobIntentService on API levels below 25 -->
+37-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:14:9-33
+38    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+38-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:12:5-68
+38-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:12:22-65
+39    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+39-->[com.google.android.gms:play-services-iid:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+39-->[com.google.android.gms:play-services-iid:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
+40    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+40-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
+40-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
+41    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+41-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
+41-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
+42    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+42-->[com.android.installreferrer:installreferrer:1.1.2] /Users/robertng/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
+42-->[com.android.installreferrer:installreferrer:1.1.2] /Users/robertng/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
 43
 44    <application
-44-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:23:3-46:17
+44-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:28:5-55:19
 45        android:name="com.yukon.MainApplication"
-45-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:24:5-36
+45-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:29:9-40
 46        android:allowBackup="false"
-46-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:28:5-32
+46-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:30:9-36
 47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-47-->[androidx.core:core:1.4.0-alpha01] /Users/badi/.gradle/caches/transforms-2/files-2.1/a39337839ebda2672da1c777379f7c60/core-1.4.0-alpha01/AndroidManifest.xml:24:18-86
+47-->[androidx.core:core:1.3.2] /Users/robertng/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:24:18-86
 48        android:debuggable="true"
 49        android:icon="@mipmap/ic_launcher"
-49-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:26:5-39
+49-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:31:9-43
 50        android:label="@string/app_name"
-50-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:25:5-37
+50-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:32:9-41
 51        android:roundIcon="@mipmap/ic_launcher_round"
-51-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:27:5-50
-52        android:testOnly="true"
-53        android:usesCleartextTraffic="true" >
-53-->/Users/badi/code/expo-projects/yukon/android/app/src/debug/AndroidManifest.xml:6:18-53
-54        <meta-data
-54-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:30:5-103
-55            android:name="expo.modules.updates.EXPO_UPDATE_URL"
-55-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:30:16-67
-56            android:value="YOUR-APP-URL-HERE" />
-56-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:30:68-101
-57        <meta-data
-57-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:31:5-112
-58            android:name="expo.modules.updates.EXPO_SDK_VERSION"
-58-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:31:16-68
-59            android:value="YOUR-APP-SDK-VERSION-HERE" />
-59-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:31:69-110
-60
-61        <activity
-61-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:32:5-44:16
-62            android:name="com.yukon.MainActivity"
-62-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:33:7-35
-63            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-63-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:35:7-77
-64            android:label="@string/app_name"
-64-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:34:7-39
-65            android:launchMode="singleTask"
-65-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:36:7-38
-66            android:theme="@style/Theme.App.SplashScreen"
-66-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:38:7-52
-67            android:windowSoftInputMode="adjustResize" >
-67-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:37:7-49
-68            <intent-filter>
-68-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:40:7-43:23
-69                <action android:name="android.intent.action.MAIN" />
-69-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:41:9-60
-69-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:41:17-58
-70
-71                <category android:name="android.intent.category.LAUNCHER" />
-71-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:42:9-68
-71-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:42:19-66
-72            </intent-filter>
-73        </activity>
-74        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-74-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:45:5-81
-74-->/Users/badi/code/expo-projects/yukon/android/app/src/main/AndroidManifest.xml:45:15-79
-75
-76        <provider
-76-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:9-27:20
-77            android:name="expo.modules.filesystem.FileSystemFileProvider"
-77-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-74
-78            android:authorities="com.yukon.FileSystemFileProvider"
-78-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-74
-79            android:exported="false"
-79-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-37
-80            android:grantUriPermissions="true" >
-80-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:13-47
-81            <meta-data
-81-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-26:70
-82                android:name="android.support.FILE_PROVIDER_PATHS"
-82-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-67
-83                android:resource="@xml/file_system_provider_paths" />
-83-->[:expo-file-system] /Users/badi/code/expo-projects/yukon/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:17-67
-84        </provider>
-85
-86        <service
-86-->[:expo-location] /Users/badi/code/expo-projects/yukon/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-18:40
-87            android:name="expo.modules.location.services.LocationTaskService"
-87-->[:expo-location] /Users/badi/code/expo-projects/yukon/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-78
-88            android:exported="false" />
-88-->[:expo-location] /Users/badi/code/expo-projects/yukon/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-37
-89
-90        <provider
-90-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:19:9-23:39
-91            android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"
-91-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:20:13-93
-92            android:authorities="com.yukon.mapboxtelemetryinitprovider"
-92-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:21:13-79
-93            android:exported="false"
-93-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:22:13-37
-94            android:initOrder="100" />
-94-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:23:13-36
-95
-96        <service
-96-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:25:9-27:72
-97            android:name="com.mapbox.android.telemetry.crash.CrashReporterJobIntentService"
-97-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:26:13-92
-98            android:permission="android.permission.BIND_JOB_SERVICE" />
-98-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:4.5.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml:27:13-69
-99
-100        <activity
-100-->[com.google.android.gms:play-services-base:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/46164dcd6e9a6b3d1628b12a428e86c1/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
-101            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-101-->[com.google.android.gms:play-services-base:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/46164dcd6e9a6b3d1628b12a428e86c1/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
-102            android:exported="false"
-102-->[com.google.android.gms:play-services-base:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/46164dcd6e9a6b3d1628b12a428e86c1/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
-103            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-103-->[com.google.android.gms:play-services-base:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/46164dcd6e9a6b3d1628b12a428e86c1/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
-104
-105        <meta-data
-105-->[com.google.android.gms:play-services-basement:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/c2dd84b474805aca1aca9f297b6bdbea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
-106            android:name="com.google.android.gms.version"
-106-->[com.google.android.gms:play-services-basement:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/c2dd84b474805aca1aca9f297b6bdbea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
-107            android:value="@integer/google_play_services_version" />
-107-->[com.google.android.gms:play-services-basement:16.0.1] /Users/badi/.gradle/caches/transforms-2/files-2.1/c2dd84b474805aca1aca9f297b6bdbea/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
-108
-109        <service
-109-->[androidx.room:room-runtime:2.1.0] /Users/badi/.gradle/caches/transforms-2/files-2.1/dd7893f26029167e3adbacf60755e755/room-runtime-2.1.0/AndroidManifest.xml:25:9-27:40
-110            android:name="androidx.room.MultiInstanceInvalidationService"
-110-->[androidx.room:room-runtime:2.1.0] /Users/badi/.gradle/caches/transforms-2/files-2.1/dd7893f26029167e3adbacf60755e755/room-runtime-2.1.0/AndroidManifest.xml:26:13-74
-111            android:exported="false" />
-111-->[androidx.room:room-runtime:2.1.0] /Users/badi/.gradle/caches/transforms-2/files-2.1/dd7893f26029167e3adbacf60755e755/room-runtime-2.1.0/AndroidManifest.xml:27:13-37
-112        <service
-112-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
-113            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
-113-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
-114            android:exported="false" />
-114-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
-115        <service
-115-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
-116            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
-116-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
-117            android:exported="false" />
-117-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
-118        <service
-118-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
-119            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
-119-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
-120            android:exported="false" />
-120-->[io.nlopez.smartlocation:library:3.2.11] /Users/badi/.gradle/caches/transforms-2/files-2.1/40c2d079bf1a3e8d074794288f7373c9/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
-121    </application>
-122
-123</manifest>
+51-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:33:9-54
+52        android:usesCleartextTraffic="true" >
+52-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/debug/AndroidManifest.xml:6:18-53
+53        <meta-data
+53-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:35:9-37:49
+54            android:name="expo.modules.updates.EXPO_UPDATE_URL"
+54-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:36:13-64
+55            android:value="YOUR-APP-URL-HERE" />
+55-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:37:13-46
+56        <meta-data
+56-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:38:9-40:57
+57            android:name="expo.modules.updates.EXPO_SDK_VERSION"
+57-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:39:13-65
+58            android:value="YOUR-APP-SDK-VERSION-HERE" />
+58-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:40:13-54
+59
+60        <activity
+60-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:42:9-53:20
+61            android:name="com.yukon.MainActivity"
+61-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:43:13-41
+62            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+62-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:44:13-83
+63            android:label="@string/app_name"
+63-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:45:13-45
+64            android:launchMode="singleTask"
+64-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:46:13-44
+65            android:theme="@style/Theme.App.SplashScreen"
+65-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:47:13-58
+66            android:windowSoftInputMode="adjustResize" >
+66-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:48:13-55
+67            <intent-filter>
+67-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:49:13-52:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:50:17-69
+68-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:50:25-66
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:51:17-77
+70-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:51:27-74
+71            </intent-filter>
+72        </activity>
+73        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+73-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:54:9-86
+73-->/Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/android/app/src/main/AndroidManifest.xml:54:19-83
+74
+75        <provider
+75-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:9-27:20
+76            android:name="expo.modules.filesystem.FileSystemFileProvider"
+76-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-74
+77            android:authorities="com.yukon.FileSystemFileProvider"
+77-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:13-74
+78            android:exported="false"
+78-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-37
+79            android:grantUriPermissions="true" >
+79-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:13-47
+80            <meta-data
+80-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-26:70
+81                android:name="android.support.FILE_PROVIDER_PATHS"
+81-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:17-67
+82                android:resource="@xml/file_system_provider_paths" />
+82-->[:expo-file-system] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:17-67
+83        </provider>
+84
+85        <service
+85-->[:expo-location] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-18:40
+86            android:name="expo.modules.location.services.LocationTaskService"
+86-->[:expo-location] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-78
+87            android:exported="false" />
+87-->[:expo-location] /Users/robertng/Documents/Projects/yukon-roadtrip/code/yukon-roadtrip-app/node_modules/expo-location/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-37
+88
+89        <provider
+89-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:18:9-22:39
+90            android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"
+90-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:19:13-93
+91            android:authorities="com.yukon.mapboxtelemetryinitprovider"
+91-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:20:13-79
+92            android:exported="false"
+92-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:21:13-37
+93            android:initOrder="100" />
+93-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:22:13-36
+94
+95        <service
+95-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:24:9-26:72
+96            android:name="com.mapbox.android.telemetry.crash.CrashReporterJobIntentService"
+96-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:25:13-92
+97            android:permission="android.permission.BIND_JOB_SERVICE" />
+97-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:26:13-69
+98        <service
+98-->[androidx.room:room-runtime:2.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/6d7cd11850027465120e40f53813cdee/room-runtime-2.1.0/AndroidManifest.xml:25:9-27:40
+99            android:name="androidx.room.MultiInstanceInvalidationService"
+99-->[androidx.room:room-runtime:2.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/6d7cd11850027465120e40f53813cdee/room-runtime-2.1.0/AndroidManifest.xml:26:13-74
+100            android:exported="false" />
+100-->[androidx.room:room-runtime:2.1.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/6d7cd11850027465120e40f53813cdee/room-runtime-2.1.0/AndroidManifest.xml:27:13-37
+101
+102        <activity
+102-->[com.google.android.gms:play-services-base:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+103            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+103-->[com.google.android.gms:play-services-base:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+104            android:exported="false"
+104-->[com.google.android.gms:play-services-base:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+105            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+105-->[com.google.android.gms:play-services-base:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+106
+107        <meta-data
+107-->[com.google.android.gms:play-services-basement:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+108            android:name="com.google.android.gms.version"
+108-->[com.google.android.gms:play-services-basement:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+109            android:value="@integer/google_play_services_version" />
+109-->[com.google.android.gms:play-services-basement:17.0.0] /Users/robertng/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+110
+111        <service
+111-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
+112            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+112-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
+113            android:exported="false" />
+113-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
+114        <service
+114-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
+115            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+115-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
+116            android:exported="false" />
+116-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
+117        <service
+117-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
+118            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+118-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
+119            android:exported="false" />
+119-->[io.nlopez.smartlocation:library:3.2.11] /Users/robertng/.gradle/caches/transforms-2/files-2.1/978672888d8ff2dc01cee5455cc8b36d/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
+120    </application>
+121
+122</manifest>
