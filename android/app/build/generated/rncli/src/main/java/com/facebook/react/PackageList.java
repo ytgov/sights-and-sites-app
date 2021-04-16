@@ -14,14 +14,20 @@ import java.util.ArrayList;
 import com.yukon.BuildConfig;
 import com.yukon.R;
 
+// @react-native-community/masked-view
+import org.reactnative.maskedview.RNCMaskedViewPackage;
 // @react-native-community/netinfo
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 // @react-native-mapbox-gl/maps
 import com.mapbox.rctmgl.RCTMGLPackage;
+// react-native-device-info
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-safe-area-context
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
 // react-native-svg
@@ -71,10 +77,13 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new RNCMaskedViewPackage(),
       new NetInfoPackage(),
       new RCTMGLPackage(),
+      new RNDeviceInfo(),
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),
+      new SafeAreaContextPackage(),
       new RNScreensPackage(),
       new SvgPackage()
     ));
