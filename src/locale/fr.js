@@ -146,7 +146,7 @@ export default {
                 text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
                 shareButton: 'Share this site on social media'
             },
-            nearBySites: 'Nearby Sites',
+            nearBySites: 'Sites à proximité',
         },
 
         // FILTERS
