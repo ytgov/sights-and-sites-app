@@ -277,17 +277,17 @@ console.log(nearBySites)
                 <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />
             </Section>
 
-            <Section title={t('siteDetails.sectionSupport.title')}>
-                <Body black>{t('siteDetails.sectionSupport.text')}</Body>
-                <WebLink label={t('siteDetails.sectionSupport.shareButton')}
-                         type={WebLinkType.BUTTON_TEAL}
-                         icon={WebLinkIcon.SHARE}
-                         containerStyle={{marginVertical: 20}}
-                         url={'#'}
-                         // @TODO: check for network to show/hide share button?
-                         onPress={() => shareOnSocialMedia(site_name, site_description)}
-                />
-            </Section>
+            {/*<Section title={t('siteDetails.sectionSupport.title')}>*/}
+            {/*    <Body black>{t('siteDetails.sectionSupport.text')}</Body>*/}
+            {/*    <WebLink label={t('siteDetails.sectionSupport.shareButton')}*/}
+            {/*             type={WebLinkType.BUTTON_TEAL}*/}
+            {/*             icon={WebLinkIcon.SHARE}*/}
+            {/*             containerStyle={{marginVertical: 20}}*/}
+            {/*             url={'#'}*/}
+            {/*             // @TODO: check for network to show/hide share button?*/}
+            {/*             onPress={() => shareOnSocialMedia(site_name, site_description)}*/}
+            {/*    />*/}
+            {/*</Section>*/}
 
             <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
 
