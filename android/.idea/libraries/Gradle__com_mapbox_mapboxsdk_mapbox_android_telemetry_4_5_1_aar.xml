@@ -3,6 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/80cb5d2c9cc33656a0fd87326dd5f27f/jetified-mapbox-android-telemetry-4.5.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4cdcd5247369fc27324a2c9d253b5a18/jetified-mapbox-android-telemetry-4.5.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4cdcd5247369fc27324a2c9d253b5a18/jetified-mapbox-android-telemetry-4.5.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4cdcd5247369fc27324a2c9d253b5a18/jetified-mapbox-android-telemetry-4.5.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mapbox.mapboxsdk/mapbox-android-telemetry/4.5.1/8e69150edb13ad94a7b53228dbdc4c1f5cfb74b2/mapbox-android-telemetry-4.5.1-javadoc.jar!/" />
