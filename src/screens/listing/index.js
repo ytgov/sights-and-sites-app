@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {FlatList, TouchableOpacity, Dimensions, Text} from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
@@ -14,6 +14,7 @@ import NoResult from '~components/noResult';
 import {ICON_POSITION, toastWithIcon} from '~app/shared/services/notify';
 import DeviceInfo from 'react-native-device-info';
 import {YUKON_COLORS} from '~theme/config';
+import {filterListing, setListing} from '~store/actions/listing';
 
 const windowHeight = Dimensions.get('window').height
 const windowWidth = Dimensions.get('window').width
@@ -26,14 +27,30 @@ const ListingScreen = (props) => {
         dispatchShowHeader,
         dispatchHideSearch,
         dispatchSetCurrentScreenName,
-        listingFiltered
+        listingFiltered,
+        listingLocalized,
+        locale,
+        dispatchFilterListing,
+        dispatchSetListing
     } = props
 
     const {t} = useTranslation()
-    const [items, setItems] = useState(listingFiltered.slice(0, ITEMS_PER_PAGE))
+    const [items, setItems] = useState([])
     const [page, setPage] = useState(1)
     const [notification, setNotification] = useState(null)
     const maxPages = Math.ceil(listingFiltered.length / ITEMS_PER_PAGE)
+
+    useEffect(() => {
+        if (listingFiltered.length !== 0) {
+            const loadedItems = listingFiltered.slice(0, ITEMS_PER_PAGE);
+            setItems(loadedItems);
+        } else {
+            const list = listingLocalized[locale]
+            dispatchSetListing(list)
+            dispatchFilterListing()
+        }
+
+    }, [listingFiltered])
 
     const loadMore = () => {
         const newPage = page + 1
@@ -100,6 +117,8 @@ ListingScreen['navigationOptions'] = () => ({
 const mapStateToProps = (state) => {
     return {
         listingFiltered: state.listingStore.listingFiltered,
+        listingLocalized: state.listingStore.listingLocalized,
+        locale: state.localeStore.locale,
     };
 };
 
@@ -108,6 +127,8 @@ const mapDispatchToProps = dispatch => {
         dispatchShowHeader: () => dispatch(showHeader()),
         dispatchHideSearch: () => dispatch(hideSearch()),
         dispatchSetCurrentScreenName: (value) => dispatch(setCurrentScreenName(value)),
+        dispatchSetListing: (list) => dispatch(setListing(list)),
+        dispatchFilterListing: () => dispatch(filterListing())
     };
 };
 
