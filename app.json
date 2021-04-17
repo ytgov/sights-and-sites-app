@@ -3,7 +3,7 @@
     "name": "Yukon Road Trip",
     "slug": "yukon",
     "privacy": "unlisted",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "sdkVersion": "40.0.0",
     "platforms": [
       "ios",
