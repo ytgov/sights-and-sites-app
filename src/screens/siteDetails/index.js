@@ -235,7 +235,7 @@ console.log(nearBySites)
 
 
             <Section title={t('siteDetails.sectionDescription.title')}>
-                <Body black>{site_description.replaceAll('&nbsp;', ' ')}</Body>
+                <Body black>{site_description.replace(/&nbsp;/g, ' ')}</Body>
             </Section>
 
             <Section title={t('siteDetails.sectionDirections.title')}
