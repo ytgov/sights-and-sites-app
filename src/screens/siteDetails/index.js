@@ -121,7 +121,7 @@ const SiteDetailsScreen = (props) => {
                     : {roadtrip_portrait: '', roadtrip_landscape: ''}}
         }
     });
-console.log(nearBySites)
+
     /* Near Sites Mock/Functionality */
 
     const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
@@ -264,18 +264,18 @@ console.log(nearBySites)
                 )}
             </Section>
 
-            <Section title={t('siteDetails.sectionBooking.title')}
-                     backgroundColor={'#224c5a'}
-                     swoosh={swooshTeal}
-                     whiteTitle={true}>
-                <Body>{t('siteDetails.sectionBooking.text')}</Body>
-                <WebLink label={t('siteDetails.sectionBooking.linkLabel')}
-                         type={WebLinkType.BUTTON_YELLOW}
-                         icon={WebLinkIcon.EXT_LINK}
-                         url={BOOKING_URL}
-                         containerStyle={{marginVertical: 20}} />
-                <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />
-            </Section>
+            {/*<Section title={t('siteDetails.sectionBooking.title')}*/}
+            {/*         backgroundColor={'#224c5a'}*/}
+            {/*         swoosh={swooshTeal}*/}
+            {/*         whiteTitle={true}>*/}
+            {/*    <Body>{t('siteDetails.sectionBooking.text')}</Body>*/}
+            {/*    <WebLink label={t('siteDetails.sectionBooking.linkLabel')}*/}
+            {/*             type={WebLinkType.BUTTON_YELLOW}*/}
+            {/*             icon={WebLinkIcon.EXT_LINK}*/}
+            {/*             url={BOOKING_URL}*/}
+            {/*             containerStyle={{marginVertical: 20}} />*/}
+            {/*    <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />*/}
+            {/*</Section>*/}
 
             {/*<Section title={t('siteDetails.sectionSupport.title')}>*/}
             {/*    <Body black>{t('siteDetails.sectionSupport.text')}</Body>*/}
