@@ -64,11 +64,12 @@ export default function listingReducer(state = initialState, action) {
         }
         case ADD_LOCALIZED_LISTING: {
             const {list, langCode} = action.payload
+            const sortedList = _.sortBy(list, ['site_name'], ['desc'])
             return {
                 ...state,
                 listingLocalized: {
                     ...state.listingLocalized,
-                    ...{[langCode]: list}
+                    ...{[langCode]: sortedList}
                 }
             }
         }
