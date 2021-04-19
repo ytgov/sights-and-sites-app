@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {FlatList, TouchableOpacity, Dimensions, Text} from 'react-native';
+import React, {useState} from 'react';
+import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
@@ -49,7 +49,6 @@ const ListingScreen = (props) => {
             dispatchSetListing(list)
             dispatchFilterListing()
         }
-
     }, [listingFiltered])
 
     const loadMore = () => {
