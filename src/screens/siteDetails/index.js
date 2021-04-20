@@ -300,7 +300,7 @@ const SiteDetailsScreen = (props) => {
             <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
 
             {nearBySites && nearBySites.length > 0 &&
-                <View>
+                <View style={{flex: 1}}>
                     <Swiper
                         showsButtons={false}
                         height={460}
@@ -322,7 +322,6 @@ const SiteDetailsScreen = (props) => {
                     </Swiper>
                 </View>
             }
-
         </ScreenParallaxWrapper>
     );
 };
