@@ -1,7 +1,7 @@
 import React from 'react';
 import ScreenWrapper from '../screenWrapper';
 import PropTypes from 'prop-types';
-import {Animated, StyleSheet} from 'react-native';
+import {Animated, StyleSheet, View} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import {withNavigation} from 'react-navigation';
 
@@ -25,7 +25,9 @@ const ScreenFilterWrapper = (props) => {
                                        onPress={onApplyFilter} />
                            </Animated.View>
                        }>
-            {children}
+            <View style={{paddingBottom: 140}}>
+                {children}
+            </View>
         </ScreenWrapper>
     );
 };
