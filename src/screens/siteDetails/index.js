@@ -44,6 +44,7 @@ const SiteDetailsScreen = (props) => {
         dispatchHideSearch,
         dispatchSetCurrentScreenName,
         isSearchVisible,
+        isHeaderVisible,
         locale
     } = props;
 
@@ -78,6 +79,13 @@ const SiteDetailsScreen = (props) => {
         const i = listingRaw.find(i => i.site_id === site_id)
         if (!_isUndefined(i)) {
             setItem(i)
+        }
+
+        if (isSearchVisible) {
+            dispatchHideSearch();
+        }
+        if (isHeaderVisible) {
+            dispatchHideHeader();
         }
     }, [item, locale])
 
@@ -333,6 +341,7 @@ const mapStateToProps = (state) => ({
     locale: state.localeStore.locale,
     listingRaw: state.listingStore.listingRaw,
     isSearchVisible: state.coreStore.searchVisible,
+    isHeaderVisible: state.coreStore.headerVisible
 });
 
 const mapDispatchToProps = dispatch => ({
