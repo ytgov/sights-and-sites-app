@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
