@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import {Dimensions, SafeAreaView, Image, View, ImageBackground} from 'react-native';
+import {Dimensions, SafeAreaView, Image, View, ImageBackground, ScrollView, Animated} from 'react-native';
 import {Image as ImageCache} from 'react-native-expo-image-cache';
 
 import {H1} from '~theme/typings';
@@ -36,7 +36,13 @@ const ScreenParallaxWrapper = (props) => {
         <ParallaxScrollView
             backgroundColor={YUKON_COLORS.primary_200}
             contentBackgroundColor="white"
+            contentContainerStyle={{flex: 1}}
             parallaxHeaderHeight={headerHeight}
+            renderScrollComponent={(props) =>
+                <Animated.ScrollView
+                    {...props}
+                    scrollIndicatorInsets={{ right: 1 }}
+                />}
             outputScaleValue={1.2} // max zoom level
             renderFixedHeader={() => {
                 return (search && <View style={{width: windowWidth}}>
@@ -45,38 +51,42 @@ const ScreenParallaxWrapper = (props) => {
             }}
             stickyHeaderHeight={search ? 120 : 0}
             renderBackground={() => {
-                return typeof backgroundImage === 'string'
-                    ? <ImageCache
-                        tint={'light'}
-                        transitionDuration={300}
-                        resizeMode='cover'
-                        // fallback={fallback}
-                        uri={backgroundImage}
-                        style={{
+                return <View>
+                    {
+                        typeof backgroundImage === 'string'
+                        ? <ImageCache
+                            tint={'light'}
+                            transitionDuration={300}
+                            resizeMode='cover'
+                            // fallback={fallback}
+                            uri={backgroundImage}
+                            style={{
+                                width: windowWidth,
+                                height: headerHeight,
+                                paddingBottom: 100
+                            }} />
+                        : <Image style={{
                             width: windowWidth,
                             height: headerHeight,
                             paddingBottom: 100
-                        }} />
-                    : <Image style={{
-                        width: windowWidth,
-                        height: headerHeight,
-                        paddingBottom: 100
-                    }} source={backgroundImage} />
-            }}
-            renderForeground={() => (
-                <View style={{flex: 1, justifyContent: 'space-between'}}>
+                        }} source={backgroundImage} />
+                    }
                     <Image source={overlay} style={{
                         position: 'absolute',
                         bottom: 0, left: 0, width: windowWidth,
                         resizeMode: 'cover',
                     }}/>
+                </View>
+            }}
+            renderForeground={() => (
+                <View style={{flex: 1, justifyContent: 'space-between'}}>
                     <SafeAreaView>
                         <View style={{ margin: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                             <BackButton />
                             {
                                 bookmarkButton
-                                ? <BookmarkButton onClick={bookmarkOnClick} active={bookmarkActive} />
-                                : null
+                                    ? <BookmarkButton onClick={bookmarkOnClick} active={bookmarkActive} />
+                                    : null
                             }
                         </View>
                     </SafeAreaView>
@@ -88,9 +98,9 @@ const ScreenParallaxWrapper = (props) => {
                         marginHorizontal: 40,
                     }}>
                         {leadIcon &&
-                            <Image source={leadIcon}
-                                    style={leadIconStyle}
-                                    resizeMode={'contain'} />}
+                        <Image source={leadIcon}
+                               style={leadIconStyle}
+                               resizeMode={'contain'} />}
                         <H1 style={{ textAlign: 'center', marginTop: 16}}>{title}</H1>
                     </View>
                 </View>
@@ -104,13 +114,13 @@ const ScreenParallaxWrapper = (props) => {
                                      width: windowWidth,
                                      borderWidth: 0,
                                      height: 100 }}  />
-                <View style={{ marginTop: 16, marginBottom: 16 }}>
+                <View style={{ marginVertical: 16 }}>
                     {children}
                 </View>
             </View>
         </ParallaxScrollView>
     );
-};
+}
 
 ScreenParallaxWrapper.propTypes = {
     backgroundImage: PropTypes.oneOfType([

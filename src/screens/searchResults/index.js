@@ -48,7 +48,7 @@ const SearchResultsScreen = (props) => {
                       renderItem={({item}) =>
                           <TouchableOpacity
                               activeOpacity={0.8}
-                              onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {item})}>
+                              onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
                               <SearchResult data={item} />
                           </TouchableOpacity>}
                       scrollEventThrottle={16}
