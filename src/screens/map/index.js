@@ -35,6 +35,11 @@ const iconStyle = {
     iconSize: 0.5,
 };
 
+const initialShapedSources = {
+    type: 'FeatureCollection',
+    features: []
+}
+
 const MapScreen = (props) => {
     const {
         listingFiltered,
@@ -47,13 +52,14 @@ const MapScreen = (props) => {
 
     const mapRef = useRef()
     const [center, setCenter] = useState(CENTER)
+    const [items, setItems] = useState([])
+    const [shapedSources, setShapeSources] = useState(initialShapedSources)
     const [zoom, setZoom] = useState(4)
     const [pinnedItem, setPinnedItem] = useState(null)
     const [isModalVisible, setModalVisible] = useState(false);
     const [showUserLocation, setShowUserLocation] = useState(false);
 
     const onUserLocationPressed = () => {
-
         setShowUserLocation(!showUserLocation);
     }
 
@@ -68,8 +74,8 @@ const MapScreen = (props) => {
         setModalVisible(true)
     }
 
-    const getShapedSources = () => {
-        const features = listingFiltered.map(item => {
+    const getShapedSources = (items) => {
+        const features = items.map(item => {
             return {
                 type: 'Feature',
                 id: item.site_id.toString(),
@@ -90,6 +96,9 @@ const MapScreen = (props) => {
     }
 
     useEffect(() => {
+        // Set items
+        setItems(listingFiltered)
+
         // Check for user location, if not already have it.
         if (_isNull(userLocation)) {
             dispatchGetUserLocation();
@@ -97,7 +106,10 @@ const MapScreen = (props) => {
             setShowUserLocation(true)
         }
 
-    }, [userLocation])
+        // Set shapedSources
+        const s = getShapedSources(listingFiltered)
+        setShapeSources(s)
+    }, [userLocation, listingFiltered])
 
     return (
         <View style={{flex: 1}}>
@@ -122,7 +134,7 @@ const MapScreen = (props) => {
                     id="markerShapedSources"
                     hitbox={{width: 12, height: 28}}
                     onPress={onSourceLayerPress}
-                    shape={getShapedSources()}>
+                    shape={shapedSources}>
                     <MapboxGL.SymbolLayer
                         id="symbolLocationSymbols"
                         minZoomLevel={1}

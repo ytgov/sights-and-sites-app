@@ -5,6 +5,7 @@ import {
     SET_FAVORITES,
     RESET_FILTERS,
 } from '../types';
+import {filterListing} from '~store/actions/listing';
 
 export const setSiteTypesFilter = (siteTypes) => {
     return {
@@ -39,5 +40,6 @@ export const resetFilters = () => {
         dispatch(setSiteTypesFilter([]))
         dispatch(setRegionsFilter([]))
         dispatch(setHighwaysFilter([]))
+        dispatch(filterListing())
     }
 }

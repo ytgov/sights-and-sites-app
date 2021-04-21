@@ -61,31 +61,6 @@ const LoadingScreen = (props) => {
 
                 navigation.navigate(routes.STACK_BOTTOM_TAB);
             })
-
-        // axios.get(APP_CONFIG.placesUrl, {
-        //     headers: {
-        //         'accept-language': i18n.language,
-        //         'api-key': APP_CONFIG.apiKey
-        //     }
-        // })
-        //     .then(async res => {
-        //         await addListingDispatch(res.data.data);
-        //         filterListingDispatch();
-        //         if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-        //             navigation.navigate(routes.SCREEN_WELCOME);
-        //             return false;
-        //         }
-        //         await i18n.changeLanguage(locale);
-        //         navigation.navigate(routes.STACK_BOTTOM_TAB);
-        //     })
-        //     .catch(err => {
-        //         if (!hasUserPassedOnboarding || !hasUserSelectedLocale) {
-        //             navigation.navigate(routes.SCREEN_WELCOME);
-        //             return false;
-        //         }
-        //         i18n.changeLanguage(locale);
-        //         navigation.navigate(routes.STACK_BOTTOM_TAB);
-        //     })
     }, [])
 
     return (
@@ -114,7 +89,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         dispatchFilterListing: () => dispatch(filterListing()),
-        dispatchSetListing: (langCode) => dispatch(setListing(langCode)),
+        dispatchSetListing: (sites) => dispatch(setListing(sites)),
         dispatchAddLocalizedListing: (list, langCode) => dispatch(addLocalizedListing(list, langCode)),
     };
 };

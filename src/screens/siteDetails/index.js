@@ -44,6 +44,7 @@ const SiteDetailsScreen = (props) => {
         dispatchHideSearch,
         dispatchSetCurrentScreenName,
         isSearchVisible,
+        isHeaderVisible,
         locale
     } = props;
 
@@ -78,6 +79,13 @@ const SiteDetailsScreen = (props) => {
         const i = listingRaw.find(i => i.site_id === site_id)
         if (!_isUndefined(i)) {
             setItem(i)
+        }
+
+        if (isSearchVisible) {
+            dispatchHideSearch();
+        }
+        if (isHeaderVisible) {
+            dispatchHideHeader();
         }
     }, [item, locale])
 
@@ -121,7 +129,7 @@ const SiteDetailsScreen = (props) => {
                     : {roadtrip_portrait: '', roadtrip_landscape: ''}}
         }
     });
-console.log(nearBySites)
+
     /* Near Sites Mock/Functionality */
 
     const isFavoriteSite = myFavorites.length && myFavorites.find(site => site_id === site.site_id);
@@ -235,7 +243,7 @@ console.log(nearBySites)
 
 
             <Section title={t('siteDetails.sectionDescription.title')}>
-                <Body black>{site_description.replaceAll('&nbsp;', ' ')}</Body>
+                <Body black>{site_description.replace(/&nbsp;/g, ' ')}</Body>
             </Section>
 
             <Section title={t('siteDetails.sectionDirections.title')}
@@ -264,18 +272,18 @@ console.log(nearBySites)
                 )}
             </Section>
 
-            <Section title={t('siteDetails.sectionBooking.title')}
-                     backgroundColor={'#224c5a'}
-                     swoosh={swooshTeal}
-                     whiteTitle={true}>
-                <Body>{t('siteDetails.sectionBooking.text')}</Body>
-                <WebLink label={t('siteDetails.sectionBooking.linkLabel')}
-                         type={WebLinkType.BUTTON_YELLOW}
-                         icon={WebLinkIcon.EXT_LINK}
-                         url={BOOKING_URL}
-                         containerStyle={{marginVertical: 20}} />
-                <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />
-            </Section>
+            {/*<Section title={t('siteDetails.sectionBooking.title')}*/}
+            {/*         backgroundColor={'#224c5a'}*/}
+            {/*         swoosh={swooshTeal}*/}
+            {/*         whiteTitle={true}>*/}
+            {/*    <Body>{t('siteDetails.sectionBooking.text')}</Body>*/}
+            {/*    <WebLink label={t('siteDetails.sectionBooking.linkLabel')}*/}
+            {/*             type={WebLinkType.BUTTON_YELLOW}*/}
+            {/*             icon={WebLinkIcon.EXT_LINK}*/}
+            {/*             url={BOOKING_URL}*/}
+            {/*             containerStyle={{marginVertical: 20}} />*/}
+            {/*    <HTMLElement whiteText={true} html={t('siteDetails.sectionBooking.extra')} />*/}
+            {/*</Section>*/}
 
             {/*<Section title={t('siteDetails.sectionSupport.title')}>*/}
             {/*    <Body black>{t('siteDetails.sectionSupport.text')}</Body>*/}
@@ -289,32 +297,35 @@ console.log(nearBySites)
             {/*    />*/}
             {/*</Section>*/}
 
-            <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
+
 
             {nearBySites && nearBySites.length > 0 &&
                 <View>
-                    <Swiper
-                        showsButtons={false}
-                        height={460}
-                        showsPagination={true}
-                        renderPagination={renderPagination}
-                    >
-                        {nearBySites.map(item =>  {
-                            const {site_name} = item;
+                    <H3 style={{marginBottom: 36, paddingHorizontal: 16, color: YUKON_COLORS.neutral}}>{t('siteDetails.nearBySites')}</H3>
+                    <View style={{flex: 1, marginBottom: 30}}>
+                        <Swiper
+                            showsButtons={false}
+                            height={460}
+                            showsPagination={true}
+                            renderPagination={renderPagination}
+                        >
+                            {nearBySites.map(item =>  {
+                                const {site_name} = item;
 
-                            if (!site_name) return null;
-                            return (
-                                <TouchableOpacity activeOpacity={0.8}
-                                                  key={item.site_id}
-                                                  onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
-                                    <SiteCard data={item} />
-                                </TouchableOpacity>
-                            )
-                        })}
-                    </Swiper>
+                                if (!site_name) return null;
+                                return (
+                                    <TouchableOpacity activeOpacity={0.8}
+                                                      key={item.site_id}
+                                                      onPress={() => navigation.push(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
+                                        <SiteCard data={item} />
+                                    </TouchableOpacity>
+                                )
+                            })}
+                        </Swiper>
+                    </View>
                 </View>
-            }
 
+            }
         </ScreenParallaxWrapper>
     );
 };
@@ -333,6 +344,7 @@ const mapStateToProps = (state) => ({
     locale: state.localeStore.locale,
     listingRaw: state.listingStore.listingRaw,
     isSearchVisible: state.coreStore.searchVisible,
+    isHeaderVisible: state.coreStore.headerVisible
 });
 
 const mapDispatchToProps = dispatch => ({
