@@ -123,7 +123,9 @@ export default {
             notifications: {
                 reset: 'Filters reset!',
                 applied: 'Filters applied!'
-            }
+            },
+            resetFilter: 'Reset filters',
+            applyFilters: 'Apply filters',
         },
         filterRegions: {
             campbell: 'Campbell',
