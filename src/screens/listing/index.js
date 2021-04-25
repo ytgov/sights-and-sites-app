@@ -69,6 +69,7 @@ const ListingScreen = (props) => {
                     dispatchHideSearch();
                     dispatchShowHeader();
                     dispatchSetCurrentScreenName(null);
+                    setPage(1);
 
                     // Toast
                     if (!_isUndefined(navigation.getParam('notification'))) {
