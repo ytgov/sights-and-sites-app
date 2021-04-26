@@ -17,21 +17,25 @@ const initialState = {
 
 const filterListing = (filters, location, listingRaw) => {
     const {regions, highways, siteTypes} = filters
-    return listingRaw.filter((item) => {
+
+    const filteredByRegion = listingRaw.filter((item) => {
         if (regions.length > 0) {
-            // item doesn't match region filter, reject.
-            if (!regions.includes(item.region.id)) {
-                return false;
-            }
+            // get items that matches region filter.
+            return regions.includes(item.region.id);
+        } else {
+            return true;
         }
+    })
 
+    const filteredByHighway = filteredByRegion.filter((item) => {
         if (highways.length > 0) {
-            // item doesn't match highways filter, reject.
-            if (!highways.includes(item.highway.id)) {
-                return false;
-            }
+            return highways.includes(item.highway.id);
+        } else {
+            return true;
         }
+    })
 
+    const filteredByType = filteredByHighway.filter((item) => {
         if (siteTypes.length > 0) {
             const itemSiteTypes = item.site_types.map((s) => s.id)
             const intersection = _.intersection(siteTypes, itemSiteTypes);
@@ -40,9 +44,10 @@ const filterListing = (filters, location, listingRaw) => {
             }
         }
 
-        // If item passes conditions => item matches!
         return true;
     })
+
+    return filteredByType
 }
 
 export default function listingReducer(state = initialState, action) {

@@ -38,16 +38,18 @@ const ListingScreen = (props) => {
     const [items, setItems] = useState([])
     const [page, setPage] = useState(1)
     const [notification, setNotification] = useState(null)
+    const [didDispatch, setDidDispatch] = useState(false)
     const maxPages = Math.ceil(listingFiltered.length / ITEMS_PER_PAGE)
 
     useEffect(() => {
-        if (listingFiltered.length !== 0) {
-            const loadedItems = listingFiltered.slice(0, ITEMS_PER_PAGE);
-            setItems(loadedItems);
-        } else {
+        if (!didDispatch) {
             const list = listingLocalized[locale]
             dispatchSetListing(list)
             dispatchFilterListing()
+            setDidDispatch(true)
+        } else {
+            const loadedItems = listingFiltered.slice(0, ITEMS_PER_PAGE);
+            setItems(loadedItems);
         }
     }, [listingFiltered])
 
@@ -69,6 +71,7 @@ const ListingScreen = (props) => {
                     dispatchHideSearch();
                     dispatchShowHeader();
                     dispatchSetCurrentScreenName(null);
+                    setPage(1);
 
                     // Toast
                     if (!_isUndefined(navigation.getParam('notification'))) {
