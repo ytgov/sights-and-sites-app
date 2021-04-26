@@ -9,7 +9,7 @@ import {useTranslation} from 'react-i18next';
 import Button, {ButtonStyle} from '../../screens/filters/button';
 
 const ScreenFilterWrapper = (props) => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const {children, backgroundImage, onResetFilter, onApplyFilter} = props
 
     return (
