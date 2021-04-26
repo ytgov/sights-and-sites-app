@@ -163,7 +163,9 @@ export default {
             notifications: {
                 reset: 'Filtres réinitialisés',
                 applied: 'Filtres appliqués'
-            }
+            },
+            resetFilter: 'Réinitialiser les filtres',
+            applyFilters: 'Appliquer les filtres',
         },
         filterRegions: {
             campbell: 'Campbell',
