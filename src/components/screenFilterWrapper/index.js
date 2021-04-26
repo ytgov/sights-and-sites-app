@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import {Animated, StyleSheet, View} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import {withNavigation} from 'react-navigation';
+import {useTranslation} from 'react-i18next';
 
 import Button, {ButtonStyle} from '../../screens/filters/button';
 
 const ScreenFilterWrapper = (props) => {
+    const {t} = useTranslation();
     const {children, backgroundImage, onResetFilter, onApplyFilter} = props
 
     return (
@@ -16,10 +18,10 @@ const ScreenFilterWrapper = (props) => {
                            <Animated.View style={{
                                ...styles.buttons,
                            }}>
-                               <Button label={'Reset filters'}
+                               <Button label={t('filters.resetFilter')}
                                        buttonStyle={ButtonStyle.WHITE}
                                        onPress={onResetFilter} />
-                               <Button label={'Apply filters'}
+                               <Button label={t('filters.applyFilters')}
                                        buttonStyle={ButtonStyle.TEAL}
                                        containerStyle={{ flex: 1, flexGrow: 1}}
                                        onPress={onApplyFilter} />
