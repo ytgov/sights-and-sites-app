@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/../node_modules/expo-sqlite/android" />
             <option value="$PROJECT_DIR$/../node_modules/expo-updates/android" />
             <option value="$PROJECT_DIR$/../node_modules/expo-web-browser/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-device-info/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-reanimated/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-safe-area-context/android" />
