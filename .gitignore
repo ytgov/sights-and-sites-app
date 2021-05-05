@@ -31,6 +31,8 @@ build/
 local.properties
 *.iml
 android/local.properties
+android/.idea/
+android/.gradle/
 *.apk
 *.aab
 *.hprof
