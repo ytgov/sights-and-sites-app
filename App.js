@@ -26,7 +26,7 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     console.disableYellowBox = true;
-    if (Platform.OS === 'ios') {
+    if (Platform.OS !== 'ios') {
       StatusBar.setHidden(true);
     }
     if (UIManager.setLayoutAnimationEnabledExperimental) {
