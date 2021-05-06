@@ -19,7 +19,7 @@ export const APP_CONFIG = {
     },
     map_box: 'pk.eyJ1IjoieWdlc2VydmljZXMiLCJhIjoiY2s4MDgyZ3JhMGQ0dDNscGU1YmplOTEzNCJ9.94bGsBH18qzFY-Cd5kjZvA',
     apiKey: 'bb09d14d65ca684ade6aab47b19d4c0d',
-    placesUrl: 'http://yukon.ca/en/campground-and-recreation-api-v2/sites'
+    placesUrl: 'https://yukon.ca/en/campground-and-recreation-api-v2/sites'
     // placesUrl: 'https://virtserver.swaggerhub.com/GOY/CampgroundAndRecreationSites/1.0.0/sites'
     // placesUrl: 'https://yukon.cms-uat.yukon.ca/en/api/v1/campground-and-recreation-sites'
 };
