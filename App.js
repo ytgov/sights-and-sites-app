@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, UIManager, View} from 'react-native';
+import {Image, UIManager, View, Platform, StatusBar} from 'react-native';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import configureStore from './src/store';
@@ -26,6 +26,9 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     console.disableYellowBox = true;
+    if (Platform.OS !== 'ios') {
+      StatusBar.setHidden(true);
+    }
     if (UIManager.setLayoutAnimationEnabledExperimental) {
       UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     }
