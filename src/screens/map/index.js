@@ -61,6 +61,12 @@ const MapScreen = (props) => {
 
     const onUserLocationPressed = () => {
         setShowUserLocation(!showUserLocation);
+        dispatchGetUserLocation((coordinates) => {
+            const { latitude } = coordinates;
+            if (!latitude) {
+                setShowUserLocation(false);
+            }
+        });
     }
 
     const onSourceLayerPress = (e) => {
@@ -99,17 +105,10 @@ const MapScreen = (props) => {
         // Set items
         setItems(listingFiltered)
 
-        // Check for user location, if not already have it.
-        if (_isNull(userLocation)) {
-            dispatchGetUserLocation();
-        } else {
-            setShowUserLocation(true)
-        }
-
         // Set shapedSources
         const s = getShapedSources(listingFiltered)
         setShapeSources(s)
-    }, [userLocation, listingFiltered])
+    }, [listingFiltered])
 
     return (
         <View style={{flex: 1}}>
@@ -194,7 +193,7 @@ const mapDispatchToProps = dispatch => {
     return {
         dispatchShowHeader: () => dispatch(showHeader()),
         dispatchHideSearch: () => dispatch(hideSearch()),
-        dispatchGetUserLocation: () => dispatch(getUserLocation())
+        dispatchGetUserLocation: (callback) => dispatch(getUserLocation(callback))
     };
 };
 
