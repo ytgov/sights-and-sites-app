@@ -108,19 +108,25 @@ export const getUserLocationFailure = (error) => ({
 })
 
 
-export function getUserLocation() {
+export function getUserLocation(callback) {
+    const returnedCallback = (params) => {
+        callback && typeof callback === 'function' && callback(params);
+    };
     return dispatch => {
         dispatch(getUserLocationBegin())
         checkPermissionAndGetUserLocation()
             .then((coordinates) => {
                 if (coordinates) {
                     dispatch(getUserLocationSuccess(coordinates))
+                    returnedCallback(coordinates);
                 } else {
                     dispatch(getUserLocationFailure(""))
+                    returnedCallback();
                 }
             })
             .catch(error => {
                 dispatch(getUserLocationFailure(error.toString()))
+                returnedCallback(error.toString());
             })
 
     }
