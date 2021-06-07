@@ -1,8 +1,7 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Image, View, TouchableOpacity} from 'react-native';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import Modal from 'react-native-modal';
-import {isNull as _isNull} from 'lodash';
 import {NavigationEvents} from 'react-navigation';
 
 import {APP_CONFIG} from '~app/config';
@@ -50,7 +49,7 @@ const MapScreen = (props) => {
         userLocation
     } = props
 
-    const mapRef = useRef()
+    let mapInstance = null;
     const [center, setCenter] = useState(CENTER)
     const [items, setItems] = useState([])
     const [shapedSources, setShapeSources] = useState(initialShapedSources)
@@ -61,6 +60,12 @@ const MapScreen = (props) => {
 
     const onUserLocationPressed = () => {
         setShowUserLocation(!showUserLocation);
+        dispatchGetUserLocation((coordinates) => {
+            const { longitude } = coordinates;
+            if (!longitude) {
+                setShowUserLocation(false);
+            }
+        });
     }
 
     const onSourceLayerPress = (e) => {
@@ -99,17 +104,18 @@ const MapScreen = (props) => {
         // Set items
         setItems(listingFiltered)
 
-        // Check for user location, if not already have it.
-        if (_isNull(userLocation)) {
-            dispatchGetUserLocation();
-        } else {
-            setShowUserLocation(true)
-        }
-
         // Set shapedSources
         const s = getShapedSources(listingFiltered)
         setShapeSources(s)
-    }, [userLocation, listingFiltered])
+    }, [listingFiltered])
+
+    /* Move the map to the user location */
+    useEffect(() => {
+        const { longitude, latitude } = userLocation;
+        if (showUserLocation && mapInstance && longitude && latitude) {
+            mapInstance.moveTo([longitude, latitude], 500);
+        }
+    }, [showUserLocation, mapInstance, userLocation]);
 
     return (
         <View style={{flex: 1}}>
@@ -119,15 +125,15 @@ const MapScreen = (props) => {
             }} />
             <MapboxGL.MapView
                 showUserLocation={true}
-                zoomLevel={11}
-                ref={mapRef}
-                centerCoordinate={[center.longitude, center.latitude]}
                 style={styles.mapWrapper}
             >
                 {showUserLocation && <MapboxGL.UserLocation />}
                 <MapboxGL.Camera
                     centerCoordinate={[center.longitude, center.latitude]}
                     zoomLevel={zoom}
+                    ref={(instance) => {
+                        mapInstance = instance;
+                    }}
                 />
 
                 <MapboxGL.ShapeSource
@@ -194,7 +200,7 @@ const mapDispatchToProps = dispatch => {
     return {
         dispatchShowHeader: () => dispatch(showHeader()),
         dispatchHideSearch: () => dispatch(hideSearch()),
-        dispatchGetUserLocation: () => dispatch(getUserLocation())
+        dispatchGetUserLocation: (callback) => dispatch(getUserLocation(callback))
     };
 };
 
