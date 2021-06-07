@@ -111,6 +111,8 @@ const MapScreen = (props) => {
 
     /* Move the map to the user location */
     useEffect(() => {
+        // If there is no user location.
+        if (!userLocation) return
         const { longitude, latitude } = userLocation;
         if (showUserLocation && mapInstance && longitude && latitude) {
             mapInstance.moveTo([longitude, latitude], 500);
