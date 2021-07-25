@@ -3,7 +3,7 @@ export default {
         appInformation: {
             title: 'App Information',
             onboarding: 'Introduction',
-            intro: `The Yukon Road Trip app is your guide to Government of Yukon’s road accessible campgrounds, wildlife viewing, cultural and historical points of interest. Connect with the natural and cultural history that surrounds you.`,
+            intro: `The Yukon Sights and Sites app is your guide to Government of Yukon’s road accessible campgrounds, wildlife viewing, cultural and historical points of interest. Connect with the natural and cultural history that surrounds you.`,
             locationServices: {
                 title: "Location Services",
                 questions: {
@@ -187,7 +187,7 @@ export default {
             },
             sectionBooking: {
                 title: 'Are you interested in booking this beautiful site?',
-                text: 'To book a site, please visit the Yukon Road Trip page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
+                text: 'To book a site, please visit the Yukon Sights and Sites page on Yukon.ca to get more detailed information on the next steps needed to plan your trip. Thank you for your interest!',
                 linkLabel: 'Yukon.ca/en/road-trip-app',
                 extra: '<p style="color: white">For questions and support regarding this app, please feel free to email ' +
                     '<a href="mailto:heritage.planning@gov.yk.ca">heritage.planning@gov.yk.ca</a> or ' +
@@ -196,7 +196,7 @@ export default {
             },
             sectionSupport: {
                 title: 'Support the App!',
-                text: 'Your support of the Yukon Road Trip app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
+                text: 'Your support of the Yukon Sights and Sites app helps promote our beautiful province. Please help us by sharing this site on social media so others can discover the beauty of the Yukon!',
                 shareButton: 'Share this site on social media'
             },
             nearBySites: 'Nearby Sites',

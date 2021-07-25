@@ -22,7 +22,7 @@ const SiteFooterTabs = props => {
 
         message += `${item.site_description} \n\n`;
 
-        message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
+        message += '\nGet the App \nFind the Yukon Sights and Sites app for IOS or Android, for free, in any app store.\n\n';
         return message;
     }
 
