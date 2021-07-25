@@ -11,7 +11,8 @@ import routes from '~navigation/routes';
 import {YUKON_COLORS} from '~theme/config';
 import styles from './styles';
 
-import YukonLogo from './images/yukon.png'
+import YukonLogoEn from './images/logo-en.png';
+import YukonLogoFr from './images/logo-fr.png';
 import {setLocale} from '~store/actions/locale';
 import {setSelectLocaleAction} from '~store/actions/core';
 import {connect} from 'react-redux';
@@ -60,7 +61,7 @@ const SideMenu = (props) => {
                 <TouchableWithoutFeedback
                     onPress={() => navigation.navigate(routes.STACK_MODAL)}>
                     <Image
-                        source={YukonLogo}
+                        source={i18n.language === 'fr' ? YukonLogoFr : YukonLogoEn}
                         style={styles.logo} />
                 </TouchableWithoutFeedback>
 
