@@ -1,7 +1,7 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="com.yukon"
-4    android:versionCode="6"
+4    android:versionCode="7"
 5    android:versionName="1.1" >
 6
 7    <uses-sdk
@@ -91,11 +91,11 @@
 42-->[com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
 42-->[com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
 43    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-43-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
-43-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
+43-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
+43-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
 44    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
-44-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
-44-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
+44-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
+44-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
 45    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
 45-->[com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
 45-->[com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:22-107
@@ -222,23 +222,23 @@
 110-->[com.google.android.gms:play-services-basement:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 111
 112        <service
-112-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
+112-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
 113            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
-113-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
+113-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
 114            android:exported="false" />
-114-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
+114-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
 115        <service
-115-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
+115-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
 116            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
-116-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
+116-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
 117            android:exported="false" />
-117-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
+117-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
 118        <service
-118-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
+118-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
 119            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
-119-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
+119-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
 120            android:exported="false" />
-120-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
+120-->[io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
 121    </application>
 122
 123</manifest>

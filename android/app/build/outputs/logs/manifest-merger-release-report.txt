@@ -16,7 +16,7 @@ MERGED from [:react-native-safe-area-context] /Volumes/Things/Workspace/yukon-ro
 MERGED from [:react-native-screens] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-svg] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/react-native-svg/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/robert/.gradle/caches/transforms-2/files-2.1/38bcb8cb9d29bdfd11f9e590311654fb/jetified-react-native-0.61.5/AndroidManifest.xml:2:1-13:12
-MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-linking/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/sentry-expo/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-device] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-device/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-error-recovery] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-error-recovery/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-file-system] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-file-system/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-30:12
@@ -63,8 +63,8 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/robert/.gradle/cach
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/6d7cd11850027465120e40f53813cdee/room-runtime-2.1.0/AndroidManifest.xml:17:1-30:12
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.6.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8c958589d169a8a167cf19a2302ea3d8/jetified-mapbox-android-gestures-0.6.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:17:1-28:12
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/173b467f6e0c0ef18e2ba18c041e9dea/jetified-glide-4.9.0/AndroidManifest.xml:2:1-12:12
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cb57bb8013582757cf52dbba66473b9a/jetified-play-services-location-16.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/4938764333f0fa051d63890195656800/jetified-glide-4.9.0/AndroidManifest.xml:2:1-12:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8e89b70a94098ce98d4719106473ea4b/jetified-play-services-location-16.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/066ea18b078827e1f1478d464d4f95d1/jetified-play-services-places-placereport-16.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/e0a3fbecd9c81f60ec630e8111940c56/jetified-play-services-tasks-17.0.0/AndroidManifest.xml:2:1-9:12
@@ -90,7 +90,7 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/rober
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/24a7c4b656e8849fce6b1ec879de45c1/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/18aae0e1403cb9536d945989108c14a5/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.3.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:17:1-26:12
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/129274532f306b7f2b91278d4e7dfd2e/jetified-gifdecoder-4.9.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/fdb6bedc49ff120961d03d4b32da9708/jetified-gifdecoder-4.9.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/85bbcabe709b3efb54d74d18f7977a81/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] /Users/robert/.gradle/caches/transforms-2/files-2.1/bbc253011df2402c44c2d2df61692892/sqlite-framework-2.0.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.0.1] /Users/robert/.gradle/caches/transforms-2/files-2.1/17e00ba3e099dd7c970c8944ed5f17b8/sqlite-2.0.1/AndroidManifest.xml:17:1-22:12
@@ -108,7 +108,7 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/robert/.gradle/caches/
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/31a15a162cd7bb718e862c0cc13bfa61/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cccd3c0e33aa3a9a75544149af27bd44/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/5344f376b9f142648746b3ae893fe6dc/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:2:1-30:12
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:2:1-30:12
 MERGED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/2081121463c76fe16dc028252a962c07/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/robert/.gradle/caches/transforms-2/files-2.1/0c0c1e6737636c3529c5d85c8382e929/jetified-timber-4.7.1/AndroidManifest.xml:2:1-9:12
@@ -168,8 +168,8 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/android/app/src/main/AndroidManifest.xml:17:5-81
 MERGED from [:expo-location] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-location/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-81
 MERGED from [:expo-location] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-location/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-81
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:12:5-81
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:12:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:12:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:12:5-81
 	android:name
 		ADDED from /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/android/app/src/main/AndroidManifest.xml:17:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
@@ -180,8 +180,8 @@ MERGED from [:expo-location] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon
 MERGED from [:expo-location] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-location/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:19:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:19:5-79
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:14:5-79
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:14:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:14:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:14:5-79
 	android:name
 		ADDED from /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/android/app/src/main/AndroidManifest.xml:18:22-76
 uses-permission#android.permission.CAMERA
@@ -234,10 +234,10 @@ MERGED from [androidx.room:room-runtime:2.1.0] /Users/robert/.gradle/caches/tran
 MERGED from [androidx.room:room-runtime:2.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/6d7cd11850027465120e40f53813cdee/room-runtime-2.1.0/AndroidManifest.xml:24:5-28:19
 MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:26:5-20
 MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:26:5-20
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/173b467f6e0c0ef18e2ba18c041e9dea/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/173b467f6e0c0ef18e2ba18c041e9dea/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cb57bb8013582757cf52dbba66473b9a/jetified-play-services-location-16.0.0/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cb57bb8013582757cf52dbba66473b9a/jetified-play-services-location-16.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/4938764333f0fa051d63890195656800/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/4938764333f0fa051d63890195656800/jetified-glide-4.9.0/AndroidManifest.xml:10:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8e89b70a94098ce98d4719106473ea4b/jetified-play-services-location-16.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8e89b70a94098ce98d4719106473ea4b/jetified-play-services-location-16.0.0/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/066ea18b078827e1f1478d464d4f95d1/jetified-play-services-places-placereport-16.0.0/AndroidManifest.xml:22:5-20
@@ -250,12 +250,12 @@ MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/robert
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.3.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.3.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:24:5-89
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/129274532f306b7f2b91278d4e7dfd2e/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/129274532f306b7f2b91278d4e7dfd2e/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/fdb6bedc49ff120961d03d4b32da9708/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/fdb6bedc49ff120961d03d4b32da9708/jetified-gifdecoder-4.9.0/AndroidManifest.xml:9:5-20
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/94115104efb23786ea53cd1a51dde3af/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/94115104efb23786ea53cd1a51dde3af/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:18:5-28:19
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:18:5-28:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:18:5-28:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:18:5-28:19
 MERGED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:11:5-20
 MERGED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:11:5-20
 MERGED from [com.jakewharton.timber:timber:4.7.1] /Users/robert/.gradle/caches/transforms-2/files-2.1/0c0c1e6737636c3529c5d85c8382e929/jetified-timber-4.7.1/AndroidManifest.xml:7:5-20
@@ -340,8 +340,8 @@ MERGED from [:react-native-svg] /Volumes/Things/Workspace/yukon-roadtrip/code/yu
 MERGED from [:react-native-svg] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/react-native-svg/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/robert/.gradle/caches/transforms-2/files-2.1/38bcb8cb9d29bdfd11f9e590311654fb/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.61.5] /Users/robert/.gradle/caches/transforms-2/files-2.1/38bcb8cb9d29bdfd11f9e590311654fb/jetified-react-native-0.61.5/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-linking/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-linking/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/sentry-expo/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/sentry-expo/node_modules/expo-constants/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-device] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-device/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-device] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-device/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-error-recovery] /Volumes/Things/Workspace/yukon-roadtrip/code/yukon-react-native-mobile-app/node_modules/expo-error-recovery/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
@@ -434,10 +434,10 @@ MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.6.0] /Users/robert/.
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-gestures:0.6.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8c958589d169a8a167cf19a2302ea3d8/jetified-mapbox-android-gestures-0.6.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-iid:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/574b1f86e9447c6563948fc21713d80a/jetified-play-services-iid-17.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/173b467f6e0c0ef18e2ba18c041e9dea/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/173b467f6e0c0ef18e2ba18c041e9dea/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cb57bb8013582757cf52dbba66473b9a/jetified-play-services-location-16.0.0/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cb57bb8013582757cf52dbba66473b9a/jetified-play-services-location-16.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/4938764333f0fa051d63890195656800/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/4938764333f0fa051d63890195656800/jetified-glide-4.9.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8e89b70a94098ce98d4719106473ea4b/jetified-play-services-location-16.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/8e89b70a94098ce98d4719106473ea4b/jetified-play-services-location-16.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b64aa4f17e23c4f3b9c5f8ff583bfd0d/jetified-play-services-base-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/066ea18b078827e1f1478d464d4f95d1/jetified-play-services-places-placereport-16.0.0/AndroidManifest.xml:20:5-44
@@ -488,8 +488,8 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/robe
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/18aae0e1403cb9536d945989108c14a5/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.3.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/f4b8bc10b6f5d4a12e06baaad3e39b5a/core-1.3.2/AndroidManifest.xml:20:5-22:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/129274532f306b7f2b91278d4e7dfd2e/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/129274532f306b7f2b91278d4e7dfd2e/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/fdb6bedc49ff120961d03d4b32da9708/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/fdb6bedc49ff120961d03d4b32da9708/jetified-gifdecoder-4.9.0/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/85bbcabe709b3efb54d74d18f7977a81/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/85bbcabe709b3efb54d74d18f7977a81/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.0.1] /Users/robert/.gradle/caches/transforms-2/files-2.1/bbc253011df2402c44c2d2df61692892/sqlite-framework-2.0.1/AndroidManifest.xml:20:5-44
@@ -524,8 +524,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/robert/.gr
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/cccd3c0e33aa3a9a75544149af27bd44/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/5344f376b9f142648746b3ae893fe6dc/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/5344f376b9f142648746b3ae893fe6dc/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:8:5-10:41
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:8:5-10:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:8:5-10:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/2081121463c76fe16dc028252a962c07/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
@@ -552,8 +552,8 @@ MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robert/.gradl
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/b00166fe01aeac327687ba5d40117194/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:17:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:13:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/2afd99264303f3b50378529a0032fcf0/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:13:5-79
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:13:5-79
-MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:13:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:13:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:13:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:2.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/945136bcfacb0b6dbad60af1588b3cd0/jetified-mapbox-android-core-2.0.0/AndroidManifest.xml:11:5-79
 MERGED from [com.mapbox.mapboxsdk:mapbox-android-core:2.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/945136bcfacb0b6dbad60af1588b3cd0/jetified-mapbox-android-core-2.0.0/AndroidManifest.xml:11:5-79
 	android:name
@@ -655,31 +655,31 @@ ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/robert/
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:17.0.0] /Users/robert/.gradle/caches/transforms-2/files-2.1/09a73e8828332f639ca43c2c3d1e6559/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
+ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:15:5-98
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:15:22-95
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
-ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
+ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:16:5-94
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:16:22-91
 service#io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService
-ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
+ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:19:9-21:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:21:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:20:13-132
 service#io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService
-ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
+ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:22:9-24:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:23:13-127
 service#io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService
-ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
+ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:25:9-27:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/845f073c535817320d54ef7b43ae51e9/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/robert/.gradle/caches/transforms-2/files-2.1/68b44a0193d32bcab7e801cc7e39aadc/jetified-library-3.2.11/AndroidManifest.xml:26:13-120
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.android.installreferrer:installreferrer:1.1.2] /Users/robert/.gradle/caches/transforms-2/files-2.1/28aa1a561672ec8cc43dc2a217e9e89b/jetified-installreferrer-1.1.2/AndroidManifest.xml:9:5-110
 	android:name

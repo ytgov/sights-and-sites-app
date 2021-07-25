@@ -133,7 +133,7 @@ android {
         applicationId "com.yukon"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 6
+        versionCode 7
         versionName "1.1"
     }
     splits {
@@ -193,7 +193,7 @@ android {
         addUnimodulesDependencies()
 
         if (enableHermes) {
-            def hermesPath = "../../node_modules/hermes-engine/android/";
+            def hermesPath = "../../node_modules/hermes-engine/android/";s
             debugImplementation files(hermesPath + "hermes-debug.aar")
             releaseImplementation files(hermesPath + "hermes-release.aar")
         } else {
