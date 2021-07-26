@@ -8,7 +8,7 @@ target 'yukon' do
 
   # React Native and its dependencies
   pod 'FBLazyVector', :path => "#{rnPrefix}/Libraries/FBLazyVector"
-  pod 'FBReactNativeSpec', :path => "#{rnPrefix}/Libraries/FBReactNativeSpec"
+  pod 'FBReactNativeSpec', :path => "#{rnPrefix}/React/FBReactNativeSpec"
   pod 'RCTRequired', :path => "#{rnPrefix}/Libraries/RCTRequired"
   pod 'RCTTypeSafety', :path => "#{rnPrefix}/Libraries/TypeSafety"
   pod 'React', :path => "#{rnPrefix}/"
@@ -29,12 +29,14 @@ target 'yukon' do
   pod 'React-jsi', :path => "#{rnPrefix}/ReactCommon/jsi"
   pod 'React-jsiexecutor', :path => "#{rnPrefix}/ReactCommon/jsiexecutor"
   pod 'React-jsinspector', :path => "#{rnPrefix}/ReactCommon/jsinspector"
-  pod 'ReactCommon/jscallinvoker', :path => "#{rnPrefix}/ReactCommon"
+  pod 'React-runtimeexecutor', :path => "#{rnPrefix}/ReactCommon/runtimeexecutor"
+  pod 'React-callinvoker', :path => "#{rnPrefix}/ReactCommon/callinvoker"
   pod 'ReactCommon/turbomodule/core', :path => "#{rnPrefix}/ReactCommon"
+  pod 'React-perflogger', :path => "#{rnPrefix}/ReactCommon/reactperflogger"
   pod 'Yoga', :path => "#{rnPrefix}/ReactCommon/yoga"
   pod 'DoubleConversion', :podspec => "#{rnPrefix}/third-party-podspecs/DoubleConversion.podspec"
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
-  pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
+  pod 'RCT-Folly', :podspec => "#{rnPrefix}/third-party-podspecs/RCT-Folly.podspec"
 
   # Fix image not loading in IOS 14.3
   # https://github.com/facebook/react-native/issues/29279#issuecomment-769153034
