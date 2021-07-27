@@ -39,7 +39,7 @@ const WelcomeScreen = (props) => {
                 <View style={styles.wrapper}>
                     <View style={styles.header}>
                         <Image style={{marginBottom: 12}} source={logo} />
-                        <H1 style={{marginBottom: 24}}>{'Road Trip'}</H1>
+                        <H1 style={{marginBottom: 24}}>{'Sights and Sites'}</H1>
 
                         <Body fontMedium>{'Your guide to our roadside sites'}</Body>
                         <Body fontMedium>{'Votre guide concernant nos sites routier'}</Body>

@@ -109,27 +109,23 @@ const BottomTabNavigator = createBottomTabNavigator({
     },
     [routes.STACK_MAIN]: {
         screen: MainStackNavigator,
-        navigationOptions: () => (
-            {
-                tabBarIcon: <BottomTabItem
-                    icon={exploreRoadTrips}
-                    label={i18n.t('navigation.footer.explore')}
-                    bigIcon={true} />
-                }
-            ),
+        navigationOptions: () => ({
+            tabBarIcon: <BottomTabItem
+                icon={exploreRoadTrips}
+                label={i18n.t('navigation.footer.explore')}
+                bigIcon={true} />
+        }),
     },
     [routes.SCREEN_HELPFUL_INFO]: {
         screen: HelpfulInfoScreen,
-        navigationOptions: () => (
-            {
-                tabBarIcon: <BottomTabItem
-                    icon={helpfulInfoIcon}
-                    label={i18n.t('navigation.footer.helpfulInfo')} />,
-                    tabBarOnPress: ({navigation}) => {
-                        navigation.openDrawer()
-                    }
+        navigationOptions: () => ({
+            tabBarIcon: <BottomTabItem
+                icon={helpfulInfoIcon}
+                label={i18n.t('navigation.footer.helpfulInfo')} />,
+            tabBarOnPress: ({navigation}) => {
+                navigation.openDrawer()
             }
-        ),
+        }),
     }
 }, {
     initialRouteName: routes.STACK_MAIN,
