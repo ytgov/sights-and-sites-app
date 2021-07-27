@@ -11,9 +11,8 @@ const styles = StyleSheet.create({
         marginBottom: 32,
     },
     logo: {
-        height: 60,
-        width: 105,
-        resizeMode: 'contain',
+        resizeMode: 'stretch',
+        alignItems: 'flex-start',
     },
     body: {
         flex: 1,

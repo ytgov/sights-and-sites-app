@@ -6,7 +6,7 @@ const formatSharedMessage = (site_name, site_description) => {
     let message = `${site_name} \n\n`;
     message += `${site_description} \n\n`;
 
-    message += '\nGet the App \nFind the Yukon Road Trip App for IOS or Android, for free, in any app store.\n\n';
+    message += '\nGet the App \nFind the Yukon Sights and Sites App for IOS or Android, for free, in any app store.\n\n';
     return message;
 }
 
