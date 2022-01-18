@@ -17,6 +17,7 @@
 		21D839EA94414F449802768E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4005EDCE12674635AEC3DF92 /* SimpleLineIcons.ttf */; };
 		24FAFA39C308419084047F16 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BDF3BEB25345858D495C87 /* EvilIcons.ttf */; };
 		256F935B3E234111A0685152 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EA1478B48984B46B16053CF /* rubicon-icon-font.ttf */; };
+		37533F9899009BE59EC6CCD3 /* Pods_yukon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9EF175252A785277C98811 /* Pods_yukon.framework */; };
 		4D6D2640608E402EBE667B15 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25620FA000D64BD9BCA10D0F /* Ionicons.ttf */; };
 		501F2B38E98C415B8CA52BC3 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BEF89A0F82F41BFAD4F88C9 /* MaterialCommunityIcons.ttf */; };
 		74BE79078E1F462880C7E10F /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 297F261538204965A751BF10 /* Entypo.ttf */; };
@@ -26,7 +27,6 @@
 		99EC63CFB4B549BBAF093D10 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3ABB89D1E68496EB7D95742 /* SplashScreen.storyboard */; };
 		A5A2D579B40B417BA9319100 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 697BDCDA35364083858AA419 /* Roboto_medium.ttf */; };
 		A947FF3A1D06468A82AC033E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20256FC6833C4269AE208593 /* FontAwesome.ttf */; };
-		B14ED42DCCD0BB89EC1CE83E /* Pods_yukon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450723C95A2DB824BFFC3515 /* Pods_yukon.framework */; };
 		CFEED9056EFF4122A541AD21 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9DDFB9B35B74CD9B5AD81F5 /* Fontisto.ttf */; };
 		D4B6E6E705C644EA8B287D73 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D3F807BBB8A475AA815626A /* Octicons.ttf */; };
 		D736F7846E3946E291A182A2 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D90DBC774F3A4CACA9B7FDC8 /* MaterialIcons.ttf */; };
@@ -53,15 +53,15 @@
 		297F261538204965A751BF10 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BDF3BEB25345858D495C87 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		3B47C5AFCB8BDE514B7D1AC6 /* Pods-yukon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.debug.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.debug.xcconfig"; sourceTree = "<group>"; };
+		3D9EF175252A785277C98811 /* Pods_yukon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yukon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4005EDCE12674635AEC3DF92 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		450723C95A2DB824BFFC3515 /* Pods_yukon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yukon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3F807BBB8A475AA815626A /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		520CECF0041B48A5A052AD28 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		697BDCDA35364083858AA419 /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		6EA1478B48984B46B16053CF /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
-		8AC623DBF3A3E2CB072F81F2 /* Pods-yukon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.release.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.release.xcconfig"; sourceTree = "<group>"; };
+		85E86DB0D2D15E77B0A2B7C5 /* Pods-yukon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.release.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.release.xcconfig"; sourceTree = "<group>"; };
 		9225146B26AFAC840094895F /* Yukon Road Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yukon Road Trip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99E70AC4AD6755D6931B1886 /* Pods-yukon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.debug.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.debug.xcconfig"; sourceTree = "<group>"; };
 		9C947A68C89D41639195D70F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		A11F3CB375F74C778DE83D7F /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		B9233204C3CD4755A0A4350A /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B14ED42DCCD0BB89EC1CE83E /* Pods_yukon.framework in Frameworks */,
+				37533F9899009BE59EC6CCD3 /* Pods_yukon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				450723C95A2DB824BFFC3515 /* Pods_yukon.framework */,
+				3D9EF175252A785277C98811 /* Pods_yukon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 		72E5486571395D51695C2A02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B47C5AFCB8BDE514B7D1AC6 /* Pods-yukon.debug.xcconfig */,
-				8AC623DBF3A3E2CB072F81F2 /* Pods-yukon.release.xcconfig */,
+				99E70AC4AD6755D6931B1886 /* Pods-yukon.debug.xcconfig */,
+				85E86DB0D2D15E77B0A2B7C5 /* Pods-yukon.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -182,13 +182,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "yukon" */;
 			buildPhases = (
-				F8BC737F2AD7A05944D9E2A1 /* [CP] Check Pods Manifest.lock */,
+				C9EC66E35A3A7E103D1332C6 /* [CP] Check Pods Manifest.lock */,
 				FD4C38642228810C00325AF5 /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E0F986AAB3502D63FD7E67E5 /* [CP] Embed Pods Frameworks */,
+				7F7E18729F864463F296F4EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,7 +283,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n../node_modules/expo-updates/scripts/create-manifest-ios.sh";
 		};
-		E0F986AAB3502D63FD7E67E5 /* [CP] Embed Pods Frameworks */ = {
+		7F7E18729F864463F296F4EE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,7 +406,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8BC737F2AD7A05944D9E2A1 /* [CP] Check Pods Manifest.lock */ = {
+		C9EC66E35A3A7E103D1332C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -487,7 +487,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B47C5AFCB8BDE514B7D1AC6 /* Pods-yukon.debug.xcconfig */;
+			baseConfigurationReference = 99E70AC4AD6755D6931B1886 /* Pods-yukon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -513,7 +513,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AC623DBF3A3E2CB072F81F2 /* Pods-yukon.release.xcconfig */;
+			baseConfigurationReference = 85E86DB0D2D15E77B0A2B7C5 /* Pods-yukon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";

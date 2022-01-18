@@ -40,10 +40,10 @@ target 'yukon' do
 
   # Fix image not loading in IOS 14.3
   # https://github.com/facebook/react-native/issues/29279#issuecomment-769153034
-  post_install do |installer|
-    find_and_replace("../node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m",
-    "_currentFrame.CGImage;","_currentFrame.CGImage ;} else { [super displayLayer:layer];")
-  end
+#   post_install do |installer|
+#     find_and_replace("../node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m",
+#     "_currentFrame.CGImage;","_currentFrame.CGImage ;} else { [super displayLayer:layer];")
+#   end
 
   # Other native modules
 

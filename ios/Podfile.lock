@@ -579,7 +579,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   "@react-native-mapbox-gl-mapbox-static": 83c0e0ba33597bb694735ffb136d3d96780af37d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   EXBlur: 569d38c2b0b7b000866d928bc36acadfdc02ea8e
   EXConstants: d9483a8fe0a963dd7ee3389f371303773e6ecd37
   EXDevice: 01f54314f618aa4098893f66cd8f2a8a411f33ee
@@ -597,8 +597,8 @@ SPEC CHECKSUMS:
   EXUpdates: f3c4943abb6ab28cc55cbeac4ff4612701f82725
   EXWebBrowser: 5902f99ac5ac551e5c82ff46f13a337b323aa9ea
   FBLazyVector: 7b423f9e248eae65987838148c36eec1dbfe0b53
-  FBReactNativeSpec: 75d078119795c3bafd22e636fc9a643fbdd3309c
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  FBReactNativeSpec: 40b29f704a3bfe03bbb77ce5809e8e720dcab0ee
+  glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
   Mapbox-iOS-SDK: a5915700ec84bc1a7f8b3e746d474789e35b7956
   MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
   RCT-Folly: ec7a233ccc97cc556cf7237f0db1ff65b986f27c
@@ -648,6 +648,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: cb890c79c63885504ddc0efd7a7d01481760aca2
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393
 
-PODFILE CHECKSUM: 1065711d4ef9ecb4f1a6eeec00d6f076101b5a49
+PODFILE CHECKSUM: 5b373acc2f237490f0bce04ec37e8d719dfd5c91
 
 COCOAPODS: 1.10.1
