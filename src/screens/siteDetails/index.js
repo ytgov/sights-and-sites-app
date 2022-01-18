@@ -61,6 +61,7 @@ const SiteDetailsScreen = (props) => {
         Animated.timing(currentProgressBarWidth, {
             toValue: width,
             duration: 200,
+            useNativeDriver: false
         }).start();
 
         const animatedStyles = {
