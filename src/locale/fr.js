@@ -196,6 +196,31 @@ export default {
             nahanniRange: 'Chemin Nahanni Range',
             silverTrail: 'Route Silver Trail'
         },
+
+        regions: {
+            campbell: 'Campbell',
+            klondike: 'Klondike',
+            kluane: 'Kluane',
+            northYukon: 'Nord',
+            silverTrail: 'Silver Trail',
+            southernLake: 'Lac du Sud',
+            watsonLake: 'Watson Lake',
+            whitehorse: 'Whitehorse',
+        },
+        highways: {
+            alaska: "Route de l'Alaska",
+            klondike: 'Route du Klondike',
+            haines: 'Route de Haines',
+            robertCampbell: 'Route Robert-Campbell',
+            dempster: 'Route Dempster',
+            canol: 'Route Canol',
+            atlin: 'Route d\'Atlin',
+            tagish: 'Route de Tagish',
+            topOfTheWorld: 'Route Top of the World',
+            nahanniRange: 'Chemin Nahanni Range',
+            silverTrail: 'Route Silver Trail'
+        },
+
         currentConditions: {
             title: 'Conditions actuelles',
             campground: {
