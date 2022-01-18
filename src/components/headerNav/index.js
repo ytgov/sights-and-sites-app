@@ -44,7 +44,8 @@ const HeaderNav = (props) => {
             slideAnim,
             {
                 toValue,
-                duration
+                duration,
+                useNativeDriver: false
             }
         ).start()
     }
