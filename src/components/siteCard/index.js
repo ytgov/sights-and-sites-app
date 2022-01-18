@@ -77,8 +77,12 @@ const SiteCard = (props) => {
                     </ImageBackground>
 
                     <View style={{ marginLeft: 12}}>
-                        <Body black>{`${t(`filterHighways.${highway.id}`)}, km ${highway_km}`}</Body>
-                        <Body black>{`${t(`filterRegions.${region.id}`)}`}</Body>
+                        {highway.id !== '' &&
+                            <Body black>{`${t(`filterHighways.${highway.id}`)}, km ${highway_km}`}</Body>}
+
+                        {region.id !== '' &&
+                            <Body black>{`${t(`filterRegions.${region.id}`)}`}</Body>}
+
                         {distance !== 0 &&
                             <Small style={{ marginTop: 8 }}>{`${distance} km away`}</Small>}
 
