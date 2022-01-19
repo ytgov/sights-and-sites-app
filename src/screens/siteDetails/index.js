@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {isEmpty as _isEmpty, isArray as _isArray, isUndefined as _isUndefined} from 'lodash';
-import {Animated, useWindowDimensions, View, TouchableOpacity} from 'react-native';
+import {isEmpty as _isEmpty, isArray as _isArray, isUndefined as _isUndefined, chunk as _chunk} from 'lodash';
+import {Animated, useWindowDimensions, View, TouchableOpacity, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
 import {NavigationEvents} from 'react-navigation';
@@ -13,6 +13,7 @@ import {Body, H3} from '~theme/typings';
 import SiteType from './siteType';
 import Section from './section';
 import WebLink, {WebLinkIcon, WebLinkType} from '~components/webLink';
+import Service from '~components/service';
 import HTMLElement from '~components/htmlElement';
 
 import {shareOnSocialMedia} from '~app/shared/services/share';
@@ -78,6 +79,7 @@ const SiteDetailsScreen = (props) => {
     useEffect(() => {
         const site_id = navigation.getParam('site_id')
         const i = listingRaw.find(i => i.site_id === site_id)
+        console.log(i);
         if (!_isUndefined(i)) {
             setItem(i)
         }
@@ -108,6 +110,7 @@ const SiteDetailsScreen = (props) => {
         secondary_road_km,
         secondary_road_name,
         nearby_sites,
+        services
     } = item;
 
     /* Near Sites Mock/Functionality */
@@ -246,6 +249,26 @@ const SiteDetailsScreen = (props) => {
             <Section title={t('siteDetails.sectionDescription.title')}>
                 <Body black>{site_description.replace(/&nbsp;/g, ' ')}</Body>
             </Section>
+
+            {services.length > 0 &&
+                <Section title={t('siteDetails.sectionServices.title')}>
+                    <Swiper
+                        showsButtons={false}
+                        height={59 * 4}
+                        showsPagination={true}
+                        renderPagination={renderPagination}
+                    >
+                        {_chunk(services, 4).map((items) => {
+                            return items.map((item, i) =>
+                                <View style={{ backgroundColor: i % 2 == 0 ? '#f5f5f5' : 'transparent'}}>
+                                    <Service key={item.id} item={item} />
+                                </View>);
+                        })}
+                    </Swiper>
+
+                </Section>
+            }
+
 
             <Section title={t('siteDetails.sectionDirections.title')}
                      backgroundColor={'#eaf4f6'}
