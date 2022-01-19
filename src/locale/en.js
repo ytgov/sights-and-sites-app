@@ -193,6 +193,9 @@ export default {
             sectionDescription: {
                 title: 'Description'
             },
+            sectionServices: {
+                title: 'Services available'
+            },
             sectionDirections: {
                 title: 'Directions',
                 highway: 'Highway',
@@ -293,6 +296,12 @@ export default {
 
         backButton: {
             label: 'Back'
+        },
+
+        /* Services */
+        services: {
+            outhouse: 'Outhouse',
+            outhouse_accessible: 'Outhouse accessible'
         }
     },
 }
