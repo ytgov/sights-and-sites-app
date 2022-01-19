@@ -1,17 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import * as ServiceModel from '../../models/Service';
-import {Text, View, Image} from 'react-native';
+import {TouchableOpacity, View, Text, Image} from 'react-native';
+import Modal from 'react-native-modal';
+
 import styles from './styles';
 
 import {Body} from '~theme/typings';
 
 const Service = ({item}) => {
-    console.log('blohhh', item)
-    return <View style={styles.wrapper}>
-        <Image source={item.image} />
-        <Body black  style={styles.title}>{item.name}</Body>
-    </View>
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
+
+    return <>
+        <TouchableOpacity onPress={toggleModal}>
+            <View style={styles.wrapper}>
+                <Image source={item.image} />
+                <Body black  style={styles.title}>{item.name}</Body>
+            </View>
+        </TouchableOpacity>
+
+        <Modal isVisible={isModalVisible}
+               onBackdropPress={toggleModal}>
+            <View style={styles.modal}>
+                <Image source={item.image} />
+                <Body black  style={{ marginTop: 8 }}>{item.name}</Body>
+            </View>
+        </Modal>
+    </>
 }
 
 Service.propTypes = {

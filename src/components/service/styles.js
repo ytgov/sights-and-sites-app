@@ -12,6 +12,13 @@ const styles = StyleSheet.create({
     },
     title: {
         marginLeft: 16
+    },
+    modal: {
+        backgroundColor: 'white',
+        borderRadius: 8,
+        padding: 16,
+        flexDirection: 'column',
+        alignItems: 'center'
     }
 })
 
