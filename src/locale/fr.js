@@ -287,6 +287,19 @@ export default {
 
         backButton: {
             label: 'Retour'
+        },
+
+        /* Services */
+        sectionServices: {
+            title: 'Services offerts'
+        },
+        services: {
+            beach: 'Plage de sable ou de galets facilement accessible à pied',
+            boat_launch: 'Rampe de mise à l’eau',
+            outhouse: 'Toilettes extérieures unisexes',
+            outhouse_accessible: 'Au moins une toilette extérieure accessible en fauteuil roulant',
+            playground: 'Terrain de jeux',
+            trail: 'Sentiers de randonnée'
         }
     },
 }
