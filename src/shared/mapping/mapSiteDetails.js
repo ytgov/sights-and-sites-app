@@ -20,23 +20,19 @@ export const mapSiteDetails = (item) => {
         'trail'
     ];
 
-    // const services = serviceKeys
-    //     .filter(key => !_isUndefined(item[key]) && item[key] === true)
-    //     .map(key => getServiceFromString(key));
+    const services = serviceKeys
+        .filter(key => !_isUndefined(item[key]) && item[key] === true)
+        .map(key => getServiceFromString(key));
 
     // mock data
-    const services = [
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-        getServiceFromString('beach'),
-    ]
+    // const services = [
+    //     getServiceFromString('beach'),
+    //     getServiceFromString('boat_launch'),
+    //     getServiceFromString('outhouse'),
+    //     getServiceFromString('outhouse_accessible'),
+    //     getServiceFromString('playground'),
+    //     getServiceFromString('trail'),
+    // ]
 
     return {
         ...item,

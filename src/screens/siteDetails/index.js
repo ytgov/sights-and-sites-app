@@ -252,19 +252,24 @@ const SiteDetailsScreen = (props) => {
 
             {services.length > 0 &&
                 <Section title={t('siteDetails.sectionServices.title')}>
-                    <Swiper
-                        showsButtons={false}
-                        height={59 * 4}
-                        showsPagination={true}
-                        renderPagination={renderPagination}
-                    >
-                        {_chunk(services, 4).map((items) => {
-                            return items.map((item, i) =>
-                                <View style={{ backgroundColor: i % 2 == 0 ? '#f5f5f5' : 'transparent'}}>
-                                    <Service key={item.id} item={item} />
-                                </View>);
-                        })}
-                    </Swiper>
+                    {services.map((item, i) =>
+                        <View style={{ backgroundColor: i % 2 == 0 ? '#f5f5f5' : 'transparent'}}>
+                            <Service key={item.id} item={item} />
+                        </View>)}
+
+                    {/*<Swiper*/}
+                    {/*    showsButtons={false}*/}
+                    {/*    height={59 * 4}*/}
+                    {/*    showsPagination={true}*/}
+                    {/*    renderPagination={renderPagination}*/}
+                    {/*>*/}
+                    {/*    {_chunk(services, 4).map((items) => {*/}
+                    {/*        return items.map((item, i) =>*/}
+                    {/*            <View style={{ backgroundColor: i % 2 == 0 ? '#f5f5f5' : 'transparent'}}>*/}
+                    {/*                <Service key={item.id} item={item} />*/}
+                    {/*            </View>);*/}
+                    {/*    })}*/}
+                    {/*</Swiper>*/}
 
                 </Section>
             }
