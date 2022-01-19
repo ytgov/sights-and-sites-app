@@ -300,8 +300,12 @@ export default {
 
         /* Services */
         services: {
-            outhouse: 'Outhouse',
-            outhouse_accessible: 'Outhouse accessible'
+            beach: 'Sandy or cobble beach within short walking distance',
+            boat_launch: 'Boat launch',
+            outhouse: 'Outhouse unisex',
+            outhouse_accessible: 'At least one wheelchair accessible outhouse',
+            playground: 'Playground',
+            trail: 'Hiking trails'
         }
     },
 }
