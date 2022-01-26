@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {FlatList, Text, View, TouchableOpacity} from 'react-native';
 
-
 import ScreenWrapper from '~components/screenWrapper';
 import HeaderNav, {HeaderNavType} from '~components/headerNav';
 import {showHeader} from '~store/actions/core';
@@ -18,45 +17,45 @@ import {doSearch, setSearchKeyword, setSearchResults} from '~store/actions/searc
 const SearchResultsScreen = (props) => {
     const {
         navigation,
-        currentQuery,
-        dispatchDoSearch,
-        listingRaw,
-        searchResults
+        searchResults,
+        showResults
     } = props
-    const [keyword, setKeyword] = useState('');
-
-    useEffect(() => {
-        setKeyword(currentQuery)
-        dispatchDoSearch(currentQuery, listingRaw)
-    }, []);
 
     return (
-        <ScreenWrapper>
-            {searchResults.length > 0 &&
-                <View style={{
-                    backgroundColor: YUKON_COLORS.primary,
-                    position: 'absolute',
-                    right: 0,
-                    paddingVertical: 8,
-                    paddingHorizontal: 20,
-                    borderBottomLeftRadius: 8
-                }}>
-                    <Small>{`${searchResults.length} results`}</Small>
-                </View>}
-            <FlatList data={searchResults}
-                      style={{marginVertical: 20}}
-                      renderItem={({item}) =>
-                          <TouchableOpacity
-                              activeOpacity={0.8}
-                              onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
-                              <SearchResult data={item} />
-                          </TouchableOpacity>}
-                      scrollEventThrottle={16}
-                      keyExtractor={(item, i) => item.site_id.toString()}
-                      ListEmptyComponent={<NoResult /> }
-                      ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'black'}}/>}
-            />
-        </ScreenWrapper>
+        <>
+            {showResults &&
+                <ScreenWrapper>
+                    {searchResults.length > 0 &&
+                    <View style={{
+                        backgroundColor: YUKON_COLORS.primary,
+                        position: 'absolute',
+                        right: 0,
+                        paddingVertical: 8,
+                        paddingHorizontal: 20,
+                        borderBottomLeftRadius: 8
+                    }}>
+                        <Small>{`${searchResults.length} results`}</Small>
+                    </View>
+                    }
+
+                    <FlatList data={searchResults}
+                              style={{marginVertical: 20}}
+                              renderItem={({item}) =>
+                                  <TouchableOpacity
+                                      activeOpacity={0.8}
+                                      onPress={() => navigation.navigate(routes.SCREEN_SITE_DETAILS, {site_id: item.site_id})}>
+                                      <SearchResult data={item} />
+                                  </TouchableOpacity>}
+                              scrollEventThrottle={16}
+                              keyExtractor={(item, i) => item.site_id.toString()}
+                              ListEmptyComponent={<NoResult /> }
+                              ItemSeparatorComponent={() => <View style={{height: 1, backgroundColor: 'black'}}/>}
+                    />
+
+                </ScreenWrapper>
+            }
+        </>
+
     );
 };
 
@@ -69,7 +68,8 @@ const mapStateToProps = (state) => {
     return {
         listingRaw: state.listingStore.listingRaw,
         currentQuery: state.searchStore.query,
-        searchResults: state.searchStore.results
+        searchResults: state.searchStore.results,
+        showResults: state.searchStore.showResults
     };
 };
 

@@ -1,10 +1,12 @@
 import {
     SET_SEARCH_KEYWORD,
-    SET_SEARCH_RESULTS
+    SET_SEARCH_RESULTS,
+    RESET_SEARCH
 } from '../types';
 
 const initialState = {
     query: '',
+    showResults: false,
     results: []
 }
 
@@ -19,7 +21,16 @@ export default function searchReducer(state = initialState, action) {
         case SET_SEARCH_RESULTS: {
             return {
                 ...state,
+                showResults: true,
                 results: action.payload
+            }
+        }
+        case RESET_SEARCH: {
+            return {
+                ...state,
+                query: '',
+                showResults: false,
+                results: []
             }
         }
         // case SEARCH_IN_PROGRESS: {
