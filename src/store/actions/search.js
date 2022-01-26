@@ -1,6 +1,7 @@
 import {
     SET_SEARCH_KEYWORD,
-    SET_SEARCH_RESULTS
+    SET_SEARCH_RESULTS,
+    RESET_SEARCH
 } from '../types';
 
 import {filter as _filter} from 'lodash';
@@ -15,6 +16,10 @@ export const setSearchResults = (results) => ({
     payload: results
 })
 
+export const resetSearch = () => ({
+    type: RESET_SEARCH
+})
+
 export const doSearch = (keyword, listing) => {
     return dispatch => {
         dispatch(setSearchKeyword(keyword))
@@ -25,4 +30,10 @@ export const doSearch = (keyword, listing) => {
         dispatch(setSearchResults(matched))
 
     }
+}
+
+export const doResetSearch = () => {
+    return dispatch => {
+        dispatch(resetSearch());
+    };
 }
