@@ -212,6 +212,8 @@ const ModalNavigator = createStackNavigator({
 }, {
     mode: 'modal',
     headerMode: 'none',
+    transparentCard: true,
+    cardStyle: { opacity: 1, backgroundColor: "transparent" }
 })
 
 const RootStackNavigator = createStackNavigator({

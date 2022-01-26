@@ -11,15 +11,16 @@ const styles = StyleSheet.create({
     },
     inner: {
         height: 60,
-        marginRight: 8,
+        marginHorizontal: 8,
         flexDirection: 'row',
         justifyContent: 'center',
         alignContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     input: {
         flex: 1,
-        padding: 20,
+        paddingHorizontal: 12,
+        paddingVertical: 20,
         color: 'white',
         fontSize: 16,
         lineHeight: 19,

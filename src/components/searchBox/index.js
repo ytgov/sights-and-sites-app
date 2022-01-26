@@ -8,13 +8,14 @@ import routes from '~navigation/routes';
 
 import styles from './styles';
 import {connect} from 'react-redux';
-import {doSearch} from '~store/actions/search';
+import {doResetSearch, doSearch} from '~store/actions/search';
 
 const SearchBox = (props) => {
     const {
         navigation,
         currentQuery,
         dispatchDoSearch,
+        dispatchDoResetSearch,
         listingRaw
     } = props;
     const [t] = useTranslation();
@@ -33,9 +34,22 @@ const SearchBox = (props) => {
         }
     }
 
+    const dismissSearch = () => {
+        navigation.dismiss();
+        dispatchDoResetSearch();
+    }
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.inner}>
+                <MaterialIcons.Button
+                    name="chevron-left"
+                    size={28}
+                    color="white"
+                    iconStyle={{marginRight: 0}}
+                    backgroundColor={YUKON_COLORS.primary_600}
+                    onPress={dismissSearch} />
+
                 <TextInput multiline={false}
                            style={styles.input}
                            placeholderTextColor={'white'}
@@ -44,14 +58,13 @@ const SearchBox = (props) => {
                            value={keyword}
                            onSubmitEditing={doSearch}
                            returnKeyType={'search'} />
-
                 <MaterialIcons.Button
-                            name="chevron-right"
-                            size={28}
-                            color="white"
-                            iconStyle={{marginRight: 0}}
-                            backgroundColor={YUKON_COLORS.primary_600}
-                            onPress={doSearch} />
+                    name="search"
+                    size={28}
+                    color="white"
+                    iconStyle={{marginRight: 0}}
+                    backgroundColor={YUKON_COLORS.primary_600}
+                    onPress={doSearch} />
             </View>
         </View>
     );
@@ -66,7 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        dispatchDoSearch: (keyword, listing) => dispatch(doSearch(keyword, listing))
+        dispatchDoSearch: (keyword, listing) => dispatch(doSearch(keyword, listing)),
+        dispatchDoResetSearch: () => dispatch(doResetSearch())
     };
 };
 
