@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {FlatList, TouchableOpacity, Dimensions} from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
@@ -35,6 +35,7 @@ const ListingScreen = (props) => {
     } = props
 
     const {t} = useTranslation()
+    const flatListRef = useRef();
     const [items, setItems] = useState([])
     const [page, setPage] = useState(1)
     const [notification, setNotification] = useState(null)
@@ -46,11 +47,15 @@ const ListingScreen = (props) => {
             const list = listingLocalized[locale]
             dispatchSetListing(list)
             dispatchFilterListing()
-            setDidDispatch(true)
+            setDidDispatch(true);
+            console.log('Move to top');
+            flatListRef.current.scrollToOffset({ animated: true, offset: 0 });
         } else {
             const loadedItems = listingFiltered.slice(0, ITEMS_PER_PAGE);
             setItems(loadedItems);
         }
+
+
     }, [listingFiltered])
 
     const loadMore = () => {
@@ -72,6 +77,7 @@ const ListingScreen = (props) => {
                     dispatchShowHeader();
                     dispatchSetCurrentScreenName(null);
                     setPage(1);
+                    flatListRef.current.scrollToOffset({ animated: true, offset: 0 });
 
                     // Toast
                     if (!_isUndefined(navigation.getParam('notification'))) {
@@ -93,6 +99,7 @@ const ListingScreen = (props) => {
             <FlatList
                 style={{height: windowHeight}}
                 data={items}
+                ref={flatListRef}
                 initialNumToRender={3}
                 scrollEventThrottle={16}
                 renderItem={({item}) =>
