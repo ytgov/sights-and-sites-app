@@ -13,6 +13,7 @@ import {Small} from '~theme/typings';
 import {YUKON_COLORS} from '~theme/config';
 import routes from '~navigation/routes';
 import {doSearch, setSearchKeyword, setSearchResults} from '~store/actions/search';
+import {MaterialIcons} from '@expo/vector-icons';
 
 const SearchResultsScreen = (props) => {
     const {
@@ -23,6 +24,13 @@ const SearchResultsScreen = (props) => {
 
     return (
         <>
+            {!showResults && <View style={{alignItems: 'center'}}>
+                <MaterialIcons
+                    name="landscape"
+                    size={280}
+                    color={YUKON_COLORS.neutral_300}
+                    iconStyle={{marginRight: 0}} />
+            </View>}
             {showResults &&
                 <ScreenWrapper>
                     {searchResults.length > 0 &&
