@@ -19,9 +19,7 @@ xcuserdata
 DerivedData
 *.hmap
 *.ipa
-*.zip
 *.xcuserstate
-project.xcworkspace
 
 # Android/IntelliJ
 #
@@ -30,11 +28,6 @@ build/
 .gradle
 local.properties
 *.iml
-android/local.properties
-android/.idea/
-android/.gradle/
-*.apk
-*.aab
 *.hprof
 
 # node.js
@@ -47,7 +40,7 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
-android/app/upload_certificate.pem
+!debug.keystore
 
 # fastlane
 #
@@ -60,14 +53,10 @@ android/app/upload_certificate.pem
 */fastlane/Preview.html
 */fastlane/screenshots
 
-# Bundle artifacts
+# Bundle artifact
 *.jsbundle
 
 # CocoaPods
 /ios/Pods/
-
-# Expo
-.expo/*
-web-build/
 
 .idea/
