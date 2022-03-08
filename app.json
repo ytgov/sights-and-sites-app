@@ -1,46 +1,4 @@
 {
-  "expo": {
-    "name": "Yukon Sights and Sites",
-    "slug": "yukon",
-    "privacy": "unlisted",
-    "version": "1.1.0",
-    "sdkVersion": "40.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "backgroundColor": "#F2A900"
-    },
-    "notification": {
-      "icon": "./assets/icon.png",
-      "iosDisplayInForeground": true
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "userInterfaceStyle": "light",
-      "bundleIdentifier": "com.247labs.yukon",
-      "supportsTablet": true,
-      "icon": "./assets/images/icon.png",
-      "buildNumber": "1",
-      "infoPlist": {
-        "UIUserInterfaceStyle": "Light"
-      }
-    },
-    "android": {
-      "package": "com.labs.yukon",
-      "icon": "./assets/images/icon.png",
-      "permissions": [
-        "ACCESS_FINE_LOCATION"
-      ]
-    }
-  }
+  "name": "yukon",
+  "displayName": "yukon"
 }
