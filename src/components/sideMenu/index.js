@@ -3,7 +3,7 @@ import {View, Image, Text, TouchableWithoutFeedback} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTranslation} from 'react-i18next';
 import {getToggledLanguage} from '~locale/locale';
 
@@ -18,110 +18,112 @@ import {setSelectLocaleAction} from '~store/actions/core';
 import {connect} from 'react-redux';
 import {filterListing, setListing} from '~store/actions/listing';
 
-const SideMenu = (props) => {
-    const {i18n} = useTranslation();
+const SideMenu = props => {
+  const {i18n} = useTranslation();
 
-    const {navigation, items, locale} = props
+  const {navigation, items, locale} = props;
 
-    // Remove Home item.
-    const filteredItems = items.filter(i => i.key !== routes.STACK_BOTTOM_TAB)
+  // Remove Home item.
+  const filteredItems = items.filter(i => i.key !== routes.STACK_BOTTOM_TAB);
 
-    const newLanguage = getToggledLanguage()
+  const newLanguage = getToggledLanguage();
 
-    const _toggleLanguage = () => {
-        const newLanguageCode = newLanguage.code
-        const {
-            dispatchSetLocale,
-            dispatchSetSelectLocaleAction,
-            navigation,
-            dispatchSetListing,
-            dispatchFilterListing,
-            listingLocalized
-        } = props;
+  const _toggleLanguage = () => {
+    const newLanguageCode = newLanguage.code;
+    const {
+      dispatchSetLocale,
+      dispatchSetSelectLocaleAction,
+      navigation,
+      dispatchSetListing,
+      dispatchFilterListing,
+      listingLocalized,
+    } = props;
 
-        dispatchSetLocale(newLanguageCode);
-        dispatchSetSelectLocaleAction(true);
-        i18n.changeLanguage(newLanguageCode)
-            .catch(err => console.log(err));
+    dispatchSetLocale(newLanguageCode);
+    dispatchSetSelectLocaleAction(true);
+    i18n.changeLanguage(newLanguageCode).catch(err => console.log(err));
 
-        const activeListing = listingLocalized[newLanguageCode]
+    const activeListing = listingLocalized[newLanguageCode];
 
-        dispatchSetListing(activeListing)
-        dispatchFilterListing()
-        navigation.dispatch(DrawerActions.closeDrawer());
-        navigation.navigate(routes.STACK_MODAL);
-    }
+    dispatchSetListing(activeListing);
+    dispatchFilterListing();
+    navigation.dispatch(DrawerActions.closeDrawer());
+    navigation.navigate(routes.STACK_MODAL);
+  };
 
-    return (
-        <SafeAreaView
-            style={{flex: 1, height: '100%'}}
-            forceInset={{top: 'always', horizontal: 'never'}}>
+  return (
+    <SafeAreaView
+      style={{flex: 1, height: '100%'}}
+      forceInset={{top: 'always', horizontal: 'never'}}>
+      <View style={styles.header}>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate(routes.STACK_MODAL)}>
+          <Image
+            source={i18n.language === 'fr' ? YukonLogoFr : YukonLogoEn}
+            style={styles.logo}
+          />
+        </TouchableWithoutFeedback>
 
-            <View style={styles.header}>
-                <TouchableWithoutFeedback
-                    onPress={() => navigation.navigate(routes.STACK_MODAL)}>
-                    <Image
-                        source={i18n.language === 'fr' ? YukonLogoFr : YukonLogoEn}
-                        style={styles.logo} />
-                </TouchableWithoutFeedback>
+        <MaterialCommunityIcons.Button
+          name="close"
+          size={22}
+          color="white"
+          padding={0}
+          borderRadius={16}
+          height={32}
+          width={32}
+          justifyContent={'center'}
+          alignItems={'center'}
+          backgroundColor={'transparent'}
+          underlayColor={'transparent'}
+          overflow={'hidden'}
+          iconStyle={{marginRight: 0}}
+          style={{backgroundColor: YUKON_COLORS.primary_600}}
+          onPress={() => navigation.closeDrawer()}
+        />
+      </View>
 
-                <MaterialCommunityIcons.Button
-                    name="close"
-                    size={22}
-                    color="white"
-                    padding={0}
-                    borderRadius={16}
-                    height={32}
-                    width={32}
-                    justifyContent={'center'}
-                    alignItems={'center'}
-                    backgroundColor={'transparent'}
-                    underlayColor={'transparent'}
-                    overflow={'hidden'}
-                    iconStyle={{marginRight: 0}}
-                    style={{ backgroundColor: YUKON_COLORS.primary_600}}
-                    onPress={() => navigation.closeDrawer()}
-                />
+      <View style={styles.body}>
+        <DrawerItems
+          {...props}
+          items={filteredItems}
+          activeTintColor={YUKON_COLORS.primary_400}
+          labelStyle={styles.menuLabel}
+          itemStyle={styles.menuItem}
+          iconContainerStyle={{marginRight: 8, opacity: 1}}
+        />
+
+        <TouchableWithoutFeedback onPress={_toggleLanguage}>
+          <View style={styles.languageWraper}>
+            <View style={styles.langcode}>
+              <Text style={styles.langcodeText}>{newLanguage.code}</Text>
             </View>
-
-            <View style={styles.body}>
-                <DrawerItems
-                    {...props}
-                    items={filteredItems}
-                    activeTintColor={YUKON_COLORS.primary_400}
-                    labelStyle={styles.menuLabel}
-                    itemStyle={styles.menuItem}
-                    iconContainerStyle={{ marginRight: 8, opacity: 1 }}  />
-
-                <TouchableWithoutFeedback onPress={_toggleLanguage}>
-                    <View style={styles.languageWraper}>
-                        <View style={styles.langcode}>
-                            <Text style={styles.langcodeText}>{newLanguage.code}</Text>
-                        </View>
-                        <Text style={styles.menuLabel}>{newLanguage.name}</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-            </View>
-
-        </SafeAreaView>
-    )
-}
-
-const mapStateToProps = (state) => {
-    return {
-        locale: state.localeStore.locale,
-        listingLocalized: state.listingStore.listingLocalized
-    };
+            <Text style={styles.menuLabel}>{newLanguage.name}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    </SafeAreaView>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatchSetLocale: value => dispatch(setLocale(value)),
-        dispatchSetSelectLocaleAction: value => dispatch(setSelectLocaleAction(value)),
-        dispatchSetListing: (value) => dispatch(setListing(value)),
-        dispatchFilterListing: (value) => dispatch(filterListing(value))
-    };
+const mapStateToProps = state => {
+  return {
+    locale: state.localeStore.locale,
+    listingLocalized: state.listingStore.listingLocalized,
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNavigation(SideMenu));
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatchSetLocale: value => dispatch(setLocale(value)),
+    dispatchSetSelectLocaleAction: value =>
+      dispatch(setSelectLocaleAction(value)),
+    dispatchSetListing: value => dispatch(setListing(value)),
+    dispatchFilterListing: value => dispatch(filterListing(value)),
+  };
+};
 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withNavigation(SideMenu));

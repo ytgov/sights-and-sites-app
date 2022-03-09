@@ -8,7 +8,9 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import routes from './routes';
 
 import SideMenu from '../components/sideMenu';
-import SideMenuIcon, { SideMenuIconType } from '../components/sideMenu/sideMenuIcon';
+import SideMenuIcon, {
+  SideMenuIconType,
+} from '../components/sideMenu/sideMenuIcon';
 
 import LoadingScreen from '../screens/loading';
 import WelcomeScreen from '../screens/welcome';
@@ -48,195 +50,214 @@ const exploreRoadTrips = require('./images/explore-road-trips.png');
 const windowWidth = Dimensions.get('window').width;
 
 //// Start here
-const FilterStackNavigator = createStackNavigator({
+const FilterStackNavigator = createStackNavigator(
+  {
     [routes.SCREEN_FILTER_INDEX]: {
-        screen: FilterIndexScreen
+      screen: FilterIndexScreen,
     },
     [routes.SCREEN_FILTER_SITE_TYPE]: {
-        screen: FilterByTypeScreen
+      screen: FilterByTypeScreen,
     },
     [routes.SCREEN_FILTER_REGION]: {
-        screen: FilterByRegionScreen
+      screen: FilterByRegionScreen,
     },
     [routes.SCREEN_FILTER_HIGHWAY]: {
-        screen: FilterByHighwayScreen
+      screen: FilterByHighwayScreen,
     },
     [routes.SCREEN_SITE_DETAILS]: {
-        screen: SiteDetailsScreen,
+      screen: SiteDetailsScreen,
     },
     [routes.SCREEN_FILTER_MY_FAVORITES]: {
-        screen: FilterByMyFavoritesScreen
+      screen: FilterByMyFavoritesScreen,
     },
     [routes.SCREEN_FILTER_NEAR_ME]: {
-        screen: FilterByNearMeScreen
-    }
-}, {
+      screen: FilterByNearMeScreen,
+    },
+  },
+  {
     defaultNavigationOptions: {
-        headerShown: true,
-        header: props => <HeaderNav {...props}
-                   activeItem={HeaderNavType.FILTERS} />
-    }
-});
-
-
-const MainStackNavigator = createStackNavigator({
-    [routes.SCREEN_LISTING]: {
-        screen: ListingScreen,
+      headerShown: true,
+      header: props => (
+        <HeaderNav {...props} activeItem={HeaderNavType.FILTERS} />
+      ),
     },
-    [routes.SCREEN_SITE_DETAILS]: {
-        screen: SiteDetailsScreen,
-    },
-    [routes.SCREEN_MAP]: {
-        screen: MapScreen
-    }
-}, {
-    initialRouteName: routes.SCREEN_LISTING,
-    defaultNavigationOptions: {
-        headerMode: 'none',
-    }
-});
-
-const BottomTabNavigator = createBottomTabNavigator({
-    [routes.SCREEN_SEARCH]: {
-        screen: SearchScreen,
-        navigationOptions: () => ({
-            tabBarIcon: <BottomTabItemSearch
-                icon={searchIcon}
-                label={i18n.t('navigation.footer.search')}
-            />,
-                tabBarOnPress: null
-        }),
-    },
-    [routes.STACK_MAIN]: {
-        screen: MainStackNavigator,
-        navigationOptions: () => ({
-            tabBarIcon: <BottomTabItem
-                icon={exploreRoadTrips}
-                label={i18n.t('navigation.footer.explore')}
-                bigIcon={true} />
-        }),
-    },
-    [routes.SCREEN_HELPFUL_INFO]: {
-        screen: HelpfulInfoScreen,
-        navigationOptions: () => ({
-            tabBarIcon: <BottomTabItem
-                icon={helpfulInfoIcon}
-                label={i18n.t('navigation.footer.helpfulInfo')} />,
-            tabBarOnPress: ({navigation}) => {
-                navigation.openDrawer()
-            }
-        }),
-    }
-}, {
-    initialRouteName: routes.STACK_MAIN,
-    tabBarOptions: defaultTabBarOptions,
-});
-
-const RootDrawerNavigation = createDrawerNavigator(
-    {
-        [routes.STACK_BOTTOM_TAB]: {
-            screen: BottomTabNavigator,
-        },
-        [routes.SCREEN_CURRENT_CONDITIONS]: {
-            screen: CurrentConditionsScreen,
-            navigationOptions: () => (
-                {
-                    title: i18n.t('currentConditions.title'),
-                    drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />
-                }
-            )
-        },
-        [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
-            screen: FirstNationsScreen,
-            navigationOptions: () => (
-                {
-                    title: i18n.t('firstNation.title'),
-                    drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />
-                }
-            )
-        },
-        [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
-            screen: WildernessTravelTipsScreen,
-            navigationOptions: () => (
-                {
-                    title: i18n.t('travelTips.title'),
-                    drawerIcon: <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
-                }
-            )
-        },
-        [routes.SCREEN_APP_INFORMATION]: {
-            screen: AppInformationScreen,
-            navigationOptions: () => (
-                {
-                    title: i18n.t('appInformation.title'),
-                    drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />
-                }
-            )
-        },
-        [routes.STACK_APP_INSTRUCTION]: {
-            screen: IntroductionScreen,
-            navigationOptions: () => (
-                {
-                    title: i18n.t('appIntroduction.title'),
-                    drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />
-                }
-            )
-        }
-    }, {
-        initialRouteName: routes.STACK_BOTTOM_TAB,
-        contentComponent: SideMenu,
-        drawerPosition: 'left',
-        drawerBackgroundColor: 'white',
-        drawerWidth: (windowWidth - 50),
-        overlayColor: 'rgba(0, 151, 169, 0.7)',
-        defaultNavigationOptions: {
-            header: null
-        }
-    }
+  },
 );
 
-const searchStack = createStackNavigator({
-    [routes.SCREEN_SEARCH_RESULTS]: SearchResultsScreen
-},{
+const MainStackNavigator = createStackNavigator(
+  {
+    [routes.SCREEN_LISTING]: {
+      screen: ListingScreen,
+    },
+    [routes.SCREEN_SITE_DETAILS]: {
+      screen: SiteDetailsScreen,
+    },
+    [routes.SCREEN_MAP]: {
+      screen: MapScreen,
+    },
+  },
+  {
+    initialRouteName: routes.SCREEN_LISTING,
     defaultNavigationOptions: {
-        headerShown: true,
-            header: props => <HeaderNav {...props}
-                                        activeItem={HeaderNavType.FILTERS} />
-    }
-})
+      headerMode: 'none',
+    },
+  },
+);
 
-const ModalNavigator = createStackNavigator({
+const BottomTabNavigator = createBottomTabNavigator(
+  {
+    [routes.SCREEN_SEARCH]: {
+      screen: SearchScreen,
+      navigationOptions: () => ({
+        tabBarIcon: (
+          <BottomTabItemSearch
+            icon={searchIcon}
+            label={i18n.t('navigation.footer.search')}
+          />
+        ),
+        tabBarOnPress: null,
+      }),
+    },
+    [routes.STACK_MAIN]: {
+      screen: MainStackNavigator,
+      navigationOptions: () => ({
+        tabBarIcon: (
+          <BottomTabItem
+            icon={exploreRoadTrips}
+            label={i18n.t('navigation.footer.explore')}
+            bigIcon={true}
+          />
+        ),
+      }),
+    },
+    [routes.SCREEN_HELPFUL_INFO]: {
+      screen: HelpfulInfoScreen,
+      navigationOptions: () => ({
+        tabBarIcon: (
+          <BottomTabItem
+            icon={helpfulInfoIcon}
+            label={i18n.t('navigation.footer.helpfulInfo')}
+          />
+        ),
+        tabBarOnPress: ({navigation}) => {
+          navigation.openDrawer();
+        },
+      }),
+    },
+  },
+  {
+    initialRouteName: routes.STACK_MAIN,
+    tabBarOptions: defaultTabBarOptions,
+  },
+);
+
+const RootDrawerNavigation = createDrawerNavigator(
+  {
+    [routes.STACK_BOTTOM_TAB]: {
+      screen: BottomTabNavigator,
+    },
+    [routes.SCREEN_CURRENT_CONDITIONS]: {
+      screen: CurrentConditionsScreen,
+      navigationOptions: () => ({
+        title: i18n.t('currentConditions.title'),
+        drawerIcon: <SideMenuIcon type={SideMenuIconType.CURRENT_CONDITIONS} />,
+      }),
+    },
+    [routes.SCREEN_TRADITIONAL_TERRITORIES]: {
+      screen: FirstNationsScreen,
+      navigationOptions: () => ({
+        title: i18n.t('firstNation.title'),
+        drawerIcon: <SideMenuIcon type={SideMenuIconType.FIRST_NATIONS} />,
+      }),
+    },
+    [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: {
+      screen: WildernessTravelTipsScreen,
+      navigationOptions: () => ({
+        title: i18n.t('travelTips.title'),
+        drawerIcon: (
+          <SideMenuIcon type={SideMenuIconType.WILDERNESS_TRAVEL_TIPS} />
+        ),
+      }),
+    },
+    [routes.SCREEN_APP_INFORMATION]: {
+      screen: AppInformationScreen,
+      navigationOptions: () => ({
+        title: i18n.t('appInformation.title'),
+        drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INFORMATION} />,
+      }),
+    },
+    [routes.STACK_APP_INSTRUCTION]: {
+      screen: IntroductionScreen,
+      navigationOptions: () => ({
+        title: i18n.t('appIntroduction.title'),
+        drawerIcon: <SideMenuIcon type={SideMenuIconType.APP_INSTRUCTIONS} />,
+      }),
+    },
+  },
+  {
+    initialRouteName: routes.STACK_BOTTOM_TAB,
+    contentComponent: SideMenu,
+    drawerPosition: 'left',
+    drawerBackgroundColor: 'white',
+    drawerWidth: windowWidth - 50,
+    overlayColor: 'rgba(0, 151, 169, 0.7)',
+    defaultNavigationOptions: {
+      header: null,
+    },
+  },
+);
+
+const searchStack = createStackNavigator(
+  {
+    [routes.SCREEN_SEARCH_RESULTS]: SearchResultsScreen,
+  },
+  {
+    defaultNavigationOptions: {
+      headerShown: true,
+      header: props => (
+        <HeaderNav {...props} activeItem={HeaderNavType.FILTERS} />
+      ),
+    },
+  },
+);
+
+const ModalNavigator = createStackNavigator(
+  {
     [routes.STACK_BOTTOM_TAB]: RootDrawerNavigation,
     [routes.STACK_FILTERS]: FilterStackNavigator,
-    [routes.STACK_SEARCH]: searchStack
-}, {
+    [routes.STACK_SEARCH]: searchStack,
+  },
+  {
     mode: 'modal',
     headerMode: 'none',
     transparentCard: true,
-    cardStyle: { opacity: 1, backgroundColor: "transparent" }
-})
+    cardStyle: {opacity: 1, backgroundColor: 'transparent'},
+  },
+);
 
-const RootStackNavigator = createStackNavigator({
+const RootStackNavigator = createStackNavigator(
+  {
     stackModal: ModalNavigator,
     [routes.SCREEN_CURRENT_CONDITIONS]: CurrentConditionsScreen,
     [routes.SCREEN_TRADITIONAL_TERRITORIES]: FirstNationsScreen,
     [routes.SCREEN_WILDERNESS_TRAVEL_TIPS]: WildernessTravelTipsScreen,
-    [routes.SCREEN_APP_INFORMATION]: AppInformationScreen
-}, {
+    [routes.SCREEN_APP_INFORMATION]: AppInformationScreen,
+  },
+  {
     headerMode: 'none',
-})
-
-const RootNavigation = createSwitchNavigator(
-    {
-        [routes.SCREEN_LOADING]: LoadingScreen,
-        [routes.SCREEN_WELCOME]: WelcomeScreen,
-        [routes.SCREEN_INTRODUCTION]: IntroductionScreen,
-        [routes.STACK_BOTTOM_TAB]: RootStackNavigator,
-    },
-    {
-        initialRouteName: routes.SCREEN_LOADING,
-    }
+  },
 );
 
+const RootNavigation = createSwitchNavigator(
+  {
+    [routes.SCREEN_LOADING]: LoadingScreen,
+    [routes.SCREEN_WELCOME]: WelcomeScreen,
+    [routes.SCREEN_INTRODUCTION]: IntroductionScreen,
+    [routes.STACK_BOTTOM_TAB]: RootStackNavigator,
+  },
+  {
+    initialRouteName: routes.SCREEN_LOADING,
+  },
+);
 
 export default createAppContainer(RootNavigation);
