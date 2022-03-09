@@ -39,6 +39,7 @@ const LoadingScreen = props => {
           'api-key': APP_CONFIG.apiKey,
         },
       });
+      console.log('Here', response.data);
       return response.data.data;
     };
 
