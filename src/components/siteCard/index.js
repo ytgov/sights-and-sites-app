@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {View, Image, Text, ImageBackground} from 'react-native';
-import {Image as ImageCache} from 'react-native-expo-image-cache';
+// import {Image as ImageCache} from 'react-native-expo-image-cache';
 import {useTranslation} from 'react-i18next';
 import {isUndefined as _isUndefined} from 'lodash';
 import {APP_CONFIG} from '~app/config';
@@ -56,12 +56,16 @@ const SiteCard = props => {
 
   return (
     <View style={styles.wrapper}>
-      <ImageCache
-        {...{preview, uri: roadtrip_landscape}}
-        tint={'light'}
-        transitionDuration={300}
-        resizeMode="cover"
-        // fallback={fallback}
+      {/*<ImageCache*/}
+      {/*  {...{preview, uri: roadtrip_landscape}}*/}
+      {/*  tint={'light'}*/}
+      {/*  transitionDuration={300}*/}
+      {/*  resizeMode="cover"*/}
+      {/*  // fallback={fallback}*/}
+      {/*  style={{...styles.image, ...imageStyle}}*/}
+      {/*/>*/}
+      <Image
+        source={{uri: roadtrip_landscape}}
         style={{...styles.image, ...imageStyle}}
       />
 
