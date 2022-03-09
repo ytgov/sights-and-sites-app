@@ -15,9 +15,9 @@ import {
     SET_SITE_DISTANCE,
     SET_CURRENT_SCREEN_NAME,
 } from '../types';
-import * as Permissions from 'expo-permissions';
-import * as Location from 'expo-location';
-import Coordinates from '~app/models/Coordinates';
+// import * as Permissions from 'expo-permissions';
+// import * as Location from 'expo-location';
+// import Coordinates from '~app/models/Coordinates';
 import {getDrivingDistance} from '~app/shared/services/mapbox';
 
 export function setSelectLocaleAction(value) {
@@ -132,16 +132,6 @@ export function getUserLocation(callback) {
     }
 }
 
-const checkPermissionAndGetUserLocation = async () => {
-    const response = await Permissions.askAsync(Permissions.LOCATION);
-    if (response.status !== 'granted') {
-        info('Could not get user location');
-        return null;
-    } else {
-        const {coords: {latitude, longitude}} = await Location.getCurrentPositionAsync();
-        return new Coordinates(longitude, latitude)
-    }
-}
 
 export const setSiteDistance = (site_id, distance) => ({
     type: SET_SITE_DISTANCE,
