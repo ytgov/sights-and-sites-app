@@ -10,7 +10,8 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
-import {Image as ImageCache} from 'react-native-expo-image-cache';
+//import {Image as ImageCache} from 'react-native-expo-image-cache';
+import {CachedImage} from 'react-native-cached-image';
 
 import {H1} from '~theme/typings';
 import {YUKON_COLORS} from '~theme/config';
@@ -57,12 +58,8 @@ const ScreenParallaxWrapper = props => {
         return (
           <View>
             {typeof backgroundImage === 'string' ? (
-              <ImageCache
-                tint={'light'}
-                transitionDuration={300}
-                resizeMode="cover"
-                // fallback={fallback}
-                uri={backgroundImage}
+              <Image
+                source={{uri: backgroundImage}}
                 style={{
                   width: windowWidth,
                   height: headerHeight,
@@ -70,6 +67,18 @@ const ScreenParallaxWrapper = props => {
                 }}
               />
             ) : (
+              // <ImageCache
+              //   tint={'light'}
+              //   transitionDuration={300}
+              //   resizeMode="cover"
+              //   // fallback={fallback}
+              //   uri={backgroundImage}
+              //   style={{
+              //     width: windowWidth,
+              //     height: headerHeight,
+              //     paddingBottom: 100,
+              //   }}
+              // />
               <Image
                 style={{
                   width: windowWidth,
