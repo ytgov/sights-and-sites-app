@@ -1,13 +1,13 @@
 import React from 'react';
 import Toast from 'react-native-root-toast';
 import DeviceInfo from 'react-native-device-info';
-// import {Text, View} from 'react-native';
-// import {Feather} from '@expo/vector-icons';
+import {Text, View} from 'react-native';
+import Feather from 'react-native-vector-icons/Feather';
 import {merge as _merge} from 'lodash';
 
 import CustomToast from '~components/customToast/customToast';
 import {COLORS} from '~theme/config';
-// import {YUKON_FONTS} from '~theme/typings';
+import {YUKON_FONTS} from '~theme/typings';
 
 const config = {
   duration: Toast.durations.SHORT,
@@ -71,38 +71,48 @@ function customToast(message, overwriteConfig = {}) {
   return CustomToast.show(message, customConfig);
 }
 
-// function toastWithIcon(text, icon, config = {}, iconPosition = ICON_POSITION.RIGHT) {
-//     const isLeftIcon = iconPosition === ICON_POSITION.LEFT;
-//     const iconElement = icon && <Feather name={icon} size={20} color="white" style={{paddingTop:3, paddingRight: 5}} />;
-//
-//     const children = (
-//         <View style={{
-//             flex: 1,
-//             flexDirection: 'row',
-//             alignItems: 'center',
-//             alignContent: 'center',
-//             justifyContent: 'space-between',
-//             paddingBottom: 4
-//         }}>
-//             { isLeftIcon && iconElement }
-//             { text && <Text style={{
-//                 color: '#FFF',
-//                 fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
-//             }}>{text}</Text> }
-//             { !isLeftIcon && iconElement }
-//
-//         </View>
-//     );
-//
-//     return customToast(children, config);
-//
-// }
+function toastWithIcon(
+  text,
+  icon,
+  config = {},
+  iconPosition = ICON_POSITION.RIGHT,
+) {
+  const isLeftIcon = iconPosition === ICON_POSITION.LEFT;
+  const iconElement = icon && (
+    <Feather
+      name={icon}
+      size={20}
+      color="white"
+      style={{paddingTop: 3, paddingRight: 5}}
+    />
+  );
+  console.log('alkfjafks');
 
-export {
-  success,
-  info,
-  error,
-  customToast,
-  // toastWithIcon,
-  ICON_POSITION,
-};
+  const children = (
+    <View
+      style={{
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'space-between',
+        paddingBottom: 4,
+      }}>
+      {isLeftIcon && iconElement}
+      {text && (
+        <Text
+          style={{
+            color: '#FFF',
+            // fontFamily: YUKON_FONTS.MONTSERRAT_BOLD,
+          }}>
+          {text}
+        </Text>
+      )}
+      {!isLeftIcon && iconElement}
+    </View>
+  );
+
+  return customToast(children, config);
+}
+
+export {success, info, error, customToast, toastWithIcon, ICON_POSITION};

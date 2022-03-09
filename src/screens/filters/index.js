@@ -17,107 +17,108 @@ import {toastWithIcon, ICON_POSITION} from '~app/shared/services/notify';
 const bgIndex = require('./images/index/bg-index.jpg');
 const windowWidth = Dimensions.get('window').width;
 
-const FilterIndexScreen = (props) => {
-    const {t} = useTranslation()
-    const {
-        filterStore,
-        navigation
-    } = props
-    const { myFavorites = [] } = filterStore || {};
-    const hasFavorites = !!myFavorites.length;
+const FilterIndexScreen = props => {
+  const {t} = useTranslation();
+  const {filterStore, navigation} = props;
+  const {myFavorites = []} = filterStore || {};
+  const hasFavorites = !!myFavorites.length;
 
-    const filters = [
-        {
-            id: 'siteTypes',
-            label: t('filters.siteTypes'),
-            withArrow: true,
-            destination: routes.SCREEN_FILTER_SITE_TYPE,
-            leadingIcon: require('./images/index/by-site-type.png'),
-            leadingIconActive: require('./images/index/by-site-type-active.png')
-        },
-        {
-            id: 'regions',
-            label: t('filters.regions'),
-            withArrow: true,
-            destination: routes.SCREEN_FILTER_REGION,
-            leadingIcon: require('./images/index/by-region.png'),
-            leadingIconActive: require('./images/index/by-region-active.png')
-        },
-        {
-            id: 'highways',
-            label: t('filters.highways'),
-            withArrow: true,
-            destination: routes.SCREEN_FILTER_HIGHWAY,
-            leadingIcon: require('./images/index/by-highway.png'),
-            leadingIconActive: require('./images/index/by-highway-active.png')
-        },
-        {
-            id: 'myFavorites',
-            label: t('filters.myFavorites'),
-            destination: routes.SCREEN_FILTER_MY_FAVORITES,
-            leadingIcon: require('./images/index/my-favorites.png'),
-            leadingIconActive: require('./images/index/my-favorites-active.png')
-        },
-    ]
+  const filters = [
+    {
+      id: 'siteTypes',
+      label: t('filters.siteTypes'),
+      withArrow: true,
+      destination: routes.SCREEN_FILTER_SITE_TYPE,
+      leadingIcon: require('./images/index/by-site-type.png'),
+      leadingIconActive: require('./images/index/by-site-type-active.png'),
+    },
+    {
+      id: 'regions',
+      label: t('filters.regions'),
+      withArrow: true,
+      destination: routes.SCREEN_FILTER_REGION,
+      leadingIcon: require('./images/index/by-region.png'),
+      leadingIconActive: require('./images/index/by-region-active.png'),
+    },
+    {
+      id: 'highways',
+      label: t('filters.highways'),
+      withArrow: true,
+      destination: routes.SCREEN_FILTER_HIGHWAY,
+      leadingIcon: require('./images/index/by-highway.png'),
+      leadingIconActive: require('./images/index/by-highway-active.png'),
+    },
+    {
+      id: 'myFavorites',
+      label: t('filters.myFavorites'),
+      destination: routes.SCREEN_FILTER_MY_FAVORITES,
+      leadingIcon: require('./images/index/my-favorites.png'),
+      leadingIconActive: require('./images/index/my-favorites-active.png'),
+    },
+  ];
 
-    const cooked_filters = filters.map(item => {
-        return {
-            ...item,
-            label: item.withArrow ? <LabelArrow label={item.label} /> : item.label
-        }
-    });
-
-    const onItemClick = (destination) => {
-        if (destination === routes.SCREEN_FILTER_MY_FAVORITES) {
-           if (!hasFavorites) {
-               toastWithIcon(t('favorites.noFavorites'), 'alert-circle', {
-                   position: DeviceInfo.hasNotch() ? 110 : 80, /* StatusBar height + App menu height  */
-                   containerStyle: {
-                       paddingTop: 6,
-                       paddingBottom: 6,
-                       width: windowWidth,
-                   }
-               }, ICON_POSITION.LEFT);
-               return;
-           }
-        }
-
-        navigation.navigate(destination);
-    };
-
-
-    return (
-        <ScreenWrapper backgroundImage={bgIndex}>
-            <FilterHeader>
-                <Title title={t('filters.by')} />
-            </FilterHeader>
-
-            {cooked_filters.map((item, i) =>
-            {
-                return (
-                    <ListTile
-                        key={i}
-                        label={item.label}
-                        checked={checkActiveFilter(filterStore, item.id)}
-                        leadingIcon={item.leadingIcon}
-                        leadingIconActive={item.leadingIconActive}
-                        onClick={() => onItemClick(item.destination)} />
-                )
-            }
-
-            )}
-        </ScreenWrapper>
-    );
-};
-
-const mapStateToProps = (state) => {
+  const cooked_filters = filters.map(item => {
     return {
-        filterStore: state.filtersStore
+      ...item,
+      label: item.withArrow ? <LabelArrow label={item.label} /> : item.label,
     };
+  });
+
+  const onItemClick = destination => {
+    if (destination === routes.SCREEN_FILTER_MY_FAVORITES) {
+      if (!hasFavorites) {
+        toastWithIcon(
+          t('favorites.noFavorites'),
+          'alert-circle',
+          {
+            position: DeviceInfo.hasNotch()
+              ? 110
+              : 80 /* StatusBar height + App menu height  */,
+            containerStyle: {
+              paddingTop: 6,
+              paddingBottom: 6,
+              width: windowWidth,
+            },
+          },
+          ICON_POSITION.LEFT,
+        );
+        return;
+      }
+    }
+
+    navigation.navigate(destination);
+  };
+
+  return (
+    <ScreenWrapper backgroundImage={bgIndex}>
+      <FilterHeader>
+        <Title title={t('filters.by')} />
+      </FilterHeader>
+
+      {cooked_filters.map((item, i) => {
+        return (
+          <ListTile
+            key={i}
+            label={item.label}
+            checked={checkActiveFilter(filterStore, item.id)}
+            leadingIcon={item.leadingIcon}
+            leadingIconActive={item.leadingIconActive}
+            onClick={() => onItemClick(item.destination)}
+          />
+        );
+      })}
+    </ScreenWrapper>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {};
+const mapStateToProps = state => {
+  return {
+    filterStore: state.filtersStore,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterIndexScreen);
