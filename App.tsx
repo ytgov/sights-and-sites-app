@@ -4,18 +4,18 @@ import NetworkGate from './src/shared/components/netwrok-gate/netwrok-gate.compo
 
 import configureStore from './src/store';
 import AppRoot from './src';
-// import {PersistGate} from 'redux-persist/integration/react';
+import {PersistGate} from 'redux-persist/integration/react';
 
-const {store} = configureStore();
+const {store, persistor} = configureStore();
 
 const App = () => {
   return (
     <Provider store={store}>
-      {/*<PersistGate loading={null} persistor={persistor}>*/}
-      <NetworkGate>
-        <AppRoot />
-      </NetworkGate>
-      {/*</PersistGate>*/}
+      <PersistGate loading={null} persistor={persistor}>
+        <NetworkGate>
+          <AppRoot />
+        </NetworkGate>
+      </PersistGate>
     </Provider>
   );
 };
