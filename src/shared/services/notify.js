@@ -86,7 +86,6 @@ function toastWithIcon(
       style={{paddingTop: 3, paddingRight: 5}}
     />
   );
-  console.log('alkfjafks');
 
   const children = (
     <View
@@ -111,7 +110,6 @@ function toastWithIcon(
       {!isLeftIcon && iconElement}
     </View>
   );
-
   return customToast(children, config);
 }
 
