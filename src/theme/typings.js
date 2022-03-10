@@ -12,84 +12,84 @@ export const YUKON_FONTS = {
 };
 
 const H1 = styled.Text`
-  font-size: 36;
-  line-height: 42;
+  font-size: 36px;
+  line-height: 42px;
   color: ${props => {
     return props.black ? 'black' : 'white';
   }};
 `;
 
 const H2 = styled.Text`
-  font-size: 24;
-  line-height: 28;
+  font-size: 24px;
+  line-height: 28px;
   color: ${props => {
     return props.black ? 'black' : 'white';
   }};
 `;
 
 const H3 = styled.Text`
-  font-size: 22;
-  line-height: 27;
+  font-size: 22px;
+  line-height: 27px;
   color: ${props => {
     return props.black ? 'black' : 'white';
   }};
 `;
 
 const H4 = styled.Text`
-  font-size: 16;
-  line-height: 20;
+  font-size: 16px;
+  line-height: 20px;
   color: ${props => {
     return props.black ? 'black' : 'white';
   }};
 `;
 
 const Body = styled.Text`
-  font-size: 16;
-  line-height: 24;
+  font-size: 16px;
+  line-height: 24px;
   color: ${props => {
     return props.black ? 'black' : 'white';
   }};
 `;
 
 const Small = styled.Text`
-  font-size: 12px;s
+  font-size: 12px;
 `;
 
 const Subtitle1 = styled.Text`
-  font-size: ${TYPINGS.subtitle1};
-  line-height: ${TYPINGS.subtitle1 + lineHeightOffset};
+  font-size: ${TYPINGS.subtitle1}px;
+  line-height: ${TYPINGS.subtitle1 + lineHeightOffset}px;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white;
   }};
 `;
 
 const Subtitle2 = styled.Text`
-  font-size: ${TYPINGS.subtitle2};
-  line-height: ${TYPINGS.subtitle2 + lineHeightOffset};
+  font-size: ${TYPINGS.subtitle2}px;
+  line-height: ${TYPINGS.subtitle2 + lineHeightOffset}px;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white;
   }};
 `;
 
 const Body1 = styled.Text`
-  font-size: ${TYPINGS.body1};
-  line-height: ${TYPINGS.body1 + lineHeightOffset};
+  font-size: ${TYPINGS.body1}px;
+  line-height: ${TYPINGS.body1 + lineHeightOffset}px;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white;
   }};
 `;
 
 const Body2 = styled.Text`
-  font-size: ${TYPINGS.body2};
-  line-height: ${TYPINGS.body2 + lineHeightOffset};
+  font-size: ${TYPINGS.body2}px;
+  line-height: ${TYPINGS.body2 + lineHeightOffset}px;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white;
   }};
 `;
 
 const Caption = styled.Text`
-  font-size: ${TYPINGS.caption};
-  line-height: ${TYPINGS.caption + lineHeightOffset};
+  font-size: ${TYPINGS.caption}px;
+  line-height: ${TYPINGS.caption + lineHeightOffset}px;
   color: ${props => {
     return props.black ? COLORS.primary : COLORS.white;
   }};
