@@ -230,7 +230,12 @@ const ModalNavigator = createStackNavigator(
   {
     mode: 'modal',
     headerMode: 'none',
-    cardStyle: {opacity: 1, backgroundColor: 'transparent'},
+    navigationOptions: {
+      cardStyle: {
+        opacity: 1,
+        backgroundColor: 'transparent',
+      },
+    },
   },
 );
 
