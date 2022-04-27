@@ -19,7 +19,6 @@ const Service = ({item}) => {
         <TouchableOpacity onPress={toggleModal}>
             <View style={styles.wrapper}>
                 <Image source={item.image} />
-                <Body black  style={styles.title}>{item.name}</Body>
             </View>
         </TouchableOpacity>
 
