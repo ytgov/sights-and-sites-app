@@ -287,13 +287,13 @@ const SiteDetailsScreen = props => {
 
       {services.length > 0 && (
         <Section title={t('siteDetails.sectionServices.title')}>
-          {services.map((item, i) => (
-            <View
-              key={item.id}
-              style={{backgroundColor: i % 2 == 0 ? '#f5f5f5' : 'transparent'}}>
-              <Service key={item.id} item={item} />
-            </View>
-          ))}
+          <View style={{flexDirection: 'row'}}>
+            {services.map((item, i) => (
+                <View key={item.id}>
+                  <Service key={item.id} item={item} />
+                </View>
+            ))}
+          </View>
 
           {/*<Swiper*/}
           {/*    showsButtons={false}*/}
