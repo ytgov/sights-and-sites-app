@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text, TouchableWithoutFeedback} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {DrawerItems, DrawerActions} from 'react-navigation-drawer';
+import {DrawerItems, DrawerActions} from '@avadon/react-navigation-drawer';
 import {withNavigation} from 'react-navigation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTranslation} from 'react-i18next';
