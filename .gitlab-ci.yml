@@ -22,5 +22,8 @@ npm-audit:
     - >
       if [ $CI_JOB_STATUS != 'success' ] && [ -n "$SLACK_HOOK_URL" ]; then
         echo 'Security check failed'
+        echo $SLACK_CHANNEL
+        echo $SLACK_HOOK_TEXT
+        echo $SLACK_HOOK_URL
         curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
       fi
