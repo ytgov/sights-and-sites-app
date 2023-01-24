@@ -6,6 +6,7 @@ stages:
 
 deps_install:
   stage: prerequisite
+  image: node:19-alpine
   cache:
     paths:
       - node_modules
