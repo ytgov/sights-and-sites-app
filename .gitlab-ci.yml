@@ -11,13 +11,13 @@ deps_install:
     paths:
       - node_modules
   script:
-    - npm install
+    - yarn install
 
 npm-audit:
   image: "registry.gitlab.com/gitlab-org/security-products/analyzers/npm-audit:1.4.0"
   stage: security_check
   variables:
-    TOOL: npm
+    TOOL: yarn
   script:
     - /analyzer run
   artifacts:
