@@ -19,7 +19,7 @@ npm-audit:
   # dependencies:
   #   - deps_install
   script:
-    - yarn audit || EXIT_CODE=$?
+    - yarn audit || exit 1
   after_script:
     - echo $EXIT_CODE
     - echo $CI_JOB_STATUS
@@ -27,10 +27,13 @@ npm-audit:
     - echo $SLACK_CHANNEL
     - echo $SLACK_HOOK_TEXT
     - >
-      if [[ $EXIT_CODE -ne 0 ]]; then
+      if [[ $CI_JOB_STATUS != 'success' ]]; then
         echo 'Security check failed'
+
         if $SLACK_HOOK_URL; then
           curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
+        else
+          echo "SLACK_HOOK_URL variable is not present, skipping Slack notification"
         fi
       else
         echo "Security check passed"
