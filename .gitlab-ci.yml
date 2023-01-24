@@ -36,4 +36,4 @@ security_slack_notification:
     - echo $SLACK_CHANNEL
     - echo $SLACK_HOOK_TEXT
     - echo $SLACK_PAYLOAD
-  script: curl -X POST -s -o --data-urlencode "$SLACK_PAYLOAD" "$SLACK_HOOK_URL"
+  script: curl -X POST --data-urlencode "$SLACK_PAYLOAD" "$SLACK_HOOK_URL"
