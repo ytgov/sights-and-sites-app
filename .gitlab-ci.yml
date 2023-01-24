@@ -4,24 +4,24 @@ stages:
   - security_check
   - build
 
-deps_install:
-  stage: prerequisite
-  image: node:19-alpine
-  cache:
-    paths:
-      - node_modules
-  script:
-    - yarn install
+# deps_install:
+#   stage: prerequisite
+#   image: node:19-alpine
+#   cache:
+#     paths:
+#       - node_modules
+#   script:
+#     - yarn install
 
 npm-audit:
   image: node:19-alpine
   stage: security_check
-  dependencies:
-    - deps_install
+  # dependencies:
+  #   - deps_install
   script:
     - yarn audit || exit 1
   after_script:
-    - |
+    - >
       echo $CI_JOB_STATUS
       echo $SLACK_HOOK_URL
       echo $SLACK_CHANNEL
