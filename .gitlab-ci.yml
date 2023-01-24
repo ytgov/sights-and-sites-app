@@ -16,9 +16,11 @@ deps_install:
 npm-audit:
   image: node:19-alpine
   stage: security_check
-  rules:
-    - if: $SLACK_HOOK_URL == null
-      when: never # don't run the job in this case
-    - when: on_success  # run per usual in all other cases
   script:
-    - yarn audit
+    - yarn audit || exit 1
+  after_script:
+    - >
+      if [ $CI_JOB_STATUS != 'success' ] && [ -n "$SLACK_HOOK_URL" ]; then
+        echo 'Security check failed'
+        curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
+      fi
