@@ -31,7 +31,7 @@ npm-audit:
         echo 'Security check failed'
         wget --help
         if $SLACK_HOOK_URL; then
-          curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
+          wget -O- --post-data='{"channel": "$SLACK_CHANNEL", "username": "webhookbot", "text": "$SLACK_HOOK_TEXT", "icon_emoji": ":warning:"}' --header='Content-Type:application/json' $SLACK_HOOK_URL
         else
           echo "SLACK_HOOK_URL variable is not present, skipping Slack notification"
         fi
