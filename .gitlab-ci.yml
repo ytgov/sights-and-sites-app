@@ -21,12 +21,12 @@ npm-audit:
   script:
     - yarn audit || EXIT_CODE=$?
   after_script:
+    - echo $EXIT_CODE
+    - echo $CI_JOB_STATUS
+    - echo $SLACK_HOOK_URL
+    - echo $SLACK_CHANNEL
+    - echo $SLACK_HOOK_TEXT
     - >
-      echo $EXIT_CODE
-      echo $CI_JOB_STATUS
-      echo $SLACK_HOOK_URL
-      echo $SLACK_CHANNEL
-      echo $SLACK_HOOK_TEXT
       if [[ $EXIT_CODE -ne 0 && $SLACK_HOOK_URL ]]; then
         echo 'Security check failed'
         curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
