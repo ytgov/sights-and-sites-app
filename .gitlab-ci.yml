@@ -1,0 +1,26 @@
+stages:
+  - prerequisite
+  - tests
+  - security_check
+  - build
+
+deps_install:
+  stage: prerequisite
+  cache:
+    paths:
+      - node_modules
+  script:
+    - npm install
+
+npm-audit:
+  image: "registry.gitlab.com/gitlab-org/security-products/analyzers/npm-audit:1.4.0"
+  stage: security_check
+  variables:
+    TOOL: npm
+  script:
+    - /analyzer run
+  artifacts:
+    reports:
+      dependency_scanning: gl-dependency-scanning-report.json
+    paths:
+      - gl-dependency-scanning-report.json
