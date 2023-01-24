@@ -1,3 +1,6 @@
+variables:
+  SLACK_PAYLOAD: "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}"
+
 stages:
   - prerequisite
   - tests
@@ -13,7 +16,7 @@ stages:
 #   script:
 #     - yarn install
 
-npm-audit:
+npm_audit:
   image: node:19-alpine
   stage: security_check
   # dependencies:
@@ -25,11 +28,12 @@ npm-audit:
     - echo $SLACK_HOOK_URL
     - echo $SLACK_CHANNEL
     - echo $SLACK_HOOK_TEXT
+    - echo $SLACK_PAYLOAD
     - >
       wget -O- \
       --post-data="{\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" \
       --header="Content-Type:application/json" \
-      "$SLACK_HOOK_URL"
+      $SLACK_HOOK_URL
     - >
       if [[ $CI_JOB_STATUS != 'success' ]]; then
         echo 'Security check failed'
@@ -45,3 +49,9 @@ npm-audit:
       else
         echo "Security check passed"
       fi
+
+security_slack_notification:
+  needs: ["npm_audit"]
+  when: on_failure
+  image: curlimages/curl
+  script: -X POST --data-urlencode "$SLACK_PAYLOAD" $SLACK_HOOK_URL
