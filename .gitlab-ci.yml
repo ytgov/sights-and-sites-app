@@ -51,6 +51,7 @@ npm_audit:
       fi
 
 security_slack_notification:
+  stage: security_check
   needs: ["npm_audit"]
   when: on_failure
   image: curlimages/curl
