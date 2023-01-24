@@ -21,7 +21,7 @@ npm-audit:
   script:
     - yarn audit || exit 1
   after_script:
-    - >
+    - |
       echo $CI_JOB_STATUS
       echo $SLACK_HOOK_URL
       echo $SLACK_CHANNEL
