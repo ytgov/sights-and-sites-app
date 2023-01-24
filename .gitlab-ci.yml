@@ -29,7 +29,7 @@ npm-audit:
     - >
       if [[ $CI_JOB_STATUS != 'success' ]]; then
         echo 'Security check failed'
-        wget --help
+
         if $SLACK_HOOK_URL; then
           wget -O- --post-data='{"channel": "$SLACK_CHANNEL", "username": "webhookbot", "text": "$SLACK_HOOK_TEXT", "icon_emoji": ":warning:"}' --header='Content-Type:application/json' $SLACK_HOOK_URL
         else
