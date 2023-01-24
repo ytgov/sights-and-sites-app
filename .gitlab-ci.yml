@@ -55,4 +55,4 @@ security_slack_notification:
   needs: ["npm_audit"]
   when: on_failure
   image: curlimages/curl
-  script: -d --data-urlencode "$SLACK_PAYLOAD" $SLACK_HOOK_URL
+  script: curl -d --data-urlencode "$SLACK_PAYLOAD" $SLACK_HOOK_URL
