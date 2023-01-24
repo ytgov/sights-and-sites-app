@@ -55,9 +55,12 @@ security_slack_notification:
   needs: ["npm_audit"]
   when: on_failure
   image: curlimages/curl
+  rules:
+    - if: $SLACK_HOOK_URL != null
   before_script:
     - echo $SLACK_HOOK_URL
     - echo $SLACK_CHANNEL
     - echo $SLACK_HOOK_TEXT
     - echo $SLACK_PAYLOAD
-  script: curl -d --data-urlencode "$SLACK_PAYLOAD" "$SLACK_HOOK_URL"
+  script: curl -X POST --data-urlencode "$SLACK_PAYLOAD" "$SLACK_HOOK_URL
+  # curl -X POST --data-urlencode "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}" $SLACK_HOOK_URL
