@@ -10,8 +10,6 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
-//import {Image as ImageCache} from 'react-native-expo-image-cache';
-import {CachedImage} from 'react-native-cached-image';
 
 import {H1} from '~theme/typings';
 import {YUKON_COLORS} from '~theme/config';
