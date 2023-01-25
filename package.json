@@ -26,6 +26,7 @@
     "react-native": "^0.68.1",
     "react-native-cached-image": "^1.4.3",
     "react-native-device-info": "^8.5.0",
+    "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.3.0",
     "react-native-modal": "^13.0.1",
     "react-native-parallax-scroll-view": "^0.21.3",

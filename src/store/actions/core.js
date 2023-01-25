@@ -15,48 +15,49 @@ import {
     SET_SITE_DISTANCE,
     SET_CURRENT_SCREEN_NAME,
 } from '../types';
-// import * as Permissions from 'expo-permissions';
-// import * as Location from 'expo-location';
-// import Coordinates from '~app/models/Coordinates';
+
+import Coordinates from '~app/models/Coordinates';
 import {getDrivingDistance} from '~app/shared/services/mapbox';
+import Geolocation from 'react-native-geolocation-service';
+import { PermissionsAndroid, Platform } from 'react-native';
 
 export function setSelectLocaleAction(value) {
     return {
         type: SET_SELECT_LOCALE_ACTION,
-        payload: value
+        payload: value,
     }
 }
 
 export function setOnboardingFinished() {
     return {
-        type: SET_ONBOARDING_FINISHED
+        type: SET_ONBOARDING_FINISHED,
     }
 }
 
 export function resetLocation() {
     return {
-        type: RESET_LOCATION
+        type: RESET_LOCATION,
     }
 }
 
 export function updateLocation(value) {
     return {
         type: UPDATE_LOCATION,
-        payload: value
+        payload: value,
     }
 }
 
 export function setNetworkStatus(value) {
     return {
         type: SET_NETWORK_STATUS,
-        payload: value
+        payload: value,
     }
 }
 
 export function showHeader() {
     return {
         type: SHOW_HEADER,
-        payload: true
+        payload: true,
     }
 }
 
@@ -69,21 +70,21 @@ export function hideHeader() {
 
 export function toggleSearch() {
     return {
-        type: TOGGLE_SEARCH
+        type: TOGGLE_SEARCH,
     }
 }
 
 export function showSearch() {
     return {
         type: SHOW_SEARCH,
-        payload: true
+        payload: true,
     }
 }
 
 export function hideSearch() {
     return {
         type: HIDE_SEARCH,
-        payload: false
+        payload: false,
     }
 }
 export function setCurrentScreenName(screenName) {
@@ -132,6 +133,41 @@ export function getUserLocation(callback) {
     }
 }
 
+/**
+ * Returns user location and request location permission if necessary
+ * @returns null|Coordinates
+ */
+const checkPermissionAndGetUserLocation = async () => {
+    try {
+        let result = false;
+
+        if (Platform.OS !== 'ios') {
+            result = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+        } else {
+            result = await Geolocation.requestAuthorization('always');
+        }
+
+        const isGranted =
+            (Platform.OS !== 'ios' && result === PermissionsAndroid.RESULTS.GRANTED)
+            || (Platform.OS === 'ios' && result !== 'denied');
+
+        if (isGranted) {
+            // wrapped in a promise because getCurrentPosition returns void
+            const { coords } = await new Promise((resolve) => {
+                Geolocation.getCurrentPosition((position) => resolve(position))
+            });
+
+            return new Coordinates(coords.longitude, coords.latitude);
+        } else {
+            alert('Could not get user location');
+            return null;
+        }
+    }
+    catch (error) {
+        alert('Could not get user location');
+        return null;
+    }
+}
 
 export const setSiteDistance = (site_id, distance) => ({
     type: SET_SITE_DISTANCE,
