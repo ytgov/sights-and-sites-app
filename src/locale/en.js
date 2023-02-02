@@ -265,12 +265,12 @@ export default {
             data:{
                 title1: 'Protecting historic resources',
                 content_italicized1: '',
-                content1: 'Yukon’s historic resources are protected under the Historic Resources Act. Do no remove an artifact from an archaeological or historic site. Artifacts belong to all Yukoners and are held in the public trust. To report a find, contact',
+                content1: 'Yukon’s historic resources are protected under the Historic Resources Act. If you find an artifact, leave it in place and do not remove it. Wherever you are in the Yukon, you are on a First Nation’s traditional territory. Each First Nation, together with the Yukon government, is working to honour and protect the ongoing story of Yukon’s living heritage.',
                 contacts1: {
-                    name1: 'Yukon Archaeology',
-                    contact1: '867-667-5983',
-                    name2: 'Government of Yukon Toll-Free line',
-                    contact2: '1-800-661-0408',
+                    name1: 'To report a find, contact us at: ',
+                    contact1: 'info@yukonlivingheritage.ca',
+                    name2: ' or phone ',
+                    contact2: '867-471-0950',
                 },
 
                 title2: 'More wilderness safety tips',
