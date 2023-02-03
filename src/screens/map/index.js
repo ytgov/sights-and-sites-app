@@ -71,11 +71,6 @@ const MapScreen = (props) => {
     const onSourceLayerPress = (e) => {
         const selectedItem = e.nativeEvent.payload.properties.data
         setPinnedItem(selectedItem)
-        setCenter({
-            longitude: selectedItem.longitude,
-            latitude: selectedItem.latitude
-        })
-        setZoom(5)
         setModalVisible(true)
     }
 
