@@ -1,0 +1,36 @@
+variables:
+  SLACK_PAYLOAD: "payload={\"channel\": \"$SLACK_CHANNEL\", \"username\": \"webhookbot\", \"text\": \"$SLACK_HOOK_TEXT\", \"icon_emoji\": \":warning:\"}"
+  NODE_IMAGE: node:19-alpine
+
+stages:
+  - prerequisite
+  - tests
+  - security_check
+  - build
+
+deps_install:
+  stage: prerequisite
+  image: $NODE_IMAGE
+  cache:
+    paths:
+      - node_modules
+  script:
+    - yarn install
+
+npm_audit:
+  image: $NODE_IMAGE
+  stage: security_check
+  dependencies:
+    - deps_install
+  allow_failure: true
+  script:
+    - yarn audit || exit 1
+
+security_slack_notification:
+  stage: security_check
+  needs: ["npm_audit"]
+  when: on_failure
+  image: curlimages/curl
+  rules:
+    - if: $SLACK_HOOK_URL != null
+  script: curl -X POST --data-urlencode "$SLACK_PAYLOAD" "$SLACK_HOOK_URL"
