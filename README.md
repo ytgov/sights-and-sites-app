@@ -17,3 +17,20 @@ Sometime after that point, the second developer added large files which perhaps 
 ## Useful references
 
 [React Native build process](https://reactnative.dev/docs/signed-apk-android)
+
+## Security monitoring
+
+Dependency vulnerability scanning was implemented with [GitLab Scheduled Pipeline](https://docs.gitlab.com/ee/ci/pipelines/schedules.html) and [Slack WebHooks](https://api.slack.com/messaging/webhooks). CI pipeline consists of multiple steps:
+- dependency installation (`yarn install`)
+- dependency vulnerability scan (based on `yarn audit`)
+- Slack notification if at least 1 vulnerability was found (details are available in CI job `npm_audit`)
+
+Scheduled pipeline preferences (interval, notification text, etc.) are available in project's menu **CI/CD -> Schedules**:
+
+**Interval pattern**: 0 0 * * 1
+**Cron timzone**: UTC
+**Target branch**: v2
+**Variables**:
+- SLACK_HOOK_URL=`replace with your Slack Webhook URL`
+- SLACK_HOOK_TEXT="Potential security vulnerabilities in dependencies were found. Please, check pipeline."
+- SLACK_CHANNEL=`replace with your Slack channel name`
