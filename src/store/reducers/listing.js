@@ -47,7 +47,17 @@ const filterListing = (filters, location, listingRaw) => {
         return true;
     })
 
-    return filteredByType
+    let result = filteredByType
+        .sort((a, b) => a.highway_name.localeCompare(b.highway_name));
+    
+    result = result.sort((a, b) => {
+        if (a.highway_name === b.highway_name) {
+            return a.highway_km - b.highway_km;
+         }
+         return a.highway_name > b.highway_name ? 1 : -1;
+    });
+
+    return result;
 }
 
 export default function listingReducer(state = initialState, action) {
