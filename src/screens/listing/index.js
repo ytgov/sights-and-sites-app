@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {FlatList, TouchableOpacity, Dimensions, Text} from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { FlatList, TouchableOpacity, Dimensions, AsyncStorage } from 'react-native';
 
 import {NavigationEvents} from 'react-navigation';
 import {connect} from 'react-redux';
@@ -24,6 +24,7 @@ const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
 const ITEMS_PER_PAGE = 10;
+const LIST_OFFSET_KEY = '@yukon:sights_list_position';
 
 const ListingScreen = props => {
   const {
@@ -52,7 +53,7 @@ const ListingScreen = props => {
       dispatchSetListing(list);
       dispatchFilterListing();
       setDidDispatch(true);
-      flatListRef.current.scrollToOffset({animated: true, offset: 0});
+      flatListRef.current.scrollToOffset({ animated: true, offset: 0 });
     } else {
       const loadedItems = listingFiltered.slice(0, ITEMS_PER_PAGE);
       setItems(loadedItems);
@@ -70,15 +71,16 @@ const ListingScreen = props => {
     }
   };
 
+  let scollOffsetY = 0;
+
   return (
     <>
       <NavigationEvents
-        onWillFocus={() => {
+        onWillFocus={async () => {
           dispatchHideSearch();
           dispatchShowHeader();
           dispatchSetCurrentScreenName(null);
           setPage(1);
-          flatListRef.current.scrollToOffset({animated: true, offset: 0});
 
           // Toast
           if (!_isUndefined(navigation.getParam('notification'))) {
@@ -101,6 +103,11 @@ const ListingScreen = props => {
 
             setNotification(toast);
           }
+
+          this.flatList.scrollToOffset({
+            offset: await AsyncStorage.getItem(LIST_OFFSET_KEY),
+            animated: false
+          });
         }}
       />
 
@@ -110,14 +117,19 @@ const ListingScreen = props => {
         ref={flatListRef}
         initialNumToRender={3}
         scrollEventThrottle={16}
-        renderItem={({item}) => (
+        onScroll={({ nativeEvent }) => {
+          scollOffsetY = nativeEvent.contentOffset.y;
+        }}
+        renderItem={({ item }) => (
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() =>
+            onPress={() => {
+              AsyncStorage.setItem(LIST_OFFSET_KEY, scollOffsetY.toString());
+
               navigation.navigate(routes.SCREEN_SITE_DETAILS, {
                 site_id: item.site_id,
-              })
-            }>
+              });
+            }}>
             <SiteCard data={item} />
           </TouchableOpacity>
         )}
