@@ -11,13 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2CEEE48D4400EF5E44300F3B /* libPods-yukon-yukonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F51989C6C5CEC5D380CC4D08 /* libPods-yukon-yukonTests.a */; };
-		3F6D33C6D512466B0A1B3B35 /* libPods-yukon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB026087F6E525E52646938 /* libPods-yukon.a */; };
+		6431B59F03B288FD2EF444F1 /* libPods-yukon-yukonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F94704CF202410AD307D1DF1 /* libPods-yukon-yukonTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		925EE49227D85114002CE662 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 925EE48E27D85114002CE662 /* Montserrat-Medium.ttf */; };
 		925EE49327D85114002CE662 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 925EE48F27D85114002CE662 /* Montserrat-SemiBold.ttf */; };
 		925EE49427D85114002CE662 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 925EE49027D85114002CE662 /* Montserrat-Bold.ttf */; };
 		925EE49527D85114002CE662 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 925EE49127D85114002CE662 /* Montserrat-Regular.ttf */; };
+		9B4DD70E267EC35D2D376E0F /* libPods-yukon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4AF6C24CBA499810A54E13 /* libPods-yukon.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yukon/main.m; sourceTree = "<group>"; };
 		239F4D81E1B649C88C450D4F /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		264558DDDFB743E189F109D1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		2B20475596FDA69345805A04 /* Pods-yukon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.debug.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.debug.xcconfig"; sourceTree = "<group>"; };
+		3F4AF6C24CBA499810A54E13 /* libPods-yukon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yukon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D32791B71544191A80DFF56 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		5FA5BD4B74544F97B48891F4 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		79C5E1CF179E45C8AEAFE9B7 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -69,20 +71,21 @@
 		925EE48F27D85114002CE662 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../assets/fonts/Montserrat/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		925EE49027D85114002CE662 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		925EE49127D85114002CE662 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		9DA09445D56954CB065F1855 /* Pods-yukon-yukonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon-yukonTests.release.xcconfig"; path = "Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests.release.xcconfig"; sourceTree = "<group>"; };
-		A5625C01013CB5211F590583 /* Pods-yukon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.debug.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.debug.xcconfig"; sourceTree = "<group>"; };
+		96751724F0218D29A3A9B165 /* Pods-yukon-yukonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon-yukonTests.release.xcconfig"; path = "Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD1B283D3EF549F09E5FD9FD /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		AE1CC8200E3C4AB5BC0D025A /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		B116EFDCEFF749BF8084ED9E /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		B1EF1062AB34F58882F92767 /* Pods-yukon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.release.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.release.xcconfig"; sourceTree = "<group>"; };
 		CB8DB627F654452EA14607C6 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		CBCBBB8E52DBD79E3BEBC739 /* Pods-yukon-yukonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon-yukonTests.debug.xcconfig"; path = "Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF5B26B83B34420E9095ABEA /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		D0F529648BB0F593E63FB1AD /* Pods-yukon-yukonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon-yukonTests.debug.xcconfig"; path = "Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB026087F6E525E52646938 /* libPods-yukon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yukon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F1145220A5C4475C92D67A0E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		F3A484399FDD4956A6B495E5 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		F51989C6C5CEC5D380CC4D08 /* libPods-yukon-yukonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yukon-yukonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D1A7EF8CDAA8D347912963 /* Pods-yukon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yukon.release.xcconfig"; path = "Target Support Files/Pods-yukon/Pods-yukon.release.xcconfig"; sourceTree = "<group>"; };
+		F94704CF202410AD307D1DF1 /* libPods-yukon-yukonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-yukon-yukonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD92EACC49E449A89D4487D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CEEE48D4400EF5E44300F3B /* libPods-yukon-yukonTests.a in Frameworks */,
+				6431B59F03B288FD2EF444F1 /* libPods-yukon-yukonTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F6D33C6D512466B0A1B3B35 /* libPods-yukon.a in Frameworks */,
+				9B4DD70E267EC35D2D376E0F /* libPods-yukon.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				DCB026087F6E525E52646938 /* libPods-yukon.a */,
-				F51989C6C5CEC5D380CC4D08 /* libPods-yukon-yukonTests.a */,
+				3F4AF6C24CBA499810A54E13 /* libPods-yukon.a */,
+				F94704CF202410AD307D1DF1 /* libPods-yukon-yukonTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,10 +236,10 @@
 		9E63D7B945F010F4AD8FD686 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A5625C01013CB5211F590583 /* Pods-yukon.debug.xcconfig */,
-				B1EF1062AB34F58882F92767 /* Pods-yukon.release.xcconfig */,
-				D0F529648BB0F593E63FB1AD /* Pods-yukon-yukonTests.debug.xcconfig */,
-				9DA09445D56954CB065F1855 /* Pods-yukon-yukonTests.release.xcconfig */,
+				2B20475596FDA69345805A04 /* Pods-yukon.debug.xcconfig */,
+				F5D1A7EF8CDAA8D347912963 /* Pods-yukon.release.xcconfig */,
+				CBCBBB8E52DBD79E3BEBC739 /* Pods-yukon-yukonTests.debug.xcconfig */,
+				96751724F0218D29A3A9B165 /* Pods-yukon-yukonTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -248,12 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "yukonTests" */;
 			buildPhases = (
-				F12824AADBD00DB98CB4A0E4 /* [CP] Check Pods Manifest.lock */,
+				74A344E0378A3E4F2B1C34D7 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				9BA3C7B3C42799D2C126E809 /* [CP] Embed Pods Frameworks */,
-				8EB789CA851569FFAD0E815E /* [CP] Copy Pods Resources */,
+				A43E9C9CC86F85B9ED87EE8E /* [CP] Embed Pods Frameworks */,
+				3AAD371A9C624DF49A0FEAA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,14 +272,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "yukon" */;
 			buildPhases = (
-				DC32537E1172C67B749F3B36 /* [CP] Check Pods Manifest.lock */,
+				C27C93079B250363AAFF8FC6 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				62A7A91D054FA42E241D710B /* [CP] Embed Pods Frameworks */,
-				E1E9158A9A59B4F4987B92DF /* [CP] Copy Pods Resources */,
+				EB0212C47664B638258B4C3E /* [CP] Embed Pods Frameworks */,
+				A334E41EAA353A66C38A3981 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,7 +364,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		62A7A91D054FA42E241D710B /* [CP] Embed Pods Frameworks */ = {
+		3AAD371A9C624DF49A0FEAA2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,24 +381,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8EB789CA851569FFAD0E815E /* [CP] Copy Pods Resources */ = {
+		74A344E0378A3E4F2B1C34D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-yukon-yukonTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9BA3C7B3C42799D2C126E809 /* [CP] Embed Pods Frameworks */ = {
+		A334E41EAA353A66C38A3981 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,7 +420,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC32537E1172C67B749F3B36 /* [CP] Check Pods Manifest.lock */ = {
+		A43E9C9CC86F85B9ED87EE8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon-yukonTests/Pods-yukon-yukonTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C27C93079B250363AAFF8FC6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -434,43 +459,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1E9158A9A59B4F4987B92DF /* [CP] Copy Pods Resources */ = {
+		EB0212C47664B638258B4C3E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F12824AADBD00DB98CB4A0E4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-yukon-yukonTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-yukon/Pods-yukon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -525,7 +528,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0F529648BB0F593E63FB1AD /* Pods-yukon-yukonTests.debug.xcconfig */;
+			baseConfigurationReference = CBCBBB8E52DBD79E3BEBC739 /* Pods-yukon-yukonTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -557,7 +560,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DA09445D56954CB065F1855 /* Pods-yukon-yukonTests.release.xcconfig */;
+			baseConfigurationReference = 96751724F0218D29A3A9B165 /* Pods-yukon-yukonTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -582,7 +585,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5625C01013CB5211F590583 /* Pods-yukon.debug.xcconfig */;
+			baseConfigurationReference = 2B20475596FDA69345805A04 /* Pods-yukon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -611,7 +614,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1EF1062AB34F58882F92767 /* Pods-yukon.release.xcconfig */;
+			baseConfigurationReference = F5D1A7EF8CDAA8D347912963 /* Pods-yukon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
