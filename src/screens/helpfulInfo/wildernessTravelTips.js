@@ -19,12 +19,12 @@ const WildernessTravelTipsScreen = () => {
       content: t('travelTips.data.content1'),
       contacts: [
         {
-          name: t('travelTips.data.contacts1.name1'),
-          contact: t('travelTips.data.contacts1.contact1'),
-        },
-        {
-          name: t('travelTips.data.contacts1.name2'),
-          contact: t('travelTips.data.contacts1.contact2'),
+          name: `${t('travelTips.data.contacts1.name1')}${t(
+            'travelTips.data.contacts1.contact1',
+          )}`,
+          contact: `${t('travelTips.data.contacts1.name2')}${t(
+            'travelTips.data.contacts1.contact2',
+          )}`,
         },
       ],
     },
