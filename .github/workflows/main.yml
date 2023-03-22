@@ -30,6 +30,9 @@ jobs:
   android:
     needs: install-dependencies
     uses: ./.github/workflows/build-android.yml
+    with:
+      environment: release
+      publish: true
     secrets: inherit
 
   # Third Job
