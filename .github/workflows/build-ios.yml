@@ -21,7 +21,7 @@ on:
 
 jobs:
   build-ios:
-    runs-on: macos-12 #Monterey
+    runs-on: macos-11 #Big Sur
     steps:
       - uses: actions/checkout@v2
 
@@ -55,7 +55,7 @@ jobs:
           p12-base64: ${{ secrets.IOS_P12_BASE64 }}
           mobileprovision-base64: ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
           code-signing-identity: "Apple Distribution"
-#          certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
           team-id: ${{ secrets.IOS_TEAM_ID }}
           workspace-path: ios/yukon.xcworkspace
           output-path: "yukon.ipa"
