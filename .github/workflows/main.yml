@@ -36,7 +36,7 @@ jobs:
     secrets: inherit
 
   # Third Job
-  # ios:
-  #   needs: install-dependencies
-  #   uses: ./.github/workflows/build-ios.yml
-  #   secrets: inherit
+  ios:
+    needs: install-dependencies
+    uses: ./.github/workflows/build-ios.yml
+    secrets: inherit
