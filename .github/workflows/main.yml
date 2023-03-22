@@ -3,10 +3,11 @@ name: Pull Request into `v2`
 on:
   push:
     branches:
-      - "**"
+      - 'master'
   pull_request:
     branches:
-      - "v2"
+      - 'v2'
+      - 'master'
 
 jobs:
   #First job
@@ -27,10 +28,13 @@ jobs:
         run: yarn install --frozen-lockfile
 
   # Second Job
-  # android:
-  #   needs: install-dependencies
-  #   uses: ./.github/workflows/build-android.yml
-  #   secrets: inherit
+  android:
+    needs: install-dependencies
+    uses: ./.github/workflows/build-android.yml
+    with:
+      environment: release
+      publish: true
+    secrets: inherit
 
   # Third Job
   ios:
