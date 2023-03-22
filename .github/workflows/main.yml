@@ -27,13 +27,13 @@ jobs:
         run: yarn install --frozen-lockfile
 
   # Second Job
-  # android:
-  #   needs: install-dependencies
-  #   uses: ./.github/workflows/build-android.yml
-  #   secrets: inherit
+  android:
+    needs: install-dependencies
+    uses: ./.github/workflows/build-android.yml
+    secrets: inherit
 
   # Third Job
-  ios:
-    needs: install-dependencies
-    uses: ./.github/workflows/build-ios.yml
-    secrets: inherit
+  # ios:
+  #   needs: install-dependencies
+  #   uses: ./.github/workflows/build-ios.yml
+  #   secrets: inherit
