@@ -1,4 +1,4 @@
-name: Pull Request into `v2`
+name: Build iOS and Android
 
 on:
   push:
