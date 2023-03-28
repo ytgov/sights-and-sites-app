@@ -5,7 +5,11 @@ on:
     inputs:
       environment:
         required: true
-        type: string
+        default: release
+        type: choice
+        options:
+          - release
+          - debug
     secrets:
       APP_CENTER_TOKEN_ANDROID:
         required: true
