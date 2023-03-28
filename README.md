@@ -1,7 +1,7 @@
 # Yukon Road Trip Mobile Application
 
-![iOS build](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-ios.yml/badge.svg)
-![Android build](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-android.yml/badge.svg)
+[![iOS Build](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-ios.yml/badge.svg)](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-ios.yml)
+[![Android Build](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-android.yml/badge.svg)](https://github.com/ytgov/sights-and-sites-app/actions/workflows/build-android.yml)
 
 A React Native mobile application for Android and iOS developed by 247labs (subcontracted through Aasman) in 2019-20.
 The app was launched in the iOS App Store and Google Play store for the first time on February 1, 2021.
