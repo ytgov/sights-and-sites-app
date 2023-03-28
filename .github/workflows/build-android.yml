@@ -45,7 +45,7 @@ jobs:
 
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
-      
+
       # Build Command
       - name: Build Android - ${{inputs.environment == 'release' && 'Release' || 'Debug'}}
         run: |
@@ -57,7 +57,7 @@ jobs:
         with:
           name: yukon.aab
           path: "android/app/build/outputs/bundle/release/app-release.aab"
-  
+
   publish-to-appcenter:
     if: ${{ inputs.publish == true }}
     runs-on: ubuntu-latest
@@ -78,7 +78,7 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: EW-Yukon/Yukon-S-and-S-Travel-App
+          appName: Government-of-Yukon/apps/Sights-and-Sites-Android
           token: ${{secrets.APP_CENTER_TOKEN_ANDROID}}
           group: Collaborators
           file: android/app-release.aab

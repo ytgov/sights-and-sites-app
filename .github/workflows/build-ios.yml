@@ -86,7 +86,7 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: EW-Yukon/Yukon-S-and-S-Travel-App-1
+          appName: Government-of-Yukon/apps/Sights-and-Sites-iOS
           token: ${{secrets.APPCENTER_TOKEN_IOS}}
           group: Collaborators
           file: "ios/yukon.ipa"
