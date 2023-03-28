@@ -48,6 +48,16 @@ jobs:
         run: |
           cd android && ./gradlew bundle${{inputs.environment == 'release' && 'Release' || 'Debug'}} --no-daemon
 
+      - name: "[ANDROID] Sign app APK"
+        uses: r0adkll/sign-android-release@v1
+        # ID used to access action output
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.ANDROID_SIGNING_KEY }}
+          alias: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+
       # Upload to Artifact
       - name: "[ANDROID] Upload Artifact"
         uses: actions/upload-artifact@v3
