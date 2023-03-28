@@ -23,7 +23,7 @@ jobs:
   build-ios:
     runs-on: macos-11 #Big Sur
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js 16
         uses: actions/setup-node@v3
@@ -32,7 +32,7 @@ jobs:
           cache: "yarn"
 
       - name: Install Node modules
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: [iOS] Restore Pods cache
         uses: actions/cache@v3
@@ -71,7 +71,7 @@ jobs:
     needs: build-ios
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: actions/download-artifact@v3
         with:
