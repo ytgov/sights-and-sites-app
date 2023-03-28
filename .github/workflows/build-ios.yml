@@ -6,7 +6,7 @@ on:
       publish:
         required: false
         type: boolean
-        description: Publish to Appcenter
+        description: "Publish to Appcenter"
     secrets:
       IOS_P12_BASE64:
         required: true
@@ -25,16 +25,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js 16
+      - name: "Use Node.js 16"
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "yarn"
 
-      - name: Install Node modules
+      - name: "Install Node modules"
         run: yarn install
 
-      - name: [iOS] Restore Pods cache
+      - name: "[iOS] Restore Pods cache"
         uses: actions/cache@v3
         with:
           path: |
@@ -45,10 +45,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pods-
 
-      - name: [iOS] Install pod dependencies
+      - name: "[iOS] Install pod dependencies"
         run: cd ios && pod install && cd ..
 
-      - name: [iOS] Build iOS (Release)
+      - name: "[iOS] Build iOS (Release)"
         uses: yukiarrr/ios-build-action@v1.5.0
         with:
           project-path: ios/yukon.xcodeproj
@@ -60,7 +60,7 @@ jobs:
           workspace-path: ios/yukon.xcworkspace
           output-path: "yukon.ipa"
 
-      - name: [iOS] Upload build
+      - name: "[iOS] Upload build"
         uses: actions/upload-artifact@v3
         with:
           name: "yukon.ipa"
@@ -78,15 +78,15 @@ jobs:
           name: yukon.ipa
           path: "ios/"
 
-      - name: [iOS] Set up JDK 1.8
+      - name: "[iOS] Set up JDK 1.8"
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
 
-      - name: [iOS] Upload artifact to App Center
+      - name: "[iOS] Upload artifact to App Center"
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: Government-of-Yukon/Sights-and-Sites-iOS
+          appName: "Government-of-Yukon/Sights-and-Sites-iOS"
           token: ${{secrets.APPCENTER_TOKEN_IOS}}
           group: Collaborators
           file: "ios/yukon.ipa"
