@@ -2,11 +2,6 @@ name: "iOS Build"
 
 on:
   workflow_dispatch:
-    inputs:
-      publish:
-        required: false
-        type: boolean
-        description: "Publish to Appcenter"
     secrets:
       IOS_P12_BASE64:
         required: true
