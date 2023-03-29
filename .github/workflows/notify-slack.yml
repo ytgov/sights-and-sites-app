@@ -12,7 +12,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
           payload: |
             {
               "text": "🚀 New release",
@@ -35,7 +34,6 @@ jobs:
                       "title": "Created by",
                       "short": true,
                       "value": ${{ input.testParam }}
-#                      "value": "Robert Ngo ${{ input.inputType }} - ${{ input.lastCommit }} - ${{ input.lastUser }} - ${{ input.lastUser2 }} "
                     },
                     {
                       "title": "Created on",
