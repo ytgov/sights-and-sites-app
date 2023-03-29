@@ -34,7 +34,8 @@ jobs:
                     {
                       "title": "Created by",
                       "short": true,
-                      "value": "Robert Ngo ${{ inputType }} - ${{ lastCommit }} - ${{ lastUser }} - ${{ lastUser2 }} "
+                      "value": ${{ input.testParam }}
+#                      "value": "Robert Ngo ${{ input.inputType }} - ${{ input.lastCommit }} - ${{ input.lastUser }} - ${{ input.lastUser2 }} "
                     },
                     {
                       "title": "Created on",

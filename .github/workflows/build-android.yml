@@ -22,12 +22,12 @@ jobs:
         uses: './.github/workflows/notify-slack.yml'
         with:
           testParam: "Bolobala"
-          another: "bsdfsfds"
-          inputType: ${{ inputs.environment }}
-          jobStatus: ${{ job.status }}
-          lastCommit: ${{ github.event.head_commit.url }}
-          lastUser: ${{ github.event.head_commit.user.login }}
-          lastUser2: ${{ github.event.commits[0].author.name }}
+#          another: "bsdfsfds"
+#          inputType: ${{ inputs.environment }}
+#          jobStatus: ${{ job.status }}
+#          lastCommit: ${{ github.event.head_commit.url }}
+#          lastUser: ${{ github.event.head_commit.user.login }}
+#          lastUser2: ${{ github.event.commits[0].author.name }}
 
 #  build-android:
 #    runs-on: ubuntu-latest
