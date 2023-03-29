@@ -18,7 +18,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - notify-slack:
+      - name: "Notify Slack"
         uses: './.github/workflows/notify-slack.yml'
         with:
           testParam: "Bolobala"
