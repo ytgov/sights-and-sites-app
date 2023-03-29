@@ -67,6 +67,7 @@ jobs:
           path: "yukon.ipa"
 
   publish-to-appcenter:
+    if: ${{ inputs.publish == true }}
     runs-on: ubuntu-latest
     needs: build-ios
 
