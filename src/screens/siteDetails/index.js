@@ -364,7 +364,7 @@ const SiteDetailsScreen = props => {
       {/*    />*/}
       {/*</Section>*/}
 
-      {nearBySites && nearBySites.length > 0 && (
+      {/* {nearBySites && nearBySites.length > 0 && (
         <View>
           <H3
             style={{
@@ -402,7 +402,7 @@ const SiteDetailsScreen = props => {
             </Swiper>
           </View>
         </View>
-      )}
+      )} */}
     </ScreenParallaxWrapper>
   );
 };
