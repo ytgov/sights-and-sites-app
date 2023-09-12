@@ -21,7 +21,7 @@ on:
 
 jobs:
   build-ios:
-    runs-on: macos-11 #Big Sur
+    runs-on: macos-12 #Monterrey
     steps:
       - uses: actions/checkout@v3
 
