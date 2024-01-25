@@ -229,7 +229,7 @@ export default {
             },
             highway: {
                 title: 'État des routes',
-                description: `Avant de prendre la route, vérifiez les conditions routières, les mises en garde et les avis de fermetures de routes au <a href="http://511yukon.ca/fr/index.html">511yukon.ca</a>.`
+                description: `Avant de prendre la route, vérifiez les conditions routières, les mises en garde et les avis de fermetures de routes au <a href="https://511yukon.ca/fr/index.html">511yukon.ca</a>.`
             },
             fireReport: {
                 title: 'Rapports sur les incendies',

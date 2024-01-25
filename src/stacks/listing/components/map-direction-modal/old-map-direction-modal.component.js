@@ -154,9 +154,9 @@ class MapDirectionModal extends React.Component {
                         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                             <Button style={{backgroundColor: COLORS.primary}} onPress={() => {
                                 if (Platform.OS === 'ios') {
-                                    Linking.openURL(`http://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);
+                                    Linking.openURL(`https://maps.apple.com/maps?q=${item.latitude},${item.longitude}`);
                                 } else {
-                                    Linking.openURL(`http://maps.google.com/maps?q=${item.latitude},${item.longitude}`);
+                                    Linking.openURL(`https://maps.google.com/maps?q=${item.latitude},${item.longitude}`);
                                 }
                             }}>
                                 <Text style={{color: '#FFF'}}>Open in maps</Text>

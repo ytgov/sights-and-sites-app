@@ -74,7 +74,7 @@ class CurrentConditionsScreen extends React.Component {
 
                             <View style={CurrentConditionStyles.linkBox}>
                                 <TouchableOpacity onPress={() => {
-                                    CurrentConditionsScreen.openLink('http://511yukon.ca/fr/index.html')
+                                    CurrentConditionsScreen.openLink('https://511yukon.ca/fr/index.html')
                                 }}>
                                     <View style={CurrentConditionStyles.link}><Body1
                                         black>511yukon.ca</Body1></View>
@@ -144,7 +144,7 @@ class CurrentConditionsScreen extends React.Component {
                             </View>
                             <View style={CurrentConditionStyles.linkBox}>
                                 <TouchableOpacity onPress={() => {
-                                    CurrentConditionsScreen.openLink('http://511yukon.ca/en/index.html')
+                                    CurrentConditionsScreen.openLink('https://511yukon.ca/en/index.html')
                                 }}>
                                     <View style={CurrentConditionStyles.link}><Body1
                                         black>511yukon.ca</Body1></View>
