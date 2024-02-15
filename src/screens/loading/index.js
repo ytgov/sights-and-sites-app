@@ -33,13 +33,21 @@ const LoadingScreen = props => {
     // addListingDispatch([]);
 
     const fetchData = async (langCode = 'en') => {
-      const response = await axios.get(APP_CONFIG.placesUrl, {
-        headers: {
-          'accept-language': langCode,
-          'api-key': APP_CONFIG.apiKey,
-        },
-      });
-      return response.data.data;
+      try {
+        const response = await axios.get(APP_CONFIG.placesUrl, {
+          headers: {
+            'accept-language': langCode,
+            'api-key': APP_CONFIG.apiKey,
+          },
+        });
+        return response.data.data;
+      } catch (error) {
+        if (error.toJSON().message === 'Network Error' && listingLocalized) {
+          return listingLocalized[locale];
+        } else {
+          throw new Error(error);
+        }
+      }
     };
 
     const fetchLocalizedData = async () => {
