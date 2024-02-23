@@ -49,7 +49,7 @@ jobs:
         run: cd ios && pod install && cd ..
 
       - name: "Debug"
-        run: echo ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
+        run: echo ${{ secrets.IOS_MOBILEPROVISION_BASE64 }} | sed 's/./& /g'
 
       - name: "[iOS] Build iOS (Release)"
         uses: yukiarrr/ios-build-action@v1.5.0
