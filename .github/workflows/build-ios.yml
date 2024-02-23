@@ -48,6 +48,9 @@ jobs:
       - name: "[iOS] Install pod dependencies"
         run: cd ios && pod install && cd ..
 
+      - name: "Debug"
+        run: echo ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
+
       - name: "[iOS] Build iOS (Release)"
         uses: yukiarrr/ios-build-action@v1.5.0
         with:
