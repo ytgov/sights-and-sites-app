@@ -49,7 +49,7 @@ jobs:
         run: cd ios && pod install && cd ..
 
       - name: "[iOS] Build iOS (Release)"
-        uses: yukiarrr/ios-build-action@v1.5.0
+        uses: yukiarrr/ios-build-action@v1.11.2
         with:
           project-path: ios/yukon.xcodeproj
           p12-base64: ${{ secrets.IOS_P12_BASE64 }}
