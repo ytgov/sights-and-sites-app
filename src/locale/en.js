@@ -238,7 +238,7 @@ export default {
             },
             highway: {
                 title: 'Highway conditions',
-                description: `Yukon’s highway reports on current road conditions, warnings and closures, visit <a href="http://511yukon.ca/en/index.html">511yukon.ca</a>`
+                description: `Yukon’s highway reports on current road conditions, warnings and closures, visit <a href="https://511yukon.ca/en/index.html">511yukon.ca</a>`
             },
             fireReport: {
                 title: 'Fire reports',
