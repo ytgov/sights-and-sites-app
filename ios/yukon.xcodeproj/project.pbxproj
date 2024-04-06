@@ -489,10 +489,13 @@
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Yukon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Yukon Sights and Sites\nNo Results\nYukon Sights and Sites";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -515,10 +518,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z593J8PD3M;
 				INFOPLIST_FILE = Yukon/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Yukon Sights and Sites\nNo Results\nYukon Sights and Sites";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
