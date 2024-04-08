@@ -14,6 +14,10 @@
 		5B26B12EE7C56FFDB430D9FB /* libPods-Yukon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ECD075EF5F0E4FA7C28180 /* libPods-Yukon.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AB0BC7B859C07A7E66E80525 /* libPods-Yukon-YukonTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB8656365C5A0F7ED9EF332 /* libPods-Yukon-YukonTests.a */; };
+		C5A2CAE92BC4626700BE6EC1 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5A2CAE52BC4626700BE6EC1 /* Montserrat-Medium.ttf */; };
+		C5A2CAEA2BC4626700BE6EC1 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5A2CAE62BC4626700BE6EC1 /* Montserrat-Bold.ttf */; };
+		C5A2CAEB2BC4626700BE6EC1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5A2CAE72BC4626700BE6EC1 /* Montserrat-Regular.ttf */; };
+		C5A2CAEC2BC4626700BE6EC1 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5A2CAE82BC4626700BE6EC1 /* Montserrat-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		8DB8656365C5A0F7ED9EF332 /* libPods-Yukon-YukonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Yukon-YukonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A914EB0C25DA405F133AE071 /* Pods-Yukon-YukonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yukon-YukonTests.debug.xcconfig"; path = "Target Support Files/Pods-Yukon-YukonTests/Pods-Yukon-YukonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C5A2CADA2BC441AF00BE6EC1 /* libMapboxMobileEvents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMapboxMobileEvents.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5A2CAE52BC4626700BE6EC1 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../assets/fonts/Montserrat/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		C5A2CAE62BC4626700BE6EC1 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../assets/fonts/Montserrat/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		C5A2CAE72BC4626700BE6EC1 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../assets/fonts/Montserrat/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		C5A2CAE82BC4626700BE6EC1 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../assets/fonts/Montserrat/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -118,6 +126,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C5A2CAE42BC4624A00BE6EC1 /* Resources */,
 				13B07FAE1A68108700A75B9A /* Yukon */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* YukonTests */,
@@ -148,6 +157,17 @@
 				85D713278DDC3B47625E12AF /* Pods-Yukon-YukonTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C5A2CAE42BC4624A00BE6EC1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5A2CAE62BC4626700BE6EC1 /* Montserrat-Bold.ttf */,
+				C5A2CAE52BC4626700BE6EC1 /* Montserrat-Medium.ttf */,
+				C5A2CAE72BC4626700BE6EC1 /* Montserrat-Regular.ttf */,
+				C5A2CAE82BC4626700BE6EC1 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A2CAEC2BC4626700BE6EC1 /* Montserrat-SemiBold.ttf in Resources */,
+				C5A2CAEA2BC4626700BE6EC1 /* Montserrat-Bold.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				C5A2CAE92BC4626700BE6EC1 /* Montserrat-Medium.ttf in Resources */,
+				C5A2CAEB2BC4626700BE6EC1 /* Montserrat-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
