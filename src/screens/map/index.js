@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Image, View, TouchableOpacity} from 'react-native';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+// import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL from '@rnmapbox/maps';
 import Modal from 'react-native-modal';
 import {NavigationEvents} from 'react-navigation';
 

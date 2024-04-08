@@ -17,7 +17,7 @@
     "@react-native-async-storage/async-storage": "^1.16.1",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/netinfo": "^8.1.0",
-    "@react-native-mapbox-gl/maps": "^8.6.0-beta.0",
+    "@rnmapbox/maps": "^10.1.19",
     "@types/react": "18.0.27",
     "appcenter": "^4.4.5",
     "appcenter-analytics": "^4.4.5",
