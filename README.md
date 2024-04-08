@@ -37,3 +37,13 @@ Scheduled pipeline preferences (interval, notification text, etc.) are available
 - SLACK_HOOK_URL=`replace with your Slack Webhook URL`
 - SLACK_HOOK_TEXT="Potential security vulnerabilities in dependencies were found. Please, check pipeline."
 - SLACK_CHANNEL=`replace with your Slack channel name`
+
+## Configure Mapbox
+
+In order to run `pod install` successfully, add a new file `~/.netrc` with the following content: 
+
+```
+machine api.mapbox.com
+login mapbox
+password <MAPBOX_SECRET>
+```
