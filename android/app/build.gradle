@@ -263,6 +263,9 @@ android {
 }
 
 dependencies {
+    implementation("com.facebook.react:react-android")
+    implementation("com.mapbox.maps:android:10.1.16")
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     //noinspection GradleDynamicVersion
