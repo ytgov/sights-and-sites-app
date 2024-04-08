@@ -30,6 +30,11 @@ jobs:
       - name: "Install Node modules"
         run: yarn install
 
+      - name: "Prepare Mapbox"
+        run: echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_SECRET" > ~/.gradle.properties
+        env:
+          MAPBOX_SECRET: ${{ secrets.MAPBOX_SECRET }}
+
       - name: "[ANDROID] Cache Gradle Wrapper"
         uses: actions/cache@v3
         with:
