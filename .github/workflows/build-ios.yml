@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-pods-
 
       - name: "[iOS] Install pod dependencies"
-        run: cd ios && pod install && cd ..
+        run: cp .netrc ~/ && cd ios && pod install && cd ..
 
       - name: "[iOS] Build iOS (Release)"
         uses: yukiarrr/ios-build-action@v1.11.2
