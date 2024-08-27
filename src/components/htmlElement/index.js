@@ -8,7 +8,7 @@ import {
     useWindowDimensions,
 } from 'react-native';
 import HTML from 'react-native-render-html';
-import { YUKON_COLORS} from '~theme/config';
+import { YUKON_COLORS } from '~theme/config';
 import { YUKON_FONTS} from '~theme/typings';
 
 const HTMLElement = (props) => {
@@ -21,7 +21,6 @@ const HTMLElement = (props) => {
     let styling = style || styles.baseFont;
 
     const contentWidth = useWindowDimensions().width;
-
     return (
         <HTML
             baseFontStyle={{...styling}}
@@ -41,6 +40,7 @@ const HTMLElement = (props) => {
 
 const styles = StyleSheet.create({
     baseFont: {
+        color: YUKON_COLORS.neutral_100,
         fontSize: 16,
         fontFamily: YUKON_FONTS.MONTSERRAT_REGULAR,
         lineHeight: 26,
