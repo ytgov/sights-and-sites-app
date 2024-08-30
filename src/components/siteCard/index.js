@@ -64,10 +64,12 @@ const SiteCard = props => {
       {/*  // fallback={fallback}*/}
       {/*  style={{...styles.image, ...imageStyle}}*/}
       {/*/>*/}
-      <Image
-        source={{uri: roadtrip_landscape}}
-        style={{...styles.image, ...imageStyle}}
-      />
+      {roadtrip_landscape ? (
+        <Image
+          source={{uri: roadtrip_landscape}}
+          style={{...styles.image, ...imageStyle}}
+        />
+      ) : null}
 
       <View style={styles.contentWrapper}>
         <View style={styles.siteTypes}>
@@ -85,19 +87,19 @@ const SiteCard = props => {
           </ImageBackground>
 
           <View style={{marginLeft: 12}}>
-            {highway.id !== '' && (
+            {highway.id !== '' ? (
               <Body black>{`${t(
                 `filterHighways.${highway.id}`,
               )}, km ${highway_km}`}</Body>
-            )}
+            ) : null}
 
-            {region.id !== '' && (
+            {region.id !== '' ? (
               <Body black>{`${t(`filterRegions.${region.id}`)}`}</Body>
-            )}
+            ) : null}
 
-            {distance !== 0 && (
+            {distance !== 0 ? (
               <Small style={{marginTop: 8}}>{`${distance} km away`}</Small>
-            )}
+            ) : null}
           </View>
         </View>
       </View>
