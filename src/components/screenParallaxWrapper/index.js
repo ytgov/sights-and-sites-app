@@ -54,49 +54,51 @@ const ScreenParallaxWrapper = props => {
       stickyHeaderHeight={search ? 120 : 0}
       renderBackground={() => {
         return (
-          <View>
-            {typeof backgroundImage === 'string' ? (
+          backgroundImage ? (
+            <View>
+              {typeof backgroundImage === 'string' ? (
+                <Image
+                  source={{uri: backgroundImage}}
+                  style={{
+                    width: windowWidth,
+                    height: headerHeight,
+                    paddingBottom: 100,
+                  }}
+                />
+              ) : (
+                // <ImageCache
+                //   tint={'light'}
+                //   transitionDuration={300}
+                //   resizeMode="cover"
+                //   // fallback={fallback}
+                //   uri={backgroundImage}
+                //   style={{
+                //     width: windowWidth,
+                //     height: headerHeight,
+                //     paddingBottom: 100,
+                //   }}
+                // />
+                <Image
+                  style={{
+                    width: windowWidth,
+                    height: headerHeight,
+                    paddingBottom: 100,
+                  }}
+                  source={backgroundImage}
+                />
+              )}
               <Image
-                source={{uri: backgroundImage}}
+                source={overlay}
                 style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
                   width: windowWidth,
-                  height: headerHeight,
-                  paddingBottom: 100,
+                  resizeMode: 'cover',
                 }}
               />
-            ) : (
-              // <ImageCache
-              //   tint={'light'}
-              //   transitionDuration={300}
-              //   resizeMode="cover"
-              //   // fallback={fallback}
-              //   uri={backgroundImage}
-              //   style={{
-              //     width: windowWidth,
-              //     height: headerHeight,
-              //     paddingBottom: 100,
-              //   }}
-              // />
-              <Image
-                style={{
-                  width: windowWidth,
-                  height: headerHeight,
-                  paddingBottom: 100,
-                }}
-                source={backgroundImage}
-              />
-            )}
-            <Image
-              source={overlay}
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                width: windowWidth,
-                resizeMode: 'cover',
-              }}
-            />
-          </View>
+            </View>
+          ) : null
         );
       }}
       renderForeground={() => (
@@ -156,8 +158,7 @@ const ScreenParallaxWrapper = props => {
 };
 
 ScreenParallaxWrapper.propTypes = {
-  backgroundImage: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-    .isRequired,
+  backgroundImage: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   leadIcon: PropTypes.node,
   leadIconStyle: PropTypes.object,
   title: PropTypes.string.isRequired,
