@@ -250,11 +250,11 @@ const SiteDetailsScreen = props => {
         }}
       />
 
-      <Section title={t('siteDetails.siteTypes.title')}>
-        <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-          {site_types &&
-            site_types.length &&
-            site_types.map((item, i) => {
+      {site_types &&
+      site_types.length ? (
+        <Section title={t('siteDetails.siteTypes.title')}>
+          <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+            {site_types.map((item, i) => {
               return (
                 <SiteType
                   key={i}
@@ -264,10 +264,11 @@ const SiteDetailsScreen = props => {
                 />
               );
             })}
-        </View>
-      </Section>
+          </View>
+        </Section>
+      ) : null}
 
-      {!_isEmpty(warning) && (
+      {!_isEmpty(warning) ? (
         <Section
           title={t('siteDetails.sectionInfo.title')}
           backgroundColor={'#fdf6e9'}
@@ -279,7 +280,7 @@ const SiteDetailsScreen = props => {
             {warning}
           </Body>
         </Section>
-      )}
+      ) : null}
 
       <Section title={t('siteDetails.sectionDescription.title')}>
         <Body black>{site_description.replace(/&nbsp;/g, ' ')}</Body>
